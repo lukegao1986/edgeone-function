@@ -1,75 +1,276 @@
 @use '@/styles/variables.scss' as *;
 
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $color-bg-page;
-  padding: 0 32px;
-}
-
-.card {
-  width: 100%;
-  max-width: 686px;
-  background-color: #ffffff;
-  border-radius: $radius-lg;
-  padding: 64px 48px;
-  box-sizing: border-box;
-  box-shadow: $shadow-card;
+.pageContainer {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  background-color: #f4f5f7; /* 护眼背景色 */
+}
+
+/* Navbar 样式 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  padding: 0 48px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 10;
+}
+
+.navLeft {
+  display: flex;
   align-items: center;
 }
 
-.iconWrapper {
-  width: 120px;
-  height: 120px;
-  background-color: #e8f5e9;
-  border-radius: 50%;
+.logoText {
+  font-size: 36px;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+.navRight {
   display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navLink {
+  font-size: 28px;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.avatarWrapper {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 12px 24px;
+  background-color: #ffece8;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.avatarText {
+  font-size: 24px;
+  color: #f53f3f;
+  font-weight: 500;
+}
+
+/* 主内容区滚动 */
+.scrollArea {
+  flex: 1;
+  height: 0; /* 必须设置才能滚动 */
+}
+
+.mainContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.successIcon {
-  font-size: 64px;
-  color: $color-primary;
+.marginTop {
+  margin-top: 64px;
 }
 
-.title {
-  font-size: 40px;
+.sectionTitle {
+  font-size: 36px;
   font-weight: 600;
   color: $color-text-primary;
-  margin-bottom: 16px;
 }
 
-.subtitle {
-  font-size: 28px;
-  color: $color-text-secondary;
-  margin-bottom: 64px;
+.dateText {
+  font-size: 24px;
+  color: $color-text-tertiary;
 }
 
-.button {
-  @include button-reset;
-  width: 100%;
-  height: 88px;
-  border-radius: $radius-button;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32px;
-  font-weight: 500;
-  transition: all $transition-base;
+.moreLink {
+  font-size: 24px;
+  color: $color-primary;
+  cursor: pointer;
 
-  &:active {
-    opacity: 0.9;
-    transform: scale(0.98);
+  &:hover {
+    text-decoration: underline;
   }
 }
 
-.primaryButton {
+/* 数据统计网格 */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.statCard {
+  background-color: #ffffff;
+  border-radius: $radius-lg;
+  padding: 40px 32px;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.iconWrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.iconText {
+  font-size: 36px;
+}
+
+.statValue {
+  display: block;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  display: block;
+  font-size: 24px;
+  color: $color-text-tertiary;
+}
+
+/* 题库卡片网格 */
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.subjectCard {
+  background-color: #ffffff;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-card-hover;
+
+    .cardTopBar {
+      height: 16px;
+    }
+  }
+}
+
+.cardTopBar {
+  height: 12px;
+  transition: height $transition-base;
+}
+
+.cardBody {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subjectIconWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.subjectIcon {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.subjectName {
+  display: block;
+  font-size: 32px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 8px;
+}
+
+.subjectSubtitle {
+  display: block;
+  font-size: 24px;
+  color: $color-text-secondary;
+  margin-bottom: 8px;
+}
+
+.subjectCount {
+  display: block;
+  font-size: 24px;
+  color: $color-text-tertiary;
+  margin-bottom: 32px;
+}
+
+.actionBtn {
+  width: 100%;
+  height: 72px;
   background-color: $color-primary;
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.actionBtnText {
   color: #ffffff;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/* 响应式适配移动端 */
+@media screen and (max-width: 1024px) {
+  .subjectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .subjectGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .navbar {
+    padding: 0 32px;
+  }
+  .mainContent {
+    padding: 32px;
+  }
 }

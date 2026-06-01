@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '用户中心'
+  navigationBarTitleText: '学习大厅'
 }
