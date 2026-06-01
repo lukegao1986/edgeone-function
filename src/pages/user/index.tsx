@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { View, Text, ScrollView, Image } from '@tarojs/components';
+import { View, Text } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
+import Layout from '@/components/Layout';
 import styles from './index.module.scss';
 
 const statIcons = [
@@ -35,82 +36,63 @@ export default function DashboardPage() {
   }, []);
 
   const handleSubjectClick = (subjectId: string) => {
-    Taro.showToast({ title: `功能开发中: ${subjectId}`, icon: 'none' });
-  };
-
-  const handleLogout = () => {
-    Taro.reLaunch({ url: '/pages/index/index' });
+    // 确保使用 Taro.navigateTo 进行正确的页面跳转
+    Taro.navigateTo({ url: `/pages/practice/index?subjectId=${subjectId}` });
   };
 
   return (
-    <View className={styles.pageContainer}>
-      {/* 顶部导航栏 (Navbar) */}
-      <View className={styles.navbar}>
-        <View className={styles.navLeft}>
-          <Text className={styles.logoText}>EJU 刷题系统</Text>
+    <Layout activePage="dashboard">
+      <View className={styles.mainContent}>
+        {/* 数据概览 Header */}
+        <View className={styles.sectionHeader}>
+          <Text className={styles.sectionTitle}>学习概览</Text>
+          <Text className={styles.dateText}>{todayStr}</Text>
         </View>
-        <View className={styles.navRight}>
-          <Text className={styles.navLink}>错题本</Text>
-          <View className={styles.avatarWrapper} onClick={handleLogout}>
-            <Text className={styles.avatarText}>退出</Text>
-          </View>
+
+        {/* 统计卡片 (Grid 布局) */}
+        <View className={styles.statsGrid}>
+          {statIcons.map((s) => (
+            <View key={s.key} className={styles.statCard}>
+              <View className={styles.iconWrapper} style={{ backgroundColor: s.bg }}>
+                <Text className={styles.iconText} style={{ color: s.color }}>{s.icon}</Text>
+              </View>
+              <Text className={styles.statValue} style={{ color: s.color }}>
+                {statValues[s.key as keyof typeof statValues]}
+              </Text>
+              <Text className={styles.statLabel}>{s.label}</Text>
+            </View>
+          ))}
+        </View>
+
+        {/* 推荐题库 */}
+        <View className={classnames(styles.sectionHeader, styles.marginTop)}>
+          <Text className={styles.sectionTitle}>推荐题库</Text>
+          <Text className={styles.moreLink}>查看全部 →</Text>
+        </View>
+
+        <View className={styles.subjectGrid}>
+          {SUBJECTS.map((subject, i) => (
+            <View
+              key={subject.id}
+              className={styles.subjectCard}
+              onClick={() => handleSubjectClick(subject.id)}
+            >
+              <View className={styles.cardTopBar} style={{ backgroundColor: subject.color }} />
+              <View className={styles.cardBody}>
+                <View className={styles.subjectIconWrapper} style={{ backgroundColor: subject.bgColor }}>
+                  <Text className={styles.subjectIcon} style={{ color: subject.color }}>{subject.icon}</Text>
+                </View>
+                <Text className={styles.subjectName}>{subject.name}</Text>
+                <Text className={styles.subjectSubtitle}>{subject.subtitle}</Text>
+                <Text className={styles.subjectCount}>共 {120 + i * 20} 题</Text>
+                <View className={styles.actionBtn}>
+                  <Text className={styles.actionBtnText}>开始练习</Text>
+                </View>
+              </View>
+            </View>
+          ))}
         </View>
       </View>
-
-      {/* 主体内容区域 (支持左右分栏或大宽屏展示) */}
-      <ScrollView className={styles.scrollArea} scrollY>
-        <View className={styles.mainContent}>
-          {/* 数据概览 Header */}
-          <View className={styles.sectionHeader}>
-            <Text className={styles.sectionTitle}>学习概览</Text>
-            <Text className={styles.dateText}>{todayStr}</Text>
-          </View>
-
-          {/* 统计卡片 (Grid 布局) */}
-          <View className={styles.statsGrid}>
-            {statIcons.map((s) => (
-              <View key={s.key} className={styles.statCard}>
-                <View className={styles.iconWrapper} style={{ backgroundColor: s.bg }}>
-                  <Text className={styles.iconText} style={{ color: s.color }}>{s.icon}</Text>
-                </View>
-                <Text className={styles.statValue} style={{ color: s.color }}>
-                  {statValues[s.key as keyof typeof statValues]}
-                </Text>
-                <Text className={styles.statLabel}>{s.label}</Text>
-              </View>
-            ))}
-          </View>
-
-          {/* 推荐题库 */}
-          <View className={classnames(styles.sectionHeader, styles.marginTop)}>
-            <Text className={styles.sectionTitle}>推荐题库</Text>
-            <Text className={styles.moreLink}>查看全部 →</Text>
-          </View>
-
-          <View className={styles.subjectGrid}>
-            {SUBJECTS.map((subject, i) => (
-              <View
-                key={subject.id}
-                className={styles.subjectCard}
-                onClick={() => handleSubjectClick(subject.id)}
-              >
-                <View className={styles.cardTopBar} style={{ backgroundColor: subject.color }} />
-                <View className={styles.cardBody}>
-                  <View className={styles.subjectIconWrapper} style={{ backgroundColor: subject.bgColor }}>
-                    <Text className={styles.subjectIcon} style={{ color: subject.color }}>{subject.icon}</Text>
-                  </View>
-                  <Text className={styles.subjectName}>{subject.name}</Text>
-                  <Text className={styles.subjectSubtitle}>{subject.subtitle}</Text>
-                  <Text className={styles.subjectCount}>共 {120 + i * 20} 题</Text>
-                  <View className={styles.actionBtn}>
-                    <Text className={styles.actionBtnText}>开始练习</Text>
-                  </View>
-                </View>
-              </View>
-            ))}
-          </View>
-        </View>
-      </ScrollView>
-    </View>
+    </Layout>
   );
 }

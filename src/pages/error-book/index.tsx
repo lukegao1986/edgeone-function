@@ -84,7 +84,7 @@ export default function ErrorBookPage() {
           {filteredErrors.length === 0 ? (
             <View className={styles.emptyState}>
               <Text className={styles.emptyText}>太棒了！该科目暂无错题</Text>
-              <View className={styles.btnAction} onClick={() => Taro.redirectTo({ url: '/pages/user/index' })}>
+              <View className={styles.btnAction} onClick={() => Taro.navigateTo({ url: '/pages/user/index' })}>
                 <Text>去刷题</Text>
               </View>
             </View>

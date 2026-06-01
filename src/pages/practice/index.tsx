@@ -44,7 +44,7 @@ export default function PracticePage() {
         questionId: currentQuestion.id,
         selectedIndex: selectedOption,
         isCorrect,
-        isBookmarked: prev[currentQuestion.id]?.isBookmarked || false
+        isBookmarked: prev[currentQuestion.id]?.isBookmarked || !isCorrect
       }
     }));
 
@@ -98,6 +98,11 @@ export default function PracticePage() {
     setShowAnswer(true);
     setShowReport(true);
   }, []);
+
+  const handleReportClose = () => {
+    setShowReport(false);
+    Taro.navigateBack();
+  };
 
   const handleJumpToQuestion = useCallback((idx: number) => {
     setCurrentIndex(idx);
@@ -268,6 +273,19 @@ export default function PracticePage() {
             <View className={styles.modalActions}>
               <View className={styles.modalBtnCancel} onClick={() => setShowSubmitDialog(false)}><Text>继续做题</Text></View>
               <View className={styles.modalBtnConfirm} onClick={handleSubmitAll}><Text>确认交卷</Text></View>
+            </View>
+          </View>
+        </View>
+      )}
+
+      {/* 练习报告弹窗 */}
+      {showReport && (
+        <View className={styles.modalOverlay}>
+          <View className={styles.modalContent}>
+            <Text className={styles.modalTitle}>练习报告</Text>
+            <Text className={styles.modalText}>共 {totalQuestions} 题，已作答 {answeredCount} 题</Text>
+            <View className={styles.modalActions}>
+              <View className={styles.modalBtnConfirm} onClick={handleReportClose}><Text>返回大厅</Text></View>
             </View>
           </View>
         </View>
