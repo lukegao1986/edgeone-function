@@ -12,7 +12,30 @@ export default function PracticePage() {
   const subjectId = router.params.subjectId || 'japanese';
   
   const subject = SUBJECTS.find(s => s.id === subjectId);
-  const questions = useMemo(() => QUESTIONS.filter(q => q.subjectId === subjectId), [subjectId]);
+  const [questions, setQuestions] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      setLoading(true);
+      try {
+        const res = await Taro.request({
+          url: `/api/get_questions?subjectId=${subjectId}`,
+          method: 'GET'
+        });
+        if (res.data && res.data.success) {
+          setQuestions(res.data.data);
+        } else {
+          Taro.showToast({ title: '加载题目失败', icon: 'none' });
+        }
+      } catch (err) {
+        Taro.showToast({ title: '网络请求错误', icon: 'none' });
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchQuestions();
+  }, [subjectId]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -46,7 +69,7 @@ export default function PracticePage() {
     setSelectedOption(index);
   };
 
-  const handleSubmitAnswer = () => {
+  const handleSubmitAnswer = async () => {
     if (selectedOption === null || !currentQuestion) return;
     const isCorrect = selectedOption === currentQuestion.correctIndex;
     
@@ -57,10 +80,28 @@ export default function PracticePage() {
     
     setShowAnswer(true);
 
-    if (isCorrect) {
-      Taro.showToast({ title: '回答正确！', icon: 'success' });
-    } else {
-      Taro.showToast({ title: '回答错误，已加入错题本', icon: 'none' });
+    try {
+      const userInfo = Taro.getStorageSync('userInfo');
+      const userId = userInfo ? userInfo.id : 1;
+
+      await Taro.request({
+        url: '/api/submit_answer',
+        method: 'POST',
+        data: {
+          userId: userId,
+          questionId: currentQuestion.id,
+          subjectId: currentQuestion.subjectId,
+          selectedIndex: selectedOption,
+          isCorrect: isCorrect
+        }
+      });
+      if (isCorrect) {
+        Taro.showToast({ title: '回答正确！', icon: 'success' });
+      } else {
+        Taro.showToast({ title: '回答错误，已记录', icon: 'none' });
+      }
+    } catch (err) {
+      Taro.showToast({ title: '网络请求错误', icon: 'none' });
     }
   };
 
@@ -123,6 +164,14 @@ export default function PracticePage() {
   };
 
   const letters = ['A', 'B', 'C', 'D'];
+
+  if (loading) {
+    return (
+      <View className={styles.emptyContainer}>
+        <Text className={styles.emptyText}>题目加载中...</Text>
+      </View>
+    );
+  }
 
   if (!currentQuestion) {
     return (

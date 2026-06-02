@@ -18,8 +18,13 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
   };
 
   const handleLogout = () => {
+    Taro.removeStorageSync('userInfo');
     Taro.reLaunch({ url: '/pages/index/index' });
   };
+
+  const userInfo = Taro.getStorageSync('userInfo');
+  const userName = userInfo?.nickname || userInfo?.username || '留学小生';
+  const targetExam = userInfo?.target_exam || '暂无目标';
 
   if (simplified) {
     return (
@@ -56,8 +61,8 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
           {menuOpen && (
             <View className={styles.dropdownMenu}>
               <View className={styles.userInfo}>
-                <Text className={styles.userName}>留学小生</Text>
-                <Text className={styles.userEmail}>liuxue@email.com</Text>
+                <Text className={styles.userName}>{userName}</Text>
+                <Text className={styles.userEmail}>{targetExam}</Text>
               </View>
               <View className={styles.menuItem} onClick={() => navigateTo('/pages/profile/index')}>
                 <Text className={styles.menuItemText}>个人中心</Text>

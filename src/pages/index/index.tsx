@@ -25,6 +25,7 @@ export default function LoginPage() {
       });
 
       if (res.data && res.data.success) {
+        Taro.setStorageSync('userInfo', res.data.data);
         Taro.showToast({ title: '登录成功', icon: 'success' });
         setTimeout(() => {
           Taro.switchTab({ url: '/pages/dashboard/index' });

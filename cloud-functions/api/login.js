@@ -31,9 +31,16 @@ export default async function onRequestPost(context) {
     await connection.end();
 
     if (rows.length > 0) {
+      const user = rows[0];
       return new Response(JSON.stringify({
         success: true,
-        message: "登录成功"
+        message: "登录成功",
+        data: {
+          id: user.id,
+          username: user.username,
+          nickname: user.nickname,
+          target_exam: user.target_exam
+        }
       }), {
         headers: { "Content-Type": "application/json; charset=utf-8" }
       });
