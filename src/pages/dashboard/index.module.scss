@@ -4,69 +4,19 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #f4f5f7; /* 护眼背景色 */
+  background-color: #f4f5f7;
+  overflow: hidden; /* 防止最外层滚动 */
 }
 
-/* Navbar 样式 */
-.navbar {
+.layoutBody {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 120px;
-  padding: 0 48px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  z-index: 10;
+  flex: 1;
+  height: calc(100vh - 112px); /* 减去 navbar 的高度 */
 }
 
-.navLeft {
-  display: flex;
-  align-items: center;
-}
-
-.logoText {
-  font-size: 36px;
-  font-weight: bold;
-  color: $color-primary;
-}
-
-.navRight {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.navLink {
-  font-size: 28px;
-  color: $color-text-secondary;
-  cursor: pointer;
-  transition: color $transition-base;
-
-  &:hover {
-    color: $color-primary;
-  }
-}
-
-.avatarWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  background-color: #ffece8;
-  border-radius: 32px;
-  cursor: pointer;
-}
-
-.avatarText {
-  font-size: 24px;
-  color: #f53f3f;
-  font-weight: 500;
-}
-
-/* 主内容区滚动 */
 .scrollArea {
   flex: 1;
-  height: 0; /* 必须设置才能滚动 */
+  height: 100%;
 }
 
 .mainContent {
@@ -266,9 +216,6 @@
   .subjectGrid {
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-  .navbar {
-    padding: 0 32px;
   }
   .mainContent {
     padding: 32px;

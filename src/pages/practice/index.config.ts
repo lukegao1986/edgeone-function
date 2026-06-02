@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '专项练习'
+  navigationBarTitleText: '答题练习'
 }

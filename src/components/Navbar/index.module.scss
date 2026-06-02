@@ -1,0 +1,172 @@
+@use '@/styles/variables.scss' as *;
+
+.navbar {
+  height: 112px; /* 56px * 2 for rpx approx */
+  background-color: #ffffff;
+  border-bottom: 2px solid #E2E5EA;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.navbarSimplified {
+  height: 112px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #E2E5EA;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logoBox {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: #3B6EC9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.brandName {
+  font-size: 36px;
+  font-weight: bold;
+  color: #3B6EC9;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.errorBookBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 72px;
+  padding: 0 24px;
+  border-radius: 16px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #EBF0FA;
+    .errorBookText { color: #3B6EC9; }
+  }
+}
+
+.errorBookIcon { font-size: 32px; }
+.errorBookText { font-size: 28px; color: #5C6170; }
+
+.userMenuWrapper {
+  position: relative;
+}
+
+.avatarBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background-color: #EBF0FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover { background-color: #D6E0F5; }
+}
+
+.avatarIcon { font-size: 32px; color: #3B6EC9; }
+
+.dropdownMenu {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 384px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 16px 60px rgba(0,0,0,0.12);
+  border: 2px solid #E2E5EA;
+  padding: 12px 0;
+  z-index: 100;
+}
+
+.userInfo {
+  padding: 20px 32px;
+  border-bottom: 2px solid #ECEEF2;
+}
+
+.userName {
+  display: block;
+  font-size: 28px;
+  font-weight: 500;
+  color: #1A1D23;
+}
+
+.userEmail {
+  display: block;
+  font-size: 24px;
+  color: #9CA3B0;
+  margin-top: 4px;
+}
+
+.menuItem {
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover { background-color: #F4F5F7; }
+}
+
+.menuItemText {
+  font-size: 28px;
+  color: #5C6170;
+}
+
+.logoutItem {
+  .menuItemText { color: #E04545; }
+  &:hover { background-color: #FDECEC; }
+}
+
+/* Simplified Nav */
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.backIcon { font-size: 40px; color: #5C6170; }
+.backText { font-size: 28px; color: #5C6170; }
+.subjectTitle { font-size: 28px; font-weight: 500; color: #1A1D23; }
+.placeholder { width: 128px; }
+
+/* 响应式：小程序端或移动端 H5 隐藏复杂的 PC 导航，使用原生导航栏 */
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+}

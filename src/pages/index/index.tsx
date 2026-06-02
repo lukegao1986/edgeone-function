@@ -27,7 +27,7 @@ export default function LoginPage() {
       if (res.data && res.data.success) {
         Taro.showToast({ title: '登录成功', icon: 'success' });
         setTimeout(() => {
-          Taro.navigateTo({ url: '/pages/user/index' });
+          Taro.switchTab({ url: '/pages/dashboard/index' });
         }, 1000);
       } else {
         Taro.showToast({ title: res.data?.error || '登录失败', icon: 'none' });

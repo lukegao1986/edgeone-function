@@ -1,0 +1,83 @@
+@use '@/styles/variables.scss' as *;
+
+.sidebar {
+  width: 400px;
+  min-height: calc(100vh - 112px);
+  background-color: #ffffff;
+  border-right: 2px solid #E2E5EA;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.navGroup {
+  padding: 32px 0;
+}
+
+.navItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 88px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  border-left: 6px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  .iconBox {
+    width: 40px;
+    text-align: center;
+  }
+
+  .icon {
+    font-size: 36px;
+  }
+
+  .label {
+    font-size: 28px;
+    color: #5C6170;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    background-color: #F4F5F7;
+    .label { color: #1A1D23; }
+  }
+}
+
+.activeItem {
+  background-color: #EBF0FA;
+  border-left-color: #3B6EC9;
+
+  .label {
+    color: #3B6EC9;
+    font-weight: 600;
+  }
+
+  &:hover {
+    background-color: #EBF0FA;
+  }
+}
+
+.divider {
+  margin-top: 16px;
+  padding: 32px 40px 16px;
+}
+
+.dividerText {
+  font-size: 22px;
+  font-weight: 500;
+  color: #9CA3B0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 响应式：移动端隐藏侧边栏，因为有底部 TabBar */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

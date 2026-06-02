@@ -1,0 +1,248 @@
+@use '@/styles/variables.scss' as *;
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f4f5f7;
+  overflow: hidden;
+}
+
+.layoutBody {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 112px);
+}
+
+.scrollArea {
+  flex: 1;
+  height: 100%;
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.subtitle {
+  font-size: 24px;
+  color: $color-text-tertiary;
+}
+
+.filterBar {
+  background-color: #ffffff;
+  border-radius: $radius-lg;
+  padding: 16px 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+  white-space: nowrap;
+}
+
+.filterTabs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filterTab {
+  padding: 12px 32px;
+  border-radius: 16px;
+  background-color: #F4F5F7;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background-color: #EBF0FA;
+  }
+}
+
+.activeTab {
+  background-color: $color-primary;
+  
+  .tabText {
+    color: #ffffff;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+  }
+}
+
+.tabText {
+  font-size: 28px;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+.resultCount {
+  display: block;
+  font-size: 24px;
+  color: $color-text-secondary;
+  margin-bottom: 24px;
+}
+
+.listContainer {
+  background-color: #ffffff;
+  border-radius: $radius-lg;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+.emptyState {
+  padding: 96px;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 28px;
+  color: $color-text-tertiary;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 40px;
+  border-bottom: 2px solid #ECEEF2;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: #FAFBFC;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.itemMain {
+  flex: 1;
+  padding-right: 48px;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.subjectTag {
+  padding: 4px 16px;
+  border-radius: 32px;
+}
+
+.tagText {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.dateText {
+  font-size: 24px;
+  color: $color-text-tertiary;
+}
+
+.stemText {
+  font-size: 30px;
+  color: $color-text-primary;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  @include text-ellipsis-multi(2);
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wrongCount {
+  font-size: 26px;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+.highWrongCount {
+  color: $color-error;
+}
+
+.focusTag {
+  background-color: #FDECEC;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.focusTagText {
+  font-size: 20px;
+  color: $color-error;
+}
+
+.itemActions {
+  display: flex;
+  gap: 16px;
+}
+
+.btnRedo {
+  @include button-reset;
+  height: 64px;
+  padding: 0 32px;
+  border-radius: 32px;
+  background-color: $color-primary;
+  cursor: pointer;
+
+  &:hover { background-color: $color-primary-dark; }
+}
+
+.btnTextWhite {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+.btnRemove {
+  @include button-reset;
+  height: 64px;
+  padding: 0 32px;
+  border-radius: 32px;
+  background-color: #F4F5F7;
+  cursor: pointer;
+
+  &:hover { background-color: #FDECEC; }
+}
+
+.btnTextDanger {
+  color: $color-error;
+  font-size: 26px;
+}
+
+@media screen and (max-width: 768px) {
+  .listItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .itemMain {
+    padding-right: 0;
+    margin-bottom: 24px;
+  }
+  .itemActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .mainContent {
+    padding: 32px;
+  }
+}
