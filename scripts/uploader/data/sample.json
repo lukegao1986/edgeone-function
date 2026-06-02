@@ -1,0 +1,16 @@
+[
+  {
+    "id": "chem-001",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "在标准状况下，将 22.4L 氯气通入水中的反应如下图所示：\n\n![实验装置示例](https://img.picui.cn/free/2024/06/18/667104e1b8b2a.png)\n\n请根据以上装置和现象分析产物特性：",
+    "options": [
+      "A. 反应完全，只生成一种酸",
+      "B. 反应可逆，生成盐酸和次氯酸",
+      "C. 生成沉淀，溶液变浑浊",
+      "D. 发生爆炸，产生大量气体"
+    ],
+    "correctIndex": 1,
+    "explanation": "因为氯气溶于水是**可逆反应**，化学方程式为：$Cl_2 + H_2O \\rightleftharpoons HCl + HClO$。次氯酸具有漂白性。"
+  }
+]
