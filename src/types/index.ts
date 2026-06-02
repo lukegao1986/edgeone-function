@@ -8,3 +8,13 @@ export interface Subject {
   color: string;
   bgColor: string;
 }
+
+export interface Question {
+  id: string;
+  subjectId: SubjectId;
+  category: string;
+  stem: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+}
