@@ -128,9 +128,30 @@ export default function PracticePage() {
     }
   };
 
-  const handleToggleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
-    Taro.showToast({ title: !isBookmarked ? '已收藏到错题本' : '已取消收藏', icon: 'success' });
+  const handleToggleBookmark = async () => {
+    if (!currentQuestion) return;
+    const newBookmarkState = !isBookmarked;
+    setIsBookmarked(newBookmarkState);
+    
+    try {
+      const userInfo = Taro.getStorageSync('userInfo');
+      const userId = userInfo ? userInfo.id : 1;
+
+      await Taro.request({
+        url: '/api/submit_answer',
+        method: 'POST',
+        data: {
+          userId: userId,
+          questionId: currentQuestion.id,
+          subjectId: currentQuestion.subjectId,
+          isBookmarked: newBookmarkState
+        }
+      });
+      Taro.showToast({ title: newBookmarkState ? '已收藏到错题本' : '已取消收藏', icon: 'success' });
+    } catch (err) {
+      Taro.showToast({ title: '网络请求错误', icon: 'none' });
+      setIsBookmarked(!newBookmarkState); // 回滚状态
+    }
   };
 
   const handleJumpToQuestion = (idx: number) => {
