@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { View, Text, ScrollView } from '@tarojs/components';
+import { View, Text, ScrollView, RichText } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
 import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
@@ -186,6 +186,14 @@ export default function PracticePage() {
 
   const letters = ['A', 'B', 'C', 'D'];
 
+  // 简易 Markdown 解析，用于处理题目中的图片和换行
+  const renderMarkdown = (text: string) => {
+    if (!text) return '';
+    let html = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />');
+    html = html.replace(/\n/g, '<br/>');
+    return `<div style="line-height: 1.6;">${html}</div>`;
+  };
+
   if (loading) {
     return (
       <View className={styles.emptyContainer}>
@@ -263,7 +271,7 @@ export default function PracticePage() {
 
               {/* 题干 */}
               <View className={styles.stemCard}>
-                <Text className={styles.stemText}>{currentQuestion.stem}</Text>
+                <RichText nodes={renderMarkdown(currentQuestion.stem)} className={styles.stemText} />
               </View>
 
               {/* 选项 */}
@@ -277,7 +285,9 @@ export default function PracticePage() {
                     <View className={classnames(styles.optionLabel, getLabelStyle(index))}>
                       <Text className={styles.labelText}>{letters[index]}</Text>
                     </View>
-                    <Text className={styles.optionText}>{option}</Text>
+                    <View className={styles.optionText}>
+                      <RichText nodes={renderMarkdown(option)} />
+                    </View>
                     
                     {showAnswer && index === currentQuestion.correctIndex && <Text className={styles.iconCorrect}>✓</Text>}
                     {showAnswer && index === selectedOption && index !== currentQuestion.correctIndex && <Text className={styles.iconWrong}>✗</Text>}
@@ -296,7 +306,9 @@ export default function PracticePage() {
                   {selectedOption !== null && selectedOption !== currentQuestion.correctIndex && (
                     <Text className={styles.expWrongText}>❌ 你的答案：{letters[selectedOption]}</Text>
                   )}
-                  <Text className={styles.expContent}>{currentQuestion.explanation}</Text>
+                  <View className={styles.expContent}>
+                    <RichText nodes={renderMarkdown(currentQuestion.explanation)} />
+                  </View>
                 </View>
               )}
             </View>
