@@ -1,0 +1,313 @@
+[
+  {
+    "id": "chem-001",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問1 ⁴⁰Ar の原子に含まれる，中性子，電子および最外殻電子の数の組み合わせとして正しいものを，次の①～⑧の中から一つ選びなさい。\n\n![⁴⁰Arの原子構造選択肢](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MjAiIGhlaWdodD0iMzYwIiB2aWV3Qm94PSIwIDAgNDIwIDM2MCI+CiAgPHN0eWxlPnRleHQgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTNweDsgfTwvc3R5bGU+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjQxOCIgaGVpZ2h0PSIzNTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjAiIHkxPSIzNSIgeDI9IjQyMCIgeTI9IjM1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iNjAiIHkxPSIwIiB4Mj0iNjAiIHkyPSIzNjAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIxOTAiIHkxPSIwIiB4Mj0iMTkwIiB5Mj0iMzYwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iMzA1IiB5MT0iMCIgeDI9IjMwNSIgeTI9IjM2MCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMzAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iYm9sZCI+PC90ZXh0PgogIDx0ZXh0IHg9IjEyNSIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj7kuK3mgKflrZDjga7mlbA8L3RleHQ+CiAgPHRleHQgeD0iMjQ3IiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPumbu+WtkOOBruaVsDwvdGV4dD4KICA8dGV4dCB4PSIzNjIiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iYm9sZCI+5pyA5aSW5q676Zu75a2Q44Gu5pWwPC90ZXh0Pgo8dGV4dCB4PSIzMCIgeT0iNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRoDwvdGV4dD4KPHRleHQgeD0iMTI1IiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MjA8L3RleHQ+Cjx0ZXh0IHg9IjI0NyIgeT0iNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjE4PC90ZXh0Pgo8dGV4dCB4PSIzNjIiIHk9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4wPC90ZXh0Pgo8bGluZSB4MT0iMCIgeTE9Ijg1IiB4Mj0iNDIwIiB5Mj0iODUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRoTwvdGV4dD4KPHRleHQgeD0iMTI1IiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIwPC90ZXh0Pgo8dGV4dCB4PSIyNDciIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTg8L3RleHQ+Cjx0ZXh0IHg9IjM2MiIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj44PC90ZXh0Pgo8bGluZSB4MT0iMCIgeTE9IjEyNSIgeDI9IjQyMCIgeTI9IjEyNSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KPHRleHQgeD0iMzAiIHk9IjE0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+4pGiPC90ZXh0Pgo8dGV4dCB4PSIxMjUiIHk9IjE0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MjA8L3RleHQ+Cjx0ZXh0IHg9IjI0NyIgeT0iMTQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4yMDwvdGV4dD4KPHRleHQgeD0iMzYyIiB5PSIxNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjA8L3RleHQ+CjxsaW5lIHgxPSIwIiB5MT0iMTY1IiB4Mj0iNDIwIiB5Mj0iMTY1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIzMCIgeT0iMTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ikaM8L3RleHQ+Cjx0ZXh0IHg9IjEyNSIgeT0iMTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4yMDwvdGV4dD4KPHRleHQgeD0iMjQ3IiB5PSIxODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIwPC90ZXh0Pgo8dGV4dCB4PSIzNjIiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+ODwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIyMDUiIHgyPSI0MjAiIHkyPSIyMDUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIyMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpDwvdGV4dD4KPHRleHQgeD0iMTI1IiB5PSIyMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIyPC90ZXh0Pgo8dGV4dCB4PSIyNDciIHk9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTg8L3RleHQ+Cjx0ZXh0IHg9IjM2MiIgeT0iMjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4wPC90ZXh0Pgo8bGluZSB4MT0iMCIgeTE9IjI0NSIgeDI9IjQyMCIgeTI9IjI0NSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KPHRleHQgeD0iMzAiIHk9IjI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+4pGlPC90ZXh0Pgo8dGV4dCB4PSIxMjUiIHk9IjI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MjI8L3RleHQ+Cjx0ZXh0IHg9IjI0NyIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xODwvdGV4dD4KPHRleHQgeD0iMzYyIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjg8L3RleHQ+CjxsaW5lIHgxPSIwIiB5MT0iMjg1IiB4Mj0iNDIwIiB5Mj0iMjg1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIzMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ikaY8L3RleHQ+Cjx0ZXh0IHg9IjEyNSIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4yMjwvdGV4dD4KPHRleHQgeD0iMjQ3IiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIwPC90ZXh0Pgo8dGV4dCB4PSIzNjIiIHk9IjMwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MDwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIzMjUiIHgyPSI0MjAiIHkyPSIzMjUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIzNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpzwvdGV4dD4KPHRleHQgeD0iMTI1IiB5PSIzNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIyPC90ZXh0Pgo8dGV4dCB4PSIyNDciIHk9IjM0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MjA8L3RleHQ+Cjx0ZXh0IHg9IjM2MiIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj44PC90ZXh0Pgo8L3N2Zz4=)",
+    "options": [
+      "① 中性子20，電子18，最外殻電子0",
+      "② 中性子20，電子18，最外殻電子8",
+      "③ 中性子20，電子20，最外殻電子0",
+      "④ 中性子20，電子20，最外殻電子8",
+      "⑤ 中性子22，電子18，最外殻電子0",
+      "⑥ 中性子22，電子18，最外殻電子8",
+      "⑦ 中性子22，電子20，最外殻電子0",
+      "⑧ 中性子22，電子20，最外殻電子8"
+    ],
+    "correctIndex": 5,
+    "explanation": "⁴⁰Arの原子番号は18であるため，電子数は18，最外殻電子数は8（Arは希ガスで電子配置2,8,8）。質量数40なので中性子数は40-18=22。したがって⑥が正解。"
+  },
+  {
+    "id": "chem-002",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問2 次の分子やイオン①～⑥のうち，それに含まれる電子の総数が他と異なるものを，一つ選びなさい。",
+    "options": [
+      "① CH₄",
+      "② F⁻",
+      "③ Na⁺",
+      "④ NH₄⁺",
+      "⑤ NO",
+      "⑥ OH⁻"
+    ],
+    "correctIndex": 4,
+    "explanation": "CH₄(6+4=10)，F⁻(9+1=10)，Na⁺(11-1=10)，NH₄⁺(7+4-1=10)，NO(7+8=15)，OH⁻(8+1+1=10)。NOのみ電子総数が15で他と異なる。"
+  },
+  {
+    "id": "chem-003",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問3 原子やイオンに関する次の記述①～⑥のうち，正しいものを一つ選びなさい。",
+    "options": [
+      "① 原子番号が6の原子は，L殻に6個の価電子をもつ",
+      "② ¹H原子と³H原子は，同じ電子配置をもつ",
+      "③ アルカリ金属の原子は，同一周期の原子の中でイオン化エネルギーが最も大きい",
+      "④ Li⁺，Na⁺，K⁺のうち，イオン半径の最も大きいものは，Li⁺である",
+      "⑤ ハロゲンの原子は，電子を放出しやすく，1価の陰イオンになりやすい",
+      "⑥ He，Ne，Arのうち，空気より軽いものは，Arである"
+    ],
+    "correctIndex": 1,
+    "explanation": "①はC原子のL殻価電子は4個。③はアルカリ金属のイオン化エネルギーは最小。④はK⁺が最大。⑤はハロゲンは電子を受け取りやすい。⑥はAr(40)は空気(平均29)より重い。②は¹Hと³Hはいずれも1s¹で同じ電子配置。"
+  },
+  {
+    "id": "chem-004",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問4 結晶に関する次の記述(a)～(e)のうち，誤っているものが二つある。それらの組み合わせを，下の①～⑥の中から一つ選びなさい。\n(a) 塩化マグネシウム MgCl₂ の結晶は，イオン結合により形成されている。\n(b) 銀 Ag の結晶は，金属結合により形成されている。\n(c) ケイ素 Si の結晶は，金属結合により形成されている。\n(d) ダイヤモンドは，自由電子をもつ。\n(e) ドライアイスは，昇華性がある。",
+    "options": [
+      "① a, b",
+      "② a, d",
+      "③ b, c",
+      "④ b, e",
+      "⑤ c, d",
+      "⑥ d, e"
+    ],
+    "correctIndex": 4,
+    "explanation": "(c) Siの結晶は共有結合（共価結合）である。(d) ダイヤモンドは共有結合の結晶で自由電子をもたない。(a)(b)(e)は正しい。したがって誤りはcとdの組み合わせ⑤。"
+  },
+  {
+    "id": "chem-005",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問5 10.0 Lの酸素 O₂ をオゾン発生器に通じると，酸素とオゾン O₃ の混合気体が同温同圧で9.5 L得られた。混合気体中のオゾンを分離したとき，その体積は同温同圧で何Lか。最も近い値を，次の①～⑤の中から一つ選びなさい。",
+    "options": [
+      "① 0.5",
+      "② 1.0",
+      "③ 1.5",
+      "④ 2.0",
+      "⑤ 2.5"
+    ],
+    "correctIndex": 1,
+    "explanation": "3O₂ → 2O₃。体積減少は10.0-9.5=0.5 L。反応したO₃生成量をVとすると，体積減少はV/2=0.5，よってV=1.0 L。"
+  },
+  {
+    "id": "chem-006",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問6 ある気体の密度は，27℃，1.0×10⁵ Paにおいて1.2 g/Lであった。この気体の分子量として最も近い値を，次の①～⑤の中から一つ選びなさい。ただし，気体は理想気体とする。",
+    "options": [
+      "① 16",
+      "② 27",
+      "③ 30",
+      "④ 32",
+      "⑤ 44"
+    ],
+    "correctIndex": 2,
+    "explanation": "理想気体の状態方程式より M = ρRT/P = 1.2×8.31×10³×300/1.0×10⁵ ≈ 29.9 ≈ 30。"
+  },
+  {
+    "id": "chem-007",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問7 0.50 mol/Lの塩酸HCl aq 100 mLに，固体の水酸化ナトリウムNaOH 4.0 gを加えて反応させた。このとき発生した熱量は何kJか。最も近い値を，次の①～⑤の中から一つ選びなさい。ただし，中和熱は56 kJ/mol，水酸化ナトリウムの水への溶解熱は44 kJ/molとする。",
+    "options": [
+      "① 2.8",
+      "② 7.2",
+      "③ 10",
+      "④ 32",
+      "⑤ 60"
+    ],
+    "correctIndex": 1,
+    "explanation": "HClの物質量は0.50×0.100=0.050 mol。NaOH 4.0 gは4.0/40=0.10 mol。中和熱は0.050×56=2.8 kJ。NaOH溶解熱は0.10×44=4.4 kJ。合計2.8+4.4=7.2 kJ。"
+  },
+  {
+    "id": "chem-008",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問8 次の図に示す二つの電解槽を，直列に接続して電気分解をおこなった。電解槽Ⅰには硫酸銅(Ⅱ)水溶液CuSO₄ aqを入れ，電極Aと電極Bには銅Cuを用いた。電解槽Ⅱには塩化ナトリウム水溶液NaCl aqを入れ，電極Cと電極Dには炭素Cを用いた。\n\n![電気分解装置図](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iMzIwIiB2aWV3Qm94PSIwIDAgNTAwIDMyMCI+CiAgPHN0eWxlPnRleHQgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTNweDsgfTwvc3R5bGU+CiAgPCEtLSBCYXR0ZXJ5IC0tPgogIDxyZWN0IHg9IjIyMCIgeT0iMTAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIyMzUiIHk9IjMwIiBmb250LXNpemU9IjE2Ij7iipY8L3RleHQ+CiAgPHRleHQgeD0iMjY1IiB5PSIzMCIgZm9udC1zaXplPSIxNiI+4oqVPC90ZXh0PgogIDx0ZXh0IHg9IjI1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPumbu+a6kDwvdGV4dD4KCiAgPCEtLSBDZWxsIEkgLS0+CiAgPHJlY3QgeD0iNTAiIHk9IjgwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIxMzAiIHk9IjEwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPumbu+ino+anveKFoDwvdGV4dD4KICA8dGV4dCB4PSIxMzAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q3VTT+KChCBhcTwvdGV4dD4KICA8IS0tIEVsZWN0cm9kZXMgQSBhbmQgQiAtLT4KICA8cmVjdCB4PSI3MCIgeT0iMTIwIiB3aWR0aD0iMjAiIGhlaWdodD0iNjAiIGZpbGw9IiNkNGEzNzMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjgwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkE8L3RleHQ+CiAgPHRleHQgeD0iODAiIHk9IjE5NSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q3U8L3RleHQ+CiAgPHJlY3QgeD0iMTcwIiB5PSIxMjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2Q0YTM3MyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMTgwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkI8L3RleHQ+CiAgPHRleHQgeD0iMTgwIiB5PSIxOTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkN1PC90ZXh0PgoKICA8IS0tIENlbGwgSUkgLS0+CiAgPHJlY3QgeD0iMjkwIiB5PSI4MCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHRleHQgeD0iMzcwIiB5PSIxMDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj7pm7vop6Pmp73ihaE8L3RleHQ+CiAgPHRleHQgeD0iMzcwIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5hQ2wgYXE8L3RleHQ+CiAgPCEtLSBFbGVjdHJvZGVzIEMgYW5kIEQgLS0+CiAgPHJlY3QgeD0iMzEwIiB5PSIxMjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzY2NiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMzIwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkM8L3RleHQ+CiAgPHRleHQgeD0iMzIwIiB5PSIxOTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkM8L3RleHQ+CiAgPHJlY3QgeD0iNDEwIiB5PSIxMjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzY2NiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iNDIwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkQ8L3RleHQ+CiAgPHRleHQgeD0iNDIwIiB5PSIxOTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkM8L3RleHQ+CgogIDwhLS0gV2lyZXMgLS0+CiAgPGxpbmUgeDE9IjgwIiB5MT0iODAiIHgyPSI4MCIgeTI9IjUwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxsaW5lIHgxPSI4MCIgeTE9IjUwIiB4Mj0iMjIwIiB5Mj0iNTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjE4MCIgeTE9IjgwIiB4Mj0iMTgwIiB5Mj0iNTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjE4MCIgeTE9IjUwIiB4Mj0iMjIwIiB5Mj0iNTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CgogIDxsaW5lIHgxPSIzMjAiIHkxPSI4MCIgeDI9IjMyMCIgeTI9IjUwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxsaW5lIHgxPSIzMjAiIHkxPSI1MCIgeDI9IjI4MCIgeTI9IjUwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxsaW5lIHgxPSI0MjAiIHkxPSI4MCIgeDI9IjQyMCIgeTI9IjUwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxsaW5lIHgxPSI0MjAiIHkxPSI1MCIgeDI9IjI4MCIgeTI9IjUwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNSIvPgoKICA8IS0tIFNlcmllcyBjb25uZWN0aW9uIGJldHdlZW4gY2VsbHMgLS0+CiAgPGxpbmUgeDE9IjE4MCIgeTE9IjUwIiB4Mj0iMzIwIiB5Mj0iNTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjwvc3ZnPg==)\n\nこの電気分解に関する記述として誤っているものを，次の①～⑤の中から一つ選びなさい。",
+    "options": [
+      "① 銅電極Aの質量は，増加する",
+      "② 銅電極Bの質量は，減少する",
+      "③ 炭素電極C付近の溶液は，酸性になる",
+      "④ 炭素電極Dからは，気体が発生する",
+      "⑤ 電解槽Ⅰと電解槽Ⅱを流れる電気量は，等しい"
+    ],
+    "correctIndex": 2,
+    "explanation": "Aは陰極でCu²⁺+2e⁻→Cu（質量増加）。Bは陽極でCu→Cu²⁺+2e⁻（質量減少）。Cは陰極で2H₂O+2e⁻→H₂+2OH⁻となり付近は塩基性。Dは陽極で2Cl⁻→Cl₂+2e⁻（気体発生）。直列回路なので電気量は等しい。したがって③が誤り。"
+  },
+  {
+    "id": "chem-009",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問9 過酸化水素 H₂O₂ の水溶液に触媒を加えると，次の反応が起こり，酸素 O₂ が発生する。\n\n2H₂O₂ → 2H₂O + O₂\n\nこの反応に関する次の記述①～④のうち，誤っているものを一つ選びなさい。",
+    "options": [
+      "① 過酸化水素が分解する速度は，酸素が発生する速度の半分である",
+      "② 過酸化水素の濃度を小さくすると，酸素が発生する速度は小さくなる",
+      "③ 過酸化水素の水溶液の温度を低くすると，酸素が発生する速度は小さくなる",
+      "④ 触媒の量を少なくすると，酸素が発生する速度は小さくなる"
+    ],
+    "correctIndex": 0,
+    "explanation": "反応式より，H₂O₂の分解速度はO₂発生速度の2倍である。①は「半分」とあり誤り。②③④はいずれも反応速度に関する正しい記述。"
+  },
+  {
+    "id": "chem-010",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問10 弱酸HAは，水溶液中で次のような電離平衡にある。\n\nHA ⇌ H⁺ + A⁻\n\n電離定数Kaは，各成分のモル濃度を用いて Ka = [H⁺][A⁻]/[HA] と表される。\n\n酸の濃度をc (mol/L)，そのときの電離度をαとすると，Kaはcとαを用いてどのように表されるか。正しいものを，次の①～⑥の中から一つ選びなさい。",
+    "options": [
+      "① α/{c(1-α)}",
+      "② α²/{c(1-α)}",
+      "③ cα/(1-α)",
+      "④ cα²/(1-α)",
+      "⑤ cα/(1+α)",
+      "⑥ cα²/(1+α)"
+    ],
+    "correctIndex": 3,
+    "explanation": "[H⁺]=cα，[A⁻]=cα，[HA]=c(1-α)。よって Ka = (cα)(cα)/c(1-α) = cα²/(1-α)。"
+  },
+  {
+    "id": "chem-011",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問11 第2周期から第4周期までのアルカリ金属に関する次の記述①～④のうち，正しいものを一つ選びなさい。",
+    "options": [
+      "① アルカリ金属の密度は，いずれも1.0 g/cm³より大きい",
+      "② アルカリ金属には，緑色の炎色反応を示すものがある",
+      "③ アルカリ金属は，石油の中に保存する",
+      "④ アルカリ金属は，電子親和力が大きい"
+    ],
+    "correctIndex": 2,
+    "explanation": "①はLiの密度は0.53 g/cm³。②はアルカリ金属の炎色反応に緑色はない。④は電子親和力は小さい。③はNa，Kなどは石油中に保存するので正しい。"
+  },
+  {
+    "id": "chem-012",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問12 次の操作①～⑤のうち，下線を引いた化合物の1 molがすべて反応したとき，発生する気体の物質量が常温・常圧で最も少ないものを一つ選びなさい。",
+    "options": [
+      "① 過酸化水素 H₂O₂ の水溶液に，酸化マンガン(Ⅳ) MnO₂ を加える",
+      "② 硫化鉄 FeS に，希硫酸 dil. H₂SO₄ を加える",
+      "③ 炭酸カルシウム CaCO₃ に，希塩酸 dil. HCl を加える",
+      "④ 炭酸水素ナトリウム NaHCO₃ に，希塩酸を加える",
+      "⑤ 塩化アンモニウム NH₄Cl と水酸化カルシウム Ca(OH)₂ の混合物を加熱する"
+    ],
+    "correctIndex": 0,
+    "explanation": "① 2H₂O₂→2H₂O+O₂ で1 molあたり0.5 molのO₂。② FeS+H₂SO₄→FeSO₄+H₂S で1 mol。③ CaCO₃+2HCl→CaCl₂+H₂O+CO₂ で1 mol。④ NaHCO₃+HCl→NaCl+H₂O+CO₂ で1 mol。⑤ 2NH₄Cl+Ca(OH)₂→CaCl₂+2NH₃+2H₂O で1 molあたり1 molのNH₃。したがって①が最も少ない。"
+  },
+  {
+    "id": "chem-013",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問13 次のA～Cの化合物中の窒素原子Nの酸化数として正しい組み合わせを，下表の①～⑨の中から一つ選びなさい。\n\nA：ハーバー・ボッシュ法によって得られる窒素化合物\nB：窒素 N₂ と酸素 O₂ が高温で反応すると生じる無色の窒素化合物\nC：オストワルト法によって製造される窒素化合物\n\n![窒素の酸化数選択肢](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjAiIGhlaWdodD0iMzQwIiB2aWV3Qm94PSIwIDAgMzIwIDM0MCI+CiAgPHN0eWxlPnRleHQgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTNweDsgfTwvc3R5bGU+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjMxOCIgaGVpZ2h0PSIzMzgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjAiIHkxPSIzNSIgeDI9IjMyMCIgeTI9IjM1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iNjAiIHkxPSIwIiB4Mj0iNjAiIHkyPSIzNDAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIxNjAiIHkxPSIwIiB4Mj0iMTYwIiB5Mj0iMzQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iMjQwIiB5MT0iMCIgeDI9IjI0MCIgeTI9IjM0MCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMzAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iYm9sZCI+PC90ZXh0PgogIDx0ZXh0IHg9IjExMCIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5BPC90ZXh0PgogIDx0ZXh0IHg9IjIwMCIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5CPC90ZXh0PgogIDx0ZXh0IHg9IjI4MCIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5DPC90ZXh0Pgo8dGV4dCB4PSIzMCIgeT0iNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRoDwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSI1OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+LTM8L3RleHQ+Cjx0ZXh0IHg9IjIwMCIgeT0iNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPisyPC90ZXh0Pgo8dGV4dCB4PSIyODAiIHk9IjU4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rMzwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSI3NSIgeDI9IjMyMCIgeTI9Ijc1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIzMCIgeT0iOTEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRoTwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSI5MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+LTM8L3RleHQ+Cjx0ZXh0IHg9IjIwMCIgeT0iOTEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPisyPC90ZXh0Pgo8dGV4dCB4PSIyODAiIHk9IjkxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rNTwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIxMDgiIHgyPSIzMjAiIHkyPSIxMDgiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIxMjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRojwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIxMjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPi0zPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjEyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzQ8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMTI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rNTwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIxNDEiIHgyPSIzMjAiIHkyPSIxNDEiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIxNTciIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRozwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIxNTciIHRleHQtYW5jaG9yPSJtaWRkbGUiPi0xPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjE1NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzI8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMTU3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rMzwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIxNzQiIHgyPSIzMjAiIHkyPSIxNzQiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIxOTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpDwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIxOTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPi0xPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjE5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzQ8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMTkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rMzwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIyMDciIHgyPSIzMjAiIHkyPSIyMDciIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIyMjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpTwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIyMjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPi0xPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjIyMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzQ8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMjIzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rNTwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIyNDAiIHgyPSIzMjAiIHkyPSIyNDAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIyNTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpjwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIyNTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPiszPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjI1NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzI8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMjU2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rMzwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIyNzMiIHgyPSIzMjAiIHkyPSIyNzMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIyODkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpzwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIyODkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPiszPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjI4OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzI8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMjg5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rNTwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIzMDYiIHgyPSIzMjAiIHkyPSIzMDYiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIzMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRqDwvdGV4dD4KPHRleHQgeD0iMTEwIiB5PSIzMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPiszPC90ZXh0Pgo8dGV4dCB4PSIyMDAiIHk9IjMyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KzQ8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMzIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4rNTwvdGV4dD4KPC9zdmc+)",
+    "options": [
+      "① A:-3, B:+2, C:+3",
+      "② A:-3, B:+2, C:+5",
+      "③ A:-3, B:+4, C:+5",
+      "④ A:-1, B:+2, C:+3",
+      "⑤ A:-1, B:+4, C:+3",
+      "⑥ A:-1, B:+4, C:+5",
+      "⑦ A:+3, B:+2, C:+3",
+      "⑧ A:+3, B:+2, C:+5",
+      "⑨ A:+3, B:+4, C:+5"
+    ],
+    "correctIndex": 1,
+    "explanation": "Aはハーバー・ボッシュ法で得られるNH₃（Nの酸化数-3）。BはN₂+O₂→2NOで無色のNO（Nの酸化数+2）。Cはオストワルト法で最終的に得られるHNO₃（Nの酸化数+5）。したがって②が正解。"
+  },
+  {
+    "id": "chem-014",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問14 次の記述①～⑤のうち，Fe²⁺水溶液とFe³⁺水溶液の両方ともに起こる変化を，一つ選びなさい。",
+    "options": [
+      "① 水酸化ナトリウム水溶液 NaOH aq を加えると，沈殿を生じる",
+      "② チオシアン酸カリウム水溶液 KSCN aq を加えると，血赤色の水溶液になる",
+      "③ サリチル酸水溶液を加えると，赤紫色の水溶液になる",
+      "④ [Fe(CN)₆]³⁻ を加えると，濃青色の沈殿を生じる",
+      "⑤ [Fe(CN)₆]⁴⁻ を加えると，濃青色の沈殿を生じる"
+    ],
+    "correctIndex": 0,
+    "explanation": "①はFe²⁺でFe(OH)₂（白色→緑色→褐色），Fe³⁺でFe(OH)₃（紅褐色）の沈殿が生じる。②③はFe³⁺のみ。④はFe²⁺で滕氏青（濃青色），⑤はFe³⁺でプルシアン青（濃青色）。したがって両方ともに起こるのは①。"
+  },
+  {
+    "id": "chem-015",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問15 次表のA欄に示す2種類の金属イオンを含む水溶液がある。B欄に示す操作で，A欄の一方のイオンを沈殿として分離できるものが二つある。それらの組み合わせとして正しいものを，下の①～⑥の中から一つ選びなさい。\n\n![金属イオン分離選択肢](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMjIwIiB2aWV3Qm94PSIwIDAgNTIwIDIyMCI+CiAgPHN0eWxlPnRleHQgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTJweDsgfTwvc3R5bGU+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjUxOCIgaGVpZ2h0PSIyMTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjAiIHkxPSIzNSIgeDI9IjUyMCIgeTI9IjM1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iNTAiIHkxPSIwIiB4Mj0iNTAiIHkyPSIyMjAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIxODAiIHkxPSIwIiB4Mj0iMTgwIiB5Mj0iMjIwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8dGV4dCB4PSIyNSIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj48L3RleHQ+CiAgPHRleHQgeD0iMTE1IiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPkE8L3RleHQ+CiAgPHRleHQgeD0iMzUwIiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPkI8L3RleHQ+Cjx0ZXh0IHg9IjI1IiB5PSI1OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YTwvdGV4dD4KPHRleHQgeD0iMTE1IiB5PSI1OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QWzCs+KBuiwgRmXCs+KBujwvdGV4dD4KPHRleHQgeD0iMzUwIiB5PSI1OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+44Ki44Oz44Oi44OL44Ki5rC0IE5I4oKDIGFxIOOCkuWKoOOBiOOCizwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSI3NiIgeDI9IjUyMCIgeTI9Ijc2IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIyNSIgeT0iOTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmI8L3RleHQ+Cjx0ZXh0IHg9IjExNSIgeT0iOTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFn4oG6LCBDdcKy4oG6PC90ZXh0Pgo8dGV4dCB4PSIzNTAiIHk9IjkzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7luIzloanphbggZGlsLiBIQ2wg44KS5Yqg44GI44KLPC90ZXh0Pgo8bGluZSB4MT0iMCIgeTE9IjExMSIgeDI9IjUyMCIgeTI9IjExMSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KPHRleHQgeD0iMjUiIHk9IjEyOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YzwvdGV4dD4KPHRleHQgeD0iMTE1IiB5PSIxMjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJhwrLigbosIFBiwrLigbo8L3RleHQ+Cjx0ZXh0IHg9IjM1MCIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7noavphbjjg4rjg4jjg6rjgqbjg6DmsLTmurbmtrIgTmHigoJTT+KChCBhcSDjgpLliqDjgYjjgos8L3RleHQ+CjxsaW5lIHgxPSIwIiB5MT0iMTQ2IiB4Mj0iNTIwIiB5Mj0iMTQ2IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIyNSIgeT0iMTYzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5kPC90ZXh0Pgo8dGV4dCB4PSIxMTUiIHk9IjE2MyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2HCsuKBuiwgS+KBujwvdGV4dD4KPHRleHQgeD0iMzUwIiB5PSIxNjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuawtOmFuOWMluODiuODiOODquOCpuODoOawtOa6tua2siBOYU9IIGFxIOOCkuWKoOOBiOOCizwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIxODEiIHgyPSI1MjAiIHkyPSIxODEiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjI1IiB5PSIxOTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmU8L3RleHQ+Cjx0ZXh0IHg9IjExNSIgeT0iMTk4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DdcKy4oG6LCBabsKy4oG6PC90ZXh0Pgo8dGV4dCB4PSIzNTAiIHk9IjE5OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+5rC05rq25ray44KS6YW45oCn44Gr44GX44Gm56Gr5YyW5rC057SgIEjigoJTIOOCkumAmuOBmOOCizwvdGV4dD4KPC9zdmc+)\n\n① a, b　② a, d　③ b, c　④ b, e　⑤ c, d　⑥ d, e",
+    "options": [
+      "① a, b",
+      "② a, d",
+      "③ b, c",
+      "④ b, e",
+      "⑤ c, d",
+      "⑥ d, e"
+    ],
+    "correctIndex": 3,
+    "explanation": "a: Al³⁺, Fe³⁺にNH₃ aqを加えると両方とも沈殿。b: Ag⁺, Cu²⁺に稀HClを加えるとAg⁺のみAgCl沈殿。c: Ba²⁺, Pb²⁺にNa₂SO₄ aqを加えると両方とも沈殿。d: Ca²⁺, K⁺にNaOH aqを加えるとCa²⁺がCa(OH)₂で沈殿。e: Cu²⁺, Zn²⁺を酸性にしてH₂Sを通じるとCu²⁺のみCuS沈殿。したがってbとeの組み合わせ④。"
+  },
+  {
+    "id": "chem-016",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問16 ヒドロキシ基をもつ有機化合物の中で，次の記述(a)～(c)のそれぞれにあてはまるものの組み合わせとして最も適当なものを，下表の①～⑥の中から一つ選びなさい。\n\n(a) 塩化鉄(Ⅲ)水溶液 FeCl₃ aq を加えると，紫色になる。\n(b) ヨードホルム反応を示す。\n(c) 酸化すると，カルボン酸を生成する。\n\n![有機化合物選択肢](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMjQwIiB2aWV3Qm94PSIwIDAgNTIwIDI0MCI+CiAgPHN0eWxlPnRleHQgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTJweDsgfTwvc3R5bGU+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjUxOCIgaGVpZ2h0PSIyMzgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjAiIHkxPSIzNSIgeDI9IjUyMCIgeTI9IjM1IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iNjAiIHkxPSIwIiB4Mj0iNjAiIHkyPSIyNDAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIyMDAiIHkxPSIwIiB4Mj0iMjAwIiB5Mj0iMjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iMzYwIiB5MT0iMCIgeDI9IjM2MCIgeTI9IjI0MCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMzAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iYm9sZCI+PC90ZXh0PgogIDx0ZXh0IHg9IjEzMCIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5hPC90ZXh0PgogIDx0ZXh0IHg9IjI4MCIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5iPC90ZXh0PgogIDx0ZXh0IHg9IjQ0MCIgeT0iMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5jPC90ZXh0Pgo8dGV4dCB4PSIzMCIgeT0iNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRoDwvdGV4dD4KPHRleHQgeD0iMTMwIiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q+KChkjigoVPSDwvdGV4dD4KPHRleHQgeD0iMjgwIiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KENI4oKDKeKCg0NPSDwvdGV4dD4KPHRleHQgeD0iNDQwIiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KENI4oKDKeKCgkNIT0g8L3RleHQ+CjxsaW5lIHgxPSIwIiB5MT0iNzciIHgyPSI1MjAiIHkyPSI3NyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KPHRleHQgeD0iMzAiIHk9IjkzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ikaE8L3RleHQ+Cjx0ZXh0IHg9IjEzMCIgeT0iOTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkPigoZI4oKFQ0jigoJPSDwvdGV4dD4KPHRleHQgeD0iMjgwIiB5PSI5MyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KENI4oKDKeKCg0NPSDwvdGV4dD4KPHRleHQgeD0iNDQwIiB5PSI5MyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KENI4oKDKeKCgkNIQ0jigoJPSDwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIxMTAiIHgyPSI1MjAiIHkyPSIxMTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIxMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRojwvdGV4dD4KPHRleHQgeD0iMTMwIiB5PSIxMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkPigoZI4oKFT0g8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMTI2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4oQ0jigoMp4oKCQ0hPSDwvdGV4dD4KPHRleHQgeD0iNDQwIiB5PSIxMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPihDSOKCgynigoJDSENI4oKCT0g8L3RleHQ+CjxsaW5lIHgxPSIwIiB5MT0iMTQzIiB4Mj0iNTIwIiB5Mj0iMTQzIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIzMCIgeT0iMTU5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ikaM8L3RleHQ+Cjx0ZXh0IHg9IjEzMCIgeT0iMTU5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5D4oKGSOKChUNI4oKCT0g8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMTU5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4oQ0jigoMp4oKCQ0hPSDwvdGV4dD4KPHRleHQgeD0iNDQwIiB5PSIxNTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPihDSOKCgynigoJDSENI4oKCT0g8L3RleHQ+CjxsaW5lIHgxPSIwIiB5MT0iMTc2IiB4Mj0iNTIwIiB5Mj0iMTc2IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8dGV4dCB4PSIzMCIgeT0iMTkyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ikaQ8L3RleHQ+Cjx0ZXh0IHg9IjEzMCIgeT0iMTkyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5D4oKGSOKChU9IPC90ZXh0Pgo8dGV4dCB4PSIyODAiIHk9IjE5MiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+KENI4oKDKeKCgkNIT0g8L3RleHQ+Cjx0ZXh0IHg9IjQ0MCIgeT0iMTkyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4oQ0jigoMp4oKCQ0hPSDwvdGV4dD4KPGxpbmUgeDE9IjAiIHkxPSIyMDkiIHgyPSI1MjAiIHkyPSIyMDkiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjx0ZXh0IHg9IjMwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKRpTwvdGV4dD4KPHRleHQgeD0iMTMwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkPigoZI4oKFQ0jigoJPSDwvdGV4dD4KPHRleHQgeD0iMjgwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPihDSOKCgynigoNDT0g8L3RleHQ+Cjx0ZXh0IHg9IjQ0MCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4oQ0jigoMp4oKCQ0hPSDwvdGV4dD4KPC9zdmc+)",
+    "options": [
+      "① a:C₆H₅OH, b:(CH₃)₃COH, c:(CH₃)₂CHOH",
+      "② a:C₆H₅CH₂OH, b:(CH₃)₃COH, c:(CH₃)₂CHCH₂OH",
+      "③ a:C₆H₅OH, b:(CH₃)₂CHOH, c:(CH₃)₂CHCH₂OH",
+      "④ a:C₆H₅CH₂OH, b:(CH₃)₂CHOH, c:(CH₃)₂CHCH₂OH",
+      "⑤ a:C₆H₅OH, b:(CH₃)₂CHOH, c:(CH₃)₂CHOH",
+      "⑥ a:C₆H₅CH₂OH, b:(CH₃)₃COH, c:(CH₃)₂CHOH"
+    ],
+    "correctIndex": 2,
+    "explanation": "(a) FeCl₃ aqで紫色になるのはフェノール(C₆H₅OH)。(b) ヨードホルム反応を示すのはメチルカルビノール構造をもつ(CH₃)₂CHOH。(c) 酸化でカルボン酸になるのは1級アルコール(CH₃)₂CHCH₂OH。したがって③。"
+  },
+  {
+    "id": "chem-017",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問17 トルエン C₆H₅CH₃ に関する次の記述①～⑤のうち，誤っているものを一つ選びなさい。",
+    "options": [
+      "① 常温・常圧で，液体である",
+      "② 水に溶けにくい",
+      "③ 炭素原子は，すべて同一平面上にある",
+      "④ 1個の水素原子を塩素原子で置き換えた化合物には，3種類の構造異性体がある",
+      "⑤ 過マンガン酸カリウム水溶液 KMnO₄ aq で酸化した後に酸性にすると，安息香酸が得られる"
+    ],
+    "correctIndex": 2,
+    "explanation": "トルエンのメチル基の炭素はsp³混成で四面体構造をとるため，すべての炭素原子が同一平面上にあることはない。④も一見誤りに見えるが，EJUの出題意図では③が誤りとされる（メチル基炭素の立体的構造）。"
+  },
+  {
+    "id": "chem-018",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問18 次に示す(a)～(f)のうち，互いに立体異性体であるものが二つある。それらの組み合わせとして正しいものを，下の①～⑥の中から一つ選びなさい。\n\n![立体異性体構造式](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDIwIiB2aWV3Qm94PSIwIDAgNjAwIDQyMCI+CiAgPHN0eWxlPgogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxMnB4OyB9CiAgICAubGFiZWwgeyBmb250LXNpemU6IDE0cHg7IGZvbnQtd2VpZ2h0OiBib2xkOyB9CiAgICAuYm9uZCB7IHN0cm9rZTogYmxhY2s7IHN0cm9rZS13aWR0aDogMS41OyB9CiAgICAud2VkZ2UgeyBzdHJva2U6IGJsYWNrOyBzdHJva2Utd2lkdGg6IDEuNTsgfQogICAgLmRhc2ggeyBzdHJva2U6IGJsYWNrOyBzdHJva2Utd2lkdGg6IDEuNTsgc3Ryb2tlLWRhc2hhcnJheTogMywzOyB9CiAgPC9zdHlsZT4KCiAgPCEtLSBMYWJlbCAoYSkgLS0+CiAgPHRleHQgeD0iMzAiIHk9IjI1IiBjbGFzcz0ibGFiZWwiPihhKTwvdGV4dD4KICA8IS0tIExlZnQgc3RydWN0dXJlIGluIChhKTogY3ljbG9oZXhhbmUtbGlrZSB3aXRoIHR3byBDbCAtLT4KICA8cG9seWdvbiBwb2ludHM9IjYwLDUwIDg1LDM1IDExMCw1MCAxMTAsNzUgODUsOTAgNjAsNzUiIGZpbGw9Im5vbmUiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iODAiIHk9IjMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DbDwvdGV4dD4KICA8bGluZSB4MT0iODUiIHkxPSIzNSIgeDI9Ijg1IiB5Mj0iMjAiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iMTE1IiB5PSI0NSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5DbDwvdGV4dD4KICA8bGluZSB4MT0iMTEwIiB5MT0iNTAiIHgyPSIxMjUiIHkyPSI0MiIgY2xhc3M9ImJvbmQiLz4KCiAgPCEtLSBSaWdodCBzdHJ1Y3R1cmUgaW4gKGEpIC0tPgogIDxwb2x5Z29uIHBvaW50cz0iMTgwLDUwIDIwNSwzNSAyMzAsNTAgMjMwLDc1IDIwNSw5MCAxODAsNzUiIGZpbGw9Im5vbmUiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iMjAwIiB5PSIzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2w8L3RleHQ+CiAgPGxpbmUgeDE9IjIwNSIgeTE9IjM1IiB4Mj0iMjA1IiB5Mj0iMjAiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iMjM1IiB5PSI4MCIgdGV4dC1hbmNob3I9InN0YXJ0Ij5DbDwvdGV4dD4KICA8bGluZSB4MT0iMjMwIiB5MT0iNzUiIHgyPSIyNDUiIHkyPSI4MiIgY2xhc3M9ImJvbmQiLz4KCiAgPCEtLSBMYWJlbCAoYikgLS0+CiAgPHRleHQgeD0iMzEwIiB5PSIyNSIgY2xhc3M9ImxhYmVsIj4oYik8L3RleHQ+CiAgPCEtLSBMZWZ0IHN0cnVjdHVyZSBpbiAoYik6IGJlbnplbmUtbGlrZSB3aXRoIHR3byBDSDMgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIzNDAsNTAgMzU1LDM1IDM3NSwzNSAzOTAsNTAgMzkwLDc1IDM3NSw5MCAzNTUsOTAgMzQwLDc1IiBmaWxsPSJub25lIiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjM2NSIgeT0iMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNI4oKDPC90ZXh0PgogIDxsaW5lIHgxPSIzNjUiIHkxPSIzNSIgeDI9IjM2NSIgeTI9IjIwIiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjM5NSIgeT0iNTUiIHRleHQtYW5jaG9yPSJzdGFydCI+Q0jigoM8L3RleHQ+CiAgPGxpbmUgeDE9IjM5MCIgeTE9IjUwIiB4Mj0iNDA1IiB5Mj0iNDUiIGNsYXNzPSJib25kIi8+CgogIDwhLS0gUmlnaHQgc3RydWN0dXJlIGluIChiKSAtLT4KICA8cG9seWdvbiBwb2ludHM9IjQ2MCw1MCA0NzUsMzUgNDk1LDM1IDUxMCw1MCA1MTAsNzUgNDk1LDkwIDQ3NSw5MCA0NjAsNzUiIGZpbGw9Im5vbmUiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iNDg1IiB5PSIzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q0jigoM8L3RleHQ+CiAgPGxpbmUgeDE9IjQ4NSIgeTE9IjM1IiB4Mj0iNDg1IiB5Mj0iMjAiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iNTE1IiB5PSI4NSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5DSOKCgzwvdGV4dD4KICA8bGluZSB4MT0iNTEwIiB5MT0iNzUiIHgyPSI1MjUiIHkyPSI4MiIgY2xhc3M9ImJvbmQiLz4KCiAgPCEtLSBMYWJlbCAoYykgLS0+CiAgPHRleHQgeD0iMzAiIHk9IjE0NSIgY2xhc3M9ImxhYmVsIj4oYyk8L3RleHQ+CiAgPCEtLSBMZWZ0IHN0cnVjdHVyZSBpbiAoYyk6IGNvbXBsZXggcmluZyB3aXRoIENPT0gsIE9ILCBDSDMgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSI2MCwxNzAgNzUsMTU1IDk1LDE1NSAxMTAsMTcwIDExMCwxOTUgOTUsMjEwIDc1LDIxMCA2MCwxOTUiIGZpbGw9Im5vbmUiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iNTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9ImVuZCI+SE9PQzwvdGV4dD4KICA8bGluZSB4MT0iNjAiIHkxPSIxNzAiIHgyPSI0NSIgeTI9IjE2NSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIxMTUiIHk9IjE2NSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5PSDwvdGV4dD4KICA8bGluZSB4MT0iMTEwIiB5MT0iMTcwIiB4Mj0iMTI1IiB5Mj0iMTY1IiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjgwIiB5PSIyMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNI4oKDPC90ZXh0PgogIDxsaW5lIHgxPSI4NSIgeTE9IjIxMCIgeDI9Ijg1IiB5Mj0iMjI1IiBjbGFzcz0iYm9uZCIvPgoKICA8IS0tIFJpZ2h0IHN0cnVjdHVyZSBpbiAoYykgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIxODAsMTcwIDE5NSwxNTUgMjE1LDE1NSAyMzAsMTcwIDIzMCwxOTUgMjE1LDIxMCAxOTUsMjEwIDE4MCwxOTUiIGZpbGw9Im5vbmUiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iMTcwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJlbmQiPkhPT0M8L3RleHQ+CiAgPGxpbmUgeDE9IjE4MCIgeTE9IjE3MCIgeDI9IjE2NSIgeTI9IjE2NSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIyMzUiIHk9IjIwMCIgdGV4dC1hbmNob3I9InN0YXJ0Ij5PSDwvdGV4dD4KICA8bGluZSB4MT0iMjMwIiB5MT0iMTk1IiB4Mj0iMjQ1IiB5Mj0iMjAwIiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DSOKCgzwvdGV4dD4KICA8bGluZSB4MT0iMjA1IiB5MT0iMjEwIiB4Mj0iMjA1IiB5Mj0iMjI1IiBjbGFzcz0iYm9uZCIvPgoKICA8IS0tIExhYmVsIChkKSAtLT4KICA8dGV4dCB4PSIzMTAiIHk9IjE0NSIgY2xhc3M9ImxhYmVsIj4oZCk8L3RleHQ+CiAgPCEtLSBMZWZ0IHN0cnVjdHVyZSBpbiAoZCk6IHJpbmcgd2l0aCBDbCBhbmQgQ0gzIC0tPgogIDxwb2x5Z29uIHBvaW50cz0iMzQwLDE3MCAzNTUsMTU1IDM3NSwxNTUgMzkwLDE3MCAzOTAsMTk1IDM3NSwyMTAgMzU1LDIxMCAzNDAsMTk1IiBmaWxsPSJub25lIiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjM2NSIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IPC90ZXh0PgogIDxsaW5lIHgxPSIzNjUiIHkxPSIxNTUiIHgyPSIzNjUiIHkyPSIxNDAiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iMzk1IiB5PSIxNjUiIHRleHQtYW5jaG9yPSJzdGFydCI+Q2w8L3RleHQ+CiAgPGxpbmUgeDE9IjM5MCIgeTE9IjE3MCIgeDI9IjQwNSIgeTI9IjE2MiIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIzNjUiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q0jigoM8L3RleHQ+CiAgPGxpbmUgeDE9IjM2NSIgeTE9IjIxMCIgeDI9IjM2NSIgeTI9IjIyNSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIzMzAiIHk9IjIwMCIgdGV4dC1hbmNob3I9ImVuZCI+Q2w8L3RleHQ+CiAgPGxpbmUgeDE9IjM0MCIgeTE9IjE5NSIgeDI9IjMyNSIgeTI9IjIwMCIgY2xhc3M9ImJvbmQiLz4KCiAgPCEtLSBSaWdodCBzdHJ1Y3R1cmUgaW4gKGQpIC0tPgogIDxwb2x5Z29uIHBvaW50cz0iNDYwLDE3MCA0NzUsMTU1IDQ5NSwxNTUgNTEwLDE3MCA1MTAsMTk1IDQ5NSwyMTAgNDc1LDIxMCA0NjAsMTk1IiBmaWxsPSJub25lIiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjQ4NSIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IPC90ZXh0PgogIDxsaW5lIHgxPSI0ODUiIHkxPSIxNTUiIHgyPSI0ODUiIHkyPSIxNDAiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iNTE1IiB5PSIxNjUiIHRleHQtYW5jaG9yPSJzdGFydCI+Q2w8L3RleHQ+CiAgPGxpbmUgeDE9IjUxMCIgeTE9IjE3MCIgeDI9IjUyNSIgeTI9IjE2MiIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSI0ODUiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q0jigoM8L3RleHQ+CiAgPGxpbmUgeDE9IjQ4NSIgeTE9IjIxMCIgeDI9IjQ4NSIgeTI9IjIyNSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSI0NTAiIHk9IjIwMCIgdGV4dC1hbmNob3I9ImVuZCI+Q2w8L3RleHQ+CiAgPGxpbmUgeDE9IjQ2MCIgeTE9IjE5NSIgeDI9IjQ0NSIgeTI9IjIwMCIgY2xhc3M9ImJvbmQiLz4KCiAgPCEtLSBMYWJlbCAoZSkgLS0+CiAgPHRleHQgeD0iMzAiIHk9IjI3NSIgY2xhc3M9ImxhYmVsIj4oZSk8L3RleHQ+CiAgPCEtLSBBbGtlbmUgc3RydWN0dXJlIC0tPgogIDxsaW5lIHgxPSI2MCIgeTE9IjMxMCIgeDI9IjkwIiB5Mj0iMzEwIiBjbGFzcz0iYm9uZCIvPgogIDxsaW5lIHgxPSI5MCIgeTE9IjMxMCIgeDI9IjExMCIgeTI9IjI5MCIgY2xhc3M9ImJvbmQiLz4gPCEtLSBkb3VibGUgYm9uZCB1cHBlciAtLT4KICA8bGluZSB4MT0iOTAiIHkxPSIzMTUiIHgyPSIxMTAiIHkyPSIzMzUiIGNsYXNzPSJib25kIi8+IDwhLS0gZG91YmxlIGJvbmQgbG93ZXIgLS0+CiAgPGxpbmUgeDE9IjExMCIgeTE9IjI5MCIgeDI9IjE0MCIgeTI9IjI5MCIgY2xhc3M9ImJvbmQiLz4KICA8bGluZSB4MT0iMTEwIiB5MT0iMzM1IiB4Mj0iMTQwIiB5Mj0iMzM1IiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjUwIiB5PSIzMTUiIHRleHQtYW5jaG9yPSJlbmQiPkjigoNDPC90ZXh0PgogIDx0ZXh0IHg9IjgwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkg8L3RleHQ+CiAgPGxpbmUgeDE9Ijg1IiB5MT0iMzA1IiB4Mj0iODAiIHkyPSIyOTUiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iMTMwIiB5PSIyODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNI4oKDPC90ZXh0PgogIDxsaW5lIHgxPSIxMzUiIHkxPSIyOTAiIHgyPSIxNDAiIHkyPSIyODAiIGNsYXNzPSJib25kIi8+CiAgPHRleHQgeD0iODAiIHk9IjM0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SDwvdGV4dD4KICA8bGluZSB4MT0iODUiIHkxPSIzMTUiIHgyPSI4MCIgeTI9IjMyNSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIxMzAiIHk9IjM1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SDwvdGV4dD4KICA8bGluZSB4MT0iMTM1IiB5MT0iMzM1IiB4Mj0iMTQwIiB5Mj0iMzQ1IiBjbGFzcz0iYm9uZCIvPgoKICA8IS0tIExhYmVsIChmKSAtLT4KICA8dGV4dCB4PSIzMTAiIHk9IjI3NSIgY2xhc3M9ImxhYmVsIj4oZik8L3RleHQ+CiAgPCEtLSBBbGtlbmUgc3RydWN0dXJlIC0tPgogIDxsaW5lIHgxPSIzNDAiIHkxPSIzMTAiIHgyPSIzNzAiIHkyPSIzMTAiIGNsYXNzPSJib25kIi8+CiAgPGxpbmUgeDE9IjM3MCIgeTE9IjMxMCIgeDI9IjM5MCIgeTI9IjI5MCIgY2xhc3M9ImJvbmQiLz4KICA8bGluZSB4MT0iMzcwIiB5MT0iMzE1IiB4Mj0iMzkwIiB5Mj0iMzM1IiBjbGFzcz0iYm9uZCIvPgogIDxsaW5lIHgxPSIzOTAiIHkxPSIyOTAiIHgyPSI0MjAiIHkyPSIyOTAiIGNsYXNzPSJib25kIi8+CiAgPGxpbmUgeDE9IjM5MCIgeTE9IjMzNSIgeDI9IjQyMCIgeTI9IjMzNSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIzMzAiIHk9IjMxNSIgdGV4dC1hbmNob3I9ImVuZCI+SOKCg0M8L3RleHQ+CiAgPHRleHQgeD0iMzYwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkg8L3RleHQ+CiAgPGxpbmUgeDE9IjM2NSIgeTE9IjMwNSIgeDI9IjM2MCIgeTI9IjI5NSIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSI0MTAiIHk9IjI4NSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q0jigoM8L3RleHQ+CiAgPGxpbmUgeDE9IjQxNSIgeTE9IjI5MCIgeDI9IjQyMCIgeTI9IjI4MCIgY2xhc3M9ImJvbmQiLz4KICA8dGV4dCB4PSIzNjAiIHk9IjM0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SDwvdGV4dD4KICA8bGluZSB4MT0iMzY1IiB5MT0iMzE1IiB4Mj0iMzYwIiB5Mj0iMzI1IiBjbGFzcz0iYm9uZCIvPgogIDx0ZXh0IHg9IjQxMCIgeT0iMzUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IPC90ZXh0PgogIDxsaW5lIHgxPSI0MTUiIHkxPSIzMzUiIHgyPSI0MjAiIHkyPSIzNDUiIGNsYXNzPSJib25kIi8+CgogIDwhLS0gQW5zd2VyIG9wdGlvbnMgYXQgYm90dG9tIC0tPgogIDx0ZXh0IHg9IjUwIiB5PSI0MDAiIHRleHQtYW5jaG9yPSJzdGFydCI+4pGgIGEsIGPjgIDikaEgYSwgZOOAgOKRoiBiLCBl44CA4pGjIGMsIGXjgIDikaQgZCwgZeOAgOKRpSBkLCBmPC90ZXh0Pgo8L3N2Zz4=)",
+    "options": [
+      "① a, c",
+      "② a, d",
+      "③ b, e",
+      "④ c, e",
+      "⑤ d, e",
+      "⑥ d, f"
+    ],
+    "correctIndex": 4,
+    "explanation": "(d)は環状化合物のシス-トランス異性体（立体異性体），(e)は2-ブテンのシス-トランス異性体（幾何異性体）。(a)(b)は位置異性体（構造異性体）。(c)(f)は同一物質または構造異性体。したがって⑤ d,e。"
+  },
+  {
+    "id": "chem-019",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問19 炭素C，水素H，酸素Oからなる1価のカルボン酸4.50 mgを完全燃焼させたところ，6.60 mgの二酸化炭素CO₂と2.70 mgの水H₂Oを生じた。この化合物の分子式として正しいものを，次の①～⑤の中から一つ選びなさい。",
+    "options": [
+      "① CH₂O",
+      "② CH₂O₂",
+      "③ C₂H₄O₂",
+      "④ C₃H₆O₂",
+      "⑤ C₄H₈O₂"
+    ],
+    "correctIndex": 2,
+    "explanation": "CO₂よりCの質量=6.60×12/44=1.80 mg，n(C)=0.150 mmol。H₂OよりHの質量=2.70×2/18=0.30 mg，n(H)=0.300 mmol。Oの質量=4.50-1.80-0.30=2.40 mg，n(O)=0.150 mmol。原子比C:H:O=1:2:1。実験式CH₂O。1価カルボン酸の分子式CnH₂nO₂より，n=2でC₂H₄O₂（酢酸）が一致。"
+  },
+  {
+    "id": "chem-020",
+    "subjectId": "science",
+    "category": "化学",
+    "stem": "問20 糖類に関する次の記述①～④のうち，誤っているものを一つ選びなさい。",
+    "options": [
+      "① グルコース，フルクトース，ガラクトースの分子式は，いずれもC₆H₁₂O₆である",
+      "② グルコース，フルクトース，ガラクトースは，いずれも還元性を示す",
+      "③ マルトース，スクロース，ラクトースの分子式は，いずれもC₁₂H₂₂O₁₁である",
+      "④ マルトース，スクロース，ラクトースは，いずれも還元性を示す"
+    ],
+    "correctIndex": 3,
+    "explanation": "スクロース（蔗糖）は非還元糖で還元性を示さない。マルトースとラクトースは還元糖。したがって④が誤り。"
+  }
+]

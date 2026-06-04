@@ -22,7 +22,7 @@ export default async function onRequestPost(context) {
 
     const connection = await mysql.createConnection(dbConfig);
 
-    // 使用 ON DUPLICATE KEY UPDATE 处理更新或插入
+    // 1. 记录总体的答题状态和错题次数
     await connection.execute(
       `INSERT INTO user_answers (user_id, question_id, subject_id, selected_index, is_correct, is_bookmarked, wrong_count) 
        VALUES (?, ?, ?, ?, ?, ?, IF(? = false, 1, 0))
@@ -36,6 +36,15 @@ export default async function onRequestPost(context) {
         isBookmarked, isBookmarked
       ]
     );
+
+    // 2. 插入一条练习流水日志，用于统计“今日刷题”和“本周趋势”
+    // 注意：如果只是修改 isBookmarked 状态（没有传入 selectedIndex），我们不应该记录为一次“练习”
+    if (selectedIndex !== undefined && selectedIndex !== null) {
+      await connection.execute(
+        `INSERT INTO practice_logs (user_id, question_id, is_correct) VALUES (?, ?, ?)`,
+        [userId, questionId, isCorrect ? 1 : 0]
+      );
+    }
 
     await connection.end();
 

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View, Text, ScrollView } from '@tarojs/components';
+import { View, Text, ScrollView, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
@@ -15,13 +15,34 @@ const statIcons = [
 ];
 
 export default function DashboardPage() {
-  // Mock 数据
-  const stats = {
-    todayAnswered: 24,
-    totalAnswered: 1250,
-    totalCorrect: 980,
-    streakDays: 12
-  };
+  const [stats, setStats] = React.useState({
+    todayAnswered: 0,
+    totalAnswered: 0,
+    totalCorrect: 0,
+    streakDays: 0,
+    trendSvg: ''
+  });
+
+  React.useEffect(() => {
+    const fetchStats = async () => {
+      const userInfo = Taro.getStorageSync('userInfo');
+      if (!userInfo || !userInfo.id) return;
+
+      try {
+        const res = await Taro.request({
+          url: `/api/get_dashboard_stats?userId=${userInfo.id}`,
+          method: 'GET'
+        });
+        if (res.data && res.data.success) {
+          setStats(res.data.data);
+        }
+      } catch (err) {
+        console.error('获取统计数据失败', err);
+      }
+    };
+    fetchStats();
+  }, []);
+
   const correctRate = stats.totalAnswered > 0 ? Math.round((stats.totalCorrect / stats.totalAnswered) * 100) : 0;
 
   const statValues = {
@@ -67,6 +88,22 @@ export default function DashboardPage() {
                   <Text className={styles.statLabel}>{s.label}</Text>
                 </View>
               ))}
+            </View>
+
+            {/* 趋势图卡片 */}
+            <View className={classnames(styles.statCard, styles.chartCard)}>
+              <Text className={styles.chartTitle}>📈 本周正确率趋势</Text>
+              <View className={styles.chartWrapper}>
+                {stats.trendSvg ? (
+                  <Image 
+                    src={stats.trendSvg} 
+                    mode="aspectFit" 
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                ) : (
+                  <Text style={{ color: '#9ca3af' }}>暂无数据</Text>
+                )}
+              </View>
             </View>
 
             {/* 推荐题库 */}
