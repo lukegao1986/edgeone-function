@@ -61,8 +61,8 @@ export default function PracticePage() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   
-  // 记录答题状态，格式: { [questionId]: { selectedIndex, isCorrect } }
-  const [answers, setAnswers] = useState<Record<string, { selectedIndex: number, isCorrect: boolean }>>({});
+  // 记录答题状态，格式: { [questionId]: { selectedIndex, isCorrect, isBookmarked } }
+  const [answers, setAnswers] = useState<Record<string, { selectedIndex: number, isCorrect: boolean, isBookmarked?: boolean }>>({});
 
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
@@ -79,8 +79,8 @@ export default function PracticePage() {
       setSelectedOption(null);
       setShowAnswer(false);
     }
-    // Mock 收藏状态
-    setIsBookmarked(false);
+    // 恢复收藏状态
+    setIsBookmarked(existingAnswer && existingAnswer.isBookmarked ? true : false);
   }, [currentIndex, existingAnswer]);
 
   const handleSelectOption = (index: number) => {
@@ -92,10 +92,13 @@ export default function PracticePage() {
     if (selectedOption === null || !currentQuestion) return;
     const isCorrect = selectedOption === currentQuestion.correctIndex;
     
-    setAnswers(prev => ({
-      ...prev,
-      [currentQuestion.id]: { selectedIndex: selectedOption, isCorrect }
-    }));
+    setAnswers(prev => {
+      const existing = prev[currentQuestion.id] || {};
+      return {
+        ...prev,
+        [currentQuestion.id]: { ...existing, selectedIndex: selectedOption, isCorrect }
+      };
+    });
     
     setShowAnswer(true);
 
@@ -151,6 +154,15 @@ export default function PracticePage() {
     if (!currentQuestion) return;
     const newBookmarkState = !isBookmarked;
     setIsBookmarked(newBookmarkState);
+    
+    // 更新本地 answers 状态，以便在题号间切换时能保持最新收藏状态
+    setAnswers(prev => {
+      const existing = prev[currentQuestion.id] || { selectedIndex: -1, isCorrect: false };
+      return {
+        ...prev,
+        [currentQuestion.id]: { ...existing, isBookmarked: newBookmarkState }
+      };
+    });
     
     try {
       const userInfo = Taro.getStorageSync('userInfo');

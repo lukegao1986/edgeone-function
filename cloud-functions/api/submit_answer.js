@@ -22,6 +22,9 @@ export default async function onRequestPost(context) {
 
     const connection = await mysql.createConnection(dbConfig);
 
+    // 将 undefined 转换为 null，防止 mysql2 报错 "Bind parameters must not contain undefined"
+    const safeIsBookmarked = isBookmarked === undefined ? null : isBookmarked;
+
     // 1. 记录总体的答题状态和错题次数
     await connection.execute(
       `INSERT INTO user_answers (user_id, question_id, subject_id, selected_index, is_correct, is_bookmarked, wrong_count) 
@@ -32,8 +35,15 @@ export default async function onRequestPost(context) {
        is_bookmarked = IF(? IS NOT NULL, ?, is_bookmarked),
        wrong_count = wrong_count + IF(VALUES(is_correct) = false, 1, 0)`,
       [
-        userId, questionId, subjectId || '', selectedIndex ?? -1, isCorrect ?? false, isBookmarked ?? false, isCorrect,
-        isBookmarked, isBookmarked
+        userId, 
+        questionId, 
+        subjectId || '', 
+        selectedIndex ?? -1, 
+        isCorrect ?? false, 
+        safeIsBookmarked ?? false, 
+        isCorrect ?? false,
+        safeIsBookmarked, 
+        safeIsBookmarked
       ]
     );
 
