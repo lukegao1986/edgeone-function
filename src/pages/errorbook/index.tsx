@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView } from '@tarojs/components';
-import Taro from '@tarojs/taro';
+import { View, Text, ScrollView, RichText } from '@tarojs/components';
+import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
 import Navbar from '@/components/Navbar';
@@ -18,25 +18,69 @@ const filterTabs = [
 
 export default function ErrorBookPage() {
   const [activeFilter, setActiveFilter] = useState('all');
-  
-  // Mock Data
-  const errorBook = [
-    { questionId: 'q1', subjectId: 'science', stem: '在标准状况下，将 22.4L 氯气通入水中的反应...', wrongCount: 3, lastWrongAt: '2025-05-28' },
-    { questionId: 'q2', subjectId: 'math1', stem: '已知函数 f(x) = x^2 - 2x + 1，求其在 [0, 3] 上的最大值...', wrongCount: 1, lastWrongAt: '2025-05-29' },
-    { questionId: 'q3', subjectId: 'japanese', stem: '次の文章を読んで、後の問いに答えなさい...', wrongCount: 2, lastWrongAt: '2025-05-30' },
-  ];
+  const [errorBook, setErrorBook] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useDidShow(() => {
+    const fetchErrorBook = async () => {
+      const userInfo = Taro.getStorageSync('userInfo');
+      if (!userInfo || !userInfo.id) return;
+      
+      setLoading(true);
+      try {
+        const res = await Taro.request({
+          url: `/api/get_errorbook?userId=${userInfo.id}`,
+          method: 'GET'
+        });
+        if (res.data && res.data.success) {
+          setErrorBook(res.data.data);
+        }
+      } catch (err) {
+        Taro.showToast({ title: '获取错题本失败', icon: 'none' });
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchErrorBook();
+  });
 
   const filteredErrors = useMemo(() => {
     if (activeFilter === 'all') return errorBook;
     return errorBook.filter(e => e.subjectId === activeFilter);
-  }, [activeFilter]);
+  }, [activeFilter, errorBook]);
+
+  // 简易 Markdown 解析，用于处理题目中的图片和换行 (与 PracticePage 保持一致)
+  const renderMarkdown = (text: string) => {
+    if (!text) return '';
+    let html = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />');
+    html = html.replace(/\n/g, '<br/>');
+    return `<div style="line-height: 1.6;">${html}</div>`;
+  };
 
   const handleRedo = (subjectId: string) => {
     Taro.navigateTo({ url: `/pages/practice/index?subjectId=${subjectId}&mode=error_redo` });
   };
 
-  const handleRemove = (id: string) => {
-    Taro.showToast({ title: '已移出错题本', icon: 'success' });
+  const handleRemove = async (questionId: string) => {
+    try {
+      const userInfo = Taro.getStorageSync('userInfo');
+      if (!userInfo || !userInfo.id) return;
+      
+      // 调用 submit_answer 接口，传入特殊状态：不再收藏，且重置其状态
+      // 由于我们的需求是移除出错题本，可以传递 isBookmarked = false，并且重置 wrong_count。
+      // 为保持后端通用性，我们专门加一个 remove_error 接口或复用现有接口，这里推荐新建一个接口保持逻辑清晰。
+      await Taro.request({
+        url: '/api/remove_error',
+        method: 'POST',
+        data: { userId: userInfo.id, questionId }
+      });
+      
+      Taro.showToast({ title: '已移出错题本', icon: 'success' });
+      // 乐观更新 UI
+      setErrorBook(prev => prev.filter(e => e.questionId !== questionId));
+    } catch (err) {
+      Taro.showToast({ title: '移除失败', icon: 'none' });
+    }
   };
 
   return (
@@ -87,11 +131,18 @@ export default function ErrorBookPage() {
                           </View>
                           <Text className={styles.dateText}>{record.lastWrongAt}</Text>
                         </View>
-                        <Text className={styles.stemText}>{record.stem}</Text>
+                        <View className={styles.stemText}>
+                          <RichText nodes={renderMarkdown(record.stem)} />
+                        </View>
                         <View className={styles.statsRow}>
-                          <Text className={classnames(styles.wrongCount, record.wrongCount >= 3 && styles.highWrongCount)}>
-                            做错 {record.wrongCount} 次
-                          </Text>
+                          {record.wrongCount > 0 && (
+                            <Text className={classnames(styles.wrongCount, record.wrongCount >= 3 && styles.highWrongCount)}>
+                              做错 {record.wrongCount} 次
+                            </Text>
+                          )}
+                          {record.isBookmarked && (
+                            <Text className={styles.bookmarkTag}>⭐ 已收藏</Text>
+                          )}
                           {record.wrongCount >= 3 && (
                             <View className={styles.focusTag}><Text className={styles.focusTagText}>重点</Text></View>
                           )}
