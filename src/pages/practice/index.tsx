@@ -19,12 +19,31 @@ export default function PracticePage() {
     const fetchQuestions = async () => {
       setLoading(true);
       try {
+        const userInfo = Taro.getStorageSync('userInfo');
+        const userId = userInfo ? userInfo.id : '';
+        
         const res = await Taro.request({
-          url: `/api/get_questions?subjectId=${subjectId}`,
+          url: `/api/get_questions?subjectId=${subjectId}&userId=${userId}`,
           method: 'GET'
         });
         if (res.data && res.data.success) {
           setQuestions(res.data.data);
+          
+          // 如果后端返回了历史答题记录，将其恢复到前端状态
+          if (res.data.userAnswers) {
+            setAnswers(res.data.userAnswers);
+            
+            // 自动跳到第一道没做的题
+            const total = res.data.data.length;
+            let firstUnansweredIndex = 0;
+            for (let i = 0; i < total; i++) {
+              if (!res.data.userAnswers[res.data.data[i].id]) {
+                firstUnansweredIndex = i;
+                break;
+              }
+            }
+            setCurrentIndex(firstUnansweredIndex);
+          }
         } else {
           Taro.showToast({ title: '加载题目失败', icon: 'none' });
         }

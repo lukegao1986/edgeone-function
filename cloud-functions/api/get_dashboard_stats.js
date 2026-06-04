@@ -57,6 +57,15 @@ export default async function onRequestGet(context) {
       [userId]
     );
 
+    // 5. 顺便拉取一下各个科目的题目总数，以便前端更新推荐卡片
+    const [subjectCountRows] = await connection.execute(
+      `SELECT subject_id, COUNT(*) as total FROM questions GROUP BY subject_id`
+    );
+    const subjectCounts = {};
+    subjectCountRows.forEach(row => {
+      subjectCounts[row.subject_id] = row.total;
+    });
+
     await connection.end();
 
     // 补齐最近 7 天的数据
@@ -134,7 +143,8 @@ export default async function onRequestGet(context) {
         totalAnswered,
         totalCorrect,
         streakDays,
-        trendSvg: trendSvgBase64
+        trendSvg: trendSvgBase64,
+        subjectCounts: subjectCounts // 增加返回的科目题目数
       }
     }), {
       headers: { "Content-Type": "application/json; charset=utf-8" }

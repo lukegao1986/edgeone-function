@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, Text, ScrollView, Image } from '@tarojs/components';
-import Taro from '@tarojs/taro';
+import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
 import Navbar from '@/components/Navbar';
@@ -20,10 +20,11 @@ export default function DashboardPage() {
     totalAnswered: 0,
     totalCorrect: 0,
     streakDays: 0,
-    trendSvg: ''
+    trendSvg: '',
+    subjectCounts: {} as Record<string, number>
   });
 
-  React.useEffect(() => {
+  useDidShow(() => {
     const fetchStats = async () => {
       const userInfo = Taro.getStorageSync('userInfo');
       if (!userInfo || !userInfo.id) return;
@@ -41,7 +42,7 @@ export default function DashboardPage() {
       }
     };
     fetchStats();
-  }, []);
+  });
 
   const correctRate = stats.totalAnswered > 0 ? Math.round((stats.totalCorrect / stats.totalAnswered) * 100) : 0;
 
@@ -126,7 +127,7 @@ export default function DashboardPage() {
                     </View>
                     <Text className={styles.subjectName}>{subject.name}</Text>
                     <Text className={styles.subjectSubtitle}>{subject.subtitle}</Text>
-                    <Text className={styles.subjectCount}>共 {120 + i * 20} 题</Text>
+                    <Text className={styles.subjectCount}>共 {stats.subjectCounts[subject.id] || 0} 题</Text>
                     <View className={styles.actionBtn}>
                       <Text className={styles.actionBtnText}>开始练习</Text>
                     </View>

@@ -9,9 +9,10 @@ const dbConfig = {
 };
 
 export default async function onRequestGet(context) {
-  // 从 URL 参数中获取 subjectId
+  // 从 URL 参数中获取 subjectId 和 userId
   const url = new URL(context.request.url);
   const subjectId = url.searchParams.get('subjectId');
+  const userId = url.searchParams.get('userId'); // 追加获取 userId
 
   if (!subjectId) {
     return new Response(JSON.stringify({ success: false, error: "缺少 subjectId 参数" }), {
@@ -29,9 +30,25 @@ export default async function onRequestGet(context) {
       [subjectId]
     );
 
+    // 如果传了 userId，顺便把用户在这个科目的答题记录也带回去
+    let userAnswers = {};
+    if (userId) {
+      const [ansRows] = await connection.execute(
+        'SELECT question_id, selected_index, is_correct, is_bookmarked FROM user_answers WHERE user_id = ? AND subject_id = ?',
+        [userId, subjectId]
+      );
+      ansRows.forEach(row => {
+        userAnswers[row.question_id] = {
+          selectedIndex: row.selected_index,
+          isCorrect: Boolean(row.is_correct),
+          isBookmarked: Boolean(row.is_bookmarked)
+        };
+      });
+    }
+
     await connection.end();
 
-    // 格式化数据，确保前端接收到的格式与之前 Mock 数据一致
+    // 格式化数据
     const formattedQuestions = rows.map(row => ({
       id: row.id,
       subjectId: row.subject_id,
@@ -44,7 +61,8 @@ export default async function onRequestGet(context) {
 
     return new Response(JSON.stringify({
       success: true,
-      data: formattedQuestions
+      data: formattedQuestions,
+      userAnswers: userAnswers // 把历史答题记录返回给前端
     }), {
       headers: { "Content-Type": "application/json; charset=utf-8" }
     });
