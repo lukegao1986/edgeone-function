@@ -13,7 +13,12 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigateTo = (url: string) => {
-    Taro.switchTab({ url }).catch(() => Taro.navigateTo({ url }));
+    const tabPages = ['/pages/dashboard/index', '/pages/errorbook/index', '/pages/profile/index'];
+    if (tabPages.includes(url)) {
+      Taro.switchTab({ url });
+    } else {
+      Taro.navigateTo({ url });
+    }
     setMenuOpen(false);
   };
 

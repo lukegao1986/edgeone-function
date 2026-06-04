@@ -22,28 +22,34 @@ export default async function onRequestPost(context) {
 
     const connection = await mysql.createConnection(dbConfig);
 
-    // 将 undefined 转换为 null，防止 mysql2 报错 "Bind parameters must not contain undefined"
+    const safeSelectedIndex = selectedIndex === undefined ? null : selectedIndex;
+    const safeIsCorrect = isCorrect === undefined ? null : isCorrect;
     const safeIsBookmarked = isBookmarked === undefined ? null : isBookmarked;
 
     // 1. 记录总体的答题状态和错题次数
     await connection.execute(
       `INSERT INTO user_answers (user_id, question_id, subject_id, selected_index, is_correct, is_bookmarked, wrong_count) 
-       VALUES (?, ?, ?, ?, ?, ?, IF(? = false, 1, 0))
+       VALUES (?, ?, ?, ?, ?, ?, IF(? = true, 1, 0))
        ON DUPLICATE KEY UPDATE 
-       selected_index = VALUES(selected_index),
-       is_correct = VALUES(is_correct),
-       is_bookmarked = IF(? IS NOT NULL, ?, is_bookmarked),
-       wrong_count = wrong_count + IF(VALUES(is_correct) = false, 1, 0)`,
+       selected_index = IF(? IS NOT NULL, VALUES(selected_index), selected_index),
+       is_correct = IF(? IS NOT NULL, VALUES(is_correct), is_correct),
+       is_bookmarked = IF(? IS NOT NULL, VALUES(is_bookmarked), is_bookmarked),
+       wrong_count = wrong_count + IF(? IS NOT NULL AND VALUES(is_correct) = false, 1, 0)`,
       [
+        // VALUES
         userId, 
         questionId, 
         subjectId || '', 
-        selectedIndex ?? -1, 
-        isCorrect ?? false, 
-        safeIsBookmarked ?? false, 
-        isCorrect ?? false,
-        safeIsBookmarked, 
-        safeIsBookmarked
+        safeSelectedIndex, 
+        safeIsCorrect, 
+        safeIsBookmarked ?? false, // 插入时默认为 false
+        safeIsCorrect === false, // wrong_count initial condition (is_correct = false)
+        
+        // ON DUPLICATE KEY UPDATE
+        safeSelectedIndex, 
+        safeIsCorrect,     
+        safeIsBookmarked,  
+        safeIsCorrect      
       ]
     );
 

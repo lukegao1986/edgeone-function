@@ -14,7 +14,12 @@ interface SidebarProps {
 export default function Sidebar({ activePage, activeSubject, onSubjectClick }: SidebarProps) {
 
   const navigateTo = (url: string) => {
-    Taro.switchTab({ url }).catch(() => Taro.navigateTo({ url }));
+    const tabPages = ['/pages/dashboard/index', '/pages/errorbook/index', '/pages/profile/index'];
+    if (tabPages.includes(url)) {
+      Taro.switchTab({ url });
+    } else {
+      Taro.navigateTo({ url });
+    }
   };
 
   const handleSubjectClick = (id: string) => {

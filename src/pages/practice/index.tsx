@@ -72,7 +72,7 @@ export default function PracticePage() {
   const existingAnswer = currentQuestion ? answers[currentQuestion.id] : null;
 
   useEffect(() => {
-    if (existingAnswer) {
+    if (existingAnswer && existingAnswer.selectedIndex !== undefined && existingAnswer.selectedIndex !== -1) {
       setSelectedOption(existingAnswer.selectedIndex);
       setShowAnswer(true);
     } else {
