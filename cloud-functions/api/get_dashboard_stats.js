@@ -22,9 +22,9 @@ export default async function onRequestGet(context) {
   try {
     const connection = await mysql.createConnection(dbConfig);
 
-    // 1. 获取累计刷题和累计正确
+    // 1. 获取累计刷题和累计正确 (从 user_answers 获取，代表已作答的独立题目数)
     const [totalRows] = await connection.execute(
-      'SELECT COUNT(*) as total, SUM(IF(is_correct = 1, 1, 0)) as correct FROM practice_logs WHERE user_id = ?',
+      'SELECT COUNT(*) as total, SUM(IF(is_correct = 1, 1, 0)) as correct FROM user_answers WHERE user_id = ? AND selected_index IS NOT NULL',
       [userId]
     );
     const totalAnswered = totalRows[0].total || 0;
