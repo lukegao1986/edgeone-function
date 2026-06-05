@@ -32,13 +32,13 @@ export default async function onRequestGet(context) {
     const averageRate = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
     const [thisWeekRows] = await connection.execute(
-      'SELECT COUNT(*) as thisWeek FROM practice_logs WHERE user_id = ? AND YEARWEEK(created_at, 1) = YEARWEEK(CURDATE(), 1)',
+      'SELECT COUNT(*) as thisWeek FROM user_answers WHERE user_id = ? AND selected_index IS NOT NULL AND YEARWEEK(last_answered_at, 1) = YEARWEEK(CURDATE(), 1)',
       [userId]
     );
     const thisWeekCount = thisWeekRows[0].thisWeek || 0;
 
     const [streakRows] = await connection.execute(
-      'SELECT COUNT(DISTINCT DATE(created_at)) as streakDays FROM practice_logs WHERE user_id = ?',
+      'SELECT COUNT(DISTINCT DATE(last_answered_at)) as streakDays FROM user_answers WHERE user_id = ? AND selected_index IS NOT NULL',
       [userId]
     );
     const streakDays = streakRows[0].streakDays || 0;
@@ -53,11 +53,11 @@ export default async function onRequestGet(context) {
     // 2. 近 30 天刷题趋势
     const [trendRows] = await connection.execute(
       `SELECT 
-         DATE(created_at) as date, 
+         DATE(last_answered_at) as date, 
          COUNT(*) as total 
-       FROM practice_logs 
-       WHERE user_id = ? AND created_at >= DATE_SUB(CURDATE(), INTERVAL 29 DAY)
-       GROUP BY DATE(created_at)
+       FROM user_answers 
+       WHERE user_id = ? AND selected_index IS NOT NULL AND last_answered_at >= DATE_SUB(CURDATE(), INTERVAL 29 DAY)
+       GROUP BY DATE(last_answered_at)
        ORDER BY date ASC`,
       [userId]
     );
@@ -81,14 +81,13 @@ export default async function onRequestGet(context) {
     // 3. 历史练习记录 (按天分组聚合)
     const [historyRows] = await connection.execute(
       `SELECT 
-         DATE(pl.created_at) as date,
-         ua.subject_id,
+         DATE(last_answered_at) as date,
+         subject_id,
          COUNT(*) as total,
-         SUM(IF(pl.is_correct = 1, 1, 0)) as correct
-       FROM practice_logs pl
-       LEFT JOIN user_answers ua ON pl.user_id = ua.user_id AND pl.question_id = ua.question_id
-       WHERE pl.user_id = ?
-       GROUP BY DATE(pl.created_at), ua.subject_id
+         SUM(IF(is_correct = 1, 1, 0)) as correct
+       FROM user_answers
+       WHERE user_id = ? AND selected_index IS NOT NULL
+       GROUP BY DATE(last_answered_at), subject_id
        ORDER BY date DESC
        LIMIT 20`,
       [userId]

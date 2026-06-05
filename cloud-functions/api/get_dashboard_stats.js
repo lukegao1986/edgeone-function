@@ -32,14 +32,14 @@ export default async function onRequestGet(context) {
 
     // 2. 获取今日刷题
     const [todayRows] = await connection.execute(
-      'SELECT COUNT(*) as todayTotal FROM practice_logs WHERE user_id = ? AND DATE(created_at) = CURDATE()',
+      'SELECT COUNT(*) as todayTotal FROM user_answers WHERE user_id = ? AND selected_index IS NOT NULL AND DATE(last_answered_at) = CURDATE()',
       [userId]
     );
     const todayAnswered = todayRows[0].todayTotal || 0;
 
-    // 3. 获取连续学习天数 (简易逻辑：查询用户有刷题记录的独立天数)
+    // 3. 获取连续学习天数
     const [streakRows] = await connection.execute(
-      'SELECT COUNT(DISTINCT DATE(created_at)) as streakDays FROM practice_logs WHERE user_id = ?',
+      'SELECT COUNT(DISTINCT DATE(last_answered_at)) as streakDays FROM user_answers WHERE user_id = ? AND selected_index IS NOT NULL',
       [userId]
     );
     const streakDays = streakRows[0].streakDays || 0;
@@ -47,12 +47,12 @@ export default async function onRequestGet(context) {
     // 4. 获取本周每天的正确率数据 (用于生成趋势图)
     const [trendRows] = await connection.execute(
       `SELECT 
-         DATE(created_at) as date, 
+         DATE(last_answered_at) as date, 
          COUNT(*) as total, 
          SUM(IF(is_correct = 1, 1, 0)) as correct 
-       FROM practice_logs 
-       WHERE user_id = ? AND created_at >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
-       GROUP BY DATE(created_at)
+       FROM user_answers 
+       WHERE user_id = ? AND selected_index IS NOT NULL AND last_answered_at >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+       GROUP BY DATE(last_answered_at)
        ORDER BY date ASC`,
       [userId]
     );
