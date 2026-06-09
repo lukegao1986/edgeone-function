@@ -218,22 +218,6 @@ export default function DashboardPage() {
                   </View>
                 </View>
 
-                {/* 趋势图卡片 */}
-                <View className={classnames(styles.statCard, styles.chartCard)}>
-                  <Text className={styles.chartTitle}>📈 本周正确率趋势</Text>
-                  <View className={styles.chartWrapper}>
-                    {stats.trendSvg ? (
-                      <Image 
-                        src={stats.trendSvg} 
-                        mode="aspectFit" 
-                        style={{ width: '100%', height: '100%' }}
-                      />
-                    ) : (
-                      <Text style={{ color: '#9ca3af' }}>暂无数据</Text>
-                    )}
-                  </View>
-                </View>
-
               </View>
 
               {/* Right Column: Leaderboard */}
@@ -279,6 +263,22 @@ export default function DashboardPage() {
                 </View>
               </View>
 
+            </View>
+
+            {/* 趋势图卡片 */}
+            <View className={classnames(styles.statCard, styles.chartCard)}>
+              <Text className={styles.chartTitle}>📈 本周正确率趋势</Text>
+              <View className={styles.chartWrapper}>
+                {stats.trendSvg ? (
+                  <Image 
+                    src={stats.trendSvg} 
+                    mode="aspectFit" 
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                ) : (
+                  <Text style={{ color: '#9ca3af' }}>暂无数据</Text>
+                )}
+              </View>
             </View>
 
             {/* 推荐题库 */}
