@@ -133,8 +133,29 @@ export default function DashboardPage() {
         <ScrollView className={styles.scrollArea} scrollY>
           <View className={styles.mainContent}>
 
-            {/* --- Top Section: Tracker & Leaderboard --- */}
-            <View className={styles.twoColLayout}>
+            {/* --- 数据概览 Header --- */}
+            <View className={styles.sectionHeader}>
+              <Text className={styles.sectionTitle}>学习概览</Text>
+              <Text className={styles.dateText}>{todayStr}</Text>
+            </View>
+
+            {/* 统计卡片 (Grid 布局) */}
+            <View className={styles.statsGrid}>
+              {statIcons.map((s) => (
+                <View key={s.key} className={styles.statCard}>
+                  <View className={styles.iconWrapper} style={{ backgroundColor: s.bg }}>
+                    <Text className={styles.iconText} style={{ color: s.color }}>{s.icon}</Text>
+                  </View>
+                  <Text className={styles.statValue} style={{ color: s.color }}>
+                    {statValues[s.key as keyof typeof statValues]}
+                  </Text>
+                  <Text className={styles.statLabel}>{s.label}</Text>
+                </View>
+              ))}
+            </View>
+
+            {/* --- Tracker & Leaderboard --- */}
+            <View className={classnames(styles.twoColLayout, styles.marginTop)}>
               {/* Left Column */}
               <View className={styles.leftCol}>
                 
@@ -197,29 +218,6 @@ export default function DashboardPage() {
                   </View>
                 </View>
 
-                {/* --- Existing Content Now inside Left Column --- */}
-                
-                {/* 数据概览 Header */}
-                <View className={styles.sectionHeader}>
-                  <Text className={styles.sectionTitle}>学习概览</Text>
-                  <Text className={styles.dateText}>{todayStr}</Text>
-                </View>
-
-                {/* 统计卡片 (Grid 布局) */}
-                <View className={styles.statsGrid}>
-                  {statIcons.map((s) => (
-                    <View key={s.key} className={styles.statCard}>
-                      <View className={styles.iconWrapper} style={{ backgroundColor: s.bg }}>
-                        <Text className={styles.iconText} style={{ color: s.color }}>{s.icon}</Text>
-                      </View>
-                      <Text className={styles.statValue} style={{ color: s.color }}>
-                        {statValues[s.key as keyof typeof statValues]}
-                      </Text>
-                      <Text className={styles.statLabel}>{s.label}</Text>
-                    </View>
-                  ))}
-                </View>
-
                 {/* 趋势图卡片 */}
                 <View className={classnames(styles.statCard, styles.chartCard)}>
                   <Text className={styles.chartTitle}>📈 本周正确率趋势</Text>
@@ -234,35 +232,6 @@ export default function DashboardPage() {
                       <Text style={{ color: '#9ca3af' }}>暂无数据</Text>
                     )}
                   </View>
-                </View>
-
-                {/* 推荐题库 */}
-                <View className={classnames(styles.sectionHeader, styles.marginTop)}>
-                  <Text className={styles.sectionTitle}>推荐题库 / 选考科目进度</Text>
-                  <Text className={styles.moreLink}>查看全部 →</Text>
-                </View>
-
-                <View className={styles.subjectGrid}>
-                  {SUBJECTS.map((subject, i) => (
-                    <View
-                      key={subject.id}
-                      className={styles.subjectCard}
-                      onClick={() => handleSubjectClick(subject.id)}
-                    >
-                      <View className={styles.cardTopBar} style={{ backgroundColor: subject.color }} />
-                      <View className={styles.cardBody}>
-                        <View className={styles.subjectIconWrapper} style={{ backgroundColor: subject.bgColor }}>
-                          <Text className={styles.subjectIcon} style={{ color: subject.color }}>{subject.icon}</Text>
-                        </View>
-                        <Text className={styles.subjectName}>{subject.name}</Text>
-                        <Text className={styles.subjectSubtitle}>{subject.subtitle}</Text>
-                        <Text className={styles.subjectCount}>共 {stats.subjectCounts[subject.id] || 0} 题</Text>
-                        <View className={styles.actionBtn}>
-                          <Text className={styles.actionBtnText}>开始练习</Text>
-                        </View>
-                      </View>
-                    </View>
-                  ))}
                 </View>
 
               </View>
@@ -310,6 +279,35 @@ export default function DashboardPage() {
                 </View>
               </View>
 
+            </View>
+
+            {/* 推荐题库 */}
+            <View className={classnames(styles.sectionHeader, styles.marginTop)}>
+              <Text className={styles.sectionTitle}>推荐题库 / 选考科目进度</Text>
+              <Text className={styles.moreLink}>查看全部 →</Text>
+            </View>
+
+            <View className={styles.subjectGrid}>
+              {SUBJECTS.map((subject, i) => (
+                <View
+                  key={subject.id}
+                  className={styles.subjectCard}
+                  onClick={() => handleSubjectClick(subject.id)}
+                >
+                  <View className={styles.cardTopBar} style={{ backgroundColor: subject.color }} />
+                  <View className={styles.cardBody}>
+                    <View className={styles.subjectIconWrapper} style={{ backgroundColor: subject.bgColor }}>
+                      <Text className={styles.subjectIcon} style={{ color: subject.color }}>{subject.icon}</Text>
+                    </View>
+                    <Text className={styles.subjectName}>{subject.name}</Text>
+                    <Text className={styles.subjectSubtitle}>{subject.subtitle}</Text>
+                    <Text className={styles.subjectCount}>共 {stats.subjectCounts[subject.id] || 0} 题</Text>
+                    <View className={styles.actionBtn}>
+                      <Text className={styles.actionBtnText}>开始练习</Text>
+                    </View>
+                  </View>
+                </View>
+              ))}
             </View>
           </View>
         </ScrollView>
