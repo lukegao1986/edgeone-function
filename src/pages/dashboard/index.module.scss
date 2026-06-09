@@ -8,6 +8,453 @@
   overflow: hidden; /* 防止最外层滚动 */
 }
 
+/* New Layout & ProgressTracker & Leaderboard */
+.twoColLayout {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+.leftCol {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rightCol {
+  flex: 1;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.progressTrackerCard {
+  background-color: #ffffff;
+  border-radius: $radius-lg;
+  padding: 40px;
+  box-shadow: $shadow-card;
+  margin-bottom: 32px;
+}
+
+.ptHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ptTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ptIcon {
+  font-size: 32px;
+}
+
+.ptTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.ptAdjustBtn {
+  font-size: 24px;
+  color: $color-primary;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.ptGoals {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.ptGoalTag {
+  background-color: #f3f4f6;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 22px;
+  color: $color-text-secondary;
+}
+
+.ptDiffTag {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 22px;
+  font-weight: 500;
+}
+.ptDiffAhead {
+  background-color: #e8f5e9;
+  color: #34a853;
+}
+.ptDiffBehind {
+  background-color: #fdecea;
+  color: #e04545;
+}
+
+.ptBars {
+  margin-bottom: 32px;
+}
+
+.ptBarRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ptBarLabel {
+  width: 100px;
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+
+.ptBarTrack {
+  flex: 1;
+  height: 16px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  position: relative;
+  margin: 0 24px;
+}
+
+.ptBarExpected {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(59, 110, 201, 0.3);
+  border-radius: 8px;
+}
+
+.ptBarActual {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #e04545;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ptBarDot {
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border: 4px solid #e04545;
+  border-radius: 50%;
+  margin-right: -12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ptBarValueBlue {
+  font-size: 24px;
+  font-weight: 600;
+  color: #3b6ec9;
+}
+.ptBarValueRed {
+  font-size: 24px;
+  font-weight: 600;
+  color: #e04545;
+}
+.ptBarValueSub {
+  font-size: 20px;
+  color: $color-text-tertiary;
+  font-weight: normal;
+  margin-left: 8px;
+}
+
+.ptGrid {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 32px;
+}
+
+.ptGridItem {
+  text-align: center;
+  flex: 1;
+}
+
+.ptGridVal {
+  font-size: 36px;
+  font-weight: bold;
+  color: $color-text-primary;
+  margin-bottom: 8px;
+  display: block;
+}
+.ptGridValRed {
+  @extend .ptGridVal;
+  color: #e04545;
+}
+.ptGridValYellow {
+  @extend .ptGridVal;
+  color: #f59e0b;
+}
+.ptGridLabel {
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+
+.leaderboardCard {
+  background-color: #ffffff;
+  border-radius: $radius-lg;
+  padding: 32px 24px;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lbHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.lbTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lbIcon {
+  font-size: 28px;
+}
+
+.lbTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.lbCountTag {
+  background-color: #f3f4f6;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 20px;
+  color: $color-text-secondary;
+}
+
+.lbTabs {
+  display: flex;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.lbTab {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 20px;
+  color: $color-text-secondary;
+  cursor: pointer;
+  border-radius: 6px;
+  
+  &.lbTabActive {
+    background-color: #ffffff;
+    color: $color-primary;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+}
+
+.lbList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.lbItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  border-radius: 8px;
+  
+  &.lbItemMe {
+    background-color: #ebf0fa;
+  }
+}
+
+.lbRank {
+  width: 32px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: $color-text-secondary;
+}
+
+.lbUserInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px;
+  overflow: hidden;
+}
+
+.lbAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3b6ec9;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.lbNameWrap {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.lbNameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lbName {
+  font-size: 24px;
+  font-weight: 500;
+  color: $color-text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lbMeTag {
+  background-color: #3b6ec9;
+  color: #fff;
+  font-size: 18px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.lbSub {
+  font-size: 20px;
+  color: $color-text-tertiary;
+  margin-top: 4px;
+}
+
+.lbScore {
+  font-size: 24px;
+  font-weight: bold;
+  color: $color-text-primary;
+  text-align: right;
+  min-width: 60px;
+}
+
+.lbFooter {
+  text-align: center;
+  font-size: 20px;
+  color: $color-text-tertiary;
+  margin-top: 24px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 400px;
+}
+
+.modalTitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 24px;
+  color: $color-text-secondary;
+  margin-bottom: 8px;
+}
+
+.formInput {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 24px;
+  box-sizing: border-box;
+}
+
+.modalBtns {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.btnCancel {
+  flex: 1;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  background-color: #f3f4f6;
+  color: $color-text-secondary;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.btnSave {
+  flex: 1;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  background-color: $color-primary;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .layoutBody {
   display: flex;
   flex: 1;
