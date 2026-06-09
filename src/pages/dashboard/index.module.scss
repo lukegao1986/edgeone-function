@@ -681,6 +681,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .twoColLayout {
+    flex-direction: column;
+  }
+  
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
