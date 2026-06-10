@@ -14,6 +14,81 @@ const statIcons = [
   { icon: '🏆', color: '#C97B4A', bg: '#F9F0EB', label: '连续学习', key: 'streakDays' },
 ];
 
+function SubjectMiniCard({
+  name, color, colorLight, icon, answered, total, correctRate, targetRate,
+  currentNode, nextNode,
+}: {
+  name: string; color: string; colorLight: string; icon: React.ReactNode;
+  answered: number; total: number; correctRate: number; targetRate: number;
+  currentNode: { label: string; answered: number; total: number; rate: number };
+  nextNode: { label: string; total: number };
+}) {
+  const progressPct = Math.min(100, Math.round((answered / total) * 100));
+  const correctColor = correctRate >= targetRate ? '#34A853' : correctRate >= targetRate * 0.8 ? '#F5A623' : '#E04545';
+
+  const size = 160;
+  const stroke = 12;
+  const r = (size - stroke) / 2;
+  const c = size / 2;
+  const circumference = 2 * Math.PI * r;
+  const dashVal = circumference * (300 / 360);
+
+  return (
+    <View className={styles.spCard}>
+      <View className={styles.spCardHeader}>
+        <View className={styles.spIconBox} style={{ backgroundColor: colorLight, color }}>
+          <Text className={styles.spIcon}>{icon}</Text>
+        </View>
+        <Text className={styles.spName}>{name}</Text>
+      </View>
+
+      <View className={styles.spRingBox}>
+        <View className={styles.spRingSvg}>
+          <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`}>
+            <circle
+              cx={c} cy={c} r={r}
+              className={styles.spRingTrack}
+              strokeDasharray={`${dashVal} ${circumference}`}
+            />
+            <circle
+              cx={c} cy={c} r={r}
+              className={styles.spRingProgress}
+              stroke={color}
+              strokeDasharray={`${dashVal * (progressPct / 100)} ${circumference}`}
+            />
+          </svg>
+        </View>
+        <View className={styles.spRingText}>
+          <Text className={styles.spRingVal}>{progressPct}%</Text>
+          <Text className={styles.spRingLabel}>进度</Text>
+        </View>
+        <View className={styles.spRateBadge}>
+          <Text className={styles.spRateLabel}>正确率</Text>
+          <Text className={styles.spRateVal} style={{ color: correctColor }}>{correctRate}%</Text>
+        </View>
+      </View>
+
+      <View className={styles.spNodes}>
+        <View className={styles.spNodeItem}>
+          <View className={styles.spNodeTag}>当前</View>
+          <View className={styles.spNodeBoxCurrent} style={{ backgroundColor: `${color}08`, borderColor: `${color}25` }}>
+            <View className={styles.spNodeLabel} style={{ color }}>{currentNode.label}</View>
+            <View className={styles.spNodeCount}>{currentNode.answered}/{currentNode.total}题</View>
+          </View>
+        </View>
+        <Text className={styles.spArrow}>→</Text>
+        <View className={styles.spNodeItem}>
+          <View className={styles.spNodeTag}>推荐</View>
+          <View className={styles.spNodeBoxNext}>
+            <View className={styles.spNodeLabelNext}>{nextNode.label}</View>
+            <View className={styles.spNodeCount}>{nextNode.total}题</View>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
 export default function DashboardPage() {
   const [stats, setStats] = useState({
     todayAnswered: 0,
@@ -216,6 +291,45 @@ export default function DashboardPage() {
                       <Text className={styles.ptGridLabel}>当前正确率</Text>
                     </View>
                   </View>
+
+                  {/* 选考科目进度 (Subject Mini Cards) */}
+                  <View className={styles.subjectProgressHeader}>
+                    <Text className={styles.spTitle}>选考科目进度</Text>
+                    <Text className={styles.spCount}>3 科</Text>
+                  </View>
+                  <View className={styles.spGrid}>
+                    <SubjectMiniCard
+                      name="日语"
+                      color="#4A90B8"
+                      colorLight="#EBF3F9"
+                      icon="📖"
+                      answered={420} total={800}
+                      correctRate={75} targetRate={80}
+                      currentNode={{ label: '論説文読解', answered: 35, total: 50, rate: 72 }}
+                      nextNode={{ label: '情報活用・推論', total: 40 }}
+                    />
+                    <SubjectMiniCard
+                      name="数学コース1"
+                      color="#8B6DC9"
+                      colorLight="#F2EDF9"
+                      icon="∑"
+                      answered={350} total={600}
+                      correctRate={68} targetRate={75}
+                      currentNode={{ label: '2次関数とグラフ', answered: 30, total: 50, rate: 65 }}
+                      nextNode={{ label: '2次方程式と不等式', total: 45 }}
+                    />
+                    <SubjectMiniCard
+                      name="理综"
+                      color="#C97B4A"
+                      colorLight="#F9F0EB"
+                      icon="🧪"
+                      answered={516} total={600}
+                      correctRate={72} targetRate={80}
+                      currentNode={{ label: '運動エネルギー', answered: 25, total: 45, rate: 58 }}
+                      nextNode={{ label: '気体分子の運動', total: 40 }}
+                    />
+                  </View>
+
                 </View>
 
               </View>
