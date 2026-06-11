@@ -104,139 +104,83 @@
   padding: 32px 40px;
 }
 
-.achievementsRow {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 40px 40px;
-}
-
-.achieveItem {
-  text-align: center;
-}
-
-.achieveIcon {
-  display: block;
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.achieveVal {
-  display: block;
-  font-size: 40px;
-  font-weight: bold;
-  color: $color-text-primary;
-  margin-bottom: 8px;
-}
-
-.achieveLabel {
-  display: block;
-  font-size: 24px;
-  color: $color-text-tertiary;
-}
-
-.statsRow {
-  display: flex;
-  align-items: center;
+.cardHeaderWithBtn {
   padding: 32px 40px;
   border-bottom: 2px solid #ECEEF2;
-}
-
-.statMiniItem {
-  flex: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
-.statMiniVal {
-  font-size: 40px;
-  font-weight: bold;
-  color: $color-primary;
-}
-
-.statMiniLabel {
-  font-size: 24px;
-  color: $color-text-secondary;
-  margin-top: 8px;
-}
-
-.statMiniDivider {
-  width: 2px;
-  height: 48px;
-  background-color: #ECEEF2;
-}
-
-.chartTitle {
+.sectionTitleNoPadding {
   display: block;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
   color: $color-text-primary;
-  margin: 32px 40px;
 }
 
-.chartWrapper {
-  width: 100%;
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ================= 历史记录表格 ================= */
-.tableContainer {
-  padding: 0 40px 40px;
-}
-
-.tableHeader {
-  display: flex;
-  padding: 16px 0;
-  border-bottom: 2px solid #ECEEF2;
-}
-
-.th {
-  font-size: 24px;
-  color: $color-text-tertiary;
-  font-weight: 500;
-}
-
-.tableRow {
-  display: flex;
-  padding: 24px 0;
-  border-bottom: 1px solid #ECEEF2;
-  align-items: center;
-
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-.td {
-  font-size: 26px;
-  color: $color-text-secondary;
-}
-
-.thDate, .tdDate { flex: 2; }
-.thSubject, .tdSubject { flex: 3; }
-.thNum, .tdNum { flex: 1; text-align: center; }
-.thRate, .tdRate { flex: 1.5; text-align: right; }
-
-.subjectTag {
-  font-weight: 500;
-}
-
-.textSuccess {
-  color: $color-success;
-  font-weight: 500;
-}
-
-.emptyState {
-  padding: 64px 0;
-  text-align: center;
-}
-
-.emptyText {
+.editBtn {
   font-size: 28px;
-  color: $color-text-tertiary;
+  color: $color-primary;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.editBtnPrimary {
+  font-size: 28px;
+  color: #fff;
+  background-color: $color-primary;
+  padding: 12px 32px;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 48px;
+  padding: 40px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel {
+  font-size: 24px;
+  color: $color-text-secondary;
+  margin-bottom: 12px;
+}
+
+.formValue {
+  font-size: 32px;
+  font-weight: 500;
+  color: $color-text-primary;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.formInput {
+  height: 80px;
+  border: 2px solid #ECEEF2;
+  border-radius: 12px;
+  padding: 0 24px;
+  font-size: 28px;
+  background-color: #f9f9f9;
+}
+
+.formPicker {
+  height: 80px;
+  border: 2px solid #ECEEF2;
+  border-radius: 12px;
+  padding: 0 24px;
+  font-size: 28px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* ================= 设置 ================= */
