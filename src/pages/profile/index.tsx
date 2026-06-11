@@ -20,6 +20,7 @@ export default function ProfilePage() {
     dailyGoal: 20
   });
   const [isEditingPrep, setIsEditingPrep] = useState(false);
+  const uniList = ['东京大学', '京都大学', '早稻田大学', '庆应义塾大学', '大阪大学'];
 
   // 学习偏好设置
   const [learningPrefs, setLearningPrefs] = useState({
@@ -157,10 +158,16 @@ export default function ProfilePage() {
 
                   <View className={styles.formGroup}>
                     <Text className={styles.formLabel}>目标大学 (可选)</Text>
-                    <View className={styles.selectBox}>
-                      <Text>{prepConfig.targetUniversity}</Text>
-                      <Text style={{ color: '#9CA3B0' }}>▾</Text>
-                    </View>
+                    <Picker 
+                      mode="selector" 
+                      range={uniList} 
+                      onChange={(e) => setPrepConfig({...prepConfig, targetUniversity: uniList[e.detail.value as number]})}
+                    >
+                      <View className={styles.selectBox}>
+                        <Text>{prepConfig.targetUniversity}</Text>
+                        <Text style={{ color: '#9CA3B0' }}>▾</Text>
+                      </View>
+                    </Picker>
                   </View>
 
                   <View className={styles.formGroup}>
@@ -174,6 +181,7 @@ export default function ProfilePage() {
                         backgroundColor="#ECEEF2" 
                         blockColor="#3B6EC9" 
                         blockSize={24}
+                        onChanging={(e) => setPrepConfig({...prepConfig, dailyGoal: e.detail.value})}
                         onChange={(e) => setPrepConfig({...prepConfig, dailyGoal: e.detail.value})}
                       />
                       <Text className={styles.sliderVal}>{prepConfig.dailyGoal}题</Text>
@@ -297,6 +305,7 @@ export default function ProfilePage() {
                         backgroundColor="#ECEEF2" 
                         blockColor="#3B6EC9" 
                         blockSize={24}
+                        onChanging={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: e.detail.value})}
                         onChange={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: e.detail.value})}
                       />
                       <Text className={styles.sliderVal}>{learningPrefs.masteryThreshold}次</Text>
