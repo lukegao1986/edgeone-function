@@ -104,83 +104,372 @@
   padding: 32px 40px;
 }
 
-.cardHeaderWithBtn {
-  padding: 32px 40px;
-  border-bottom: 2px solid #ECEEF2;
+.cardHeaderComplex {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding: 32px 40px;
+  border-bottom: 2px solid #ECEEF2;
 }
 
-.sectionTitleNoPadding {
-  display: block;
+.headerTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerIconBox {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #EBF0FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+.headerIconBoxYellow {
+  background-color: #FFF8E7;
+}
+
+.headerTexts {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerTitle {
   font-size: 32px;
   font-weight: 600;
   color: $color-text-primary;
 }
 
-.editBtn {
+.headerSub {
+  font-size: 24px;
+  color: $color-text-tertiary;
+  margin-top: 4px;
+}
+
+.editText {
   font-size: 28px;
   color: $color-primary;
   cursor: pointer;
   padding: 8px 0;
 }
 
-.editBtnPrimary {
+.editingText {
   font-size: 28px;
-  color: #fff;
-  background-color: $color-primary;
-  padding: 12px 32px;
-  border-radius: 32px;
-  cursor: pointer;
+  color: $color-text-tertiary;
+  padding: 8px 0;
 }
 
-.formGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 48px;
+// View Mode
+.viewContent {
   padding: 40px;
 }
 
-.formRow {
+.statsRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.statItem {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.formLabel {
+.statLabel {
   font-size: 24px;
   color: $color-text-secondary;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.formValue {
+.statValue {
+  font-size: 40px;
+  font-weight: 600;
+  color: $color-text-primary;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.statValueRed {
+  color: #E04545;
+}
+.statValueBlue {
+  color: #3B6EC9;
+}
+
+.statSub {
+  font-size: 24px;
+  color: $color-text-tertiary;
+  font-weight: 400;
+}
+
+.statDivider {
+  width: 2px;
+  height: 64px;
+  background-color: #ECEEF2;
+  margin: 0 40px;
+}
+
+.subjectCards {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.subCard {
+  flex: 1;
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid transparent;
+}
+.subCardWhite {
+  background-color: #ffffff;
+  border-color: #ECEEF2;
+}
+.subCardGreen {
+  background-color: #F2F9F3;
+  border-color: #E6F4E8;
+}
+.subCardPurple {
+  background-color: #F8F4FD;
+  border-color: #F0E8FA;
+}
+
+.subCardTitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: $color-text-primary;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subTag {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 12px;
+  font-size: 20px;
+}
+.subTagGreen {
+  background-color: #E8F5E9;
+  color: #34A853;
+}
+.subDesc {
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+
+.targetUni {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 28px;
+  color: $color-text-secondary;
+}
+.targetUniVal {
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+// Learning Prefs View
+.prefGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.prefItem {
+  background-color: #FAFBFC;
+  border-radius: 16px;
+  padding: 24px;
+}
+.prefHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+.prefVal {
   font-size: 32px;
   font-weight: 500;
   color: $color-text-primary;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
+  padding-left: 36px;
 }
 
-.formInput {
-  height: 80px;
-  border: 2px solid #ECEEF2;
-  border-radius: 12px;
-  padding: 0 24px;
-  font-size: 28px;
-  background-color: #f9f9f9;
+// Edit Mode
+.editContent {
+  padding: 40px;
 }
 
-.formPicker {
-  height: 80px;
-  border: 2px solid #ECEEF2;
-  border-radius: 12px;
-  padding: 0 24px;
+.formGroup {
+  margin-bottom: 40px;
+}
+
+.formLabel {
+  display: block;
   font-size: 28px;
-  background-color: #f9f9f9;
+  color: $color-text-secondary;
+  margin-bottom: 16px;
+}
+
+.selectBox {
+  height: 88px;
+  border: 2px solid #ECEEF2;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 32px;
+  font-size: 32px;
+  color: $color-text-primary;
+  background-color: #ffffff;
+}
+
+.segmentControl {
+  display: flex;
+  gap: 24px;
+}
+.segmentItem {
+  flex: 1;
+  height: 88px;
+  border: 2px solid #ECEEF2;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: $color-text-secondary;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.segmentActive {
+  border-color: #3B6EC9;
+  background-color: #EBF0FA;
+  color: #3B6EC9;
+  font-weight: 500;
+}
+
+.sliderWrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.slider {
+  flex: 1;
+  margin: 0;
+}
+.sliderVal {
+  font-size: 32px;
+  font-weight: 600;
+  color: $color-text-primary;
+  min-width: 80px;
+  text-align: right;
+}
+
+.actionBtns {
+  display: flex;
+  gap: 24px;
+  margin-top: 48px;
+}
+.btnCancel {
+  flex: 1;
+  height: 88px;
+  border: 2px solid #ECEEF2;
+  border-radius: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: $color-text-secondary;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.btnSave {
+  flex: 2;
+  height: 88px;
+  border: none;
+  border-radius: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #ffffff;
+  background-color: #3B6EC9;
+  cursor: pointer;
+}
+
+.timeTags {
+  display: flex;
+  gap: 16px;
+}
+.timeTag {
+  padding: 12px 24px;
+  border: 2px solid #ECEEF2;
+  border-radius: 32px;
+  font-size: 28px;
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.listOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.listOption {
+  height: 88px;
+  border: 2px solid #ECEEF2;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  font-size: 32px;
+  color: $color-text-secondary;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.listOptionActive {
+  border-color: #3B6EC9;
+  background-color: #EBF0FA;
+  color: #3B6EC9;
+  font-weight: 500;
+}
+
+.diffControl {
+  display: flex;
+  gap: 24px;
+}
+.diffItem {
+  flex: 1;
+  border: 2px solid #ECEEF2;
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+}
+.diffActive {
+  border-color: #3B6EC9;
+  background-color: #EBF0FA;
+}
+.diffTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: $color-text-primary;
+  margin-bottom: 8px;
+}
+.diffActive .diffTitle {
+  color: #3B6EC9;
+}
+.diffSub {
+  font-size: 24px;
+  color: $color-text-secondary;
 }
 
 /* ================= 设置 ================= */
