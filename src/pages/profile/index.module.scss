@@ -360,6 +360,8 @@
   display: flex;
   align-items: center;
   gap: 24px;
+  /* 确保外层容器不裁剪溢出的圆形手柄 */
+  overflow: visible;
 }
 .slider {
   flex: 1;
@@ -381,11 +383,18 @@
 /* HTML 原生滑块的样式 */
 .nativeRange {
   flex: 1;
+  /* 清除可能存在的额外样式干扰 */
+  margin: 0;
+  padding: 0;
+  border: none;
+  
   height: 8px;
-  background: #ECEEF2;
+  background: transparent; /* 轨道背景由 track 提供 */
   border-radius: 4px;
-  appearance: none;
-  -webkit-appearance: none;
+  
+  /* 最关键的一步：必须清除浏览器默认外观 */
+  appearance: none !important;
+  -webkit-appearance: none !important;
   outline: none;
   cursor: pointer;
 }
@@ -399,15 +408,17 @@
 }
 
 .nativeRange::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 32px; /* 与文字大小匹配的更大直径 */
+  /* 必须在 thumb 上再次清除外观 */
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  
+  width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 50% !important; /* 强制正圆形 */
   background: #3B6EC9;
   cursor: grab;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-top: -12px; /* 修正垂直居中 (32-8)/2 */
+  margin-top: -12px; /* 修正垂直居中: (32-8)/2 */
 }
 
 .nativeRange::-webkit-slider-thumb:active {
@@ -426,7 +437,7 @@
 .nativeRange::-moz-range-thumb {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   background: #3B6EC9;
   cursor: grab;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
