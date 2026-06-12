@@ -355,6 +355,7 @@
   font-weight: 500;
 }
 
+/* 针对原生 input[type="range"] 样式的彻底替换 */
 .sliderWrap {
   display: flex;
   align-items: center;
@@ -366,27 +367,42 @@
   height: 48px;
   display: flex;
   align-items: center;
-  position: relative; /* 添加定位 */
-  z-index: 10; /* 提高层级 */
 }
-/* 强制修复 H5 下滑块的鼠标交互样式 */
-:global(.weui-slider__handler) {
-  cursor: grab !important;
-  z-index: 20 !important;
-  pointer-events: auto !important; /* 确保能响应事件 */
-}
-:global(.weui-slider__handler:active) {
-  cursor: grabbing !important;
-}
-:global(.weui-slider) {
-  width: 100%;
-}
+
+/* 隐藏所有 Taro Slider 相关的全局代码，避免冲突 */
 .sliderVal {
   font-size: 32px;
   font-weight: 600;
   color: $color-text-primary;
   min-width: 80px;
   text-align: right;
+}
+
+/* HTML 原生滑块的样式 */
+.nativeRange {
+  flex: 1;
+  height: 8px;
+  background: #ECEEF2;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.nativeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3B6EC9;
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nativeRange::-webkit-slider-thumb:active {
+  cursor: grabbing;
 }
 
 .actionBtns {
