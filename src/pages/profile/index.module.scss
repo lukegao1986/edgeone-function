@@ -390,18 +390,50 @@
   cursor: pointer;
 }
 
+.nativeRange::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ECEEF2;
+  border-radius: 4px;
+}
+
 .nativeRange::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 32px; /* 与文字大小匹配的更大直径 */
+  height: 32px;
   border-radius: 50%;
   background: #3B6EC9;
   cursor: grab;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: -12px; /* 修正垂直居中 (32-8)/2 */
 }
 
 .nativeRange::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+/* 兼容 Firefox */
+.nativeRange::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ECEEF2;
+  border-radius: 4px;
+}
+
+.nativeRange::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #3B6EC9;
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.nativeRange::-moz-range-thumb:active {
   cursor: grabbing;
 }
 
