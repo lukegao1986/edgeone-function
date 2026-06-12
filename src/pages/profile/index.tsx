@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Switch, Slider } from '@tarojs/components';
+import { View, Text, ScrollView, Switch, Slider, Picker } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
 import Navbar from '@/components/Navbar';
@@ -181,8 +181,8 @@ export default function ProfilePage() {
                         backgroundColor="#ECEEF2" 
                         blockColor="#3B6EC9" 
                         blockSize={24}
-                        onChanging={(e) => setPrepConfig({...prepConfig, dailyGoal: e.detail.value})}
-                        onChange={(e) => setPrepConfig({...prepConfig, dailyGoal: e.detail.value})}
+                        onChanging={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt(e.detail.value as any)})}
+                        onChange={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt(e.detail.value as any)})}
                       />
                       <Text className={styles.sliderVal}>{prepConfig.dailyGoal}题</Text>
                     </View>
@@ -305,8 +305,8 @@ export default function ProfilePage() {
                         backgroundColor="#ECEEF2" 
                         blockColor="#3B6EC9" 
                         blockSize={24}
-                        onChanging={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: e.detail.value})}
-                        onChange={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: e.detail.value})}
+                        onChanging={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt(e.detail.value as any)})}
+                        onChange={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt(e.detail.value as any)})}
                       />
                       <Text className={styles.sliderVal}>{learningPrefs.masteryThreshold}次</Text>
                     </View>
