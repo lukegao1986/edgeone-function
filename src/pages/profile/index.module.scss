@@ -388,7 +388,7 @@
   padding: 0;
   border: none;
   
-  height: 8px;
+  /* 完全移除 height 属性，让浏览器自己决定原生 input 的高度 */
   background: transparent; /* 轨道背景由 track 提供 */
   border-radius: 4px;
   
