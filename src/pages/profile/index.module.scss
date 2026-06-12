@@ -363,9 +363,23 @@
 .slider {
   flex: 1;
   margin: 0;
-  height: 48px; /* Taro H5 中必须给 Slider 容器足够的高度，否则事件容易被遮挡或无法触发 */
+  height: 48px;
   display: flex;
   align-items: center;
+  position: relative; /* 添加定位 */
+  z-index: 10; /* 提高层级 */
+}
+/* 强制修复 H5 下滑块的鼠标交互样式 */
+:global(.weui-slider__handler) {
+  cursor: grab !important;
+  z-index: 20 !important;
+  pointer-events: auto !important; /* 确保能响应事件 */
+}
+:global(.weui-slider__handler:active) {
+  cursor: grabbing !important;
+}
+:global(.weui-slider) {
+  width: 100%;
 }
 .sliderVal {
   font-size: 32px;

@@ -161,7 +161,12 @@ export default function ProfilePage() {
                     <Picker 
                       mode="selector" 
                       range={uniList} 
-                      onChange={(e) => setPrepConfig({...prepConfig, targetUniversity: uniList[e.detail.value as number]})}
+                      onChange={(e) => {
+                        const index = parseInt(e.detail.value as string, 10);
+                        if (!isNaN(index) && uniList[index]) {
+                          setPrepConfig({...prepConfig, targetUniversity: uniList[index]});
+                        }
+                      }}
                     >
                       <View className={styles.selectBox}>
                         <Text>{prepConfig.targetUniversity}</Text>
