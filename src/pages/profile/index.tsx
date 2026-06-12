@@ -185,6 +185,7 @@ export default function ProfilePage() {
                         min={5} max={100} 
                         step={5}
                         onChange={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt(e.target.value, 10)})}
+                        onInput={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt((e.target as any).value, 10)})}
                       />
                       <Text className={styles.sliderVal}>{prepConfig.dailyGoal}题</Text>
                     </View>
@@ -306,6 +307,7 @@ export default function ProfilePage() {
                         min={1} max={5} 
                         step={1}
                         onChange={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt(e.target.value, 10)})}
+                        onInput={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt((e.target as any).value, 10)})}
                       />
                       <Text className={styles.sliderVal}>{learningPrefs.masteryThreshold}次</Text>
                     </View>
