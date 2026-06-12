@@ -177,6 +177,7 @@ export default function ProfilePage() {
                         className={styles.slider}
                         value={prepConfig.dailyGoal} 
                         min={5} max={100} 
+                        step={5}
                         activeColor="#3B6EC9" 
                         backgroundColor="#ECEEF2" 
                         blockColor="#3B6EC9" 
@@ -301,6 +302,7 @@ export default function ProfilePage() {
                         className={styles.slider}
                         value={learningPrefs.masteryThreshold} 
                         min={1} max={5} 
+                        step={1}
                         activeColor="#3B6EC9" 
                         backgroundColor="#ECEEF2" 
                         blockColor="#3B6EC9" 

@@ -363,6 +363,9 @@
 .slider {
   flex: 1;
   margin: 0;
+  height: 48px; /* Taro H5 中必须给 Slider 容器足够的高度，否则事件容易被遮挡或无法触发 */
+  display: flex;
+  align-items: center;
 }
 .sliderVal {
   font-size: 32px;
