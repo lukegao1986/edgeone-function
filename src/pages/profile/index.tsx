@@ -1,10 +1,84 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Switch, Slider, Picker } from '@tarojs/components';
+import { View, Text, ScrollView, Switch, Slider as TaroSlider, Picker } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import styles from './index.module.scss';
+
+function CustomSlider({ value, min, max, step, onChange }: { value: number, min: number, max: number, step: number, onChange: (v: number) => void }) {
+  const [isDragging, setIsDragging] = useState(false);
+  const id = React.useMemo(() => 'slider_' + Math.random().toString(36).substr(2, 9), []);
+
+  const updateValue = React.useCallback((clientX: number) => {
+    if (typeof document === 'undefined') return;
+    const el = document.getElementById(id);
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      let percent = (clientX - rect.left) / rect.width;
+      percent = Math.max(0, Math.min(1, percent));
+      let val = min + percent * (max - min);
+      val = Math.round(val / step) * step;
+      onChange(val);
+    }
+  }, [id, min, max, step, onChange]);
+
+  const handleTouchStart = (e: any) => {
+    if (e.touches && e.touches[0]) updateValue(e.touches[0].clientX);
+  };
+  const handleTouchMove = (e: any) => {
+    if (e.touches && e.touches[0]) updateValue(e.touches[0].clientX);
+  };
+  const handleMouseDown = (e: any) => {
+    setIsDragging(true);
+    updateValue(e.clientX);
+  };
+
+  React.useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging) updateValue(e.clientX);
+    };
+    const handleMouseUp = () => setIsDragging(false);
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, updateValue]);
+
+  if (process.env.TARO_ENV !== 'h5') {
+    return (
+      <TaroSlider 
+        value={value} min={min} max={max} step={step}
+        activeColor="#3B6EC9" backgroundColor="#ECEEF2" blockColor="#3B6EC9" blockSize={24}
+        onChanging={(e) => onChange(parseInt(e.detail.value as any))}
+        onChange={(e) => onChange(parseInt(e.detail.value as any))}
+        className={styles.slider}
+      />
+    );
+  }
+
+  const percent = Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
+
+  return (
+    <View 
+      id={id}
+      className={styles.customSliderContainer}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      // @ts-ignore
+      onMouseDown={handleMouseDown}
+    >
+      <View className={styles.customSliderTrack} />
+      <View className={styles.customSliderFill} style={{ width: `${percent}%` }} />
+      <View className={styles.customSliderThumb} style={{ left: `${percent}%` }} />
+    </View>
+  );
+}
 
 export default function ProfilePage() {
   // 系统设置状态
@@ -178,17 +252,11 @@ export default function ProfilePage() {
                   <View className={styles.formGroup}>
                     <Text className={styles.formLabel}>每日目标题数</Text>
                     <View className={styles.sliderWrap}>
-                      <Slider 
-                        className={styles.slider}
+                      <CustomSlider 
                         value={prepConfig.dailyGoal} 
                         min={5} max={100} 
                         step={5}
-                        activeColor="#3B6EC9" 
-                        backgroundColor="#ECEEF2" 
-                        blockColor="#3B6EC9" 
-                        blockSize={24}
-                        onChanging={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt(e.detail.value as any)})}
-                        onChange={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt(e.detail.value as any)})}
+                        onChange={(val) => setPrepConfig({...prepConfig, dailyGoal: val})}
                       />
                       <Text className={styles.sliderVal}>{prepConfig.dailyGoal}题</Text>
                     </View>
@@ -303,17 +371,11 @@ export default function ProfilePage() {
                   <View className={styles.formGroup}>
                     <Text className={styles.formLabel}>错题掌握阈值 (连续答对几次移除错题)</Text>
                     <View className={styles.sliderWrap}>
-                      <Slider 
-                        className={styles.slider}
+                      <CustomSlider 
                         value={learningPrefs.masteryThreshold} 
                         min={1} max={5} 
                         step={1}
-                        activeColor="#3B6EC9" 
-                        backgroundColor="#ECEEF2" 
-                        blockColor="#3B6EC9" 
-                        blockSize={24}
-                        onChanging={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt(e.detail.value as any)})}
-                        onChange={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt(e.detail.value as any)})}
+                        onChange={(val) => setLearningPrefs({...learningPrefs, masteryThreshold: val})}
                       />
                       <Text className={styles.sliderVal}>{learningPrefs.masteryThreshold}次</Text>
                     </View>
