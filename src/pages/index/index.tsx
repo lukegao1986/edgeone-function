@@ -45,92 +45,94 @@ export default function LandingPage() {
         
         {/* Hero 区域 */}
         <View className={styles.heroSection}>
-          <View className={styles.heroTextWrap}>
-            <View className={styles.heroTag}>
-              <Text className={styles.heroTagIcon}>✨</Text>
-              <Text>2025年度 EJU备考利器</Text>
-            </View>
-            <Text className={styles.heroTitle}>为EJU考生<br/><Text className={styles.heroTitleHighlight}>量身打造</Text>的智能刷题平台</Text>
-            <Text className={styles.heroSubtitle}>
-              覆盖日语、文综、数学、理科全科题库。AI薄弱点诊断、知识图谱追踪、全真模考——让每一分钟备考都高效。
-            </Text>
-            <View className={styles.heroActions}>
-              <View className={styles.heroBtn} onClick={() => openAuth('register')}>
-                免费开始 <Text className={styles.arrowIcon}>→</Text>
+          <View className={styles.heroContainer}>
+            <View className={styles.heroTextWrap}>
+              <View className={styles.heroTag}>
+                <Text className={styles.heroTagIcon}>✨</Text>
+                <Text>2025年度 EJU备考利器</Text>
               </View>
-              <View className={styles.heroBtnOutline} onClick={() => openAuth('login')}>
-                已有账号？登录
-              </View>
-            </View>
-            <View className={styles.heroFeatures}>
-              <View className={styles.heroFeatureItem}>
-                <Text className={styles.checkIcon}>✓</Text>全科题库
-              </View>
-              <View className={styles.heroFeatureItem}>
-                <Text className={styles.checkIcon}>✓</Text>AI诊断
-              </View>
-              <View className={styles.heroFeatureItem}>
-                <Text className={styles.checkIcon}>✓</Text>真题模考
-              </View>
-            </View>
-          </View>
-          <View className={styles.heroImageWrap}>
-            <View className={styles.mockDashboardContainer}>
-              {/* 模拟的 Dashboard 界面 */}
-              <View className={styles.mockDashboardCard}>
-                <View className={styles.mockWindowControls}>
-                  <View className={styles.mockDotRed} />
-                  <View className={styles.mockDotYellow} />
-                  <View className={styles.mockDotGreen} />
-                  <Text className={styles.mockWindowTitle}>EJU Pro · 学习大厅</Text>
+              <Text className={styles.heroTitle}>为EJU考生<br/><Text className={styles.heroTitleHighlight}>量身打造</Text>的智能刷题平台</Text>
+              <Text className={styles.heroSubtitle}>
+                覆盖日语、文综、数学、理科全科题库。AI薄弱点诊断、知识图谱追踪、全真模考——让每一分钟备考都高效。
+              </Text>
+              <View className={styles.heroActions}>
+                <View className={styles.heroBtn} onClick={() => openAuth('register')}>
+                  免费开始 <Text className={styles.arrowIcon}>→</Text>
                 </View>
-                
-                <View className={styles.mockStatsGrid}>
-                  <View className={styles.mockStatItem}>
-                    <Text className={styles.mockStatVal}>12</Text>
-                    <Text className={styles.mockStatLabel}>今日刷题</Text>
+                <View className={styles.heroBtnOutline} onClick={() => openAuth('login')}>
+                  已有账号？登录
+                </View>
+              </View>
+              <View className={styles.heroFeatures}>
+                <View className={styles.heroFeatureItem}>
+                  <Text className={styles.checkIcon}>✓</Text>全科题库
+                </View>
+                <View className={styles.heroFeatureItem}>
+                  <Text className={styles.checkIcon}>✓</Text>AI诊断
+                </View>
+                <View className={styles.heroFeatureItem}>
+                  <Text className={styles.checkIcon}>✓</Text>真题模考
+                </View>
+              </View>
+            </View>
+            <View className={styles.heroImageWrap}>
+              <View className={styles.mockDashboardContainer}>
+                {/* 模拟的 Dashboard 界面 */}
+                <View className={styles.mockDashboardCard}>
+                  <View className={styles.mockWindowControls}>
+                    <View className={styles.mockDotRed} />
+                    <View className={styles.mockDotYellow} />
+                    <View className={styles.mockDotGreen} />
+                    <Text className={styles.mockWindowTitle}>EJU Pro · 学习大厅</Text>
                   </View>
-                  <View className={styles.mockStatItem}>
-                    <Text className={styles.mockStatVal}>1286</Text>
-                    <Text className={styles.mockStatLabel}>累计刷题</Text>
+                  
+                  <View className={styles.mockStatsGrid}>
+                    <View className={styles.mockStatItem}>
+                      <Text className={styles.mockStatVal}>12</Text>
+                      <Text className={styles.mockStatLabel}>今日刷题</Text>
+                    </View>
+                    <View className={styles.mockStatItem}>
+                      <Text className={styles.mockStatVal}>1286</Text>
+                      <Text className={styles.mockStatLabel}>累计刷题</Text>
+                    </View>
+                    <View className={styles.mockStatItem}>
+                      <Text className={styles.mockStatVal}>78%</Text>
+                      <Text className={styles.mockStatLabel}>正确率</Text>
+                    </View>
+                    <View className={styles.mockStatItem}>
+                      <Text className={styles.mockStatVal}>5天</Text>
+                      <Text className={styles.mockStatLabel}>连续学习</Text>
+                    </View>
                   </View>
-                  <View className={styles.mockStatItem}>
-                    <Text className={styles.mockStatVal}>78%</Text>
-                    <Text className={styles.mockStatLabel}>正确率</Text>
+
+                  <View className={styles.mockProgressSection}>
+                    <Text className={styles.mockProgressLabel}>预定进度 100% · 实际进度 64%</Text>
+                    <View className={styles.mockProgressBarBg}>
+                      <View className={styles.mockProgressBarFill} style={{ width: '64%' }} />
+                    </View>
                   </View>
-                  <View className={styles.mockStatItem}>
-                    <Text className={styles.mockStatVal}>5天</Text>
-                    <Text className={styles.mockStatLabel}>连续学习</Text>
+
+                  <View className={styles.mockSubjectGrid}>
+                    <View className={styles.mockSubjectItemJapanese}>
+                      <View className={styles.mockRingJapanese} />
+                      <Text className={styles.mockSubjectLabel}>日语 75%</Text>
+                    </View>
+                    <View className={styles.mockSubjectItemMath}>
+                      <View className={styles.mockRingMath} />
+                      <Text className={styles.mockSubjectLabel}>数学 68%</Text>
+                    </View>
+                    <View className={styles.mockSubjectItemScience}>
+                      <View className={styles.mockRingScience} />
+                      <Text className={styles.mockSubjectLabel}>理综 72%</Text>
+                    </View>
                   </View>
                 </View>
 
-                <View className={styles.mockProgressSection}>
-                  <Text className={styles.mockProgressLabel}>预定进度 100% · 实际进度 64%</Text>
-                  <View className={styles.mockProgressBarBg}>
-                    <View className={styles.mockProgressBarFill} style={{ width: '64%' }} />
-                  </View>
+                {/* 悬浮小组件 */}
+                <View className={styles.mockFloatingStreak}>+5 连续打卡</View>
+                <View className={styles.mockFloatingAccuracy}>
+                  <Text className={styles.mockChartIcon}>📊</Text> 本周正确率 82%
                 </View>
-
-                <View className={styles.mockSubjectGrid}>
-                  <View className={styles.mockSubjectItemJapanese}>
-                    <View className={styles.mockRingJapanese} />
-                    <Text className={styles.mockSubjectLabel}>日语 75%</Text>
-                  </View>
-                  <View className={styles.mockSubjectItemMath}>
-                    <View className={styles.mockRingMath} />
-                    <Text className={styles.mockSubjectLabel}>数学 68%</Text>
-                  </View>
-                  <View className={styles.mockSubjectItemScience}>
-                    <View className={styles.mockRingScience} />
-                    <Text className={styles.mockSubjectLabel}>理综 72%</Text>
-                  </View>
-                </View>
-              </View>
-
-              {/* 悬浮小组件 */}
-              <View className={styles.mockFloatingStreak}>+5 连续打卡</View>
-              <View className={styles.mockFloatingAccuracy}>
-                <Text className={styles.mockChartIcon}>📊</Text> 本周正确率 82%
               </View>
             </View>
           </View>

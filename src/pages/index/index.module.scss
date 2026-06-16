@@ -98,6 +98,16 @@
 /* ================= Hero Section ================= */
 .heroSection {
   padding: 120px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff; /* 确保背景色延伸 */
+  
+  @media screen and (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.heroContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +117,6 @@
   
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
-    padding: 60px 20px;
     text-align: center;
     gap: 40px;
   }
