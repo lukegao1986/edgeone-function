@@ -117,28 +117,62 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  border-radius: 999px;
+  background-color: rgba(59, 110, 201, 0.1);
+  color: $color-primary;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  width: fit-content;
+}
+
+.heroTagIcon {
+  font-size: 28px;
 }
 
 .heroTitle {
-  font-size: 64px;
-  font-weight: 800;
-  color: $color-text-primary;
+  font-size: 80px;
+  font-weight: bold;
+  color: #1A1D23;
   line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+.heroTitleHighlight {
+  color: $color-primary;
 }
 
 .heroSubtitle {
   font-size: 32px;
-  color: $color-text-secondary;
-  line-height: 1.5;
-  margin-bottom: 16px;
+  color: #5C6170;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 800px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .heroBtn {
   @include button-reset;
-  width: fit-content;
   height: 96px;
-  padding: 0 64px;
+  padding: 0 48px;
   border-radius: 48px;
   font-size: 32px;
   font-weight: bold;
@@ -146,16 +180,71 @@
   background-color: $color-primary;
   box-shadow: 0 8px 24px rgba(22, 93, 255, 0.3);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   
   @media screen and (max-width: 768px) {
     width: 100%;
   }
   
   &:hover {
+    background-color: $color-primary-dark;
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(22, 93, 255, 0.4);
   }
+}
+
+.arrowIcon {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.heroBtnOutline {
+  @include button-reset;
+  height: 96px;
+  padding: 0 48px;
+  border-radius: 48px;
+  font-size: 32px;
+  font-weight: bold;
+  color: $color-primary;
+  border: 3px solid $color-primary;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+  
+  &:hover {
+    background-color: rgba(59, 110, 201, 0.05);
+  }
+}
+
+.heroFeatures {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.heroFeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 26px;
+  color: #9CA3B0;
+}
+
+.checkIcon {
+  color: #34A853;
+  font-weight: bold;
 }
 
 .heroImageWrap {
@@ -163,19 +252,188 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.heroImagePlaceholder {
+/* ================= 模拟 Dashboard 样式 ================= */
+.mockDashboardContainer {
+  position: relative;
   width: 100%;
-  max-width: 500px;
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e6efff 100%);
-  border-radius: 50%;
+  max-width: 700px;
+}
+
+.mockDashboardCard {
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E2E5EA;
+  padding: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.mockWindowControls {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 160px;
-  box-shadow: 0 24px 48px rgba(59, 110, 201, 0.1);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.mockDotRed { width: 16px; height: 16px; border-radius: 50%; background-color: #E04545; }
+.mockDotYellow { width: 16px; height: 16px; border-radius: 50%; background-color: #F5A623; }
+.mockDotGreen { width: 16px; height: 16px; border-radius: 50%; background-color: #34A853; }
+
+.mockWindowTitle {
+  margin-left: 16px;
+  font-size: 22px;
+  color: #9CA3B0;
+}
+
+.mockStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mockStatItem {
+  background-color: #F4F5F7;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.mockStatVal {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: $color-primary;
+  margin-bottom: 4px;
+}
+
+.mockStatLabel {
+  font-size: 18px;
+  color: #9CA3B0;
+}
+
+.mockProgressSection {
+  background-color: #F4F5F7;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.mockProgressLabel {
+  font-size: 20px;
+  color: #9CA3B0;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.mockProgressBarBg {
+  width: 100%;
+  height: 12px;
+  background-color: #ECEEF2;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mockProgressBarFill {
+  height: 100%;
+  background-color: #E04545;
+  border-radius: 6px;
+}
+
+.mockSubjectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@mixin mockSubjectItem {
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mockSubjectItemJapanese {
+  @include mockSubjectItem;
+  background-color: #EBF0FA;
+}
+
+.mockSubjectItemMath {
+  @include mockSubjectItem;
+  background-color: #F2EDF9;
+}
+
+.mockSubjectItemScience {
+  @include mockSubjectItem;
+  background-color: #FDECEC;
+}
+
+@mixin mockRing {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid;
+  border-top-color: transparent !important;
+  margin-bottom: 12px;
+}
+
+.mockRingJapanese { @include mockRing; border-color: #3B6EC9; transform: rotate(45deg); }
+.mockRingMath { @include mockRing; border-color: #8B6DC9; transform: rotate(90deg); }
+.mockRingScience { @include mockRing; border-color: #E04545; transform: rotate(120deg); }
+
+.mockSubjectLabel {
+  font-size: 20px;
+  color: #9CA3B0;
+}
+
+/* 悬浮组件 */
+.mockFloatingStreak {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  background-color: #34A853;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 32px;
+  box-shadow: 0 8px 24px rgba(52, 168, 83, 0.3);
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+.mockFloatingAccuracy {
+  position: absolute;
+  bottom: -24px;
+  left: -24px;
+  background-color: #ffffff;
+  border: 2px solid #E2E5EA;
+  color: #1A1D23;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 16px 24px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: float 4s ease-in-out infinite reverse;
+}
+
+.mockChartIcon {
+  color: $color-primary;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 /* ================= Features Section ================= */
