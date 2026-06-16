@@ -111,7 +111,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 1200px;
   margin: 0 auto;
   gap: 80px;
   
@@ -126,6 +125,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-left: 20%;
 }
 
 .heroTag {
@@ -152,6 +152,7 @@
   color: #1A1D23;
   line-height: 1.2;
   margin-bottom: 32px;
+  width: 80%;
 }
 
 .heroTitleHighlight {
@@ -268,7 +269,7 @@
 .mockDashboardContainer {
   position: relative;
   width: 100%;
-  max-width: 700px;
+  max-width: 25rem;
 }
 
 .mockDashboardCard {
