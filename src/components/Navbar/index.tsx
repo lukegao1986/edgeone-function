@@ -13,7 +13,7 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigateTo = (url: string) => {
-    const tabPages = ['/pages/dashboard/index', '/pages/errorbook/index', '/pages/profile/index'];
+    const tabPages = ['/pages/dashboard/index', '/pages/errorbook/index', '/pages/notes/index', '/pages/profile/index'];
     if (tabPages.includes(url)) {
       Taro.switchTab({ url });
     } else {
@@ -53,6 +53,10 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
         <Text className={styles.brandName}>EJU Pro</Text>
       </View>
       <View className={styles.navRight}>
+        <View className={styles.errorBookBtn} onClick={() => navigateTo('/pages/notes/index')}>
+          <Text className={styles.errorBookIcon}>📝</Text>
+          <Text className={styles.errorBookText}>笔记</Text>
+        </View>
         <View className={styles.errorBookBtn} onClick={() => navigateTo('/pages/errorbook/index')}>
           <Text className={styles.errorBookIcon}>📖</Text>
           <Text className={styles.errorBookText}>错题本</Text>

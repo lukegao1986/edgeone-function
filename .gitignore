@@ -4,3 +4,8 @@ node_modules/
 
 kimi_reference/
 docs/
+# Tencent Cloud EdgeOne
+.env
+.edgeone/*
+.tef_dist/*
+  

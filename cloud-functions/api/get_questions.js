@@ -30,8 +30,9 @@ export default async function onRequestGet(context) {
       [subjectId]
     );
 
-    // 如果传了 userId，顺便把用户在这个科目的答题记录也带回去
+    // 如果传了 userId，顺便把用户在这个科目的答题记录和笔记也带回去
     let userAnswers = {};
+    let userNotes = {};
     if (userId) {
       const [ansRows] = await connection.execute(
         'SELECT question_id, selected_index, is_correct, is_bookmarked FROM user_answers WHERE user_id = ? AND subject_id = ?',
@@ -42,6 +43,17 @@ export default async function onRequestGet(context) {
           selectedIndex: row.selected_index,
           isCorrect: Boolean(row.is_correct),
           isBookmarked: Boolean(row.is_bookmarked)
+        };
+      });
+
+      const [noteRows] = await connection.execute(
+        'SELECT question_id, content, updated_at FROM question_notes WHERE user_id = ? AND subject_id = ?',
+        [userId, subjectId]
+      );
+      noteRows.forEach(row => {
+        userNotes[row.question_id] = {
+          content: row.content,
+          updatedAt: row.updated_at
         };
       });
     }
@@ -62,7 +74,8 @@ export default async function onRequestGet(context) {
     return new Response(JSON.stringify({
       success: true,
       data: formattedQuestions,
-      userAnswers: userAnswers // 把历史答题记录返回给前端
+      userAnswers: userAnswers, // 把历史答题记录返回给前端
+      userNotes: userNotes // 把用户笔记返回给前端
     }), {
       headers: { "Content-Type": "application/json; charset=utf-8" }
     });

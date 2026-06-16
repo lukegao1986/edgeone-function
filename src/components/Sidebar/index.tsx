@@ -14,7 +14,7 @@ interface SidebarProps {
 export default function Sidebar({ activePage, activeSubject, onSubjectClick }: SidebarProps) {
 
   const navigateTo = (url: string) => {
-    const tabPages = ['/pages/dashboard/index', '/pages/errorbook/index', '/pages/profile/index'];
+    const tabPages = ['/pages/dashboard/index', '/pages/errorbook/index', '/pages/notes/index', '/pages/profile/index'];
     if (tabPages.includes(url)) {
       Taro.switchTab({ url });
     } else {
@@ -39,6 +39,13 @@ export default function Sidebar({ activePage, activeSubject, onSubjectClick }: S
         >
           <Text className={styles.icon}>📊</Text>
           <Text className={styles.label}>学习大厅</Text>
+        </View>
+        <View 
+          className={classnames(styles.navItem, activePage === 'notes' && styles.activeItem)}
+          onClick={() => navigateTo('/pages/notes/index')}
+        >
+          <Text className={styles.icon}>📝</Text>
+          <Text className={styles.label}>学习笔记</Text>
         </View>
 
         <View className={styles.divider}>

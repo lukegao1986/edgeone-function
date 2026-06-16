@@ -1,0 +1,288 @@
+@import "../../styles/variables.scss";
+@import "../../styles/compat.scss";
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  background-color: #ffffff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  padding: 32px 40px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e6efff 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ECEEF2;
+}
+
+.titleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aiIcon {
+  font-size: 40px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: $color-primary-dark;
+}
+
+.closeBtn {
+  font-size: 48px;
+  color: $color-text-secondary;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+  
+  &:hover {
+    color: $color-error;
+  }
+}
+
+.modalBody {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 成绩总览 */
+.scoreSection {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding: 24px 32px;
+  border-radius: 16px;
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scoreLabel {
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+
+.scoreVal {
+  font-size: 36px;
+  font-weight: bold;
+  color: $color-text-primary;
+}
+
+.scoreValSuccess {
+  @extend .scoreVal;
+  color: $color-success;
+}
+
+.scoreValError {
+  @extend .scoreVal;
+  color: $color-error;
+}
+
+.scoreValPrimary {
+  @extend .scoreVal;
+  color: $color-primary;
+}
+
+/* 章节标题通用 */
+.sectionTitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: $color-text-primary;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 24px;
+    background-color: $color-primary;
+    border-radius: 3px;
+  }
+}
+
+/* 薄弱点诊断 */
+.diagnosisList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.diagnosisCard {
+  background-color: #fffaf5;
+  border: 1px solid #ffe8d6;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.diagHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.diagCategory {
+  font-size: 26px;
+  font-weight: 500;
+  color: #d97706;
+}
+
+.diagErrorCount {
+  font-size: 24px;
+  color: $color-error;
+  background-color: #fef2f2;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.diagAdvice {
+  font-size: 26px;
+  color: $color-text-secondary;
+  line-height: 1.5;
+}
+
+/* 推荐学习资源 */
+.resourceList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resourceItem {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #e5e7eb;
+  }
+}
+
+.resourceIcon {
+  font-size: 32px;
+  margin-right: 16px;
+}
+
+.resourceInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.resourceTitle {
+  font-size: 26px;
+  color: $color-primary;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.resourceType {
+  font-size: 22px;
+  color: $color-text-tertiary;
+}
+
+.resourceArrow {
+  font-size: 24px;
+  color: $color-text-tertiary;
+}
+
+/* 底部操作 */
+.modalFooter {
+  padding: 24px 40px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ECEEF2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerLeft {
+  display: flex;
+  gap: 16px;
+}
+
+.btnSecondary {
+  @include button-reset;
+  height: 72px;
+  padding: 0 32px;
+  border-radius: 36px;
+  background-color: #ffffff;
+  border: 1px solid #E2E5EA;
+  color: $color-text-primary;
+  font-size: 26px;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: #f3f4f6;
+  }
+}
+
+.btnPrimary {
+  @include button-reset;
+  height: 72px;
+  padding: 0 40px;
+  border-radius: 36px;
+  background-color: $color-primary;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3);
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}

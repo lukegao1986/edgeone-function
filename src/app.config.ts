@@ -4,6 +4,7 @@ export default defineAppConfig({
     'pages/register/index',
     'pages/dashboard/index',
     'pages/errorbook/index',
+    'pages/notes/index',
     'pages/profile/index',
     'pages/practice/index'
   ],
@@ -26,6 +27,10 @@ export default defineAppConfig({
       {
         pagePath: 'pages/errorbook/index',
         text: '错题本'
+      },
+      {
+        pagePath: 'pages/notes/index',
+        text: '笔记'
       },
       {
         pagePath: 'pages/profile/index',
