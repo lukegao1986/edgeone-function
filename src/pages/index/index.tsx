@@ -31,13 +31,15 @@ export default function LandingPage() {
     <View className={styles.pageContainer}>
       {/* 顶部固定导航 */}
       <View className={styles.header}>
-        <View className={styles.logoBox}>
-          <Text className={styles.logoIcon}>🎓</Text>
-          <Text className={styles.logoText}>EJU Pro</Text>
-        </View>
-        <View className={styles.navRight}>
-          <View className={styles.btnLogin} onClick={() => openAuth('login')}>登录</View>
-          <View className={styles.btnRegister} onClick={() => openAuth('register')}>注册</View>
+        <View className={styles.headerContainer}>
+          <View className={styles.logoBox}>
+            <Text className={styles.logoIcon}>🎓</Text>
+            <Text className={styles.logoText}>EJU Pro</Text>
+          </View>
+          <View className={styles.navRight}>
+            <View className={styles.btnLogin} onClick={() => openAuth('login')}>登录</View>
+            <View className={styles.btnRegister} onClick={() => openAuth('register')}>注册</View>
+          </View>
         </View>
       </View>
 
