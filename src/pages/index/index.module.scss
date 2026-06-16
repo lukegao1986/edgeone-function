@@ -122,10 +122,11 @@
 }
 
 .heroTextWrap {
-  flex: 1;
+  flex: 0 0 80%;
   display: flex;
   flex-direction: column;
   padding-left: 20%;
+  box-sizing: border-box;
 }
 
 .heroTag {
