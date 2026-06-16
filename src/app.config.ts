@@ -1,7 +1,6 @@
 export default defineAppConfig({
   pages: [
     'pages/index/index',
-    'pages/register/index',
     'pages/dashboard/index',
     'pages/errorbook/index',
     'pages/notes/index',
