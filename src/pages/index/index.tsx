@@ -262,6 +262,125 @@ export default function LandingPage() {
           </View>
         </View>
 
+        {/* 备考资讯与攻略 */}
+        <View className={styles.articlesSection} id="articles">
+          <View className={styles.articlesHeader}>
+            <Text className={styles.articlesTitle}>备考资讯与攻略</Text>
+            <Text className={styles.articlesSubtitle}>精选备考文章，助你少走弯路</Text>
+          </View>
+          <View className={styles.articlesGrid}>
+            
+            {/* 卡片 1 */}
+            <View className={styles.articleCard}>
+              <View className={styles.articleCover}>
+                <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <View className={styles.articleContent}>
+                <Text className={classnames(styles.articleTag, styles.tagBlue)}>备考攻略</Text>
+                <Text className={styles.articleTitle}>EJU日语350+：读解部分高效提分三步法</Text>
+                <Text className={styles.articleDesc}>从词汇积累到长文拆解，再到真题精练，三个月系统提升读解题正确率。</Text>
+                <View className={styles.articleFooter}>
+                  <Text className={styles.articleTime}>阅读约 8 分钟</Text>
+                  <View className={classnames(styles.articleLink, styles.textBlue)}>
+                    阅读全文 <Text className={styles.chevronIcon}>&gt;</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            {/* 卡片 2 */}
+            <View className={styles.articleCard}>
+              <View className={styles.articleCover}>
+                <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <View className={styles.articleContent}>
+                <Text className={classnames(styles.articleTag, styles.tagBlue)}>数学技巧</Text>
+                <Text className={styles.articleTitle}>数学コース2：微积分常见陷阱与避坑指南</Text>
+                <Text className={styles.articleDesc}>整理了近五年真题中微积分部分的12个高频陷阱，附带正确解题思路。</Text>
+                <View className={styles.articleFooter}>
+                  <Text className={styles.articleTime}>阅读约 12 分钟</Text>
+                  <View className={classnames(styles.articleLink, styles.textBlue)}>
+                    阅读全文 <Text className={styles.chevronIcon}>&gt;</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            {/* 卡片 3 */}
+            <View className={styles.articleCard}>
+              <View className={styles.articleCover}>
+                <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <View className={styles.articleContent}>
+                <Text className={classnames(styles.articleTag, styles.tagBlue)}>文综记忆</Text>
+                <Text className={styles.articleTitle}>文综政治经济部分：时间轴记忆法实战</Text>
+                <Text className={styles.articleDesc}>用一条时间轴串联日本战后政治经济大事件，告别死记硬背。</Text>
+                <View className={styles.articleFooter}>
+                  <Text className={styles.articleTime}>阅读约 10 分钟</Text>
+                  <View className={classnames(styles.articleLink, styles.textBlue)}>
+                    阅读全文 <Text className={styles.chevronIcon}>&gt;</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            {/* 卡片 4 */}
+            <View className={styles.articleCard}>
+              <View className={styles.articleCover}>
+                <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <View className={styles.articleContent}>
+                <Text className={classnames(styles.articleTag, styles.tagBlue)}>物理专题</Text>
+                <Text className={styles.articleTitle}>理科物理：力学综合题的「三步拆解法」</Text>
+                <Text className={styles.articleDesc}>受力分析→运动分析→能量/动量选择，让复杂力学题变得条理清晰。</Text>
+                <View className={styles.articleFooter}>
+                  <Text className={styles.articleTime}>阅读约 15 分钟</Text>
+                  <View className={classnames(styles.articleLink, styles.textBlue)}>
+                    阅读全文 <Text className={styles.chevronIcon}>&gt;</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            {/* 卡片 5 */}
+            <View className={styles.articleCard}>
+              <View className={styles.articleCover}>
+                <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <View className={styles.articleContent}>
+                <Text className={classnames(styles.articleTag, styles.tagBlue)}>心理调节</Text>
+                <Text className={styles.articleTitle}>备考焦虑怎么办？EJU考生心态管理指南</Text>
+                <Text className={styles.articleDesc}>从目标拆解到作息规划，帮助你在高压备考期保持稳定心态。</Text>
+                <View className={styles.articleFooter}>
+                  <Text className={styles.articleTime}>阅读约 6 分钟</Text>
+                  <View className={classnames(styles.articleLink, styles.textBlue)}>
+                    阅读全文 <Text className={styles.chevronIcon}>&gt;</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            {/* 卡片 6 */}
+            <View className={styles.articleCard}>
+              <View className={styles.articleCover}>
+                <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <View className={styles.articleContent}>
+                <Text className={classnames(styles.articleTag, styles.tagBlue)}>院校申请</Text>
+                <Text className={styles.articleTitle}>早稻田/上智/MARCH：各校EJU分数要求汇总</Text>
+                <Text className={styles.articleDesc}>2025年度日本主要大学EJU科目要求和历年录取分数参考线。</Text>
+                <View className={styles.articleFooter}>
+                  <Text className={styles.articleTime}>阅读约 9 分钟</Text>
+                  <View className={classnames(styles.articleLink, styles.textBlue)}>
+                    阅读全文 <Text className={styles.chevronIcon}>&gt;</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+          </View>
+        </View>
+
         {/* 考生反馈区 */}
         <View className={styles.testimonialSection}>
           <Text className={styles.sectionTitle}>听听大家怎么说</Text>

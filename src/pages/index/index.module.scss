@@ -576,7 +576,144 @@
 
 
 
-/* ================= Path Section ================= */
+/* ================= Articles Section ================= */
+.articlesSection {
+  padding: 100px 40px;
+  background-color: #ffffff;
+}
+
+.articlesHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.articlesTitle {
+  display: block;
+  font-size: 48px;
+  font-weight: bold;
+  color: #1A1D23;
+  margin-bottom: 16px;
+}
+
+.articlesSubtitle {
+  display: block;
+  font-size: 26px;
+  color: #9CA3B0;
+}
+
+.articlesGrid {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+}
+
+.articleCard {
+  border-radius: 24px;
+  border: 1px solid #E2E5EA;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    
+    .articleCoverIcon {
+      stroke: #3B6EC9; /* Hover时图标变蓝 */
+    }
+    
+    .articleTitle {
+      color: #3B6EC9;
+    }
+  }
+}
+
+.articleCover {
+  height: 200px;
+  background: linear-gradient(135deg, #EBF0FA 0%, #F4F5F7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.articleCoverIcon {
+  width: 64px;
+  height: 64px;
+  transition: stroke 0.3s ease;
+}
+
+.articleContent {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.articleTag {
+  display: inline-block;
+  font-size: 20px;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.tagBlue {
+  background-color: #EBF0FA;
+  color: #3B6EC9;
+}
+
+.articleTitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1A1D23;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.articleDesc {
+  font-size: 24px;
+  color: #9CA3B0;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.articleFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.articleTime {
+  font-size: 22px;
+  color: #C4C9D4;
+}
+
+.articleLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 500;
+}
 .pathSection {
   background-color: #F8F9FA;
   padding: 100px 40px;
