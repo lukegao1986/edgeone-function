@@ -221,28 +221,7 @@ export default function LandingPage() {
           </View>
         </View>
 
-        {/* 考试科目区 */}
-        <View className={styles.examSection}>
-          <Text className={styles.sectionTitle}>支持科目</Text>
-          <View className={styles.examGrid}>
-            <View className={styles.examSubject}>
-              <Text className={styles.subjectIcon}>📖</Text>
-              <Text className={styles.subjectName}>日本語</Text>
-            </View>
-            <View className={styles.examSubject}>
-              <Text className={styles.subjectIcon}>🌍</Text>
-              <Text className={styles.subjectName}>総合科目</Text>
-            </View>
-            <View className={styles.examSubject}>
-              <Text className={styles.subjectIcon}>📐</Text>
-              <Text className={styles.subjectName}>数学 (コース1/2)</Text>
-            </View>
-            <View className={styles.examSubject}>
-              <Text className={styles.subjectIcon}>⚗️</Text>
-              <Text className={styles.subjectName}>理科 (物/化/生)</Text>
-            </View>
-          </View>
-        </View>
+
 
         {/* 备考路径区 */}
         <View className={styles.pathSection}>
