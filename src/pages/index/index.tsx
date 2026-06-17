@@ -225,27 +225,39 @@ export default function LandingPage() {
 
         {/* 备考路径区 */}
         <View className={styles.pathSection}>
-          <Text className={styles.pathTitle}>科学的备考路径</Text>
+          <View className={styles.pathHeader}>
+            <Text className={styles.pathTitle}>科学备考路径</Text>
+            <Text className={styles.pathSubtitle}>四步闭环，让备考事半功倍</Text>
+          </View>
           <View className={styles.pathGrid}>
             <View className={styles.pathStep}>
-              <View className={styles.stepNum}>1</View>
-              <Text className={styles.stepTitle}>设定目标</Text>
-              <Text>选择考期与目标院校，系统为你倒计时</Text>
+              <View className={classnames(styles.stepNum, styles.bgBlue)}>01</View>
+              <Text className={styles.stepTitle}>诊断定位</Text>
+              <Text className={styles.stepDesc}>通过全真模考或专项练习，AI智能诊断薄弱知识点</Text>
+              <View className={styles.stepArrow}>
+                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
+              </View>
             </View>
             <View className={styles.pathStep}>
-              <View className={styles.stepNum}>2</View>
-              <Text className={styles.stepTitle}>沉浸刷题</Text>
-              <Text>分章节专项突破，做题自动批改并出解析</Text>
+              <View className={classnames(styles.stepNum, styles.bgGreen)}>02</View>
+              <Text className={styles.stepTitle}>专项突破</Text>
+              <Text className={styles.stepDesc}>针对薄弱点进行定向刷题，配合笔记功能记录疑点</Text>
+              <View className={styles.stepArrow}>
+                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
+              </View>
             </View>
             <View className={styles.pathStep}>
-              <View className={styles.stepNum}>3</View>
+              <View className={classnames(styles.stepNum, styles.bgPurple)}>03</View>
               <Text className={styles.stepTitle}>错题复盘</Text>
-              <Text>错题本集中收录，支持定期重做与记笔记</Text>
+              <Text className={styles.stepDesc}>错题本自动归类，间隔重复提醒，直到完全掌握</Text>
+              <View className={styles.stepArrow}>
+                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
+              </View>
             </View>
             <View className={styles.pathStep}>
-              <View className={styles.stepNum}>4</View>
-              <Text className={styles.stepTitle}>能力进阶</Text>
-              <Text>根据 AI 诊断填补漏洞，稳步提升正确率</Text>
+              <View className={classnames(styles.stepNum, styles.bgOrange)}>04</View>
+              <Text className={styles.stepTitle}>模考检验</Text>
+              <Text className={styles.stepDesc}>定期全真模考检验复习成果，循环迭代提升</Text>
             </View>
           </View>
         </View>
