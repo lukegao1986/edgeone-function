@@ -1,5 +1,5 @@
-@import "../../styles/variables.scss";
-@import "../../styles/compat.scss";
+@use "../../styles/variables.scss" as *;
+@use "../../styles/compat.scss" as *;
 
 .modalOverlay {
   position: fixed;
