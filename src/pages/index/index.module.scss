@@ -454,16 +454,30 @@
 
 /* ================= Features Section ================= */
 .featuresSection {
-  background-color: #F8F9FA;
+  background-color: #ffffff;
   padding: 100px 40px;
 }
 
-.sectionTitle {
+.featuresHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.featuresTitle {
+  display: block;
   font-size: 48px;
   font-weight: bold;
-  color: $color-text-primary;
-  text-align: center;
-  margin-bottom: 64px;
+  color: #1A1D23;
+  margin-bottom: 16px;
+}
+
+.featuresSubtitle {
+  display: block;
+  font-size: 26px;
+  color: #9CA3B0;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .featuresGrid {
@@ -471,7 +485,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 32px;
   
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -480,37 +494,84 @@
 
 .featureCard {
   background-color: #ffffff;
-  padding: 48px 32px;
+  padding: 40px 32px;
   border-radius: 24px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  border: 1px solid #E2E5EA;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
-  transition: transform 0.2s;
+  align-items: flex-start;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
   
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    
+    .featureLearnMore {
+      opacity: 1;
+    }
   }
 }
 
-.featureIcon {
-  font-size: 64px;
-  margin-bottom: 8px;
+.featureIconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
-.featureTitle {
-  font-size: 32px;
+.featureIconImg {
+  width: 32px;
+  height: 32px;
+}
+
+.iconBlue { background-color: rgb(235, 240, 250); }
+.iconGreen { background-color: rgb(232, 245, 233); }
+.iconPurple { background-color: rgb(242, 237, 249); }
+.iconOrange { background-color: rgb(249, 240, 235); }
+.iconRed { background-color: rgb(253, 236, 236); }
+.iconTeal { background-color: rgb(224, 242, 236); }
+
+.featureCardTitle {
+  font-size: 30px;
   font-weight: bold;
-  color: $color-text-primary;
+  color: #1A1D23;
+  margin-bottom: 12px;
 }
 
-.featureDesc {
-  font-size: 26px;
-  color: $color-text-secondary;
-  line-height: 1.5;
+.featureCardDesc {
+  font-size: 24px;
+  color: #5C6170;
+  line-height: 1.6;
+  flex: 1;
 }
+
+.featureLearnMore {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chevronIcon {
+  font-family: monospace;
+  font-size: 24px;
+}
+
+.textBlue { color: #3B6EC9; }
+.textGreen { color: #34A853; }
+.textPurple { color: #8B6DC9; }
+.textOrange { color: #C97B4A; }
+.textRed { color: #E04545; }
+.textTeal { color: #1A7A5E; }
 
 /* ================= Exam Info Section ================= */
 .examSection {

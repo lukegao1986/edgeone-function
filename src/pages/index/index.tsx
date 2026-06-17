@@ -141,23 +141,82 @@ export default function LandingPage() {
         </View>
 
         {/* 核心功能区 */}
-        <View className={styles.featuresSection}>
-          <Text className={styles.sectionTitle}>为什么选择 EJU Pro？</Text>
+        <View className={styles.featuresSection} id="features">
+          <View className={styles.featuresHeader}>
+            <Text className={styles.featuresTitle}>全方位备考支持</Text>
+            <Text className={styles.featuresSubtitle}>从题库练习到薄弱点诊断，从知识图谱到全真模考，每一步都为你精心设计</Text>
+          </View>
           <View className={styles.featuresGrid}>
+            {/* 全科覆盖 */}
             <View className={styles.featureCard}>
-              <Text className={styles.featureIcon}>📚</Text>
-              <Text className={styles.featureTitle}>历年真题全覆盖</Text>
-              <Text className={styles.featureDesc}>精选历年 EJU 核心真题与高频考点，告别题海战术，直击考试重点。</Text>
+              <View className={classnames(styles.featureIconWrap, styles.iconBlue)}>
+                <Image className={styles.featureIconImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%233B6EC9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
+              </View>
+              <Text className={styles.featureCardTitle}>全科覆盖</Text>
+              <Text className={styles.featureCardDesc}>日语、文综、数学（コース1/2）、理科（物理/化学/生物），五大科目系统化题库</Text>
+              <View className={classnames(styles.featureLearnMore, styles.textBlue)}>
+                了解更多 <Text className={styles.chevronIcon}>&gt;</Text>
+              </View>
             </View>
+
+            {/* 薄弱点诊断 */}
             <View className={styles.featureCard}>
-              <Text className={styles.featureIcon}>🤖</Text>
-              <Text className={styles.featureTitle}>AI 薄弱点诊断</Text>
-              <Text className={styles.featureDesc}>每次练习后自动生成能力雷达图，精准定位薄弱知识点并推荐专项练习。</Text>
+              <View className={classnames(styles.featureIconWrap, styles.iconGreen)}>
+                <Image className={styles.featureIconImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%2334A853' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3C/svg%3E" />
+              </View>
+              <Text className={styles.featureCardTitle}>薄弱点诊断</Text>
+              <Text className={styles.featureCardDesc}>AI智能分析每次答题数据，精准定位知识盲区，生成个性化复习方案</Text>
+              <View className={classnames(styles.featureLearnMore, styles.textGreen)}>
+                了解更多 <Text className={styles.chevronIcon}>&gt;</Text>
+              </View>
             </View>
+
+            {/* 进度追踪 */}
             <View className={styles.featureCard}>
-              <Text className={styles.featureIcon}>✨</Text>
-              <Text className={styles.featureTitle}>极简专注体验</Text>
-              <Text className={styles.featureDesc}>没有广告，没有干扰。护眼模式与极简排版让你沉浸在思考的纯粹中。</Text>
+              <View className={classnames(styles.featureIconWrap, styles.iconPurple)}>
+                <Image className={styles.featureIconImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%238B6DC9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 7h6v6'/%3E%3Cpath d='m22 7-8.5 8.5-5-5L2 17'/%3E%3C/svg%3E" />
+              </View>
+              <Text className={styles.featureCardTitle}>进度追踪</Text>
+              <Text className={styles.featureCardDesc}>可视化学习进度追踪，预定vs实际双轨对比，选考科目环形进度一目了然</Text>
+              <View className={classnames(styles.featureLearnMore, styles.textPurple)}>
+                了解更多 <Text className={styles.chevronIcon}>&gt;</Text>
+              </View>
+            </View>
+
+            {/* 同期竞速 */}
+            <View className={styles.featureCard}>
+              <View className={classnames(styles.featureIconWrap, styles.iconOrange)}>
+                <Image className={styles.featureIconImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23C97B4A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Cpath d='M16 3.128a4 4 0 0 1 0 7.744'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3C/svg%3E" />
+              </View>
+              <Text className={styles.featureCardTitle}>同期竞速</Text>
+              <Text className={styles.featureCardDesc}>与全站考生实时PK刷题数和正确率，激发学习动力，查看自己的排名变化</Text>
+              <View className={classnames(styles.featureLearnMore, styles.textOrange)}>
+                了解更多 <Text className={styles.chevronIcon}>&gt;</Text>
+              </View>
+            </View>
+
+            {/* 知识地图 */}
+            <View className={styles.featureCard}>
+              <View className={classnames(styles.featureIconWrap, styles.iconRed)}>
+                <Image className={styles.featureIconImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23E04545' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18V5'/%3E%3Cpath d='M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4'/%3E%3Cpath d='M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5'/%3E%3Cpath d='M17.997 5.125a4 4 0 0 1 2.526 5.77'/%3E%3Cpath d='M18 18a4 4 0 0 0 2-7.464'/%3E%3Cpath d='M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517'/%3E%3Cpath d='M6 18a4 4 0 0 1-2-7.464'/%3E%3Cpath d='M6.003 5.125a4 4 0 0 0-2.526 5.77'/%3E%3C/svg%3E" />
+              </View>
+              <Text className={styles.featureCardTitle}>知识地图</Text>
+              <Text className={styles.featureCardDesc}>物理/化学/数学等科目的知识图谱，绿黄红三色标记掌握程度，虚线连接知识依赖</Text>
+              <View className={classnames(styles.featureLearnMore, styles.textRed)}>
+                了解更多 <Text className={styles.chevronIcon}>&gt;</Text>
+              </View>
+            </View>
+
+            {/* 全真模考 */}
+            <View className={styles.featureCard}>
+              <View className={classnames(styles.featureIconWrap, styles.iconTeal)}>
+                <Image className={styles.featureIconImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%231A7A5E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526'/%3E%3Ccircle cx='12' cy='8' r='6'/%3E%3C/svg%3E" />
+              </View>
+              <Text className={styles.featureCardTitle}>全真模考</Text>
+              <Text className={styles.featureCardDesc}>历年真题+模拟试卷，倒计时考试环境，交卷后AI薄弱点分析+推荐学习资源</Text>
+              <View className={classnames(styles.featureLearnMore, styles.textTeal)}>
+                了解更多 <Text className={styles.chevronIcon}>&gt;</Text>
+              </View>
             </View>
           </View>
         </View>
