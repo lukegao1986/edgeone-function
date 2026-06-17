@@ -235,7 +235,7 @@ export default function LandingPage() {
               <Text className={styles.stepTitle}>诊断定位</Text>
               <Text className={styles.stepDesc}>通过全真模考或专项练习，AI智能诊断薄弱知识点</Text>
               <View className={styles.stepArrow}>
-                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
+                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
               </View>
             </View>
             <View className={styles.pathStep}>
@@ -243,7 +243,7 @@ export default function LandingPage() {
               <Text className={styles.stepTitle}>专项突破</Text>
               <Text className={styles.stepDesc}>针对薄弱点进行定向刷题，配合笔记功能记录疑点</Text>
               <View className={styles.stepArrow}>
-                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
+                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
               </View>
             </View>
             <View className={styles.pathStep}>
@@ -251,7 +251,7 @@ export default function LandingPage() {
               <Text className={styles.stepTitle}>错题复盘</Text>
               <Text className={styles.stepDesc}>错题本自动归类，间隔重复提醒，直到完全掌握</Text>
               <View className={styles.stepArrow}>
-                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
+                <Image className={styles.arrowImg} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E" />
               </View>
             </View>
             <View className={styles.pathStep}>
