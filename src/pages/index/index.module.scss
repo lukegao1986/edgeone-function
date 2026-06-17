@@ -602,13 +602,14 @@
 }
 
 .pathGrid {
-  max-width: 1200px;
+  width: 70%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   
   @media screen and (max-width: 768px) {
+    width: 90%;
     grid-template-columns: 1fr;
     gap: 64px;
   }
