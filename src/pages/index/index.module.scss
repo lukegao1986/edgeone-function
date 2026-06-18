@@ -813,19 +813,62 @@
 
 /* ================= Testimonial Section ================= */
 .testimonialSection {
-  padding: 100px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 100px 0;
+  background-color: #ffffff;
+  overflow: hidden;
 }
 
-.testimonialGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+.sectionTitle {
+  font-size: 48px;
+  font-weight: bold;
+  color: #1A1D23;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.testimonialSliderContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
   
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
+  /* 两侧添加渐变遮罩让滚动看起来更自然 */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
   }
+  
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+  }
+}
+
+.testimonialSliderTrack {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  /* 动画：向左平移 50%（因为有两组一样的卡片），持续时间 40s */
+  animation: slideLeft 40s linear infinite;
+  
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes slideLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 16px)); }
 }
 
 .testimonialCard {
@@ -834,12 +877,15 @@
   border-radius: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
+  width: 480px; /* 固定卡片宽度，保证跑马灯平稳 */
+  flex-shrink: 0;
 }
 
 .quoteText {
-  font-size: 28px;
-  color: $color-text-primary;
+  font-size: 26px;
+  color: #1A1D23;
   line-height: 1.6;
   font-style: italic;
 }
@@ -869,12 +915,12 @@
 .authorName {
   font-size: 26px;
   font-weight: bold;
-  color: $color-text-primary;
+  color: #1A1D23;
 }
 
 .authorSchool {
   font-size: 22px;
-  color: $color-text-tertiary;
+  color: #9CA3B0;
 }
 
 /* ================= CTA Section ================= */

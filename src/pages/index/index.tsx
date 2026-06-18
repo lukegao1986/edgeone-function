@@ -384,24 +384,129 @@ export default function LandingPage() {
         {/* 考生反馈区 */}
         <View className={styles.testimonialSection}>
           <Text className={styles.sectionTitle}>听听大家怎么说</Text>
-          <View className={styles.testimonialGrid}>
-            <View className={styles.testimonialCard}>
-              <Text className={styles.quoteText}>"排版非常舒服，化学方程式和各种图表显示得很完美。帮我省去了整理纸质错题本的大把时间。"</Text>
-              <View className={styles.authorInfo}>
-                <View className={styles.authorAvatar}>👨‍🎓</View>
-                <View className={styles.authorMeta}>
-                  <Text className={styles.authorName}>李同学</Text>
-                  <Text className={styles.authorSchool}>已合格 东京工业大学</Text>
+          <View className={styles.testimonialSliderContainer}>
+            <View className={styles.testimonialSliderTrack}>
+              {/* 第一组 6 个卡片 */}
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"排版非常舒服，化学方程式和各种图表显示得很完美。帮我省去了整理纸质错题本的大把时间。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👨‍🎓</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>李同学</Text>
+                    <Text className={styles.authorSchool}>已合格 东京工业大学</Text>
+                  </View>
                 </View>
               </View>
-            </View>
-            <View className={styles.testimonialCard}>
-              <Text className={styles.quoteText}>"AI 诊断真的绝了！之前文综总是凭感觉选，它直接帮我指出了我在历史板块的明显短板。"</Text>
-              <View className={styles.authorInfo}>
-                <View className={styles.authorAvatar}>👩‍🎓</View>
-                <View className={styles.authorMeta}>
-                  <Text className={styles.authorName}>张同学</Text>
-                  <Text className={styles.authorSchool}>已合格 早稻田大学</Text>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"AI 诊断真的绝了！之前文综总是凭感觉选，它直接帮我指出了我在历史板块的明显短板。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👩‍🎓</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>张同学</Text>
+                    <Text className={styles.authorSchool}>已合格 早稻田大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"数学公式的渲染速度很快，手写笔记功能特别好用，考前一周我只看错题本就够了。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👦</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>王同学</Text>
+                    <Text className={styles.authorSchool}>已合格 庆应义塾大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"界面太干净了！比起各种充斥着广告的论坛，这里真的是一片学习的净土。强推全真模考功能！"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👧</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>赵同学</Text>
+                    <Text className={styles.authorSchool}>已合格 筑波大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"理科生狂喜。物理化学题库覆盖面很广，解析步骤写得很详细，比厚厚的参考书方便多了。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👨‍🔬</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>刘同学</Text>
+                    <Text className={styles.authorSchool}>已合格 大阪大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"作为文科生，之前非常害怕数学。通过知识地图顺藤摸瓜，一点点把基础补起来了，感谢！"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👩‍🎨</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>陈同学</Text>
+                    <Text className={styles.authorSchool}>已合格 上智大学</Text>
+                  </View>
+                </View>
+              </View>
+              
+              {/* 第二组 6 个卡片（用于无缝循环轮播复制） */}
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"排版非常舒服，化学方程式和各种图表显示得很完美。帮我省去了整理纸质错题本的大把时间。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👨‍🎓</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>李同学</Text>
+                    <Text className={styles.authorSchool}>已合格 东京工业大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"AI 诊断真的绝了！之前文综总是凭感觉选，它直接帮我指出了我在历史板块的明显短板。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👩‍🎓</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>张同学</Text>
+                    <Text className={styles.authorSchool}>已合格 早稻田大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"数学公式的渲染速度很快，手写笔记功能特别好用，考前一周我只看错题本就够了。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👦</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>王同学</Text>
+                    <Text className={styles.authorSchool}>已合格 庆应义塾大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"界面太干净了！比起各种充斥着广告的论坛，这里真的是一片学习的净土。强推全真模考功能！"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👧</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>赵同学</Text>
+                    <Text className={styles.authorSchool}>已合格 筑波大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"理科生狂喜。物理化学题库覆盖面很广，解析步骤写得很详细，比厚厚的参考书方便多了。"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👨‍🔬</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>刘同学</Text>
+                    <Text className={styles.authorSchool}>已合格 大阪大学</Text>
+                  </View>
+                </View>
+              </View>
+              <View className={styles.testimonialCard}>
+                <Text className={styles.quoteText}>"作为文科生，之前非常害怕数学。通过知识地图顺藤摸瓜，一点点把基础补起来了，感谢！"</Text>
+                <View className={styles.authorInfo}>
+                  <View className={styles.authorAvatar}>👩‍🎨</View>
+                  <View className={styles.authorMeta}>
+                    <Text className={styles.authorName}>陈同学</Text>
+                    <Text className={styles.authorSchool}>已合格 上智大学</Text>
+                  </View>
                 </View>
               </View>
             </View>
