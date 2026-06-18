@@ -23,8 +23,12 @@ export default function PracticePage() {
         const userInfo = Taro.getStorageSync('userInfo');
         const userId = userInfo ? userInfo.id : '';
         
+        const apiUrl = process.env.NODE_ENV === 'production'
+          ? `https://edgeone-function-dp2cjredqrrk.edgeone.cool/api/get_questions?subjectId=${subjectId}&userId=${userId}`
+          : `/api/get_questions?subjectId=${subjectId}&userId=${userId}`;
+
         const res = await Taro.request({
-          url: `/api/get_questions?subjectId=${subjectId}&userId=${userId}`,
+          url: apiUrl,
           method: 'GET'
         });
         if (res.data && res.data.success) {
@@ -122,8 +126,12 @@ export default function PracticePage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : 1;
 
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? 'https://edgeone-function-dp2cjredqrrk.edgeone.cool/api/submit_answer'
+        : '/api/submit_answer';
+
       await Taro.request({
-        url: '/api/submit_answer',
+        url: apiUrl,
         method: 'POST',
         data: {
           userId: userId,
@@ -216,8 +224,12 @@ export default function PracticePage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : 1;
 
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? 'https://edgeone-function-dp2cjredqrrk.edgeone.cool/api/submit_answer'
+        : '/api/submit_answer';
+
       await Taro.request({
-        url: '/api/submit_answer',
+        url: apiUrl,
         method: 'POST',
         data: {
           userId: userId,
@@ -255,8 +267,12 @@ export default function PracticePage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : 1;
 
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? 'https://edgeone-function-dp2cjredqrrk.edgeone.cool/api/submit_note'
+        : '/api/submit_note';
+
       await Taro.request({
-        url: '/api/submit_note',
+        url: apiUrl,
         method: 'POST',
         data: {
           userId: userId,

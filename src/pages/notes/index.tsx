@@ -30,8 +30,12 @@ export default function NotesPage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : '';
 
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? `https://edgeone-function-dp2cjredqrrk.edgeone.cool/api/get_notes_list?userId=${userId}`
+        : `/api/get_notes_list?userId=${userId}`;
+
       const res = await Taro.request({
-        url: `/api/get_notes_list?userId=${userId}`,
+        url: apiUrl,
         method: 'GET'
       });
 
@@ -61,8 +65,12 @@ export default function NotesPage() {
             const userInfo = Taro.getStorageSync('userInfo');
             const userId = userInfo ? userInfo.id : 1;
 
+            const apiUrl = process.env.NODE_ENV === 'production'
+              ? 'https://edgeone-function-dp2cjredqrrk.edgeone.cool/api/submit_note'
+              : '/api/submit_note';
+
             await Taro.request({
-              url: '/api/submit_note',
+              url: apiUrl,
               method: 'POST',
               data: {
                 userId,
