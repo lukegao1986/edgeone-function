@@ -118,10 +118,9 @@ export default function AuthModal({ visible, defaultMode = 'login', onClose, onS
           <Button
             className={classnames(styles.submitBtn, loading && styles.submitBtnDisabled)}
             onClick={handleSubmit}
-            loading={loading}
             disabled={loading}
           >
-            {mode === 'login' ? '登 录' : '注 册'}
+            <Text>{loading ? '处理中...' : (mode === 'login' ? '登 录' : '注 册')}</Text>
           </Button>
 
           <View className={styles.footer}>
