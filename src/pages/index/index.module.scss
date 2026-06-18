@@ -830,8 +830,8 @@
 }
 
 .testimonialSliderContainer {
-  width: 100%;
-  max-width: 1600px; /* 限制一下最大宽度，让两边的遮罩更靠拢内容居中区域 */
+  width: 80%;
+  // max-width: 1600px; /* 限制一下最大宽度，让两边的遮罩更靠拢内容居中区域 */
   overflow: hidden;
   position: relative;
   margin: 0 auto;
@@ -926,6 +926,17 @@
 .authorSchool {
   font-size: 22px;
   color: #9CA3B0;
+}
+
+.testDataNotice {
+  margin-top: 16px;
+  text-align: center;
+  z-index: 10;
+}
+
+.testDataNoticeText {
+  font-size: 20px;
+  color: #D1D5DB; /* 极浅的灰色 */
 }
 
 /* ================= CTA Section ================= */

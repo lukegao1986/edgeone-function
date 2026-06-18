@@ -384,6 +384,7 @@ export default function LandingPage() {
         {/* 考生反馈区 */}
         <View className={styles.testimonialSection}>
           <Text className={styles.sectionTitle}>听听大家怎么说</Text>
+          
           <View className={styles.testimonialSliderContainer}>
             <View className={styles.testimonialSliderTrack}>
               {/* 第一组 6 个卡片 */}
@@ -509,6 +510,9 @@ export default function LandingPage() {
                   </View>
                 </View>
               </View>
+            </View>
+            <View className={styles.testDataNotice}>
+              <Text className={styles.testDataNoticeText}>注意：本模块暂时为灰度测试数据，仅供参考</Text>
             </View>
           </View>
         </View>
