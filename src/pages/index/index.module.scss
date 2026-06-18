@@ -816,6 +816,9 @@
   padding: 100px 0;
   background-color: #ffffff;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sectionTitle {
@@ -828,8 +831,10 @@
 
 .testimonialSliderContainer {
   width: 100%;
+  max-width: 1600px; /* 限制一下最大宽度，让两边的遮罩更靠拢内容居中区域 */
   overflow: hidden;
   position: relative;
+  margin: 0 auto;
   
   /* 两侧添加渐变遮罩让滚动看起来更自然 */
   &::before,
