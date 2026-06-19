@@ -13,8 +13,8 @@ app.use(express.json()); // 解析 JSON 请求体
 // 数据库配置
 // 优先使用环境变量中的配置，如果没有则使用默认的公网配置（用于本地开发）
 const dbConfig = {
-  host: process.env.DB_HOST || 'sh-cynosdbmysql-grp-09ehfxtq.sql.tencentcdb.com',
-  port: process.env.DB_PORT || 24547,
+  host: process.env.DB_HOST || '10.0.0.3', // 替换为真实的轻量数据库内网 IP
+  port: process.env.DB_PORT || 3306, // 替换为内网端口
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '2199wlmm!',
   database: process.env.DB_NAME || 'shuati_db'

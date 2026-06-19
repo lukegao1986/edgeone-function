@@ -25,9 +25,8 @@ export default function PracticePage() {
         
         // 这里由于部署架构变更为：前端(EdgeOne) -> 公网访问 -> Node中间层(轻量服务器)
         // 所以生产环境下必须写死指向轻量服务器公网 IP 的绝对路径。
-        // 请在部署后将下面的 http://您的轻量服务器公网IP:3000 替换为实际 IP
         const apiUrl = process.env.NODE_ENV === 'production'
-          ? `http://您的轻量服务器公网IP:3000/api/get_questions?subjectId=${subjectId}&userId=${userId}`
+          ? `http://115.159.64.224:3000/api/get_questions?subjectId=${subjectId}&userId=${userId}`
           : `/api/get_questions?subjectId=${subjectId}&userId=${userId}`;
 
         const res = await Taro.request({
@@ -130,7 +129,7 @@ export default function PracticePage() {
       const userId = userInfo ? userInfo.id : 1;
 
       const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'http://您的轻量服务器公网IP:3000/api/submit_answer'
+        ? 'http://115.159.64.224:3000/api/submit_answer'
         : '/api/submit_answer';
 
       await Taro.request({
@@ -228,7 +227,7 @@ export default function PracticePage() {
       const userId = userInfo ? userInfo.id : 1;
 
       const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'http://您的轻量服务器公网IP:3000/api/submit_answer'
+        ? 'http://115.159.64.224:3000/api/submit_answer'
         : '/api/submit_answer';
 
       await Taro.request({
@@ -271,7 +270,7 @@ export default function PracticePage() {
       const userId = userInfo ? userInfo.id : 1;
 
       const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'http://您的轻量服务器公网IP:3000/api/submit_note'
+        ? 'http://115.159.64.224:3000/api/submit_note'
         : '/api/submit_note';
 
       await Taro.request({

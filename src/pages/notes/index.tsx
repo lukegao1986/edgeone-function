@@ -31,7 +31,7 @@ export default function NotesPage() {
       const userId = userInfo ? userInfo.id : '';
 
       const apiUrl = process.env.NODE_ENV === 'production'
-        ? `http://您的轻量服务器公网IP:3000/api/get_notes_list?userId=${userId}`
+        ? `http://115.159.64.224:3000/api/get_notes_list?userId=${userId}`
         : `/api/get_notes_list?userId=${userId}`;
 
       const res = await Taro.request({
@@ -66,7 +66,7 @@ export default function NotesPage() {
             const userId = userInfo ? userInfo.id : 1;
 
             const apiUrl = process.env.NODE_ENV === 'production'
-              ? 'http://您的轻量服务器公网IP:3000/api/submit_note'
+              ? 'http://115.159.64.224:3000/api/submit_note'
               : '/api/submit_note';
 
             await Taro.request({
