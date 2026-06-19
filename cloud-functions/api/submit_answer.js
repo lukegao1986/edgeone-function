@@ -5,8 +5,18 @@ const dbConfig = {
   port: 24547,
   user: 'root',
   password: '2199wlmm!',
-  database: 'shuati_db'
+  database: 'shuati_db',
+  connectionLimit: 1,
+  connectTimeout: 5000
 };
+
+let pool;
+function getPool() {
+  if (!pool) {
+    pool = mysql.createPool(dbConfig);
+  }
+  return pool;
+}
 
 export default async function onRequestPost(context) {
   try {
@@ -20,7 +30,7 @@ export default async function onRequestPost(context) {
       });
     }
 
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await getPool().getConnection();
 
     const safeSelectedIndex = selectedIndex === undefined ? null : selectedIndex;
     const safeIsCorrect = isCorrect === undefined ? null : isCorrect;
@@ -62,7 +72,7 @@ export default async function onRequestPost(context) {
       );
     }
 
-    await connection.end();
+    connection.release();
 
     return new Response(JSON.stringify({ success: true, message: "记录保存成功" }), {
       headers: { "Content-Type": "application/json; charset=utf-8" }

@@ -5,8 +5,18 @@ const dbConfig = {
   port: 24547,
   user: 'root',
   password: '2199wlmm!',
-  database: 'shuati_db'
+  database: 'shuati_db',
+  connectionLimit: 1,
+  connectTimeout: 5000
 };
+
+let pool;
+function getPool() {
+  if (!pool) {
+    pool = mysql.createPool(dbConfig);
+  }
+  return pool;
+}
 
 export default async function onRequestPost(context) {
   try {
@@ -22,7 +32,7 @@ export default async function onRequestPost(context) {
       });
     }
 
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await getPool().getConnection();
 
     if (content === undefined || content.trim() === '') {
       // 删除笔记
@@ -40,7 +50,7 @@ export default async function onRequestPost(context) {
       );
     }
 
-    await connection.end();
+    connection.release();
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { "Content-Type": "application/json; charset=utf-8" }

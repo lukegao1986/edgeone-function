@@ -5,8 +5,18 @@ const dbConfig = {
   port: 24547,
   user: 'root',
   password: '2199wlmm!',
-  database: 'shuati_db'
+  database: 'shuati_db',
+  connectionLimit: 1,
+  connectTimeout: 5000
 };
+
+let pool;
+function getPool() {
+  if (!pool) {
+    pool = mysql.createPool(dbConfig);
+  }
+  return pool;
+}
 
 export default async function onRequestPost(context) {
   try {
@@ -20,7 +30,7 @@ export default async function onRequestPost(context) {
       });
     }
 
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await getPool().getConnection();
 
     // Check if user exists
     const [rows] = await connection.execute(
@@ -28,7 +38,7 @@ export default async function onRequestPost(context) {
       [username, password]
     );
 
-    await connection.end();
+    connection.release();
 
     if (rows.length > 0) {
       const user = rows[0];

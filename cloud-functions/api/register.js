@@ -5,8 +5,18 @@ const dbConfig = {
   port: 24547,
   user: 'root',
   password: '2199wlmm!',
-  database: 'shuati_db'
+  database: 'shuati_db',
+  connectionLimit: 1,
+  connectTimeout: 5000
 };
+
+let pool;
+function getPool() {
+  if (!pool) {
+    pool = mysql.createPool(dbConfig);
+  }
+  return pool;
+}
 
 export default async function onRequestPost(context) {
   try {
@@ -20,7 +30,7 @@ export default async function onRequestPost(context) {
       });
     }
 
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await getPool().getConnection();
 
     // Check if user already exists
     const [existingUsers] = await connection.execute(
@@ -29,7 +39,7 @@ export default async function onRequestPost(context) {
     );
 
     if (existingUsers.length > 0) {
-      await connection.end();
+      connection.release();
       return new Response(JSON.stringify({ success: false, error: "用户名已存在，请直接登录" }), {
         status: 409,
         headers: { "Content-Type": "application/json; charset=utf-8" }
@@ -42,7 +52,7 @@ export default async function onRequestPost(context) {
       [username, password]
     );
 
-    await connection.end();
+    connection.release();
 
     return new Response(JSON.stringify({
       success: true,

@@ -5,8 +5,18 @@ const dbConfig = {
   port: 24547,
   user: 'root',
   password: '2199wlmm!',
-  database: 'shuati_db'
+  database: 'shuati_db',
+  connectionLimit: 1,
+  connectTimeout: 5000
 };
+
+let pool;
+function getPool() {
+  if (!pool) {
+    pool = mysql.createPool(dbConfig);
+  }
+  return pool;
+}
 
 export default async function onRequestGet(context) {
   const url = new URL(context.request.url);
@@ -20,7 +30,7 @@ export default async function onRequestGet(context) {
   }
 
   try {
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await getPool().getConnection();
 
     const [rows] = await connection.execute(
       `SELECT n.id, n.question_id, n.subject_id, n.content, n.updated_at, q.category, q.stem 
@@ -31,7 +41,7 @@ export default async function onRequestGet(context) {
       [userId]
     );
 
-    await connection.end();
+    connection.release();
 
     const formattedNotes = rows.map(row => ({
       id: row.id,

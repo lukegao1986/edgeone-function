@@ -5,8 +5,18 @@ const dbConfig = {
   port: 24547,
   user: 'root',
   password: '2199wlmm!',
-  database: 'shuati_db'
+  database: 'shuati_db',
+  connectionLimit: 1, // 边缘函数限制，设小一点
+  connectTimeout: 5000 // 加快超时判定
 };
+
+let pool;
+function getPool() {
+  if (!pool) {
+    pool = mysql.createPool(dbConfig);
+  }
+  return pool;
+}
 
 export default async function onRequestGet(context) {
   // 从 URL 参数中获取 subjectId 和 userId
@@ -22,7 +32,7 @@ export default async function onRequestGet(context) {
   }
 
   try {
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await getPool().getConnection();
 
     // 查询该科目下的所有题目
     const [rows] = await connection.execute(
@@ -58,7 +68,7 @@ export default async function onRequestGet(context) {
       });
     }
 
-    await connection.end();
+    connection.release(); // 释放回连接池
 
     // 格式化数据
     const formattedQuestions = rows.map(row => ({
