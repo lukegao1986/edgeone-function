@@ -10,6 +10,7 @@
     "framework": "React"
   },
   "scripts": {
+    "start:all": "concurrently \"node cloud-functions/start.js\" \"PORT=10086 npm run dev:h5\"",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -58,9 +59,11 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.0",
+    "@babel/core": "^7.29.7",
     "@babel/plugin-proposal-class-properties": "7.14.5",
+    "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.24.1",
+    "@babel/register": "^7.29.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@tarojs/cli": "4.1.9",
     "@tarojs/taro-loader": "4.1.9",
@@ -72,6 +75,7 @@
     "@typescript-eslint/parser": "^6.2.0",
     "babel-plugin-import": "^1.13.8",
     "babel-preset-taro": "4.1.9",
+    "concurrently": "^9.2.3",
     "eslint": "^8.12.0",
     "eslint-config-taro": "4.1.9",
     "eslint-plugin-import": "^2.12.0",
