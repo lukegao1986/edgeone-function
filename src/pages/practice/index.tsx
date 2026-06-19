@@ -23,14 +23,8 @@ export default function PracticePage() {
         const userInfo = Taro.getStorageSync('userInfo');
         const userId = userInfo ? userInfo.id : '';
         
-        // 这里由于部署架构变更为：前端(EdgeOne) -> 公网访问 -> Node中间层(轻量服务器)
-        // 所以生产环境下必须写死指向轻量服务器公网 IP 的绝对路径。
-        const apiUrl = process.env.NODE_ENV === 'production'
-          ? `http://115.159.64.224:3000/api/get_questions?subjectId=${subjectId}&userId=${userId}`
-          : `/api/get_questions?subjectId=${subjectId}&userId=${userId}`;
-
         const res = await Taro.request({
-          url: apiUrl,
+          url: `/api/get_questions?subjectId=${subjectId}&userId=${userId}`,
           method: 'GET'
         });
         if (res.data && res.data.success) {
@@ -128,12 +122,8 @@ export default function PracticePage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : 1;
 
-      const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'http://115.159.64.224:3000/api/submit_answer'
-        : '/api/submit_answer';
-
       await Taro.request({
-        url: apiUrl,
+        url: '/api/submit_answer',
         method: 'POST',
         data: {
           userId: userId,
@@ -226,12 +216,8 @@ export default function PracticePage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : 1;
 
-      const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'http://115.159.64.224:3000/api/submit_answer'
-        : '/api/submit_answer';
-
       await Taro.request({
-        url: apiUrl,
+        url: '/api/submit_answer',
         method: 'POST',
         data: {
           userId: userId,
@@ -269,12 +255,8 @@ export default function PracticePage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : 1;
 
-      const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'http://115.159.64.224:3000/api/submit_note'
-        : '/api/submit_note';
-
       await Taro.request({
-        url: apiUrl,
+        url: '/api/submit_note',
         method: 'POST',
         data: {
           userId: userId,

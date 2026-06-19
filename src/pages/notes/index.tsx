@@ -30,12 +30,8 @@ export default function NotesPage() {
       const userInfo = Taro.getStorageSync('userInfo');
       const userId = userInfo ? userInfo.id : '';
 
-      const apiUrl = process.env.NODE_ENV === 'production'
-        ? `http://115.159.64.224:3000/api/get_notes_list?userId=${userId}`
-        : `/api/get_notes_list?userId=${userId}`;
-
       const res = await Taro.request({
-        url: apiUrl,
+        url: `/api/get_notes_list?userId=${userId}`,
         method: 'GET'
       });
 
@@ -65,12 +61,8 @@ export default function NotesPage() {
             const userInfo = Taro.getStorageSync('userInfo');
             const userId = userInfo ? userInfo.id : 1;
 
-            const apiUrl = process.env.NODE_ENV === 'production'
-              ? 'http://115.159.64.224:3000/api/submit_note'
-              : '/api/submit_note';
-
             await Taro.request({
-              url: apiUrl,
+              url: '/api/submit_note',
               method: 'POST',
               data: {
                 userId,
