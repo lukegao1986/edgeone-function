@@ -4,6 +4,7 @@ import Taro, { useRouter } from '@tarojs/taro';
 import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
 import { QUESTIONS } from '@/data/questions';
+import { generateQuestionsByTopic } from '@/data/scienceQuestions';
 import Navbar from '@/components/Navbar';
 import AIAnalysisModal from '@/components/AIAnalysisModal';
 import styles from './index.module.scss';
@@ -11,14 +12,25 @@ import styles from './index.module.scss';
 export default function PracticePage() {
   const router = useRouter();
   const subjectId = router.params.subjectId || 'japanese';
+  const topicId = router.params.topicId || '';
+  const topicTitle = router.params.topicTitle ? decodeURIComponent(router.params.topicTitle) : '';
   
-  const subject = SUBJECTS.find(s => s.id === subjectId);
+  const subject = SUBJECTS.find(s => s.id === subjectId) || { id: subjectId, name: subjectId === 'physics' ? '物理' : subjectId === 'chemistry' ? '化学' : subjectId === 'biology' ? '生物' : '未知科目', icon: '', color: '' };
   const [questions, setQuestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuestions = async () => {
       setLoading(true);
+      
+      // 如果传入了 topicId 且是理科，直接使用本地生成的题目（供演示）
+      if (topicId && ['physics', 'chemistry', 'biology'].includes(subjectId)) {
+        const generated = generateQuestionsByTopic(subjectId, topicId, topicTitle, 5);
+        setQuestions(generated);
+        setLoading(false);
+        return;
+      }
+
       try {
         const userInfo = Taro.getStorageSync('userInfo');
         const userId = userInfo ? userInfo.id : '';
@@ -338,7 +350,7 @@ export default function PracticePage() {
 
   return (
     <View className={styles.pageContainer}>
-      <Navbar simplified subjectName={`${subject?.name} - ${currentQuestion.category}`} />
+      <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name} - ${currentQuestion.category}`} />
 
       <View className={styles.layoutBody}>
         

@@ -26,7 +26,11 @@ export default function Sidebar({ activePage, activeSubject, onSubjectClick }: S
     if (onSubjectClick) {
       onSubjectClick(id);
     } else {
-      Taro.navigateTo({ url: `/pages/practice/index?subjectId=${id}` });
+      if (id === 'science') {
+        Taro.navigateTo({ url: `/pages/science/index` });
+      } else {
+        Taro.navigateTo({ url: `/pages/practice/index?subjectId=${id}` });
+      }
     }
   };
 

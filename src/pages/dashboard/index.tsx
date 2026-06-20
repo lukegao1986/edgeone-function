@@ -59,7 +59,11 @@ export default function DashboardPage() {
   }, []);
 
   const handleSubjectClick = (subjectId: string) => {
-    Taro.navigateTo({ url: `/pages/practice/index?subjectId=${subjectId}` });
+    if (subjectId === 'science') {
+      Taro.navigateTo({ url: `/pages/science/index` });
+    } else {
+      Taro.navigateTo({ url: `/pages/practice/index?subjectId=${subjectId}` });
+    }
   };
 
   return (

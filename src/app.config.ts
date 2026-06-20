@@ -5,6 +5,7 @@ export default defineAppConfig({
     'pages/dashboard/index',
     'pages/errorbook/index',
     'pages/profile/index',
+    'pages/science/index',
     'pages/practice/index'
   ],
   window: {
