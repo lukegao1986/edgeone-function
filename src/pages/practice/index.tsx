@@ -137,7 +137,7 @@ export default function PracticePage() {
         confirmText: '返回大厅',
         success: function (res) {
           if (res.confirm) {
-            Taro.navigateBack();
+            Taro.switchTab({ url: '/pages/dashboard/index' });
           }
         }
       });
@@ -237,7 +237,7 @@ export default function PracticePage() {
     return (
       <View className={styles.emptyContainer}>
         <Text className={styles.emptyText}>暂无题目</Text>
-        <Text className={styles.backLink} onClick={() => Taro.navigateBack()}>返回大厅</Text>
+        <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
       </View>
     );
   }

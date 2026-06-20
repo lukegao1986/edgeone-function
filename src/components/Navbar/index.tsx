@@ -34,9 +34,9 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
   if (simplified) {
     return (
       <View className={styles.navbarSimplified}>
-        <View className={styles.backBtn} onClick={() => Taro.navigateBack()}>
+        <View className={styles.backBtn} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>
           <Text className={styles.backIcon}>‹</Text>
-          <Text className={styles.backText}>返回</Text>
+          <Text className={styles.backText}>返回大厅</Text>
         </View>
         <Text className={styles.subjectTitle}>{subjectName}</Text>
         <View className={styles.placeholder} />
