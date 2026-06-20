@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { SUBJECTS } from '@/data/subjects';
 import { QUESTIONS } from '@/data/questions';
 import Navbar from '@/components/Navbar';
+import AIAnalysisModal from '@/components/AIAnalysisModal';
 import styles from './index.module.scss';
 
 export default function PracticePage() {
@@ -63,6 +64,9 @@ export default function PracticePage() {
   
   // 记录答题状态，格式: { [questionId]: { selectedIndex, isCorrect, isBookmarked } }
   const [answers, setAnswers] = useState<Record<string, { selectedIndex: number, isCorrect: boolean, isBookmarked?: boolean }>>({});
+  
+  // 新增：AI 分析弹窗状态
+  const [showAIModal, setShowAIModal] = useState(false);
 
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
@@ -131,16 +135,8 @@ export default function PracticePage() {
     if (currentIndex < totalQuestions - 1) {
       setCurrentIndex(prev => prev + 1);
     } else {
-      Taro.showModal({
-        title: '练习完成',
-        content: `你已完成所有题目。共 ${totalQuestions} 题，答对 ${Object.values(answers).filter(a => a.isCorrect).length} 题。`,
-        confirmText: '返回大厅',
-        success: function (res) {
-          if (res.confirm) {
-            Taro.switchTab({ url: '/pages/dashboard/index' });
-          }
-        }
-      });
+      // 交卷时，显示 AI 诊断报告弹窗
+      setShowAIModal(true);
     }
   };
 
@@ -382,6 +378,16 @@ export default function PracticePage() {
         </View>
 
       </View>
+      
+      {/* 新增的 AI 诊断弹窗 */}
+      <AIAnalysisModal 
+        visible={showAIModal}
+        total={totalQuestions}
+        correct={Object.values(answers).filter(a => a.isCorrect).length}
+        onClose={() => setShowAIModal(false)}
+        onViewErrors={() => Taro.switchTab({ url: '/pages/errorbook/index' })}
+        onAskQuestion={() => Taro.showToast({ title: 'AI问答模块开发中', icon: 'none' })}
+      />
     </View>
   );
 }

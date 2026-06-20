@@ -1,0 +1,282 @@
+@use '@/styles/variables.scss' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContainer {
+  width: 90%;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 40px;
+  border-bottom: 2px solid #ECEEF2;
+}
+
+.headerTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerIcon {
+  font-size: 36px;
+}
+
+.headerTitle {
+  font-size: 36px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.closeBtn {
+  font-size: 48px;
+  color: $color-text-tertiary;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 16px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.modalContent {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 6px solid #EBF0FA;
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-size: 28px;
+  color: $color-text-secondary;
+}
+
+.statsSection {
+  display: flex;
+  justify-content: space-between;
+  background-color: #F8F9FA;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.statVal {
+  font-size: 48px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.textSuccess { color: $color-success; }
+.textDanger { color: $color-error; }
+
+.statLabel {
+  font-size: 24px;
+  color: $color-text-secondary;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.diagnosisSection {
+  margin-bottom: 40px;
+}
+
+.issueCard {
+  background-color: #ffffff;
+  border: 2px solid #ECEEF2;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: #C4C9D4;
+  }
+}
+
+.issueHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.issueTag {
+  background-color: #FDECEC;
+  color: $color-error;
+  font-size: 22px;
+  padding: 4px 16px;
+  border-radius: 8px;
+}
+
+.issueName {
+  font-size: 28px;
+  font-weight: 500;
+  color: $color-text-primary;
+}
+
+.issueDesc {
+  font-size: 26px;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.issueAdvice {
+  font-size: 26px;
+  color: $color-primary;
+  line-height: 1.6;
+  background-color: #EBF0FA;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: block;
+}
+
+.resourceSection {
+  margin-bottom: 24px;
+}
+
+.resourceList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resourceItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  background-color: #FAFBFC;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #F2F3F5;
+  }
+}
+
+.resourceIcon {
+  font-size: 32px;
+}
+
+.resourceName {
+  font-size: 28px;
+  color: $color-text-primary;
+}
+
+.modalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  padding: 32px 40px;
+  border-top: 2px solid #ECEEF2;
+}
+
+.btnOutline {
+  @include button-reset;
+  height: 80px;
+  padding: 0 40px;
+  border-radius: 40px;
+  border: 2px solid #E2E5EA;
+  background-color: #ffffff;
+  color: $color-text-primary;
+  font-size: 28px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #F8F9FA;
+  }
+}
+
+.btnIcon {
+  margin-right: 8px;
+}
+
+.btnPrimary {
+  @include button-reset;
+  height: 80px;
+  padding: 0 48px;
+  border-radius: 40px;
+  background-color: $color-primary;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3);
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
