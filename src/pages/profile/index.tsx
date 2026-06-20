@@ -1,56 +1,46 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Image, Switch } from '@tarojs/components';
+import { View, Text, ScrollView, Switch, Picker } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
-import { SUBJECTS } from '@/data/subjects';
 import styles from './index.module.scss';
 
 export default function ProfilePage() {
-  const [profileData, setProfileData] = useState({
-    stats: {
-      streakDays: 0,
-      thisWeekCount: 0,
-      averageRate: 0,
-      totalAnswered: 0,
-      wrongCount: 0
-    },
-    trendSvg: '',
-    history: [] as any[]
-  });
-
-  const [loading, setLoading] = useState(true);
-  
-  // 设置状态
+  // 系统设置状态
   const [msgEnabled, setMsgEnabled] = useState(true);
   const [eyeCareEnabled, setEyeCareEnabled] = useState(false);
 
+  // 备考控制台
+  const [prepConfig, setPrepConfig] = useState({
+    examSession: '2025年11月',
+    comprehensiveSubject: '文综',
+    mathSubject: 'コース1 (文科)',
+    targetUniversity: '早稻田大学',
+    dailyGoal: 20
+  });
+  const [isEditingPrep, setIsEditingPrep] = useState(false);
+  const uniList = ['东京大学', '京都大学', '早稻田大学', '庆应义塾大学', '大阪大学'];
+
+  // 学习偏好设置
+  const [learningPrefs, setLearningPrefs] = useState({
+    reminderTime: '09:00、21:00',
+    reviewInterval: '1-3-7 天 (标准)',
+    masteryThreshold: 3,
+    difficulty: '循序渐进'
+  });
+  const [isEditingPrefs, setIsEditingPrefs] = useState(false);
+
   useDidShow(() => {
-    const fetchProfileStats = async () => {
-      const userInfo = Taro.getStorageSync('userInfo');
-      if (!userInfo || !userInfo.id) return;
+    // 恢复护眼模式状态
+    const eyeCare = Taro.getStorageSync('eyeCareEnabled');
+    setEyeCareEnabled(!!eyeCare);
 
-      // 恢复护眼模式状态
-      const eyeCare = Taro.getStorageSync('eyeCareEnabled');
-      setEyeCareEnabled(!!eyeCare);
+    const savedPrep = Taro.getStorageSync('prepConfig');
+    if (savedPrep) setPrepConfig(savedPrep);
 
-      setLoading(true);
-      try {
-        const res = await Taro.request({
-          url: `/api/get_profile_stats?userId=${userInfo.id}`,
-          method: 'GET'
-        });
-        if (res.data && res.data.success) {
-          setProfileData(res.data.data);
-        }
-      } catch (err) {
-        console.error('获取个人中心数据失败', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProfileStats();
+    const savedPrefs = Taro.getStorageSync('learningPrefs');
+    if (savedPrefs) setLearningPrefs(savedPrefs);
   });
 
   const handleLogout = () => {
@@ -68,10 +58,22 @@ export default function ProfilePage() {
     Taro.showToast({ title: `${action}功能开发中`, icon: 'none' });
   };
 
+  const handleSavePrep = () => {
+    Taro.setStorageSync('prepConfig', prepConfig);
+    setIsEditingPrep(false);
+    Taro.showToast({ title: '保存成功', icon: 'success' });
+  };
+
+  const handleSavePrefs = () => {
+    Taro.setStorageSync('learningPrefs', learningPrefs);
+    setIsEditingPrefs(false);
+    Taro.showToast({ title: '保存成功', icon: 'success' });
+  };
+
   const userInfo = Taro.getStorageSync('userInfo');
   const userName = userInfo?.nickname || userInfo?.username || '留学小生';
   const userEmail = userInfo?.username ? `${userInfo.username}@ejupro.com` : 'liuxue@email.com';
-  const targetExam = userInfo?.target_exam || '暂无目标';
+  const targetExam = userInfo?.target_exam || prepConfig.targetUniversity || '暂无目标';
 
   // 根据护眼模式动态设置背景色
   const pageStyle = eyeCareEnabled ? { backgroundColor: '#C7EDCC' } : {};
@@ -99,107 +101,277 @@ export default function ProfilePage() {
               </View>
             </View>
 
-            {/* Achievements */}
+            {/* 备考控制台 */}
             <View className={styles.sectionCard}>
-              <Text className={styles.sectionTitle}>学习成就</Text>
-              <View className={styles.achievementsRow}>
-                <View className={styles.achieveItem}>
-                  <Text className={styles.achieveIcon} style={{ color: '#C97B4A' }}>🏆</Text>
-                  <Text className={styles.achieveVal}>{profileData.stats.streakDays} 天</Text>
-                  <Text className={styles.achieveLabel}>连续打卡</Text>
-                </View>
-                <View className={styles.achieveItem}>
-                  <Text className={styles.achieveIcon} style={{ color: '#E04545' }}>🔥</Text>
-                  <Text className={styles.achieveVal}>{profileData.stats.thisWeekCount} 题</Text>
-                  <Text className={styles.achieveLabel}>本周刷题</Text>
-                </View>
-                <View className={styles.achieveItem}>
-                  <Text className={styles.achieveIcon} style={{ color: '#34A853' }}>📖</Text>
-                  <Text className={styles.achieveVal}>{profileData.stats.averageRate}%</Text>
-                  <Text className={styles.achieveLabel}>平均正确率</Text>
-                </View>
-              </View>
-            </View>
-
-            {/* 30天趋势 */}
-            <View className={styles.sectionCard}>
-              <View className={styles.statsRow}>
-                <View className={styles.statMiniItem}>
-                  <Text className={styles.statMiniVal}>{profileData.stats.totalAnswered}</Text>
-                  <Text className={styles.statMiniLabel}>累计答题</Text>
-                </View>
-                <View className={styles.statMiniDivider} />
-                <View className={styles.statMiniItem}>
-                  <Text className={styles.statMiniVal} style={{ color: '#34A853' }}>{profileData.stats.averageRate}%</Text>
-                  <Text className={styles.statMiniLabel}>正确率</Text>
-                </View>
-                <View className={styles.statMiniDivider} />
-                <View className={styles.statMiniItem}>
-                  <Text className={styles.statMiniVal} style={{ color: '#E04545' }}>{profileData.stats.wrongCount}</Text>
-                  <Text className={styles.statMiniLabel}>错题数</Text>
-                </View>
-              </View>
-              
-              <Text className={styles.chartTitle}>📈 近 30 天刷题趋势</Text>
-              <View className={styles.chartWrapper}>
-                {profileData.trendSvg ? (
-                  <Image 
-                    src={profileData.trendSvg} 
-                    mode="aspectFit" 
-                    style={{ width: '100%', height: '100%' }}
-                  />
-                ) : (
-                  <Text style={{ color: '#9ca3af' }}>暂无数据</Text>
-                )}
-              </View>
-            </View>
-
-            {/* 历史练习记录 */}
-            <View className={styles.sectionCard}>
-              <Text className={styles.sectionTitle}>历史练习记录</Text>
-              <View className={styles.tableContainer}>
-                <View className={styles.tableHeader}>
-                  <Text className={classnames(styles.th, styles.thDate)}>日期</Text>
-                  <Text className={classnames(styles.th, styles.thSubject)}>科目</Text>
-                  <Text className={classnames(styles.th, styles.thNum)}>题数</Text>
-                  <Text className={classnames(styles.th, styles.thNum)}>正确</Text>
-                  <Text className={classnames(styles.th, styles.thRate)}>正确率</Text>
-                </View>
-                {profileData.history.length === 0 ? (
-                  <View className={styles.emptyState}>
-                    <Text className={styles.emptyText}>暂无练习记录</Text>
+              <View className={styles.cardHeaderComplex}>
+                <View className={styles.headerTitleWrap}>
+                  <View className={styles.headerIconBox}><Text>🎓</Text></View>
+                  <View className={styles.headerTexts}>
+                    <Text className={styles.headerTitle}>备考控制台</Text>
+                    <Text className={styles.headerSub}>配置你的考试计划，系统将据此调整推荐节奏</Text>
                   </View>
+                </View>
+                {isEditingPrep ? (
+                  <Text className={styles.editingText}>编辑中...</Text>
                 ) : (
-                  profileData.history.map((record, idx) => {
-                    const subject = SUBJECTS.find(s => s.id === record.subjectId);
-                    return (
-                      <View key={idx} className={styles.tableRow}>
-                        <Text className={classnames(styles.td, styles.tdDate)}>{record.date}</Text>
-                        <View className={classnames(styles.td, styles.tdSubject)}>
-                          <Text className={styles.subjectTag} style={{ color: subject?.color || '#333' }}>
-                            {subject?.name || '未知科目'}
-                          </Text>
-                        </View>
-                        <Text className={classnames(styles.td, styles.tdNum)}>{record.total}</Text>
-                        <Text className={classnames(styles.td, styles.tdNum, styles.textSuccess)}>{record.correct}</Text>
-                        <Text className={classnames(styles.td, styles.tdRate)}>{record.rate}</Text>
-                      </View>
-                    );
-                  })
+                  <Text className={styles.editText} onClick={() => setIsEditingPrep(true)}>修改配置</Text>
                 )}
               </View>
+
+              {isEditingPrep ? (
+                <View className={styles.editContent}>
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>考试场次</Text>
+                    <View className={styles.selectBox}>
+                      <Text>{prepConfig.examSession}</Text>
+                      <Text style={{ color: '#9CA3B0' }}>▾</Text>
+                    </View>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>综合科目 (二选一)</Text>
+                    <View className={styles.segmentControl}>
+                      <View 
+                        className={classnames(styles.segmentItem, prepConfig.comprehensiveSubject === '文综' && styles.segmentActive)}
+                        onClick={() => setPrepConfig({...prepConfig, comprehensiveSubject: '文综'})}
+                      >文综</View>
+                      <View 
+                        className={classnames(styles.segmentItem, prepConfig.comprehensiveSubject === '理综' && styles.segmentActive)}
+                        onClick={() => setPrepConfig({...prepConfig, comprehensiveSubject: '理综'})}
+                      >理综</View>
+                    </View>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>数学 (二选一)</Text>
+                    <View className={styles.segmentControl}>
+                      <View 
+                        className={classnames(styles.segmentItem, prepConfig.mathSubject === 'コース1 (文科)' && styles.segmentActive)}
+                        onClick={() => setPrepConfig({...prepConfig, mathSubject: 'コース1 (文科)'})}
+                      >コース1 (文科)</View>
+                      <View 
+                        className={classnames(styles.segmentItem, prepConfig.mathSubject === 'コース2 (理科)' && styles.segmentActive)}
+                        onClick={() => setPrepConfig({...prepConfig, mathSubject: 'コース2 (理科)'})}
+                      >コース2 (理科)</View>
+                    </View>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>目标大学 (可选)</Text>
+                    <Picker 
+                      mode="selector" 
+                      range={uniList} 
+                      onChange={(e) => {
+                        const index = parseInt(e.detail.value as string, 10);
+                        if (!isNaN(index) && uniList[index]) {
+                          setPrepConfig({...prepConfig, targetUniversity: uniList[index]});
+                        }
+                      }}
+                    >
+                      <View className={styles.selectBox}>
+                        <Text>{prepConfig.targetUniversity}</Text>
+                        <Text style={{ color: '#9CA3B0' }}>▾</Text>
+                      </View>
+                    </Picker>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>每日目标题数</Text>
+                    <View className={styles.sliderWrap}>
+                      <input 
+                        type="range"
+                        className={styles.nativeRange}
+                        value={prepConfig.dailyGoal} 
+                        min={5} max={100} 
+                        step={5}
+                        onChange={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt(e.target.value, 10)})}
+                        onInput={(e) => setPrepConfig({...prepConfig, dailyGoal: parseInt((e.target as any).value, 10)})}
+                      />
+                      <Text className={styles.sliderVal}>{prepConfig.dailyGoal}题</Text>
+                    </View>
+                  </View>
+
+                  <View className={styles.actionBtns}>
+                    <View className={styles.btnCancel} onClick={() => setIsEditingPrep(false)}>取消</View>
+                    <View className={styles.btnSave} onClick={handleSavePrep}>保存配置</View>
+                  </View>
+                </View>
+              ) : (
+                <View className={styles.viewContent}>
+                  <View className={styles.statsRow}>
+                    <View className={styles.statItem}>
+                      <Text className={styles.statLabel}>考试场次</Text>
+                      <Text className={styles.statValue}>{prepConfig.examSession}</Text>
+                      <Text className={styles.statSub}>2025-11-09</Text>
+                    </View>
+                    <View className={styles.statDivider} />
+                    <View className={styles.statItem}>
+                      <Text className={styles.statLabel}>倒计时</Text>
+                      <View className={styles.statValue}>
+                        <Text className={styles.statValueRed}>0</Text>
+                        <Text style={{ fontSize: '24px', fontWeight: 'normal' }}>天</Text>
+                      </View>
+                    </View>
+                    <View className={styles.statDivider} />
+                    <View className={styles.statItem}>
+                      <Text className={styles.statLabel}>每日目标</Text>
+                      <View className={styles.statValue}>
+                        <Text className={styles.statValueBlue}>{prepConfig.dailyGoal}</Text>
+                        <Text style={{ fontSize: '24px', fontWeight: 'normal' }}>题/天</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                  <View className={styles.subjectCards}>
+                    <View className={classnames(styles.subCard, styles.subCardWhite)}>
+                      <View className={styles.subCardTitle}>
+                        <Text>📖</Text><Text>日语</Text>
+                      </View>
+                      <Text className={classnames(styles.subTag, styles.subTagGreen)}>必考</Text>
+                    </View>
+                    <View className={classnames(styles.subCard, styles.subCardGreen)}>
+                      <View className={styles.subCardTitle}>
+                        <Text>⚗</Text><Text>{prepConfig.comprehensiveSubject}</Text>
+                      </View>
+                      <Text className={styles.subDesc}>综合科目</Text>
+                    </View>
+                    <View className={classnames(styles.subCard, styles.subCardPurple)}>
+                      <View className={styles.subCardTitle}>
+                        <Text>☸</Text><Text>数学{prepConfig.mathSubject.split(' ')[0]}</Text>
+                      </View>
+                      <Text className={styles.subDesc}>数学</Text>
+                    </View>
+                  </View>
+
+                  <View className={styles.targetUni}>
+                    <Text>🎓</Text>
+                    <Text>目标大学:</Text>
+                    <Text className={styles.targetUniVal}>{prepConfig.targetUniversity}</Text>
+                  </View>
+                </View>
+              )}
             </View>
 
-            {/* Settings */}
+            {/* 学习偏好设置 */}
+            <View className={styles.sectionCard}>
+              <View className={styles.cardHeaderComplex}>
+                <View className={styles.headerTitleWrap}>
+                  <View className={classnames(styles.headerIconBox, styles.headerIconBoxYellow)}><Text>🧠</Text></View>
+                  <View className={styles.headerTexts}>
+                    <Text className={styles.headerTitle}>学习偏好</Text>
+                    <Text className={styles.headerSub}>定制你的学习节奏和复习策略</Text>
+                  </View>
+                </View>
+                {isEditingPrefs ? (
+                  <Text className={styles.editingText}>编辑中...</Text>
+                ) : (
+                  <Text className={styles.editText} onClick={() => setIsEditingPrefs(true)}>调整偏好</Text>
+                )}
+              </View>
+
+              {isEditingPrefs ? (
+                <View className={styles.editContent}>
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>每日提醒时间</Text>
+                    <View className={styles.timeTags}>
+                      <View className={styles.timeTag}>09:00 <Text style={{ color: '#9CA3B0' }}>⏱</Text></View>
+                      <View className={styles.timeTag}>21:00 <Text style={{ color: '#9CA3B0' }}>⏱</Text></View>
+                    </View>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>薄弱知识复习间隔</Text>
+                    <View className={styles.listOptions}>
+                      <View 
+                        className={classnames(styles.listOption, learningPrefs.reviewInterval === '1-3-7 天 (标准)' && styles.listOptionActive)}
+                        onClick={() => setLearningPrefs({...learningPrefs, reviewInterval: '1-3-7 天 (标准)'})}
+                      >1-3-7 天 (标准)</View>
+                      <View 
+                        className={classnames(styles.listOption, learningPrefs.reviewInterval === '1-2-4-7 天 (密集)' && styles.listOptionActive)}
+                        onClick={() => setLearningPrefs({...learningPrefs, reviewInterval: '1-2-4-7 天 (密集)'})}
+                      >1-2-4-7 天 (密集)</View>
+                      <View 
+                        className={classnames(styles.listOption, learningPrefs.reviewInterval === '2-5-10 天 (宽松)' && styles.listOptionActive)}
+                        onClick={() => setLearningPrefs({...learningPrefs, reviewInterval: '2-5-10 天 (宽松)'})}
+                      >2-5-10 天 (宽松)</View>
+                    </View>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>错题掌握阈值 (连续答对几次移除错题)</Text>
+                    <View className={styles.sliderWrap}>
+                      <input 
+                        type="range"
+                        className={styles.nativeRange}
+                        value={learningPrefs.masteryThreshold} 
+                        min={1} max={5} 
+                        step={1}
+                        onChange={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt(e.target.value, 10)})}
+                        onInput={(e) => setLearningPrefs({...learningPrefs, masteryThreshold: parseInt((e.target as any).value, 10)})}
+                      />
+                      <Text className={styles.sliderVal}>{learningPrefs.masteryThreshold}次</Text>
+                    </View>
+                  </View>
+
+                  <View className={styles.formGroup}>
+                    <Text className={styles.formLabel}>推荐难度偏好</Text>
+                    <View className={styles.diffControl}>
+                      <View 
+                        className={classnames(styles.diffItem, learningPrefs.difficulty === '循序渐进' && styles.diffActive)}
+                        onClick={() => setLearningPrefs({...learningPrefs, difficulty: '循序渐进'})}
+                      >
+                        <View className={styles.diffTitle}>循序渐进</View>
+                        <View className={styles.diffSub}>从基础到进阶逐步推进</View>
+                      </View>
+                      <View 
+                        className={classnames(styles.diffItem, learningPrefs.difficulty === '随机挑战' && styles.diffActive)}
+                        onClick={() => setLearningPrefs({...learningPrefs, difficulty: '随机挑战'})}
+                      >
+                        <View className={styles.diffTitle}>随机挑战</View>
+                        <View className={styles.diffSub}>混合难度随机出题</View>
+                      </View>
+                    </View>
+                  </View>
+
+                  <View className={styles.actionBtns}>
+                    <View className={styles.btnCancel} onClick={() => setIsEditingPrefs(false)}>取消</View>
+                    <View className={styles.btnSave} onClick={handleSavePrefs}>保存偏好</View>
+                  </View>
+                </View>
+              ) : (
+                <View className={styles.viewContent}>
+                  <View className={styles.prefGrid}>
+                    <View className={styles.prefItem}>
+                      <View className={styles.prefHeader}><Text>⏱</Text> 每日提醒</View>
+                      <View className={styles.prefVal}>{learningPrefs.reminderTime}</View>
+                    </View>
+                    <View className={styles.prefItem}>
+                      <View className={styles.prefHeader}><Text>💡</Text> 复习间隔</View>
+                      <View className={styles.prefVal}>{learningPrefs.reviewInterval}</View>
+                    </View>
+                    <View className={styles.prefItem}>
+                      <View className={styles.prefHeader}><Text>✓</Text> 掌握阈值</View>
+                      <View className={styles.prefVal}>连续答对 {learningPrefs.masteryThreshold} 次移除错题</View>
+                    </View>
+                    <View className={styles.prefItem}>
+                      <View className={styles.prefHeader}><Text>⚖</Text> 难度偏好</View>
+                      <View className={styles.prefVal}>{learningPrefs.difficulty}</View>
+                    </View>
+                  </View>
+                </View>
+              )}
+            </View>
+
+            {/* 系统设置 */}
             <View className={styles.sectionCard}>
               <View className={styles.cardHeader}>
-                <Text className={styles.sectionTitle}>设置</Text>
+                <Text className={styles.headerTitle}>系统设置</Text>
               </View>
 
               <View className={styles.settingItem}>
                 <View className={styles.settingLeft}>
                   <Text className={styles.settingName}>消息通知</Text>
-                  <Text className={styles.settingDesc}>接收学习提醒和更新通知</Text>
+                  <Text className={styles.settingDesc}>接收系统更新通知</Text>
                 </View>
                 <Switch color="#3B6EC9" checked={msgEnabled} onChange={(e) => setMsgEnabled(e.detail.value)} />
               </View>
