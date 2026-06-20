@@ -45,6 +45,38 @@ try {
   console.log('未找到 register.js, 已忽略');
 }
 
+let getDashboardStats;
+try {
+  const getDashboardStatsModule = require('./api/get_dashboard_stats.js');
+  getDashboardStats = getDashboardStatsModule.default || getDashboardStatsModule;
+} catch(e) {
+  console.log('未找到 get_dashboard_stats.js, 已忽略');
+}
+
+let getProfileStats;
+try {
+  const getProfileStatsModule = require('./api/get_profile_stats.js');
+  getProfileStats = getProfileStatsModule.default || getProfileStatsModule;
+} catch(e) {
+  console.log('未找到 get_profile_stats.js, 已忽略');
+}
+
+let getErrorbook;
+try {
+  const getErrorbookModule = require('./api/get_errorbook.js');
+  getErrorbook = getErrorbookModule.default || getErrorbookModule;
+} catch(e) {
+  console.log('未找到 get_errorbook.js, 已忽略');
+}
+
+let removeError;
+try {
+  const removeErrorModule = require('./api/remove_error.js');
+  removeError = removeErrorModule.default || removeErrorModule;
+} catch(e) {
+  console.log('未找到 remove_error.js, 已忽略');
+}
+
 const server = http.createServer(async (req, res) => {
   // 设置最基本的 CORS 允许本地联调
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -77,7 +109,22 @@ const server = http.createServer(async (req, res) => {
       const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
       res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
       res.end(text);
-    } else if (reqUrl.pathname === '/api/submit_answer' || reqUrl.pathname === '/api/submit_note' || reqUrl.pathname === '/api/login' || reqUrl.pathname === '/api/register') {
+    } else if (reqUrl.pathname === '/api/get_dashboard_stats' && getDashboardStats) {
+      const response = await getDashboardStats(context);
+      const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
+      res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
+      res.end(text);
+    } else if (reqUrl.pathname === '/api/get_profile_stats' && getProfileStats) {
+      const response = await getProfileStats(context);
+      const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
+      res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
+      res.end(text);
+    } else if (reqUrl.pathname === '/api/get_errorbook' && getErrorbook) {
+      const response = await getErrorbook(context);
+      const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
+      res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
+      res.end(text);
+    } else if (reqUrl.pathname === '/api/submit_answer' || reqUrl.pathname === '/api/submit_note' || reqUrl.pathname === '/api/login' || reqUrl.pathname === '/api/register' || reqUrl.pathname === '/api/remove_error') {
       let body = '';
       req.on('data', chunk => body += chunk.toString());
       req.on('end', async () => {
@@ -88,6 +135,7 @@ const server = http.createServer(async (req, res) => {
           else if (reqUrl.pathname === '/api/submit_note') handler = submitNote;
           else if (reqUrl.pathname === '/api/login') handler = login;
           else if (reqUrl.pathname === '/api/register') handler = register;
+          else if (reqUrl.pathname === '/api/remove_error') handler = removeError;
           
           if (!handler) {
             res.writeHead(404);
