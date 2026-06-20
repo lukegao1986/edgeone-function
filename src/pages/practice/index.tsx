@@ -68,6 +68,15 @@ export default function PracticePage() {
   // 新增：AI 分析弹窗状态
   const [showAIModal, setShowAIModal] = useState(false);
 
+  // 新增：立即批改开关状态
+  const [autoCheck, setAutoCheck] = useState(false);
+  
+  // 新增：全局批改模式（用于关闭立即批改时，交卷后进入的查看解析状态）
+  const [isReviewMode, setIsReviewMode] = useState(false);
+
+  // 新增：未提交时的本地临时选择记录
+  const [tempSelections, setTempSelections] = useState<Record<string, number>>({});
+
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
   const progress = totalQuestions > 0 ? ((currentIndex + 1) / totalQuestions) * 100 : 0;
@@ -76,31 +85,53 @@ export default function PracticePage() {
   const existingAnswer = currentQuestion ? answers[currentQuestion.id] : null;
 
   useEffect(() => {
-    if (existingAnswer && existingAnswer.selectedIndex !== undefined && existingAnswer.selectedIndex !== -1) {
-      setSelectedOption(existingAnswer.selectedIndex);
-      setShowAnswer(true);
+    // 根据模式决定如何恢复选项状态
+    if (isReviewMode || autoCheck) {
+      if (existingAnswer && existingAnswer.selectedIndex !== undefined && existingAnswer.selectedIndex !== -1) {
+        setSelectedOption(existingAnswer.selectedIndex);
+        setShowAnswer(true);
+      } else {
+        setSelectedOption(null);
+        setShowAnswer(false);
+      }
     } else {
-      setSelectedOption(null);
+      // 在未开启立即批改，且未交卷时，从临时记录恢复
+      if (currentQuestion && tempSelections[currentQuestion.id] !== undefined) {
+        setSelectedOption(tempSelections[currentQuestion.id]);
+      } else {
+        setSelectedOption(null);
+      }
       setShowAnswer(false);
     }
+
     // 恢复收藏状态
     setIsBookmarked(existingAnswer && existingAnswer.isBookmarked ? true : false);
-  }, [currentIndex, existingAnswer]);
+  }, [currentIndex, existingAnswer, isReviewMode, autoCheck, tempSelections, currentQuestion]);
 
   const handleSelectOption = (index: number) => {
     if (showAnswer || !currentQuestion) return;
+    if (isReviewMode) return; // 批改回顾模式下不能修改选项
+    
     setSelectedOption(index);
+    
+    if (!autoCheck) {
+      // 记录到临时状态中
+      setTempSelections(prev => ({
+        ...prev,
+        [currentQuestion.id]: index
+      }));
+    }
   };
 
-  const handleSubmitAnswer = async () => {
-    if (selectedOption === null || !currentQuestion) return;
-    const isCorrect = selectedOption === currentQuestion.correctIndex;
+  const submitAnswerWithOption = async (optionIndex: number) => {
+    if (!currentQuestion) return;
+    const isCorrect = optionIndex === currentQuestion.correctIndex;
     
     setAnswers(prev => {
       const existing = prev[currentQuestion.id] || {};
       return {
         ...prev,
-        [currentQuestion.id]: { ...existing, selectedIndex: selectedOption, isCorrect }
+        [currentQuestion.id]: { ...existing, selectedIndex: optionIndex, isCorrect }
       };
     });
     
@@ -117,7 +148,7 @@ export default function PracticePage() {
           userId: userId,
           questionId: currentQuestion.id,
           subjectId: currentQuestion.subjectId,
-          selectedIndex: selectedOption,
+          selectedIndex: optionIndex,
           isCorrect: isCorrect
         }
       });
@@ -131,12 +162,71 @@ export default function PracticePage() {
     }
   };
 
+  const handleSubmitAnswer = async () => {
+    if (selectedOption === null) return;
+    if (autoCheck) {
+      await submitAnswerWithOption(selectedOption);
+    }
+  };
+
+  const submitAllAnswers = async () => {
+    Taro.showLoading({ title: '正在交卷...' });
+    try {
+      const userInfo = Taro.getStorageSync('userInfo');
+      const userId = userInfo ? userInfo.id : 1;
+      
+      const newAnswers = { ...answers };
+      
+      // 遍历临时选择记录进行批量提交
+      for (const qId of Object.keys(tempSelections)) {
+        if (answers[qId]) continue; // 已经提交过的跳过
+        
+        const q = questions.find(q => q.id === qId);
+        if (!q) continue;
+        
+        const selectedIdx = tempSelections[qId];
+        const isCorrect = selectedIdx === q.correctIndex;
+        
+        newAnswers[qId] = { selectedIndex: selectedIdx, isCorrect };
+        
+        await Taro.request({
+          url: '/api/submit_answer',
+          method: 'POST',
+          data: {
+            userId: userId,
+            questionId: q.id,
+            subjectId: q.subjectId,
+            selectedIndex: selectedIdx,
+            isCorrect: isCorrect
+          }
+        });
+      }
+      
+      setAnswers(newAnswers);
+      setIsReviewMode(true); // 进入回顾模式
+      setShowAIModal(true); // 显示分析弹窗
+    } catch (err) {
+      Taro.showToast({ title: '交卷失败', icon: 'none' });
+    } finally {
+      Taro.hideLoading();
+    }
+  };
+
   const handleNext = () => {
     if (currentIndex < totalQuestions - 1) {
       setCurrentIndex(prev => prev + 1);
     } else {
-      // 交卷时，显示 AI 诊断报告弹窗
-      setShowAIModal(true);
+      if (isReviewMode) {
+        // 如果已经在回顾模式，再次点击交卷直接弹窗
+        setShowAIModal(true);
+      } else {
+        if (!autoCheck) {
+          // 非立即批改模式下，最后点击交卷批量提交
+          submitAllAnswers();
+        } else {
+          setShowAIModal(true);
+        }
+      }
     }
   };
 
@@ -186,12 +276,20 @@ export default function PracticePage() {
   };
 
   const getQuestionStatus = (qId: string) => {
-    const ans = answers[qId];
-    if (!ans) return 'unanswered';
-    return ans.isCorrect ? 'correct' : 'wrong';
+    // 批改模式或者自动批改模式下显示对错
+    if (isReviewMode || autoCheck) {
+      const ans = answers[qId];
+      if (!ans) return 'unanswered';
+      return ans.isCorrect ? 'correct' : 'wrong';
+    } else {
+      // 否则只要选了就显示已答状态
+      const hasTemp = tempSelections[qId] !== undefined;
+      return hasTemp ? 'answered' : 'unanswered';
+    }
   };
 
   const getOptionStyle = (index: number) => {
+    // 只有在展示答案（批改后）才会高亮对错
     if (!showAnswer || selectedOption === null) {
       if (selectedOption === index) return styles.optionSelected;
       return styles.optionNormal;
@@ -264,6 +362,7 @@ export default function PracticePage() {
                 if (isCurrent) btnClass = styles.navBtnCurrent;
                 else if (status === 'correct') btnClass = styles.navBtnCorrect;
                 else if (status === 'wrong') btnClass = styles.navBtnWrong;
+                else if (status === 'answered') btnClass = styles.navBtnAnswered; // 新增已答状态样式
 
                 return (
                   <View key={q.id} className={classnames(styles.navBtn, btnClass)} onClick={() => handleJumpToQuestion(i)}>
@@ -275,8 +374,14 @@ export default function PracticePage() {
 
             <View className={styles.legendRow}>
               <View className={styles.legendItem}><View className={classnames(styles.dot, styles.dotNormal)} /><Text className={styles.legendText}>未做</Text></View>
-              <View className={styles.legendItem}><View className={classnames(styles.dot, styles.dotCorrect)} /><Text className={styles.legendText}>正确</Text></View>
-              <View className={styles.legendItem}><View className={classnames(styles.dot, styles.dotWrong)} /><Text className={styles.legendText}>错误</Text></View>
+              {(isReviewMode || autoCheck) ? (
+                <>
+                  <View className={styles.legendItem}><View className={classnames(styles.dot, styles.dotCorrect)} /><Text className={styles.legendText}>正确</Text></View>
+                  <View className={styles.legendItem}><View className={classnames(styles.dot, styles.dotWrong)} /><Text className={styles.legendText}>错误</Text></View>
+                </>
+              ) : (
+                <View className={styles.legendItem}><View className={classnames(styles.dot, styles.dotAnswered)} /><Text className={styles.legendText}>已答</Text></View>
+              )}
             </View>
           </ScrollView>
         </View>
@@ -338,16 +443,41 @@ export default function PracticePage() {
                   </View>
                 </View>
               )}
+              
+              {/* 选项下方：操作栏 (上一题 / 提交 / 下一题) */}
+              <View className={styles.actionRow}>
+                <View 
+                  className={classnames(styles.btnPrev, currentIndex === 0 && styles.btnDisabled)} 
+                  onClick={handlePrev}
+                >
+                  <Text className={styles.btnTextSecondary}>‹ 上一题</Text>
+                </View>
+
+                {(!showAnswer && autoCheck) ? (
+                  <View 
+                    className={classnames(styles.btnSubmit, selectedOption === null && styles.btnSubmitDisabled)}
+                    onClick={handleSubmitAnswer}
+                  >
+                    <Text className={styles.btnTextWhite}>提交答案</Text>
+                  </View>
+                ) : (
+                  <View className={styles.btnNext} onClick={handleNext}>
+                    <Text className={styles.btnTextWhite}>{currentIndex === totalQuestions - 1 ? (isReviewMode ? '查看报告' : '交卷') : '下一题 ›'}</Text>
+                  </View>
+                )}
+              </View>
+
             </View>
           </ScrollView>
 
-          {/* 底部操作条 */}
+          {/* 底部工具栏 (居中：收藏/笔记/进度， 左侧：立即批改开关) */}
           <View className={styles.bottomBar}>
-            <View 
-              className={classnames(styles.btnPrev, currentIndex === 0 && styles.btnDisabled)} 
-              onClick={handlePrev}
-            >
-              <Text className={styles.btnTextSecondary}>‹ 上一题</Text>
+            
+            <View className={styles.bottomLeft}>
+              <View className={classnames(styles.iosSwitch, autoCheck && styles.switchOn)} onClick={() => setAutoCheck(!autoCheck)}>
+                <View className={styles.switchHandle} />
+              </View>
+              <Text className={styles.switchLabel}>立即批改</Text>
             </View>
 
             <View className={styles.bottomCenter}>
@@ -358,21 +488,15 @@ export default function PracticePage() {
                 </Text>
               </View>
 
-              {!showAnswer ? (
-                <View 
-                  className={classnames(styles.btnSubmit, selectedOption === null && styles.btnSubmitDisabled)}
-                  onClick={handleSubmitAnswer}
-                >
-                  <Text className={styles.btnTextWhite}>提交答案</Text>
-                </View>
-              ) : (
-                <Text className={styles.counterText}>{currentIndex + 1} / {totalQuestions}</Text>
-              )}
-            </View>
+              <View className={styles.bookmarkBtn} onClick={() => Taro.showToast({ title: '写笔记开发中', icon: 'none' })}>
+                <Text className={styles.bookmarkIcon}>📝</Text>
+                <Text className={styles.bookmarkText}>写笔记</Text>
+              </View>
 
-            <View className={styles.btnNext} onClick={handleNext}>
-              <Text className={styles.btnTextWhite}>{currentIndex === totalQuestions - 1 ? '交卷' : '下一题 ›'}</Text>
+              <Text className={styles.counterText}>{currentIndex + 1} / {totalQuestions}</Text>
             </View>
+            
+            <View className={styles.bottomRight} /> {/* 占位以保持居中 */}
           </View>
 
         </View>

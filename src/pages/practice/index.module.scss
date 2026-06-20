@@ -100,6 +100,12 @@
   .navBtnText { color: $color-primary; }
 }
 
+.navBtnAnswered {
+  background-color: #EBF0FA;
+  border: 2px solid #3B6EC9;
+  .navBtnText { color: #3B6EC9; }
+}
+
 .navBtnCorrect {
   background-color: $color-success;
   border: 2px solid $color-success;
@@ -132,6 +138,7 @@
 }
 
 .dotNormal { background-color: #ffffff; border: 2px solid #E2E5EA; }
+.dotAnswered { background-color: #3B6EC9; }
 .dotCorrect { background-color: $color-success; }
 .dotWrong { background-color: $color-error; }
 
@@ -328,21 +335,14 @@
   margin-top: 16px;
 }
 
-/* ================= 底部固定操作条 ================= */
-.bottomBar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 128px;
-  background-color: #ffffff;
-  border-top: 2px solid #E2E5EA;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
+/* ================= 选项下方操作栏 ================= */
+.actionRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 64px;
-  z-index: 10;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 2px dashed #ECEEF2;
 }
 
 .btnPrev {
@@ -370,23 +370,6 @@
   color: $color-text-secondary;
 }
 
-.bottomCenter {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.bookmarkBtn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
-
-.bookmarkIcon { font-size: 36px; }
-.bookmarkText { font-size: 28px; color: $color-text-tertiary; transition: color $transition-base; }
-.bookmarkBtn:hover .bookmarkText { color: $color-warning; }
-
 .btnSubmit {
   @include button-reset;
   height: 80px;
@@ -413,11 +396,6 @@
   color: #ffffff;
 }
 
-.counterText {
-  font-size: 24px;
-  color: $color-text-tertiary;
-}
-
 .btnNext {
   @include button-reset;
   height: 80px;
@@ -429,6 +407,95 @@
   transition: all $transition-base;
 
   &:hover { background-color: $color-primary-dark; }
+}
+
+/* ================= 底部固定工具栏 ================= */
+.bottomBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 128px;
+  background-color: #ffffff;
+  border-top: 2px solid #E2E5EA;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  z-index: 10;
+}
+
+.bottomLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1; /* 占据左侧空间，帮助居中 */
+}
+
+/* iOS 风格 Switch */
+.iosSwitch {
+  width: 96px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #E2E5EA; /* 灰色轨道 */
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switchOn {
+  background-color: $color-success; /* 开启时绿色 */
+}
+
+.switchHandle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switchOn .switchHandle {
+  transform: translateX(40px); /* 96 - 48 - 4 - 4 = 40 */
+}
+
+.switchLabel {
+  font-size: 28px;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+.bottomCenter {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex: 2; /* 居中内容占据更多空间 */
+  justify-content: center;
+}
+
+.bottomRight {
+  flex: 1; /* 占据右侧空间，保持绝对居中平衡 */
+}
+
+.bookmarkBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.bookmarkIcon { font-size: 36px; }
+.bookmarkText { font-size: 28px; color: $color-text-tertiary; transition: color $transition-base; }
+.bookmarkBtn:hover .bookmarkText { color: $color-warning; }
+
+.counterText {
+  font-size: 24px;
+  color: $color-text-tertiary;
 }
 
 /* ================= 空状态 ================= */
