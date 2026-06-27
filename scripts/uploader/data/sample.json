@@ -1,8 +1,14 @@
 [
   {
-    "id": "chem-001",
-    "subjectId": "science",
-    "category": "化学",
+    "businessCode": "chem-001",
+    "mainSubjectId": 3,
+    "subSubjectId": 4,
+    "chapterId": 12,
+    "sectionId": 45,
+    "topicId": 108,
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
     "stem": "在标准状况下，将 22.4L 氯气通入水中的反应如下图所示：\n\n![实验装置示例](https://eju-images-1317494834.cos.ap-shanghai.myqcloud.com/image2.png)\n\n请根据以上装置和现象分析产物特性：",
     "options": [
       "A. 反应完全，只生成一种酸",

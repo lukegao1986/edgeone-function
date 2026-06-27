@@ -22,11 +22,11 @@ export default async function onRequestPost(context) {
 
     const connection = await mysql.createConnection(dbConfig);
 
-    // 将此题目的 wrong_count 重置为 0，并且取消收藏 (is_bookmarked = 0)
+    // 将此题目的 is_correct 重置为 1 (标记为正确)，并且取消收藏 (is_bookmarked = 0)
     // 这样该题就不会再出现在错题本的查询结果中了
     await connection.execute(
       `UPDATE user_answers 
-       SET wrong_count = 0, is_bookmarked = 0 
+       SET is_correct = 1, is_bookmarked = 0 
        WHERE user_id = ? AND question_id = ?`,
       [userId, questionId]
     );

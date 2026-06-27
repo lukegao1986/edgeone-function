@@ -58,8 +58,12 @@ export default async function onRequestGet(context) {
     );
 
     // 5. 顺便拉取一下各个科目的题目总数，以便前端更新推荐卡片
+    // 注意：改用 sub_subjects 表的 code
     const [subjectCountRows] = await connection.execute(
-      `SELECT subject_id, COUNT(*) as total FROM questions GROUP BY subject_id`
+      `SELECT sub.code as subject_id, COUNT(*) as total 
+       FROM questions q
+       JOIN sub_subjects sub ON q.sub_subject_id = sub.id
+       GROUP BY sub.code`
     );
     const subjectCounts = {};
     subjectCountRows.forEach(row => {

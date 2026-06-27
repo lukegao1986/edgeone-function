@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { View, Text, ScrollView, RichText } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
 import classnames from 'classnames';
+import { renderMarkdown } from '@/utils/markdown';
 import { SUBJECTS } from '@/data/subjects';
 import { QUESTIONS } from '@/data/questions';
 import { generateQuestionsByTopic } from '@/data/scienceQuestions';
@@ -23,20 +24,13 @@ export default function PracticePage() {
     const fetchQuestions = async () => {
       setLoading(true);
       
-      // 如果传入了 topicId 且是理科，直接使用本地生成的题目（供演示）
-      if (topicId && ['physics', 'chemistry', 'biology'].includes(subjectId)) {
-        const generated = generateQuestionsByTopic(subjectId, topicId, topicTitle, 5);
-        setQuestions(generated);
-        setLoading(false);
-        return;
-      }
-
       try {
         const userInfo = Taro.getStorageSync('userInfo');
         const userId = userInfo ? userInfo.id : '';
         
+        // 修改：传入 topicId 以支持精准筛选，并移除本地 mock 生成逻辑
         const res = await Taro.request({
-          url: `/api/get_questions?subjectId=${subjectId}&userId=${userId}`,
+          url: `/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}`,
           method: 'GET'
         });
         if (res.data && res.data.success) {
@@ -67,7 +61,7 @@ export default function PracticePage() {
       }
     };
     fetchQuestions();
-  }, [subjectId]);
+  }, [subjectId, topicId]); // 增加对 topicId 的监听
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -75,7 +69,8 @@ export default function PracticePage() {
   const [isBookmarked, setIsBookmarked] = useState(false);
   
   // 记录答题状态，格式: { [questionId]: { selectedIndex, isCorrect, isBookmarked } }
-  const [answers, setAnswers] = useState<Record<string, { selectedIndex: number, isCorrect: boolean, isBookmarked?: boolean }>>({});
+  // 注意：ID 现在是 number 类型
+  const [answers, setAnswers] = useState<Record<number, { selectedIndex: number, isCorrect: boolean, isBookmarked?: boolean }>>({});
   
   // 新增：AI 分析弹窗状态
   const [showAIModal, setShowAIModal] = useState(false);
@@ -87,7 +82,7 @@ export default function PracticePage() {
   const [isReviewMode, setIsReviewMode] = useState(false);
 
   // 新增：未提交时的本地临时选择记录
-  const [tempSelections, setTempSelections] = useState<Record<string, number>>({});
+  const [tempSelections, setTempSelections] = useState<Record<number, number>>({});
 
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
@@ -159,7 +154,7 @@ export default function PracticePage() {
         data: {
           userId: userId,
           questionId: currentQuestion.id,
-          subjectId: currentQuestion.subjectId,
+          subjectId: subjectId, // 使用 router 里的 subjectId
           selectedIndex: optionIndex,
           isCorrect: isCorrect
         }
@@ -207,7 +202,7 @@ export default function PracticePage() {
           data: {
             userId: userId,
             questionId: q.id,
-            subjectId: q.subjectId,
+            subjectId: subjectId, // 使用 router 里的 subjectId
             selectedIndex: selectedIdx,
             isCorrect: isCorrect
           }
@@ -272,7 +267,7 @@ export default function PracticePage() {
         data: {
           userId: userId,
           questionId: currentQuestion.id,
-          subjectId: currentQuestion.subjectId,
+          subjectId: subjectId, // 使用 router 里的 subjectId
           isBookmarked: newBookmarkState
         }
       });
@@ -287,7 +282,7 @@ export default function PracticePage() {
     setCurrentIndex(idx);
   };
 
-  const getQuestionStatus = (qId: string) => {
+  const getQuestionStatus = (qId: number) => {
     // 批改模式或者自动批改模式下显示对错
     if (isReviewMode || autoCheck) {
       const ans = answers[qId];
@@ -323,14 +318,6 @@ export default function PracticePage() {
 
   const letters = ['A', 'B', 'C', 'D'];
 
-  // 简易 Markdown 解析，用于处理题目中的图片和换行
-  const renderMarkdown = (text: string) => {
-    if (!text) return '';
-    let html = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />');
-    html = html.replace(/\n/g, '<br/>');
-    return `<div style="line-height: 1.6;">${html}</div>`;
-  };
-
   if (loading) {
     return (
       <View className={styles.emptyContainer}>
@@ -350,7 +337,7 @@ export default function PracticePage() {
 
   return (
     <View className={styles.pageContainer}>
-      <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name} - ${currentQuestion.category}`} />
+      <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
 
       <View className={styles.layoutBody}>
         

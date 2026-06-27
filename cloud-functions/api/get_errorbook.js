@@ -22,20 +22,21 @@ export default async function onRequestGet(context) {
   try {
     const connection = await mysql.createConnection(dbConfig);
 
-    // 查询错题本数据：包含用户做错的题 (wrong_count > 0) 或主动收藏的题 (is_bookmarked = 1)
-    // 并且联合 questions 表获取题目具体内容 (题干 stem 等)
+    // 查询错题本数据：包含用户最后一次做错的题 (is_correct = 0) 或主动收藏的题 (is_bookmarked = 1)
+    // 并且联合 sub_subjects 获取学科 code
     const [rows] = await connection.execute(
       `SELECT 
          ua.question_id as questionId,
-         ua.subject_id as subjectId,
-         ua.wrong_count as wrongCount,
+         sub.code as subjectId,
          ua.is_bookmarked as isBookmarked,
+         ua.is_correct as isCorrect,
          DATE_FORMAT(ua.last_answered_at, '%Y-%m-%d') as lastWrongAt,
          q.stem,
-         q.category
+         sub.name as category
        FROM user_answers ua
        JOIN questions q ON ua.question_id = q.id
-       WHERE ua.user_id = ? AND (ua.wrong_count > 0 OR ua.is_bookmarked = 1)
+       JOIN sub_subjects sub ON q.sub_subject_id = sub.id
+       WHERE ua.user_id = ? AND (ua.is_correct = 0 OR ua.is_bookmarked = 1)
        ORDER BY ua.last_answered_at DESC`,
       [userId]
     );

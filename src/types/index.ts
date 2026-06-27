@@ -10,9 +10,11 @@ export interface Subject {
 }
 
 export interface Question {
-  id: string;
-  subjectId: SubjectId;
-  category: string;
+  id: number;
+  businessCode: string;
+  questionType: number;
+  difficultyLevel: number;
+  score?: number;
   stem: string;
   options: string[];
   correctIndex: number;

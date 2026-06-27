@@ -11,10 +11,10 @@ const dbConfig = {
 export default async function onRequestPost(context) {
   try {
     const data = await context.request.json();
-    const { userId, questionId, subjectId, selectedIndex, isCorrect, isBookmarked } = data;
+    const { userId, questionId, selectedIndex, isCorrect, isBookmarked } = data;
 
     if (!userId || !questionId) {
-      return new Response(JSON.stringify({ success: false, error: "缺少必要参数" }), {
+      return new Response(JSON.stringify({ success: false, error: "缺少必要参数 (userId 或 questionId)" }), {
         status: 400,
         headers: { "Content-Type": "application/json; charset=utf-8" }
       });
@@ -26,41 +26,29 @@ export default async function onRequestPost(context) {
     const safeIsCorrect = isCorrect === undefined ? null : isCorrect;
     const safeIsBookmarked = isBookmarked === undefined ? null : isBookmarked;
 
-    // 1. 记录总体的答题状态和错题次数
+    // 记录答题状态
+    // 注意：新 schema 中 user_answers 表结构较简单，只有 selected_index, is_correct, is_bookmarked
     await connection.execute(
-      `INSERT INTO user_answers (user_id, question_id, subject_id, selected_index, is_correct, is_bookmarked, wrong_count) 
-       VALUES (?, ?, ?, ?, ?, ?, IF(? = true, 1, 0))
+      `INSERT INTO user_answers (user_id, question_id, selected_index, is_correct, is_bookmarked) 
+       VALUES (?, ?, ?, ?, ?)
        ON DUPLICATE KEY UPDATE 
        selected_index = IF(? IS NOT NULL, VALUES(selected_index), selected_index),
        is_correct = IF(? IS NOT NULL, VALUES(is_correct), is_correct),
-       is_bookmarked = IF(? IS NOT NULL, VALUES(is_bookmarked), is_bookmarked),
-       wrong_count = wrong_count + IF(? IS NOT NULL AND VALUES(is_correct) = false, 1, 0)`,
+       is_bookmarked = IF(? IS NOT NULL, VALUES(is_bookmarked), is_bookmarked)`,
       [
         // VALUES
         userId, 
         questionId, 
-        subjectId || '', 
         safeSelectedIndex, 
         safeIsCorrect, 
-        safeIsBookmarked ?? false, // 插入时默认为 false
-        safeIsCorrect === false, // wrong_count initial condition (is_correct = false)
+        safeIsBookmarked ?? false,
         
         // ON DUPLICATE KEY UPDATE
         safeSelectedIndex, 
         safeIsCorrect,     
-        safeIsBookmarked,  
-        safeIsCorrect      
+        safeIsBookmarked
       ]
     );
-
-    // 2. 插入一条练习流水日志，用于统计“今日刷题”和“本周趋势”
-    // 注意：如果只是修改 isBookmarked 状态（没有传入 selectedIndex），我们不应该记录为一次“练习”
-    if (selectedIndex !== undefined && selectedIndex !== null) {
-      await connection.execute(
-        `INSERT INTO practice_logs (user_id, question_id, is_correct) VALUES (?, ?, ?)`,
-        [userId, questionId, isCorrect ? 1 : 0]
-      );
-    }
 
     await connection.end();
 

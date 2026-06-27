@@ -7,6 +7,7 @@ export default {
   mini: {},
   h5: {
     devServer: {
+      port: 10087,
       open: false, //禁止自动打开浏览器
       proxy: {
         '/api': {

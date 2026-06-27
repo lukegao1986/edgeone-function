@@ -9,13 +9,14 @@ const dbConfig = {
 };
 
 export default async function onRequestGet(context) {
-  // 从 URL 参数中获取 subjectId 和 userId
+  // 从 URL 参数中获取 topicId, subjectId 和 userId
   const url = new URL(context.request.url);
-  const subjectId = url.searchParams.get('subjectId');
-  const userId = url.searchParams.get('userId'); // 追加获取 userId
+  const topicId = url.searchParams.get('topicId'); // 对应 topics 表的 code，如 phy_1_1_1
+  const subjectId = url.searchParams.get('subjectId'); // 对应 sub_subjects 表的 code，如 physics
+  const userId = url.searchParams.get('userId');
 
-  if (!subjectId) {
-    return new Response(JSON.stringify({ success: false, error: "缺少 subjectId 参数" }), {
+  if (!topicId && !subjectId) {
+    return new Response(JSON.stringify({ success: false, error: "缺少查询参数 (topicId 或 subjectId)" }), {
       status: 400,
       headers: { "Content-Type": "application/json; charset=utf-8" }
     });
@@ -24,18 +25,39 @@ export default async function onRequestGet(context) {
   try {
     const connection = await mysql.createConnection(dbConfig);
 
-    // 查询该科目下的所有题目
-    const [rows] = await connection.execute(
-      'SELECT * FROM questions WHERE subject_id = ? ORDER BY created_at ASC',
-      [subjectId]
-    );
+    let rows = [];
+    if (topicId) {
+      // 优先根据 topicId (topics.code) 进行关联查询
+      [rows] = await connection.execute(
+        `SELECT q.* 
+         FROM questions q
+         JOIN topics t ON q.topic_id = t.id
+         WHERE t.code = ? AND q.is_enabled = 1
+         ORDER BY q.created_at ASC`,
+        [topicId]
+      );
+    } else if (subjectId) {
+      // 兜底逻辑：根据二级学科 code 查询
+      [rows] = await connection.execute(
+        `SELECT q.* 
+         FROM questions q
+         JOIN sub_subjects sub ON q.sub_subject_id = sub.id
+         WHERE sub.code = ? AND q.is_enabled = 1
+         ORDER BY q.created_at ASC`,
+        [subjectId]
+      );
+    }
 
-    // 如果传了 userId，顺便把用户在这个科目的答题记录也带回去
+    // 如果传了 userId，顺便把用户的答题记录带回去
     let userAnswers = {};
-    if (userId) {
+    if (userId && rows.length > 0) {
+      const questionIds = rows.map(r => r.id);
+      const placeholders = questionIds.map(() => '?').join(',');
       const [ansRows] = await connection.execute(
-        'SELECT question_id, selected_index, is_correct, is_bookmarked FROM user_answers WHERE user_id = ? AND subject_id = ?',
-        [userId, subjectId]
+        `SELECT question_id, selected_index, is_correct, is_bookmarked 
+         FROM user_answers 
+         WHERE user_id = ? AND question_id IN (${placeholders})`,
+        [userId, ...questionIds]
       );
       ansRows.forEach(row => {
         userAnswers[row.question_id] = {
@@ -48,11 +70,13 @@ export default async function onRequestGet(context) {
 
     await connection.end();
 
-    // 格式化数据
+    // 格式化数据，对接前端新架构字段名
     const formattedQuestions = rows.map(row => ({
       id: row.id,
-      subjectId: row.subject_id,
-      category: row.category,
+      businessCode: row.business_code,
+      questionType: row.question_type,
+      difficultyLevel: row.difficulty_level,
+      score: row.score,
       stem: row.stem,
       options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
       correctIndex: row.correct_index,
@@ -62,7 +86,7 @@ export default async function onRequestGet(context) {
     return new Response(JSON.stringify({
       success: true,
       data: formattedQuestions,
-      userAnswers: userAnswers // 把历史答题记录返回给前端
+      userAnswers: userAnswers
     }), {
       headers: { "Content-Type": "application/json; charset=utf-8" }
     });

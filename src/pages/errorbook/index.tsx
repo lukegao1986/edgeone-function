@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView, RichText } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
+import { renderMarkdown } from '@/utils/markdown';
 import { SUBJECTS } from '@/data/subjects';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
@@ -48,14 +49,6 @@ export default function ErrorBookPage() {
     if (activeFilter === 'all') return errorBook;
     return errorBook.filter(e => e.subjectId === activeFilter);
   }, [activeFilter, errorBook]);
-
-  // 简易 Markdown 解析，用于处理题目中的图片和换行 (与 PracticePage 保持一致)
-  const renderMarkdown = (text: string) => {
-    if (!text) return '';
-    let html = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />');
-    html = html.replace(/\n/g, '<br/>');
-    return `<div style="line-height: 1.6;">${html}</div>`;
-  };
 
   const handleRedo = (subjectId: string) => {
     Taro.navigateTo({ url: `/pages/practice/index?subjectId=${subjectId}&mode=error_redo` });

@@ -10,7 +10,7 @@
     "framework": "React"
   },
   "scripts": {
-    "start:all": "concurrently \"node cloud-functions/start.js\" \"PORT=10086 npm run dev:h5\"",
+    "start:all": "concurrently \"node cloud-functions/start.js\" \"PORT=10087 npm run dev:h5\"",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -53,6 +53,7 @@
     "ajv": "^8.20.0",
     "classnames": "^2.5.0",
     "dayjs": "^1.11.10",
+    "katex": "^0.17.0",
     "mysql2": "^3.22.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -68,6 +69,7 @@
     "@tarojs/cli": "4.1.9",
     "@tarojs/taro-loader": "4.1.9",
     "@tarojs/webpack5-runner": "4.1.9",
+    "@types/katex": "^0.16.8",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.0",
     "@types/webpack-env": "^1.13.6",
