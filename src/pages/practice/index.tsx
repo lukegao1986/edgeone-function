@@ -318,6 +318,10 @@ export default function PracticePage() {
 
   const letters = ['A', 'B', 'C', 'D'];
 
+  // 判断页面栈深度
+  const pages = Taro.getCurrentPages();
+  const canGoBack = pages.length > 1;
+
   if (loading) {
     return (
       <View className={styles.emptyContainer}>
@@ -330,7 +334,12 @@ export default function PracticePage() {
     return (
       <View className={styles.emptyContainer}>
         <Text className={styles.emptyText}>暂无题目</Text>
-        <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
+        <View style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
+          {canGoBack && (
+            <Text className={styles.backLink} onClick={() => Taro.navigateBack()}>返回上一页</Text>
+          )}
+          <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
+        </View>
       </View>
     );
   }

@@ -32,11 +32,22 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
   const targetExam = userInfo?.target_exam || '暂无目标';
 
   if (simplified) {
+    const pages = Taro.getCurrentPages();
+    const canGoBack = pages.length > 1;
+
     return (
       <View className={styles.navbarSimplified}>
-        <View className={styles.backBtn} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>
-          <Text className={styles.backIcon}>‹</Text>
-          <Text className={styles.backText}>返回大厅</Text>
+        <View className={styles.leftActions}>
+          {canGoBack && (
+            <View className={styles.backBtn} onClick={() => Taro.navigateBack()}>
+              <Text className={styles.backIcon}>‹</Text>
+              <Text className={styles.backText}>返回</Text>
+            </View>
+          )}
+          <View className={classnames(styles.backBtn, canGoBack && styles.backBtnSecondary)} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>
+            {!canGoBack && <Text className={styles.backIcon}>‹</Text>}
+            <Text className={styles.backText}>大厅</Text>
+          </View>
         </View>
         <Text className={styles.subjectTitle}>{subjectName}</Text>
         <View className={styles.placeholder} />
