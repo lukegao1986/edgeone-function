@@ -14,6 +14,7 @@ export default async function onRequestGet(context) {
   const topicId = url.searchParams.get('topicId'); // 对应 topics 表的 code，如 phy_1_1_1
   const subjectId = url.searchParams.get('subjectId'); // 对应 sub_subjects 表的 code，如 physics
   const userId = url.searchParams.get('userId');
+  const difficulties = url.searchParams.get('difficulties'); // e.g. "1,2,3"
 
   if (!topicId && !subjectId) {
     return new Response(JSON.stringify({ success: false, error: "缺少查询参数 (topicId 或 subjectId)" }), {
@@ -26,15 +27,26 @@ export default async function onRequestGet(context) {
     const connection = await mysql.createConnection(dbConfig);
 
     let rows = [];
+    let diffCondition = '';
+    let diffParams = [];
+    if (difficulties) {
+      const diffArray = difficulties.split(',').map(d => parseInt(d, 10)).filter(d => !isNaN(d));
+      if (diffArray.length > 0) {
+        const placeholders = diffArray.map(() => '?').join(',');
+        diffCondition = ` AND q.difficulty_level IN (${placeholders})`;
+        diffParams = diffArray;
+      }
+    }
+
     if (topicId) {
       // 优先根据 topicId (topics.code) 进行关联查询
       [rows] = await connection.execute(
         `SELECT q.* 
          FROM questions q
          JOIN topics t ON q.topic_id = t.id
-         WHERE t.code = ? AND q.is_enabled = 1
+         WHERE t.code = ? AND q.is_enabled = 1 ${diffCondition}
          ORDER BY q.created_at ASC`,
-        [topicId]
+        [topicId, ...diffParams]
       );
     } else if (subjectId) {
       // 兜底逻辑：根据二级学科 code 查询
@@ -42,9 +54,9 @@ export default async function onRequestGet(context) {
         `SELECT q.* 
          FROM questions q
          JOIN sub_subjects sub ON q.sub_subject_id = sub.id
-         WHERE sub.code = ? AND q.is_enabled = 1
+         WHERE sub.code = ? AND q.is_enabled = 1 ${diffCondition}
          ORDER BY q.created_at ASC`,
-        [subjectId]
+        [subjectId, ...diffParams]
       );
     }
 

@@ -30,13 +30,21 @@
   border-bottom: 2px solid #ECEEF2;
 }
 
+.progressHeaderTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
 .progressTitle {
   font-size: 28px;
   font-weight: 500;
   color: $color-text-primary;
-  margin-bottom: 16px;
   display: block;
 }
+
+
 
 .progressBarBg {
   width: 100%;
@@ -180,6 +188,48 @@
   font-size: 28px;
   font-weight: 500;
   color: $color-text-primary;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.inlineFilters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inlineFilterLabel {
+  font-size: 24px;
+  color: #999;
+}
+
+.inlineChip {
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: #f5f6fa;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.inlineChipActive {
+  background: rgba(43, 90, 237, 0.08);
+  border-color: #2b5aed;
+}
+
+.inlineChipText {
+  font-size: 24px;
+  color: #666;
+}
+
+.inlineChipActive .inlineChipText {
+  color: #2b5aed;
+  font-weight: 500;
 }
 
 .statusText {
@@ -539,3 +589,5 @@
     height: 72px;
   }
 }
+
+

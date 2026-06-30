@@ -20,6 +20,9 @@ export default function PracticePage() {
   const [questions, setQuestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // 新增：难度过滤状态，默认全选 (1=基础, 2=进阶, 3=挑战)
+  const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>([1, 2, 3]);
+
   useEffect(() => {
     const fetchQuestions = async () => {
       setLoading(true);
@@ -28,9 +31,10 @@ export default function PracticePage() {
         const userInfo = Taro.getStorageSync('userInfo');
         const userId = userInfo ? userInfo.id : '';
         
-        // 修改：传入 topicId 以支持精准筛选，并移除本地 mock 生成逻辑
+        // 修改：传入 topicId 和 difficulties 进行请求
+        const diffParams = selectedDifficulties.length > 0 ? `&difficulties=${selectedDifficulties.join(',')}` : '';
         const res = await Taro.request({
-          url: `/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}`,
+          url: `/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
           method: 'GET'
         });
         if (res.data && res.data.success) {
@@ -61,7 +65,7 @@ export default function PracticePage() {
       }
     };
     fetchQuestions();
-  }, [subjectId, topicId]); // 增加对 topicId 的监听
+  }, [subjectId, topicId, selectedDifficulties]); // 增加对 topicId 和 selectedDifficulties 的监听
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -322,6 +326,25 @@ export default function PracticePage() {
   const pages = Taro.getCurrentPages();
   const canGoBack = pages.length > 1;
 
+  const toggleDifficulty = (level: number) => {
+    setSelectedDifficulties(prev => {
+      if (prev.includes(level)) {
+        return prev.filter(d => d !== level);
+      } else {
+        return [...prev, level];
+      }
+    });
+  };
+
+  const getDifficultyLabel = (level: number) => {
+    switch (level) {
+      case 1: return '基础';
+      case 2: return '进阶';
+      case 3: return '挑战';
+      default: return '未知';
+    }
+  };
+
   if (loading) {
     return (
       <View className={styles.emptyContainer}>
@@ -332,13 +355,16 @@ export default function PracticePage() {
 
   if (!currentQuestion) {
     return (
-      <View className={styles.emptyContainer}>
-        <Text className={styles.emptyText}>暂无题目</Text>
-        <View style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
-          {canGoBack && (
-            <Text className={styles.backLink} onClick={() => Taro.navigateBack()}>返回上一页</Text>
-          )}
-          <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
+      <View className={styles.pageContainer}>
+        <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
+        <View className={styles.emptyContainer}>
+          <Text className={styles.emptyText}>当前筛选条件下暂无题目</Text>
+          <View style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
+            {canGoBack && (
+              <Text className={styles.backLink} onClick={() => Taro.navigateBack()}>返回上一页</Text>
+            )}
+            <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
+          </View>
         </View>
       </View>
     );
@@ -353,7 +379,9 @@ export default function PracticePage() {
         {/* 左侧：题号导航矩阵 */}
         <View className={styles.leftPanel}>
           <View className={styles.progressHeader}>
-            <Text className={styles.progressTitle}>答题进度</Text>
+            <View className={styles.progressHeaderTop}>
+              <Text className={styles.progressTitle}>答题进度</Text>
+            </View>
             <View className={styles.progressBarBg}>
               <View className={styles.progressBarFill} style={{ width: `${progress}%` }} />
             </View>
@@ -401,7 +429,24 @@ export default function PracticePage() {
               
               {/* 题头 */}
               <View className={styles.questionHeader}>
-                <Text className={styles.questionCounter}>第 {currentIndex + 1} 题（共 {totalQuestions} 题）</Text>
+                <View className={styles.headerTop}>
+                  <Text className={styles.questionCounter}>第 {currentIndex + 1} 题（共 {totalQuestions} 题）</Text>
+                  
+                  {/* 行内难度筛选 */}
+                  <View className={styles.inlineFilters}>
+                    <Text className={styles.inlineFilterLabel}>难度：</Text>
+                    {[1, 2, 3].map(level => (
+                      <View 
+                        key={level} 
+                        className={classnames(styles.inlineChip, selectedDifficulties.includes(level) && styles.inlineChipActive)}
+                        onClick={() => toggleDifficulty(level)}
+                      >
+                        <Text className={styles.inlineChipText}>{getDifficultyLabel(level)}</Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+
                 {showAnswer && existingAnswer && (
                   <Text className={classnames(styles.statusText, existingAnswer.isCorrect ? styles.textSuccess : styles.textDanger)}>
                     {existingAnswer.isCorrect ? '✅ 回答正确' : '❌ 回答错误'}
