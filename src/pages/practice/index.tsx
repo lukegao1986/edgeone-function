@@ -316,7 +316,7 @@ export default function PracticePage() {
     return styles.labelDisabled;
   };
 
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
   // 判断页面栈深度
   const pages = Taro.getCurrentPages();

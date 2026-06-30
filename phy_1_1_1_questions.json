@@ -1,0 +1,622 @@
+[
+  {
+    "businessCode": "phy-01-qC1",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "自動車が一定の速さ $15 \\, \\text{m/s}$ でまっすぐに進むとき，$4.0$ 秒間の移動距離 $x$ は何 $\\text{m}$ か。",
+    "options": [
+      "$45 \\, \\text{m}$",
+      "$60 \\, \\text{m}$",
+      "$75 \\, \\text{m}$",
+      "$30 \\, \\text{m}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: $60 \\, \\text{m}$\n\n【详细解析】: 由匀速直线运动（等速直線運動）公式 $x = vt$，代入 $v = 15 \\, \\text{m/s}$，$t = 4.0 \\, \\text{s}$，得 $x = 15 \\times 4.0 = 60 \\, \\text{m}$。"
+  },
+  {
+    "businessCode": "phy-01-qC2",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "$10 \\, \\text{m/s}$ は何 $\\text{km/h}$ か。",
+    "options": [
+      "$24 \\, \\text{km/h}$",
+      "$30 \\, \\text{km/h}$",
+      "$36 \\, \\text{km/h}$",
+      "$42 \\, \\text{km/h}$"
+    ],
+    "correctIndex": 2,
+    "explanation": "【参考答案】: $36 \\, \\text{km/h}$\n\n【详细解析】: $1 \\, \\text{h} = 60 \\times 60 = 3600 \\, \\text{s}$，以 $10 \\, \\text{m/s}$ 的速度行驶1小时的距离为 $10 \\times 3600 = 36000 \\, \\text{m} = 36 \\, \\text{km}$。因此 $10 \\, \\text{m/s} = 36 \\, \\text{km/h}$。单位换算的关键：$1 \\, \\text{m/s} = 3.6 \\, \\text{km/h}$。"
+  },
+  {
+    "businessCode": "phy-01-qC3",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "右図で東向きを正の向きと定める。Aの速度は東向きに $4.0 \\, \\text{m/s}$、Bの速度は西向きに $6.0 \\, \\text{m/s}$ である。Aの速度はどのように表されるか。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/2515b2df0fa278656517a18300f92df462b90d5b68075d04246fcfce025e63ff.jpg)",
+    "options": [
+      "$-4.0 \\, \\text{m/s}$",
+      "$4.0 \\, \\text{m/s}$",
+      "$6.0 \\, \\text{m/s}$",
+      "$-6.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: A向东（東向き）$4.0 \\, \\text{m/s}$，即 $4.0 \\, \\text{m/s}$\n\n【详细解析】: 规定向东为正方向（東向きを正の向き），所以A的速度为 $+4.0 \\, \\text{m/s}$，即 $4.0 \\, \\text{m/s}$。B向西（西向き）$6.0 \\, \\text{m/s}$，故表示为 $-6.0 \\, \\text{m/s}$。"
+  },
+  {
+    "businessCode": "phy-01-qC4",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "$x$ 軸上を自動車 A, B が正の向きにそれぞれ $5.0 \\, \\text{m/s}$, $8.0 \\, \\text{m/s}$ の速さで進んでいるとき，A から見た B の相対速度はどの向きに何 $\\text{m/s}$ か。",
+    "options": [
+      "負の向きに $3.0 \\, \\text{m/s}$",
+      "正の向きに $3.0 \\, \\text{m/s}$",
+      "正の向きに $13.0 \\, \\text{m/s}$",
+      "負の向きに $13.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: 正方向（正の向き）に $3.0 \\, \\text{m/s}$\n\n【详细解析】: 由相对速度（相対速度）公式 $v_{AB} = v_B - v_A$，代入 $v_B = 8.0 \\, \\text{m/s}$，$v_A = 5.0 \\, \\text{m/s}$，得 $v_{AB} = 8.0 - 5.0 = 3.0 \\, \\text{m/s}$。结果为正值，故方向为正方向。"
+  },
+  {
+    "businessCode": "phy-01-qC5",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "ある物体の速度の $x$ 成分が $4.0 \\, \\text{m/s}$，$y$ 成分が $3.0 \\, \\text{m/s}$ であった。このとき，物体の速さ $v$ は何 $\\text{m/s}$ か。",
+    "options": [
+      "$7.0 \\, \\text{m/s}$",
+      "$1.0 \\, \\text{m/s}$",
+      "$5.0 \\, \\text{m/s}$",
+      "$3.5 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 2,
+    "explanation": "【参考答案】: $5.0 \\, \\text{m/s}$\n\n【详细解析】: 由速度的合成（速度の合成），速率 $v = \\sqrt{v_x^{2} + v_y^{2}} = \\sqrt{4.0^{2} + 3.0^{2}} = \\sqrt{16 + 9} = \\sqrt{25} = 5.0 \\, \\text{m/s}$。注意速率是速度矢量的大小，不含方向。"
+  },
+  {
+    "businessCode": "phy-01-qC6",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "一直線上を正の向きに $2.0 \\, \\text{m/s}$ の速さで進む物体が，$3.0$ 秒後に正の向きに $6.5 \\, \\text{m/s}$ の速さになった。このときの物体の平均の加速度 $\\overline{a}$ は何 $\\text{m/s}^2$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/01d1291ba1da067b13fe3c2cd4289c1dace5758ec0f645bb514616fc2df7dc33.jpg)",
+    "options": [
+      "$2.17 \\, \\text{m/s}^2$",
+      "$1.5 \\, \\text{m/s}^2$",
+      "$0.5 \\, \\text{m/s}^2$",
+      "$3.0 \\, \\text{m/s}^2$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: $1.5 \\, \\text{m/s}^2$\n\n【详细解析】: 平均加速度（平均の加速度）$\\overline{a} = \\frac{\\Delta v}{\\Delta t}$（速度变化量/时间）。代入 $\\Delta v = 6.5 - 2.0 = 4.5 \\, \\text{m/s}$，$\\Delta t = 3.0 \\, \\text{s}$，得 $\\overline{a} = \\frac{4.5}{3.0} = 1.5 \\, \\text{m/s}^2$。"
+  },
+  {
+    "businessCode": "phy-01-qC7",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "$4.0 \\, \\text{m/s}$ の速さで動いていた物体が一定の加速度 $0.50 \\, \\text{m/s}^2$ で速さを増した。\n(1) $2.0$ 秒後の物体の速さ $v$ は何 $\\text{m/s}$ か。\n(2) $2.0$ 秒後までに物体が進んだ距離 $x$ は何 $\\text{m}$ か。",
+    "options": [
+      "$4.0 \\, \\text{m/s}, \\; 8.0 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}, \\; 10.0 \\, \\text{m}$",
+      "$5.0 \\, \\text{m/s}, \\; 9.0 \\, \\text{m}$",
+      "$5.0 \\, \\text{m/s}, \\; 11.0 \\, \\text{m}$",
+      "$6.0 \\, \\text{m/s}, \\; 8.0 \\, \\text{m}$",
+      "$6.0 \\, \\text{m/s}, \\; 10.0 \\, \\text{m}$"
+    ],
+    "correctIndex": 2,
+    "explanation": "【参考答案】: (1) $5.0 \\, \\text{m/s}$, (2) $9.0 \\, \\text{m}$\n\n【详细解析】:\n(1) 由匀加速直线运动（等加速度直線運動）公式 $v = v_0 + at$，代入 $v_0 = 4.0 \\, \\text{m/s}$，$a = 0.50 \\, \\text{m/s}^2$，$t = 2.0 \\, \\text{s}$，得 $v = 4.0 + 0.50 \\times 2.0 = 5.0 \\, \\text{m/s}$。\n(2) 由匀加速直线运动公式 $x = v_0 t + \\frac{1}{2} a t^{2}$，代入得 $x = 4.0 \\times 2.0 + \\frac{1}{2} \\times 0.50 \\times (2.0)^{2} = 8.0 + 1.0 = 9.0 \\, \\text{m}$。"
+  },
+  {
+    "businessCode": "phy-01-qC8",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 1,
+    "score": 5,
+    "stem": "静止していた物体が，一定の加速度 $3.0 \\, \\text{m/s}^2$ で速さを増し，$3.0 \\, \\text{m/s}$ の速さになった。この間に物体が進んだ距離 $x$ は何 $\\text{m}$ か。",
+    "options": [
+      "$1.0 \\, \\text{m}$",
+      "$3.0 \\, \\text{m}$",
+      "$1.5 \\, \\text{m}$",
+      "$4.5 \\, \\text{m}$"
+    ],
+    "correctIndex": 2,
+    "explanation": "【参考答案】: $1.5 \\, \\text{m}$\n\n【详细解析】: 由匀加速直线运动（等加速度直線運動）公式 $v^{2} - v_0^{2} = 2ax$，代入 $v_0 = 0$（从静止出发），$v = 3.0 \\, \\text{m/s}$，$a = 3.0 \\, \\text{m/s}^2$，得 $3.0^{2} - 0^{2} = 2 \\times 3.0 \\times x$，即 $9.0 = 6.0 x$，解得 $x = 1.5 \\, \\text{m}$。"
+  },
+  {
+    "businessCode": "phy-01-qE1",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "右図は, $x$ 軸上を運動する物体の位置 $x$[m] と時間 $t$[s] の関係を表す $x$-$t$ 図である。点 P を通る直線は, 点 P における接線を表している。\n\n(1) $8.0$ 秒間の平均の速さ $\\bar{v}$ は何 $\\text{m/s}$ か。\n(2) 時刻 $4.0$ 秒における瞬間の速さ $v$ は何 $\\text{m/s}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/b26a588c17919393a235e9f7c1306381fbfb26ec768e24c0f92b0144bfde62e7.jpg)",
+    "options": [
+      "$\\bar{v}=4.5 \\, \\text{m/s}, \\; v=6.0 \\, \\text{m/s}$",
+      "$\\bar{v}=4.5 \\, \\text{m/s}, \\; v=4.0 \\, \\text{m/s}$",
+      "$\\bar{v}=3.0 \\, \\text{m/s}, \\; v=6.0 \\, \\text{m/s}$",
+      "$\\bar{v}=3.0 \\, \\text{m/s}, \\; v=9.0 \\, \\text{m/s}$",
+      "$\\bar{v}=6.0 \\, \\text{m/s}, \\; v=4.0 \\, \\text{m/s}$",
+      "$\\bar{v}=6.0 \\, \\text{m/s}, \\; v=9.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) $\\bar{v}=4.5 \\, \\text{m/s}$, (2) $v=6.0 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 平均の速さ（平均速率）$\\bar{v} = \\frac{\\text{移動距離}}{\\text{経過時間}}$ より，$8.0$ 秒間に $36$ m 移動しているから $\\bar{v} = \\frac{36}{8.0} = 4.5 \\, \\text{m/s}$。\n(2) 瞬間の速さ（瞬时速率）は $x$-$t$ 図の曲線グラフに引いた接線の傾きから求める。時刻 $4.0$ 秒の点 P における接線の傾きがその時刻の瞬間の速さ $v$ を表し，図より $v = 6.0 \\, \\text{m/s}$ となる。"
+  },
+  {
+    "businessCode": "phy-01-qE2",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "流れの速さが $2.0 \\, \\text{m/s}$ のまっすぐな川がある。この川を、静水上を $4.0 \\, \\text{m/s}$ の速さで進む船で移動する。\n\n(1) 同じ岸の上流と下流にある、$72$ m 離れた点 A と点 B をこの船が往復するとき、上りと下りに要する時間 $t_{1}$ [s]、$t_{2}$ [s] をそれぞれ求めよ。\n(2) この船で川を直角に横切りたい。へさきを向けるべき図の角 $\\theta$ の値を求めよ。\n(3) (2) のとき、川幅 $60$ m を横切るのに要する時間 $t$ [s] を求めよ。$\\sqrt{3}=1.73$ とする。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/b212c2ba072c21729cbd314e15e0b1eef44bc680f58b6a108ea8e668ff406756.jpg)",
+    "options": [
+      "$t_{1}=36 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=60^{\\circ}, \\; t=17 \\, \\text{s}$",
+      "$t_{1}=36 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=45^{\\circ}, \\; t=20 \\, \\text{s}$",
+      "$t_{1}=36 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=30^{\\circ}, \\; t=10 \\, \\text{s}$",
+      "$t_{1}=24 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=60^{\\circ}, \\; t=10 \\, \\text{s}$",
+      "$t_{1}=24 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=45^{\\circ}, \\; t=17 \\, \\text{s}$",
+      "$t_{1}=24 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=30^{\\circ}, \\; t=20 \\, \\text{s}$",
+      "$t_{1}=48 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=60^{\\circ}, \\; t=20 \\, \\text{s}$",
+      "$t_{1}=48 \\, \\text{s}, \\; t_{2}=12 \\, \\text{s}, \\; \\theta=30^{\\circ}, \\; t=17 \\, \\text{s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) $t_{1}=36 \\, \\text{s}$, $t_{2}=12 \\, \\text{s}$, (2) $\\theta=60^{\\circ}$, (3) $t=17 \\, \\text{s}$\n\n【详细解析】:\n(1) 上り（上流）のときの岸に対する船の速度（合成速度/速度の合成）は $4.0 + (-2.0) = 2.0 \\, \\text{m/s}$ だから $t_{1} = \\frac{72}{2.0} = 36 \\, \\text{s}$。下り（下流）のときの岸に対する船の速度は $4.0 + 2.0 = 6.0 \\, \\text{m/s}$ だから $t_{2} = \\frac{72}{6.0} = 12 \\, \\text{s}$。\n(2) 船が川の流れに対して直角に進むためには、船（静水上）の速度と川の流れの速度の合成速度が川の流れと垂直になる必要がある。$\\triangle \\text{PQR}$ は辺の比が $1:2:\\sqrt{3}$ の直角三角形であり，$\\theta = 60^{\\circ}$。\n(3) 合成速度の大きさ $v = 2.0 \\times \\sqrt{3} = 2.0 \\times 1.73 = 3.46 \\, \\text{m/s}$。この速さで $60$ m の距離を進むので $t = \\frac{60}{2.0 \\times \\sqrt{3}} = 10\\sqrt{3} = 10 \\times 1.73 \\approx 17 \\, \\text{s}$。"
+  },
+  {
+    "businessCode": "phy-01-qE3",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "湖を東西に横切る橋を、自動車 A が東向きに $10 \\, \\text{m/s}$、自動車 B が西向きに $15 \\, \\text{m/s}$ の速さで進んでいる。\n\n(1) A に対する B の相対速度はどの向きに何 $\\text{m/s}$ か。\n(2) この橋の下をモーターボート C が北向きに $10 \\, \\text{m/s}$ の速さで進んだ。A に対する C の相対速度はどの向きに何 $\\text{m/s}$ か。$\\sqrt{2}=1.41$ とする。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/ee0871ed0f5530fbeca06e20303c73dcca6adc91ef3893f0ce47fb9447323028.jpg)",
+    "options": [
+      "西向きに $25 \\, \\text{m/s}$, 北西の向きに $14 \\, \\text{m/s}$",
+      "西向きに $25 \\, \\text{m/s}$, 北西の向きに $10 \\, \\text{m/s}$",
+      "西向きに $20 \\, \\text{m/s}$, 北西の向きに $14 \\, \\text{m/s}$",
+      "西向きに $20 \\, \\text{m/s}$, 北西の向きに $20 \\, \\text{m/s}$",
+      "西向きに $35 \\, \\text{m/s}$, 北西の向きに $10 \\, \\text{m/s}$",
+      "西向きに $35 \\, \\text{m/s}$, 北西の向きに $20 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) 西向きに $25 \\, \\text{m/s}$, (2) 北西の向きに $14 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 東向きを正とすると、$v_{A}=+10 \\, \\text{m/s}$、$v_{B}=-15 \\, \\text{m/s}$。相対速度（相対速度）の公式 $v_{AB}=v_{B}-v_{A}$ より $v_{AB}=(-15)-(+10)=-25 \\, \\text{m/s}$。負号は西向きを表すから、西向きに $25 \\, \\text{m/s}$。\n(2) 平面上の相対速度はベクトルで考える。$\\overrightarrow{v_{AC}} = \\overrightarrow{v_{C}} - \\overrightarrow{v_{A}}$。A と C の速さは等しく $v_{A}=v_{C}=10 \\, \\text{m/s}$ で、A は東向き、C は北向きだから、$\\overrightarrow{v_{AC}}$ は直角二等辺三角形の斜辺となり $v_{AC} = \\sqrt{2} \\, v_{A} = 10\\sqrt{2} = 10 \\times 1.41 \\approx 14 \\, \\text{m/s}$。向きは北西の向き。"
+  },
+  {
+    "businessCode": "phy-01-qE4",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "東西に通じる直線道路を東向きに $8.0 \\, \\text{m/s}$ の速さで進んでいた自動車が、点 O を通過した瞬間から東向きに $2.0 \\, \\text{m/s}^2$ の一定の加速度で $3.0$ 秒間加速し、その後一定の速度で進んだ。\n\n(1) 加速し始めてから $3.0$ 秒後の自動車の速度はどの向きに何 $\\text{m/s}$ か。\n(2) 加速し始めてから $3.0$ 秒間に自動車が進んだ距離は何 $\\text{m}$ か。\n(3) (1)の速度で進んでいた自動車はある瞬間から一定の加速度で減速し、$20$ m 進んだときに東向きに $6.0 \\, \\text{m/s}$ の速さになった。加速度はどの向きに何 $\\text{m/s}^2$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/bc9863af2059059711105effeb7957fdeec28f07a8575ec3a5ad86924ee47d9a.jpg)",
+    "options": [
+      "東向きに $14.0 \\, \\text{m/s}$, $33 \\, \\text{m}$, 西向きに $4.0 \\, \\text{m/s}^2$",
+      "東向きに $14.0 \\, \\text{m/s}$, $27 \\, \\text{m}$, 西向きに $2.0 \\, \\text{m/s}^2$",
+      "東向きに $14.0 \\, \\text{m/s}$, $39 \\, \\text{m}$, 西向きに $6.0 \\, \\text{m/s}^2$",
+      "東向きに $11.0 \\, \\text{m/s}$, $33 \\, \\text{m}$, 西向きに $2.0 \\, \\text{m/s}^2$",
+      "東向きに $11.0 \\, \\text{m/s}$, $27 \\, \\text{m}$, 西向きに $4.0 \\, \\text{m/s}^2$",
+      "東向きに $11.0 \\, \\text{m/s}$, $39 \\, \\text{m}$, 西向きに $6.0 \\, \\text{m/s}^2$",
+      "東向きに $17.0 \\, \\text{m/s}$, $33 \\, \\text{m}$, 西向きに $6.0 \\, \\text{m/s}^2$",
+      "東向きに $17.0 \\, \\text{m/s}$, $27 \\, \\text{m}$, 西向きに $4.0 \\, \\text{m/s}^2$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) 東向きに $14.0 \\, \\text{m/s}$, (2) $33 \\, \\text{m}$, (3) 西向きに $4.0 \\, \\text{m/s}^2$\n\n【详细解析】:\n(1) 等加速度直線運動（匀加速直线运动）の公式 $v = v_{0} + at$ より $v = 8.0 + 2.0 \\times 3.0 = 14.0 \\, \\text{m/s}$。東向きを正としているので、東向きに $14.0 \\, \\text{m/s}$。\n(2) 等加速度直線運動の公式 $x = v_{0}t + \\frac{1}{2} a t^{2}$ より $x = 8.0 \\times 3.0 + \\frac{1}{2} \\times 2.0 \\times 3.0^{2} = 24 + 9 = 33 \\, \\text{m}$。\n(3) 等加速度直線運動の公式 $v^{2} - v_{0}^{2} = 2ax$ より $6.0^{2} - 14.0^{2} = 2a \\times 20$、$36 - 196 = 40a$、よって $a = -4.0 \\, \\text{m/s}^2$。負号は西向きを表すので、西向きに $4.0 \\, \\text{m/s}^2$。"
+  },
+  {
+    "businessCode": "phy-01-qE5",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "図は、電車が A 駅を出てから直線状線路を通って B 駅に着くまでの、速さと時間の関係を示すグラフ（$v$-$t$ 図）である。$0 \\sim 40$ s は加速区間、$40 \\sim 100$ s は等速区間、$100 \\sim 150$ s は減速区間であり、各区間の加速度は一定である。\n\n(1) $0 \\sim 40$ 秒間の加速度の大きさ $a_{1}$ は何 $\\text{m/s}^2$ か。\n(2) A 駅を出てから $40$ 秒間に進んだ距離は何 $\\text{m}$ か。\n(3) A 駅と B 駅の距離は何 $\\text{m}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/9c519c3b6028af96c9c789925b4dad1ac95194b48c4672abaf9c9e7185c333e5.jpg)",
+    "options": [
+      "$a_{1}=0.50 \\, \\text{m/s}^2$, $4.0 \\times 10^{2} \\, \\text{m}$, $2.1 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.50 \\, \\text{m/s}^2$, $3.0 \\times 10^{2} \\, \\text{m}$, $2.4 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.50 \\, \\text{m/s}^2$, $5.0 \\times 10^{2} \\, \\text{m}$, $1.8 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.25 \\, \\text{m/s}^2$, $4.0 \\times 10^{2} \\, \\text{m}$, $1.8 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.25 \\, \\text{m/s}^2$, $3.0 \\times 10^{2} \\, \\text{m}$, $2.1 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.25 \\, \\text{m/s}^2$, $5.0 \\times 10^{2} \\, \\text{m}$, $2.1 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.75 \\, \\text{m/s}^2$, $4.0 \\times 10^{2} \\, \\text{m}$, $2.4 \\times 10^{3} \\, \\text{m}$",
+      "$a_{1}=0.75 \\, \\text{m/s}^2$, $3.0 \\times 10^{2} \\, \\text{m}$, $1.8 \\times 10^{3} \\, \\text{m}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) $a_{1}=0.50 \\, \\text{m/s}^2$, (2) $4.0 \\times 10^{2} \\, \\text{m}$, (3) $2.1 \\times 10^{3} \\, \\text{m}$\n\n【详细解析】:\n(1) $v$-$t$ 図の傾きが加速度（加速度）を表す。$0 \\sim 40$ s 区間の加速度 $a_{1} = \\frac{20}{40} = 0.50 \\, \\text{m/s}^2$。\n(2) $v$-$t$ 図が $t$ 軸と囲む面積が移動距離（移動距離）を表す。$0 \\sim 40$ s の三角形の面積は $\\frac{1}{2} \\times 40 \\times 20 = 4.0 \\times 10^{2} \\, \\text{m}$。\n(3) A 駅から B 駅までの全体の移動距離は $v$-$t$ 図全体の面積（台形）で求められる。$\\frac{1}{2} \\times (60 + 150) \\times 20 = \\frac{1}{2} \\times 210 \\times 20 = 2.1 \\times 10^{3} \\, \\text{m}$。"
+  },
+  {
+    "businessCode": "phy-01-qB1",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "金沢駅で新幹線に乗り，2 時間 30 分後に東京駅に到着した。金沢駅と東京駅の間の新幹線の走行距離は $4.5 \\times 10^{2} \\, \\text{km}$ であるとする。\n(1) この新幹線の平均の速さ（平均の速さ）は何 $\\text{km/h}$ か。\n(2) それは何 $\\text{m/s}$ か。",
+    "options": [
+      "$1.8 \\times 10^{2} \\, \\text{km/h}, \\; 40 \\, \\text{m/s}$",
+      "$1.8 \\times 10^{2} \\, \\text{km/h}, \\; 50 \\, \\text{m/s}$",
+      "$2.0 \\times 10^{2} \\, \\text{km/h}, \\; 50 \\, \\text{m/s}$",
+      "$2.0 \\times 10^{2} \\, \\text{km/h}, \\; 40 \\, \\text{m/s}$",
+      "$1.8 \\times 10^{2} \\, \\text{km/h}, \\; 60 \\, \\text{m/s}$",
+      "$2.0 \\times 10^{2} \\, \\text{km/h}, \\; 60 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $1.8 \\times 10^{2} \\, \\text{km/h}$, (2) $50 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 2時間30分=2.5hより，平均の速さ（平均の速さ）$\\overline{v} = \\frac{\\text{移動距離}}{\\text{経過時間}} = \\frac{4.5 \\times 10^{2} \\, \\text{km}}{2.5 \\, \\text{h}} = 1.8 \\times 10^{2} \\, \\text{km/h}$。\n(2) $1.8 \\times 10^{2} \\, \\text{km} = 1.8 \\times 10^{5} \\, \\text{m}$，$1 \\, \\text{h} = 3600 \\, \\text{s}$より，$\\overline{v} = \\frac{1.8 \\times 10^{5} \\, \\text{m}}{3600 \\, \\text{s}} = 50 \\, \\text{m/s}$。单位换算（単位換算）的关键：$1 \\, \\text{km/h} = \\frac{1}{3.6} \\, \\text{m/s}$，$1 \\, \\text{m/s} = 3.6 \\, \\text{km/h}$。"
+  },
+  {
+    "businessCode": "phy-01-qB2",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "右の図は，x 軸上を一定の速さで運動する物体の x-t 図である。\n(1) この物体の速さ $v$ は何 $\\text{m/s}$ か。\n(2) この物体が 10 秒間に移動する距離 $s$ は何 $\\text{m}$ か。\n(3) 時刻 $t=10 \\, \\text{s}$ のとき，物体の位置の $x$ 座標は何 $\\text{m}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/534f74c122d6ac71a93a260a9a09414de3c0df012f41c7415bd03559c4af80d2.jpg)",
+    "options": [
+      "$3.0 \\, \\text{m/s}, \\; 20 \\, \\text{m}, \\; 24 \\, \\text{m}$",
+      "$3.0 \\, \\text{m/s}, \\; 20 \\, \\text{m}, \\; 34 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}, \\; 30 \\, \\text{m}, \\; 34 \\, \\text{m}$",
+      "$3.0 \\, \\text{m/s}, \\; 30 \\, \\text{m}, \\; 34 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}, \\; 30 \\, \\text{m}, \\; 24 \\, \\text{m}$",
+      "$3.0 \\, \\text{m/s}, \\; 30 \\, \\text{m}, \\; 24 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}, \\; 20 \\, \\text{m}, \\; 34 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}, \\; 20 \\, \\text{m}, \\; 24 \\, \\text{m}$"
+    ],
+    "correctIndex": 3,
+    "explanation": "【参考答案】: (1) $3.0 \\, \\text{m/s}$, (2) $30 \\, \\text{m}$, (3) $34 \\, \\text{m}$\n\n【详细解析】:\n(1) $t=0 \\, \\text{s}$ から $t=4.0 \\, \\text{s}$ の間の4.0秒間に $x=16-4=12 \\, \\text{m}$ 移動したので，x-t図の傾きの大きさ，すなわち速さ（速さ）$v = \\frac{x}{t} = \\frac{12}{4.0} = 3.0 \\, \\text{m/s}$。x-t図が直線であれば傾きはどこでも一定なので，この運動は等速直線運動（等速直線運動）である。\n(2) $s = vt = 3.0 \\times 10 = 30 \\, \\text{m}$。\n(3) $t=0 \\, \\text{s}$ のとき $x=4 \\, \\text{m}$ で，そこから $s=30 \\, \\text{m}$ 進んだから $x = 4 + 30 = 34 \\, \\text{m}$。注意：$t=0 \\, \\text{s}$ のとき物体は原点ではなく，$x=4 \\, \\text{m}$ の位置にいる。"
+  },
+  {
+    "businessCode": "phy-01-qB3",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "右の図は x 軸上を運動する物体の位置 $x \\, [\\text{m}]$ と経過時間 $t \\, [\\text{s}]$ の関係を表す x-t 図である。図中の点 B, C を通る直線は，それぞれ点 B, C における接線である。\n(1) $0 \\sim 2.0$ 秒の間，$2.0 \\sim 4.0$ 秒の間の平均の速さ $\\overline{v_{\\text{AB}}} \\, [\\text{m/s}]$, $\\overline{v_{\\text{BC}}} \\, [\\text{m/s}]$ を求めよ。\n(2) 時刻 $2.0$ 秒，時刻 $4.0$ 秒における瞬間の速さ $v_{\\text{B}} \\, [\\text{m/s}]$, $v_{\\text{C}} \\, [\\text{m/s}]$ を求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/89b7ea49895c866c5719c62fff58e328eed3de5b6b17a06d81a6f58babd496e0.jpg)",
+    "options": [
+      "$\\overline{v_{\\text{AB}}}=1.0, \\; \\overline{v_{\\text{BC}}}=3.0 \\, \\text{m/s}; \\; v_{\\text{B}}=2.0, \\; v_{\\text{C}}=4.0 \\, \\text{m/s}$",
+      "$\\overline{v_{\\text{AB}}}=1.0, \\; \\overline{v_{\\text{BC}}}=3.0 \\, \\text{m/s}; \\; v_{\\text{B}}=3.0, \\; v_{\\text{C}}=4.0 \\, \\text{m/s}$",
+      "$\\overline{v_{\\text{AB}}}=1.0, \\; \\overline{v_{\\text{BC}}}=4.0 \\, \\text{m/s}; \\; v_{\\text{B}}=2.0, \\; v_{\\text{C}}=4.0 \\, \\text{m/s}$",
+      "$\\overline{v_{\\text{AB}}}=2.0, \\; \\overline{v_{\\text{BC}}}=3.0 \\, \\text{m/s}; \\; v_{\\text{B}}=2.0, \\; v_{\\text{C}}=4.0 \\, \\text{m/s}$",
+      "$\\overline{v_{\\text{AB}}}=1.0, \\; \\overline{v_{\\text{BC}}}=3.0 \\, \\text{m/s}; \\; v_{\\text{B}}=2.0, \\; v_{\\text{C}}=5.0 \\, \\text{m/s}$",
+      "$\\overline{v_{\\text{AB}}}=2.0, \\; \\overline{v_{\\text{BC}}}=3.0 \\, \\text{m/s}; \\; v_{\\text{B}}=3.0, \\; v_{\\text{C}}=4.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) $\\overline{v_{\\text{AB}}} = 1.0 \\, \\text{m/s}$, $\\overline{v_{\\text{BC}}} = 3.0 \\, \\text{m/s}$; (2) $v_{\\text{B}} = 2.0 \\, \\text{m/s}$, $v_{\\text{C}} = 4.0 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 平均の速さ（平均の速さ）$\\overline{v} = \\frac{\\text{移動距離}}{\\text{経過時間}}$。$\\overline{v_{\\text{AB}}} = \\frac{2.0 - 0}{2.0 - 0} = 1.0 \\, \\text{m/s}$，$\\overline{v_{\\text{BC}}} = \\frac{8.0 - 2.0}{4.0 - 2.0} = \\frac{6.0}{2.0} = 3.0 \\, \\text{m/s}$。\n(2) 瞬間の速さ（瞬間の速さ）は x-t 図の各時刻における接線の傾きで求められる。$v_{\\text{B}} = \\frac{6.0 - 0}{4.0 - 1.0} = \\frac{6.0}{3.0} = 2.0 \\, \\text{m/s}$（Bでの接線は(1.0, 0), (4.0, 6.0)を通る）。$v_{\\text{C}} = \\frac{8.0 - 0}{4.0 - 2.0} = \\frac{8.0}{2.0} = 4.0 \\, \\text{m/s}$（Cでの接線は(2.0, 0), (4.0, 8.0)を通る）。グラフの右方ほど傾きが大きいので，時間の経過とともに速さがしだいに増し，加速（加速）している。"
+  },
+  {
+    "businessCode": "phy-01-qB4",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "流水の速さが $2.0 \\, \\text{m/s}$ のまっすぐな川を静水時の速さが $4.5 \\, \\text{m/s}$ の船が進んでいる。\n(1) 下流に向かって進んでいるときの，川岸から見た船の速さ（速度の大きさ）は何 $\\text{m/s}$ か。\n(2) 上流に向かって進んでいるときの，川岸から見た船の速さ（速度の大きさ）は何 $\\text{m/s}$ か。",
+    "options": [
+      "$6.5 \\, \\text{m/s}, \\; 2.5 \\, \\text{m/s}$",
+      "$6.5 \\, \\text{m/s}, \\; 6.5 \\, \\text{m/s}$",
+      "$4.5 \\, \\text{m/s}, \\; 2.5 \\, \\text{m/s}$",
+      "$6.5 \\, \\text{m/s}, \\; 4.5 \\, \\text{m/s}$",
+      "$2.5 \\, \\text{m/s}, \\; 6.5 \\, \\text{m/s}$",
+      "$4.5 \\, \\text{m/s}, \\; 6.5 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) 下流 $6.5 \\, \\text{m/s}$, (2) 上流 $2.5 \\, \\text{m/s}$\n\n【详细解析】: 川の流れる向きを正の向きとし，川岸から見た船の速度を $v$ とする。\n(1) 下流に向かって進んでいるとき：$v = 4.5 + 2.0 = 6.5 \\, \\text{m/s}$。\n(2) 上流に向かって進んでいるとき：船は上流に向かうので静水時の速度は負となり，$v = (-4.5) + 2.0 = -2.5 \\, \\text{m/s}$，よって速さは $2.5 \\, \\text{m/s}$。\n川岸から見た船の速度（速度の合成）は，船の静水時の速度と川の流れる速度を合成（合成）したものになる。"
+  },
+  {
+    "businessCode": "phy-01-qB5",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "静水上を $4.0 \\, \\text{m/s}$ の速さで進むボートが，流れの速さ $3.0 \\, \\text{m/s}$ の川を進んでいる。次の各場合について，川岸の人から見たボートの速さを求めよ。ただし $\\sqrt{7} = 2.6$ とする。\n(1) 川の上流に向かって進むとき\n(2) へさきを川の流れに直角に保って進むとき\n(3) 川の流れに対して直角に進むとき\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/2ca5cd7491ba34ed934c13456970b8789c347a7f77e3277c2490003eb8d36f31.jpg)",
+    "options": [
+      "$1.0 \\, \\text{m/s}, \\; 5.0 \\, \\text{m/s}, \\; 3.6 \\, \\text{m/s}$",
+      "$1.0 \\, \\text{m/s}, \\; 5.0 \\, \\text{m/s}, \\; 2.6 \\, \\text{m/s}$",
+      "$2.0 \\, \\text{m/s}, \\; 5.0 \\, \\text{m/s}, \\; 2.6 \\, \\text{m/s}$",
+      "$1.0 \\, \\text{m/s}, \\; 4.0 \\, \\text{m/s}, \\; 2.6 \\, \\text{m/s}$",
+      "$2.0 \\, \\text{m/s}, \\; 5.0 \\, \\text{m/s}, \\; 3.6 \\, \\text{m/s}$",
+      "$1.0 \\, \\text{m/s}, \\; 7.0 \\, \\text{m/s}, \\; 2.6 \\, \\text{m/s}$",
+      "$2.0 \\, \\text{m/s}, \\; 4.0 \\, \\text{m/s}, \\; 2.6 \\, \\text{m/s}$",
+      "$1.0 \\, \\text{m/s}, \\; 4.0 \\, \\text{m/s}, \\; 3.6 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $1.0 \\, \\text{m/s}$, (2) $5.0 \\, \\text{m/s}$, (3) $2.6 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 流れの速さ（$3.0 \\, \\text{m/s}$）に逆らって進むので，$4.0 - 3.0 = 1.0 \\, \\text{m/s}$ の速さで，上流に向かって進む。\n(2) へさきを川の流れに直角に保つとき，速度ベクトル（速度ベクトル）の合成より，三平方の定理（三平方の定理）を用いて $v = \\sqrt{4.0^{2} + 3.0^{2}} = \\sqrt{16 + 9} = \\sqrt{25} = 5.0 \\, \\text{m/s}$。3:4:5の直角三角形になっている。\n(3) ボートが川の流れに対して直角に進むので，$\\vec{v}$ が川の流れと直角になるような速度ベクトルの関係となる。三平方の定理より $4.0^{2} = v^{2} + 3.0^{2}$，よって $v = \\sqrt{4.0^{2} - 3.0^{2}} = \\sqrt{7.0} = 2.6 \\, \\text{m/s}$。"
+  },
+  {
+    "businessCode": "phy-01-qB6",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "水の流れがない水路を，船が図のような向きに速さ $4.0 \\, \\text{m/s}$ で進む。座標軸を図のように定めるとき，船の速度の $x$ 成分 $v_{x} \\, [\\text{m/s}]$，$y$ 成分 $v_{y} \\, [\\text{m/s}]$ を求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/5fd334da12857106b83c671ef81f857869dc47b6681fb6f7f83b309420d3d90c.jpg)",
+    "options": [
+      "$v_{x}=2.0 \\, \\text{m/s}, \\; v_{y}=3.5 \\, \\text{m/s}$",
+      "$v_{x}=3.5 \\, \\text{m/s}, \\; v_{y}=2.0 \\, \\text{m/s}$",
+      "$v_{x}=2.0 \\, \\text{m/s}, \\; v_{y}=2.0 \\, \\text{m/s}$",
+      "$v_{x}=3.5 \\, \\text{m/s}, \\; v_{y}=3.5 \\, \\text{m/s}$",
+      "$v_{x}=4.0 \\, \\text{m/s}, \\; v_{y}=2.0 \\, \\text{m/s}$",
+      "$v_{x}=2.0 \\, \\text{m/s}, \\; v_{y}=4.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: $v_{x} = 2.0 \\, \\text{m/s}$, $v_{y} = 2.0\\sqrt{3} \\doteq 3.5 \\, \\text{m/s}$\n\n【详细解析】: 船の速度は $x$ 軸方向と $60^{\\circ}$ の角をなしているから，速度の分解（速度の分解）により：\n$v_{x} = v \\cos 60^{\\circ} = 4.0 \\times \\frac{1}{2} = 2.0 \\, \\text{m/s}$。\n$v_{y} = v \\sin 60^{\\circ} = 4.0 \\times \\frac{\\sqrt{3}}{2} = 2.0\\sqrt{3} = 2.0 \\times 1.73 \\doteq 3.5 \\, \\text{m/s}$。\n角度 $30^{\\circ}, 45^{\\circ}, 60^{\\circ}$ の三角比（三角比）を覚えておくこと。直角三角形の辺の比として $1:\\sqrt{3}:2$（$60^{\\circ}$の場合）を使う。"
+  },
+  {
+    "businessCode": "phy-01-qB7",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "東西方向に直線の鉄道と道路が並行している。西向きに速さ $30 \\, \\text{m/s}$ の列車 A，東向きに速さ $15 \\, \\text{m/s}$ の自動車 B，速度のわからない自動車 C が同時に走っている。\n(1) A から見た B の速度はどの向きに何 $\\text{m/s}$ か。\n(2) B から見た A の速度はどの向きに何 $\\text{m/s}$ か。\n(3) C から見た A の速度が西向きに $10 \\, \\text{m/s}$ であった。C の速度はどの向きに何 $\\text{m/s}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/21a7ebcaee81218e66010cc10f2e30e0592c11d55806189720f1e38e4df827de.jpg)",
+    "options": [
+      "東向き $45 \\, \\text{m/s}$, 西向き $45 \\, \\text{m/s}$, 東向き $20 \\, \\text{m/s}$",
+      "東向き $45 \\, \\text{m/s}$, 西向き $45 \\, \\text{m/s}$, 西向き $20 \\, \\text{m/s}$",
+      "東向き $15 \\, \\text{m/s}$, 西向き $15 \\, \\text{m/s}$, 西向き $20 \\, \\text{m/s}$",
+      "西向き $45 \\, \\text{m/s}$, 東向き $45 \\, \\text{m/s}$, 西向き $20 \\, \\text{m/s}$",
+      "東向き $45 \\, \\text{m/s}$, 西向き $45 \\, \\text{m/s}$, 東向き $10 \\, \\text{m/s}$",
+      "東向き $30 \\, \\text{m/s}$, 西向き $30 \\, \\text{m/s}$, 西向き $20 \\, \\text{m/s}$",
+      "西向き $45 \\, \\text{m/s}$, 東向き $45 \\, \\text{m/s}$, 東向き $20 \\, \\text{m/s}$",
+      "東向き $15 \\, \\text{m/s}$, 西向き $15 \\, \\text{m/s}$, 東向き $20 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) 東向きに $45 \\, \\text{m/s}$, (2) 西向きに $45 \\, \\text{m/s}$, (3) 西向きに $20 \\, \\text{m/s}$\n\n【详细解析】: 東向きを正とする。列車A，自動車Bの速度はそれぞれ $v_{A} = -30 \\, \\text{m/s}$，$v_{B} = 15 \\, \\text{m/s}$。\n(1) Aから見たBの相対速度（相対速度）：$v_{AB} = v_{B} - v_{A} = 15 - (-30) = 45 \\, \\text{m/s}$，よって東向きに $45 \\, \\text{m/s}$。\n(2) Bから見たAの相対速度：$v_{BA} = v_{A} - v_{B} = (-30) - 15 = -45 \\, \\text{m/s}$，よって西向きに $45 \\, \\text{m/s}$。\n(3) Cから見たAの速度 $v_{CA} = -10 \\, \\text{m/s}$（西向き）より，$v_{CA} = v_{A} - v_{C}$，$-10 = (-30) - v_{C}$，よって $v_{C} = (-30) - (-10) = -20 \\, \\text{m/s}$，西向きに $20 \\, \\text{m/s}$。\n「Aから見たBの速度」は，B（相手）の速度からA（基準）の速度を引いて得られる。"
+  },
+  {
+    "businessCode": "phy-01-qB8",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "列車Aが東向きに速さ $20 \\, \\text{m/s}$ で進み，自動車Bが南向きに速さ $20 \\, \\text{m/s}$ で進んでいる。\n(1) A に対する B の相対速度の大きさと向きを求めよ。\n(2) 自動車 C が北向きに進んでいる。A に対する C の相対速度の大きさは $25 \\, \\text{m/s}$ であった。C の速さ $v_{c} \\, [\\text{m/s}]$ を求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/25ad1a0f69205e49485471e6f01f192c8192dafc914d597057f1476be49fcb4c.jpg)",
+    "options": [
+      "南西向き $28 \\, \\text{m/s}, \\; 15 \\, \\text{m/s}$",
+      "南西向き $28 \\, \\text{m/s}, \\; 10 \\, \\text{m/s}$",
+      "南西向き $20 \\, \\text{m/s}, \\; 15 \\, \\text{m/s}$",
+      "北西向き $28 \\, \\text{m/s}, \\; 15 \\, \\text{m/s}$",
+      "南西向き $25 \\, \\text{m/s}, \\; 15 \\, \\text{m/s}$",
+      "北東向き $28 \\, \\text{m/s}, \\; 10 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) 南西向きに $28 \\, \\text{m/s}$ ($20\\sqrt{2} \\doteq 28 \\, \\text{m/s}$), (2) $15 \\, \\text{m/s}$\n\n【详细解析】:\n(1) $\\vec{v}_{A}$（東向き $20 \\, \\text{m/s}$），$\\vec{v}_{B}$（南向き $20 \\, \\text{m/s}$）。$\\vec{v}_{AB} = \\vec{v}_{B} - \\vec{v}_{A}$ より，$\\vec{v}_{A}$ と $\\vec{v}_{B}$ の始点をそろえたとき，$\\vec{v}_{A}$ の終点から $\\vec{v}_{B}$ の終点に引いたベクトルが $\\vec{v}_{AB}$。$\\vec{v}_{A}$ と $\\vec{v}_{B}$ は直交するので，$v_{AB} = \\sqrt{20^{2} + 20^{2}} = 20\\sqrt{2} \\doteq 20 \\times 1.41 = 28 \\, \\text{m/s}$。向きは南西向き（南西向き）。3辺の長さの比が $1:1:\\sqrt{2}$ の直角二等辺三角形。\n(2) $\\vec{v}_{C}$ は北向きで，$v_{AC} = 25 \\, \\text{m/s}$。$\\triangle PQR$ は $\\angle P = 90^{\\circ}$ の直角三角形なので，三平方の定理より $v_{C} = \\sqrt{v_{AC}^{2} - v_{A}^{2}} = \\sqrt{25^{2} - 20^{2}} = \\sqrt{625 - 400} = \\sqrt{225} = 15 \\, \\text{m/s}$。$\\triangle PQR$ は 3:4:5 の直角三角形になっている。"
+  },
+  {
+    "businessCode": "phy-01-qB9",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "鉛直に降っている雨を，水平な線路上を速さ $5.0 \\, \\text{m/s}$ で走る電車 A の窓から見ると，鉛直と $30^{\\circ}$ の角度をなして降っているように見えた。地面に対する雨粒の落下の速さは何 $\\text{m/s}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/dcca178cb568c342bd29103cdedb4d679a334b8915dabe03d697ab67f98309b0.jpg)",
+    "options": [
+      "$8.7 \\, \\text{m/s}$",
+      "$5.0 \\, \\text{m/s}$",
+      "$10.0 \\, \\text{m/s}$",
+      "$6.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: $8.7 \\, \\text{m/s}$ ($5.0 \\times \\sqrt{3} \\doteq 8.65 \\doteq 8.7 \\, \\text{m/s}$)\n\n【详细解析】: 電車Aの速度を $\\vec{v}_{A}$，地面に対する雨の速度を $\\vec{v}_{\\text{雨}}$，電車A内の人から見た雨の速度を $\\vec{v}_{A\\text{雨}}$ とする。$\\vec{v}_{A}, \\vec{v}_{\\text{雨}}, \\vec{v}_{A\\text{雨}}$ の関係はベクトル図のようになり，$v_{A}, v_{A\\text{雨}}, v_{\\text{雨}}$ からなる $1:2:\\sqrt{3}$ の直角三角形を考えると，$v_{A} : v_{\\text{雨}} = 1 : \\sqrt{3}$。よって $v_{\\text{雨}} = \\sqrt{3} \\, v_{A} = \\sqrt{3} \\times 5.0 = 1.73 \\times 5.0 = 8.65 \\doteq 8.7 \\, \\text{m/s}$。\n相対速度（相対速度）のベクトル関係：$\\vec{v}_{A\\text{雨}} = \\vec{v}_{\\text{雨}} - \\vec{v}_{A}$。$\\vec{v}_{A}$ と $\\vec{v}_{\\text{雨}}$ の始点をそろえたとき，$\\vec{v}_{A}$ の終点から $\\vec{v}_{\\text{雨}}$ の終点に引いたベクトルが $\\vec{v}_{A\\text{雨}}$ となる。"
+  },
+  {
+    "businessCode": "phy-01-qB10",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "1 秒間に 50 打点を打つ記録タイマーを用いて，紙テープに点を記録し，5 打点ごとの長さを測定すると，図のようになった。\n(1) 5 打点分の時間は何秒か。\n(2) AB 間の平均の速さ $\\overline{v_{\\text{AB}}} \\, [\\text{m/s}]$ と，BC 間の平均の速さ $\\overline{v_{\\text{BC}}} \\, [\\text{m/s}]$ をそれぞれ求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/5f27958198611a360a7dc2b49f41505a585f2534c720eca6b8365931cfbd8114.jpg)",
+    "options": [
+      "$0.10 \\, \\text{s}, \\; 0.50 \\, \\text{m/s}, \\; 0.75 \\, \\text{m/s}$",
+      "$0.10 \\, \\text{s}, \\; 0.75 \\, \\text{m/s}, \\; 0.50 \\, \\text{m/s}$",
+      "$0.20 \\, \\text{s}, \\; 0.50 \\, \\text{m/s}, \\; 0.75 \\, \\text{m/s}$",
+      "$0.10 \\, \\text{s}, \\; 0.50 \\, \\text{m/s}, \\; 1.00 \\, \\text{m/s}$",
+      "$0.05 \\, \\text{s}, \\; 0.50 \\, \\text{m/s}, \\; 0.75 \\, \\text{m/s}$",
+      "$0.10 \\, \\text{s}, \\; 0.25 \\, \\text{m/s}, \\; 0.75 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) $0.10 \\, \\text{s}$, (2) $\\overline{v_{\\text{AB}}} = 0.50 \\, \\text{m/s}$, $\\overline{v_{\\text{BC}}} = 0.75 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 隣りあう打点間の長さは $\\frac{1}{50}$ 秒間の移動距離に対応する。よって，5打点分の時間は $\\frac{1}{50} \\times 5 = \\frac{1}{10} = 0.10 \\, \\text{s}$。別解：50打点で1秒なので，5打点分は $\\frac{5}{50} = 0.10 \\, \\text{s}$。\n(2) 平均の速さ（平均の速さ）$\\overline{v} = \\frac{\\text{移動距離}}{\\text{経過時間}}$。$\\text{AB} = 5.0 \\, \\text{cm} = 0.050 \\, \\text{m}$，$\\text{BC} = 7.5 \\, \\text{cm} = 0.075 \\, \\text{m}$。$\\overline{v_{\\text{AB}}} = \\frac{0.050}{0.10} = 0.50 \\, \\text{m/s}$，$\\overline{v_{\\text{BC}}} = \\frac{0.075}{0.10} = 0.75 \\, \\text{m/s}$。\n記録タイマー（記録タイマー）の打点間隔から運動を分析（運動の分析）する基本的な方法である。"
+  },
+  {
+    "businessCode": "phy-01-qB11",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "一直線上を，静止の状態から動き始めた物体の，時刻 $t \\, [\\text{s}]$ とそのときの位置 $x \\, [\\text{m}]$ の関係をまとめた結果が次の表である。\n\n<table><tr><td>時刻 t [s]</td><td>0</td><td>0.10</td><td>0.20</td><td>0.30</td><td>0.40</td><td>0.50</td><td>0.60</td><td>0.70</td></tr><tr><td>位置 x [m]</td><td>0</td><td>0.03</td><td>0.12</td><td>0.27</td><td>0.48</td><td>0.75</td><td>1.08</td><td>1.47</td></tr></table>\n\n(1) 物体の加速度 $a \\, [\\text{m/s}^{2}]$ を求めよ。\n(2) 時刻 $0.50$ 秒における物体の速度 $v \\, [\\text{m/s}]$ を求めよ。",
+    "options": [
+      "$6.0 \\, \\text{m/s}^{2}, \\; 2.0 \\, \\text{m/s}$",
+      "$6.0 \\, \\text{m/s}^{2}, \\; 3.0 \\, \\text{m/s}$",
+      "$4.0 \\, \\text{m/s}^{2}, \\; 3.0 \\, \\text{m/s}$",
+      "$6.0 \\, \\text{m/s}^{2}, \\; 4.0 \\, \\text{m/s}$",
+      "$3.0 \\, \\text{m/s}^{2}, \\; 3.0 \\, \\text{m/s}$",
+      "$5.0 \\, \\text{m/s}^{2}, \\; 3.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $6.0 \\, \\text{m/s}^{2}$, (2) $3.0 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 各区間の平均の速度（平均の速度）を変位÷経過時間(0.10 s)で求め，v-t図を作成すると，v-t図の傾きが加速度（加速度）$a$ となる。データの点(0.05, 0.3), (0.65, 3.9)を用いて，$a = \\frac{3.9 - 0.3}{0.65 - 0.05} = \\frac{3.6}{0.60} = 6.0 \\, \\text{m/s}^{2}$。\n(2) v-t図より，$t = 0.50 \\, \\text{s}$ のときの速度を読み取ると $v = 3.0 \\, \\text{m/s}$。\n各区間の平均の速度を，それぞれの区間の中央の時刻における瞬間の速度（瞬間の速度）とみなしてv-t図を作成するのがポイント。"
+  },
+  {
+    "businessCode": "phy-01-qB12",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "次のような $x$ 軸上の運動について，平均の加速度 $\\overline{a}$ はそれぞれどの向きに何 $\\text{m/s}^{2}$ か。\n(1) 自動車が正の向きに動きだしてから $4.0$ 秒後に $16 \\, \\text{m/s}$ の速さになった。\n(2) 正の向きに $1.0 \\, \\text{m/s}$ の速さで進んでいた力学台車が，$4.0$ 秒後に負の向きに $3.0 \\, \\text{m/s}$ の速さになった。\n(3) 負の向きに進む自動車が $15 \\, \\text{m/s}$ の速さから減速して，$6.0$ 秒後に負の向きに $3.0 \\, \\text{m/s}$ となった。",
+    "options": [
+      "正の向きに $4.0 \\, \\text{m/s}^{2}$, 負の向きに $1.0 \\, \\text{m/s}^{2}$, 負の向きに $2.0 \\, \\text{m/s}^{2}$",
+      "正の向きに $4.0 \\, \\text{m/s}^{2}$, 負の向きに $1.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$",
+      "正の向きに $4.0 \\, \\text{m/s}^{2}$, 正の向きに $1.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$",
+      "負の向きに $4.0 \\, \\text{m/s}^{2}$, 負の向きに $1.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$",
+      "正の向きに $4.0 \\, \\text{m/s}^{2}$, 負の向きに $1.0 \\, \\text{m/s}^{2}$, 負の向きに $3.0 \\, \\text{m/s}^{2}$",
+      "正の向きに $2.0 \\, \\text{m/s}^{2}$, 負の向きに $1.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$",
+      "正の向きに $4.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$",
+      "負の向きに $4.0 \\, \\text{m/s}^{2}$, 正の向きに $1.0 \\, \\text{m/s}^{2}$, 正の向きに $2.0 \\, \\text{m/s}^{2}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) 正の向きに $4.0 \\, \\text{m/s}^{2}$, (2) 負の向きに $1.0 \\, \\text{m/s}^{2}$, (3) 正の向きに $2.0 \\, \\text{m/s}^{2}$\n\n【详细解析】: 平均の加速度（平均の加速度）$\\overline{a} = \\frac{\\text{速度の変化}}{\\text{経過時間}} = \\frac{v_{2} - v_{1}}{\\Delta t}$。\n(1) $v_{1} = 0 \\, \\text{m/s}$（静止），$v_{2} = 16 \\, \\text{m/s}$，$\\Delta t = 4.0 \\, \\text{s}$。$\\overline{a} = \\frac{16 - 0}{4.0} = 4.0 \\, \\text{m/s}^{2}$，正の向き。\n(2) $v_{1} = 1.0 \\, \\text{m/s}$，$v_{2} = -3.0 \\, \\text{m/s}$，$\\Delta t = 4.0 \\, \\text{s}$。$\\overline{a} = \\frac{(-3.0) - 1.0}{4.0} = \\frac{-4.0}{4.0} = -1.0 \\, \\text{m/s}^{2}$，$\\overline{a} < 0$ より負の向きに $1.0 \\, \\text{m/s}^{2}$。\n(3) $v_{1} = -15 \\, \\text{m/s}$，$v_{2} = -3.0 \\, \\text{m/s}$，$\\Delta t = 6.0 \\, \\text{s}$。$\\overline{a} = \\frac{(-3.0) - (-15)}{6.0} = \\frac{12}{6.0} = 2.0 \\, \\text{m/s}^{2}$，$\\overline{a} > 0$ より正の向きに $2.0 \\, \\text{m/s}^{2}$。速度の符号に注意すること。"
+  },
+  {
+    "businessCode": "phy-01-qB13",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "速さ $7.0 \\, \\text{m/s}$ で進んでいた自動車が，一定の加速度で速さを増し，$5.0$ 秒後に $15.0 \\, \\text{m/s}$ の速さになった。\n(1) このときの加速度の大きさを求めよ。\n(2) 自動車が加速している間に進んだ距離を求めよ。\n(3) こののち自動車が急ブレーキをかけて，一定の加速度で減速し，$25 \\, \\text{m}$ 進んで停止した。このときの加速度の向きと大きさを求めよ。",
+    "options": [
+      "$1.6 \\, \\text{m/s}^{2}, \\; 45 \\, \\text{m}$, 運動の向きと逆向きに $3.5 \\, \\text{m/s}^{2}$",
+      "$1.6 \\, \\text{m/s}^{2}, \\; 45 \\, \\text{m}$, 運動の向きと逆向きに $4.5 \\, \\text{m/s}^{2}$",
+      "$1.6 \\, \\text{m/s}^{2}, \\; 55 \\, \\text{m}$, 運動の向きと逆向きに $4.5 \\, \\text{m/s}^{2}$",
+      "$1.8 \\, \\text{m/s}^{2}, \\; 55 \\, \\text{m}$, 運動の向きと逆向きに $4.5 \\, \\text{m/s}^{2}$",
+      "$1.6 \\, \\text{m/s}^{2}, \\; 55 \\, \\text{m}$, 運動の向きと逆向きに $3.5 \\, \\text{m/s}^{2}$",
+      "$1.8 \\, \\text{m/s}^{2}, \\; 45 \\, \\text{m}$, 運動の向きと逆向きに $4.5 \\, \\text{m/s}^{2}$",
+      "$1.6 \\, \\text{m/s}^{2}, \\; 45 \\, \\text{m}$, 運動の向きに $4.5 \\, \\text{m/s}^{2}$",
+      "$1.8 \\, \\text{m/s}^{2}, \\; 55 \\, \\text{m}$, 運動の向きに $4.5 \\, \\text{m/s}^{2}$"
+    ],
+    "correctIndex": 2,
+    "explanation": "【参考答案】: (1) $1.6 \\, \\text{m/s}^{2}$, (2) $55 \\, \\text{m}$, (3) 運動の向きと逆向きに大きさ $4.5 \\, \\text{m/s}^{2}$\n\n【详细解析】:\n(1) $v = v_{0} + at$ より，$15.0 = 7.0 + a \\times 5.0$，よって $a = \\frac{8.0}{5.0} = 1.6 \\, \\text{m/s}^{2}$。\n(2) $x = v_{0}t + \\frac{1}{2}at^{2}$ より，$x = 7.0 \\times 5.0 + \\frac{1}{2} \\times 1.6 \\times 5.0^{2} = 35 + 20 = 55 \\, \\text{m}$。別解：$v^{2} - v_{0}^{2} = 2ax$ より $15.0^{2} - 7.0^{2} = 2 \\times 1.6 \\times x$，$x = \\frac{225 - 49}{3.2} = \\frac{176}{3.2} = 55 \\, \\text{m}$。\n(3) $v^{2} - v_{0}^{2} = 2a'x$ より，$0^{2} - 15.0^{2} = 2a' \\times 25$，$a' = -\\frac{225}{50} = -4.5 \\, \\text{m/s}^{2}$。よって運動の向きと逆向き（逆向き）に大きさ $4.5 \\, \\text{m/s}^{2}$。\n等加速度直線運動（等加速度直線運動）の3公式：① $v = v_{0} + at$，② $x = v_{0}t + \\frac{1}{2}at^{2}$，③ $v^{2} - v_{0}^{2} = 2ax$ を状況に応じて使い分ける。"
+  },
+  {
+    "businessCode": "phy-01-qB14",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "速さ $6.0 \\, \\text{m/s}$ で右向きに進み始めた物体が，等加速度直線運動をして $2.0$ 秒後に左向きに速さ $4.0 \\, \\text{m/s}$ となった。\n(1) 物体の加速度の大きさと向きを求めよ。\n(2) 物体の速さが $0 \\, \\text{m/s}$ になるのは，物体が進み始めてから何秒後か。\n(3) 物体が速さ $0 \\, \\text{m/s}$ になるまでに進む距離を求めよ。",
+    "options": [
+      "$5.0 \\, \\text{m/s}^{2}$ 左向き, $1.2$ 秒後, $2.6 \\, \\text{m}$",
+      "$5.0 \\, \\text{m/s}^{2}$ 左向き, $1.2$ 秒後, $3.6 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}^{2}$ 左向き, $1.2$ 秒後, $3.6 \\, \\text{m}$",
+      "$5.0 \\, \\text{m/s}^{2}$ 右向き, $1.2$ 秒後, $3.6 \\, \\text{m}$",
+      "$5.0 \\, \\text{m/s}^{2}$ 左向き, $2.0$ 秒後, $3.6 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}^{2}$ 左向き, $1.5$ 秒後, $3.6 \\, \\text{m}$",
+      "$5.0 \\, \\text{m/s}^{2}$ 左向き, $1.2$ 秒後, $4.6 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}^{2}$ 右向き, $1.2$ 秒後, $3.6 \\, \\text{m}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $5.0 \\, \\text{m/s}^{2}$，左向き, (2) $1.2$ 秒後, (3) $3.6 \\, \\text{m}$\n\n【详细解析】: 右向きを正の向きとする。\n(1) $v = v_{0} + at$ で，$v_{0} = 6.0 \\, \\text{m/s}$，$v = -4.0 \\, \\text{m/s}$，$t = 2.0 \\, \\text{s}$ とおくと，$-4.0 = 6.0 + a \\times 2.0$，$a = \\frac{-4.0 - 6.0}{2.0} = -5.0 \\, \\text{m/s}^{2}$。よって $5.0 \\, \\text{m/s}^{2}$，左向き。\n(2) $v = v_{0} + at$ で $v = 0$ とすると，$0 = 6.0 + (-5.0) \\times t$，$t = \\frac{-6.0}{-5.0} = 1.2 \\, \\text{s}$。よって $1.2$ 秒後。\n(3) $x = v_{0}t + \\frac{1}{2}at^{2}$ より，$x = 6.0 \\times 1.2 + \\frac{1}{2} \\times (-5.0) \\times 1.2^{2} = 7.2 - 3.6 = 3.6 \\, \\text{m}$。別解：$v^{2} - v_{0}^{2} = 2ax$ より $0^{2} - 6.0^{2} = 2 \\times (-5.0) \\times x$，$x = 3.6 \\, \\text{m}$。\n正の向きと逆向きの速度や加速度（加速度）は負の値となることに注意。"
+  },
+  {
+    "businessCode": "phy-01-qB15",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "図は，$x$ 軸上を等加速度直線運動している物体が，原点を時刻 $0 \\, \\text{s}$ に通過した後の $8.0$ 秒間の速度と時間の関係を表す $v$-$t$ 図である。\n(1) 物体の加速度 $a \\, [\\text{m/s}^{2}]$ を求めよ。\n(2) 物体が原点から最も遠ざかるときの時刻 $t_{1} \\, [\\text{s}]$ と，その位置 $x_{1} \\, [\\text{m}]$ を求めよ。\n(3) $8.0$ 秒後の物体の位置 $x_{2} \\, [\\text{m}]$ を求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/75012b1afa261f365e832e33de86dedd9caf87be4d47c61a31278e3619076035.jpg)",
+    "options": [
+      "$-4.0 \\, \\text{m/s}^{2}, \\; t_{1}=5.0 \\, \\text{s}, \\; x_{1}=50 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$",
+      "$-4.0 \\, \\text{m/s}^{2}, \\; t_{1}=4.0 \\, \\text{s}, \\; x_{1}=50 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$",
+      "$-4.0 \\, \\text{m/s}^{2}, \\; t_{1}=5.0 \\, \\text{s}, \\; x_{1}=40 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$",
+      "$4.0 \\, \\text{m/s}^{2}, \\; t_{1}=5.0 \\, \\text{s}, \\; x_{1}=50 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$",
+      "$-4.0 \\, \\text{m/s}^{2}, \\; t_{1}=5.0 \\, \\text{s}, \\; x_{1}=50 \\, \\text{m}, \\; x_{2}=18 \\, \\text{m}$",
+      "$-4.0 \\, \\text{m/s}^{2}, \\; t_{1}=5.0 \\, \\text{s}, \\; x_{1}=60 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$",
+      "$-2.0 \\, \\text{m/s}^{2}, \\; t_{1}=5.0 \\, \\text{s}, \\; x_{1}=50 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$",
+      "$-4.0 \\, \\text{m/s}^{2}, \\; t_{1}=6.0 \\, \\text{s}, \\; x_{1}=50 \\, \\text{m}, \\; x_{2}=32 \\, \\text{m}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: (1) $a = -4.0 \\, \\text{m/s}^{2}$, (2) $t_{1} = 5.0 \\, \\text{s}$, $x_{1} = 50 \\, \\text{m}$, (3) $x_{2} = 32 \\, \\text{m}$\n\n【详细解析】:\n(1) $a$ は $v$-$t$ 図の傾きで表されるので，$a = \\frac{(-12) - 20}{8.0 - 0} = \\frac{-32}{8.0} = -4.0 \\, \\text{m/s}^{2}$。\n(2) 速度が $0 \\, \\text{m/s}$ となるとき，物体は最も遠ざかる（最も遠ざかる）。$v = v_{0} + at$ より $0 = 20 + (-4.0) \\times t_{1}$，よって $t_{1} = 5.0 \\, \\text{s}$。$x_{1}$ は $v$-$t$ 図の $t=0 \\sim 5.0 \\, \\text{s}$ の三角形の面積に等しいので，$x_{1} = \\frac{1}{2} \\times 5.0 \\times 20 = 50 \\, \\text{m}$。\n(3) $x_{2}$ は $v$-$t$ 図の $t=0 \\sim 5.0 \\, \\text{s}$ の三角形の面積（正）と $t=5.0 \\sim 8.0 \\, \\text{s}$ の三角形の面積（負）の代数和：$x_{2} = 50 - \\frac{1}{2} \\times 3.0 \\times 12 = 50 - 18 = 32 \\, \\text{m}$。\n$v$-$t$ 図の傾きが加速度（加速度）を表し，$v$-$t$ 図が $t$ 軸と囲む面積が変位（変位）を表す。$t$ 軸の下側にできる面積は負の変位となる。"
+  },
+  {
+    "businessCode": "phy-01-qB16",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "右の図は，止まっていたエレベーターが上昇するときの速度と時間の関係を表す $v$-$t$ 図である。エレベーターが $40$ 秒間に上昇した高さ $h \\, [\\text{m}]$ を求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/d35b459620fe3df88f41b756ab8cc29251070885d9eb2701d8e1326b8f18037a.jpg)",
+    "options": [
+      "$1.5 \\times 10^{2} \\, \\text{m}$",
+      "$1.0 \\times 10^{2} \\, \\text{m}$",
+      "$2.0 \\times 10^{2} \\, \\text{m}$",
+      "$1.2 \\times 10^{2} \\, \\text{m}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: $1.5 \\times 10^{2} \\, \\text{m} = 150 \\, \\text{m}$\n\n【详细解析】: $h \\, [\\text{m}]$ は $v$-$t$ 図が $t$ 軸と囲む台形の面積に等しいので，$h = \\frac{(20 + 40) \\times 5.0}{2} = \\frac{60 \\times 5.0}{2} = 150 = 1.5 \\times 10^{2} \\, \\text{m}$。\n台形の面積（台形の面積）の公式：$\\frac{(\\text{上底} + \\text{下底}) \\times \\text{高さ}}{2}$。$v$-$t$ 図の傾きは加速度（加速度）を表し，$v$-$t$ 図が $t$ 軸と囲む面積は移動距離（移動距離）を表す。$t=0 \\sim 10 \\, \\text{s}$ は加速（$a=0.50 \\, \\text{m/s}^{2}$），$t=10 \\sim 30 \\, \\text{s}$ は等速（$a=0$），$t=30 \\sim 40 \\, \\text{s}$ は減速（$a=-0.50 \\, \\text{m/s}^{2}$）の運動。"
+  },
+  {
+    "businessCode": "phy-01-qB17",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 2,
+    "score": 5,
+    "stem": "右の図は，止まっていたエレベーターが上昇し，停止するまでの加速度 $a \\, [\\text{m/s}^{2}]$ の時間変化を表したグラフである。$9.0$ 秒間にエレベーターが上昇した高さ $h$ は何 $\\text{m}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/af24f692adcfca5eb77d7ec2a3dc237b047a503a85d965ef392438a439ed1974.jpg)",
+    "options": [
+      "$39 \\, \\text{m}$",
+      "$45 \\, \\text{m}$",
+      "$30 \\, \\text{m}$",
+      "$50 \\, \\text{m}$"
+    ],
+    "correctIndex": 0,
+    "explanation": "【参考答案】: $39 \\, \\text{m}$\n\n【详细解析】: まず $a$-$t$ 図から $v$-$t$ 図を作成する。\n$0 \\sim 2.0 \\, \\text{s}$ 間：初速度 $0 \\, \\text{m/s}$，傾き（加速度）$3.0 \\, \\text{m/s}^{2}$ の直線。$t=2.0 \\, \\text{s}$ で $v = 3.0 \\times 2.0 = 6.0 \\, \\text{m/s}$。\n$2.0 \\sim 6.0 \\, \\text{s}$ 間：$a=0$ より $v=6.0 \\, \\text{m/s}$（一定），傾き $0$ の直線。\n$6.0 \\sim 9.0 \\, \\text{s}$ 間：$a=-2.0 \\, \\text{m/s}^{2}$ より，$t=6.0 \\, \\text{s}$ で $v=6.0 \\, \\text{m/s}$，$t=9.0 \\, \\text{s}$ で $v=0 \\, \\text{m/s}$ の直線。\n$h$ は $v$-$t$ 図の台形の面積：$h = \\frac{1}{2} \\times (4.0 + 9.0) \\times 6.0 = \\frac{1}{2} \\times 13.0 \\times 6.0 = 39 \\, \\text{m}$。\n$a$-$t$ 図から $v$-$t$ 図を作成し，$v$-$t$ 図の面積から移動距離（移動距離）を求める。等加速度直線運動（等加速度直線運動）での $v$-$t$ 図は，$a>0$ なら右あがり，$a<0$ なら右さがりの直線，$a=0$ なら $t$ 軸に平行な直線になる。"
+  },
+  {
+    "businessCode": "phy-01-qA18",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 3,
+    "score": 5,
+    "stem": "一定の速さで流れる幅 $30 \\, \\text{m}$ の川を船で横切るため，船首を川岸に対して直角の方向に向けて一定の速さで進んだが，実際には川岸に対して $30^{\\circ}$ の方向に進み，$15$ 秒で対岸に達した。\n\n(1) この船の岸に対する速さ $v$ は何 $\\text{m/s}$ か。\n(2) この船の静水上での速さ $v_{1}$ は何 $\\text{m/s}$ か。\n(3) 川の流れの速さ $v_{2}$ は何 $\\text{m/s}$ か。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/c22749e358edda19cb0cc59416abf042ee36f1c44d2ad78d6cf0ae8f9a0448b8.jpg)",
+    "options": [
+      "$v = 2.0 \\, \\text{m/s}, \\; v_{1} = 4.0 \\, \\text{m/s}, \\; v_{2} = 3.5 \\, \\text{m/s}$",
+      "$v = 4.0 \\, \\text{m/s}, \\; v_{1} = 2.0 \\, \\text{m/s}, \\; v_{2} = 3.5 \\, \\text{m/s}$",
+      "$v = 2.0 \\, \\text{m/s}, \\; v_{1} = 3.5 \\, \\text{m/s}, \\; v_{2} = 4.0 \\, \\text{m/s}$",
+      "$v = 3.0 \\, \\text{m/s}, \\; v_{1} = 2.0 \\, \\text{m/s}, \\; v_{2} = 4.0 \\, \\text{m/s}$",
+      "$v = 4.0 \\, \\text{m/s}, \\; v_{1} = 3.5 \\, \\text{m/s}, \\; v_{2} = 2.0 \\, \\text{m/s}$",
+      "$v = 5.0 \\, \\text{m/s}, \\; v_{1} = 1.0 \\, \\text{m/s}, \\; v_{2} = 2.5 \\, \\text{m/s}$",
+      "$v = 3.0 \\, \\text{m/s}, \\; v_{1} = 4.0 \\, \\text{m/s}, \\; v_{2} = 3.5 \\, \\text{m/s}$",
+      "$v = 4.0 \\, \\text{m/s}, \\; v_{1} = 2.0 \\, \\text{m/s}, \\; v_{2} = 2.0 \\, \\text{m/s}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $v = 4.0 \\, \\text{m/s}$, (2) $v_{1} = 2.0 \\, \\text{m/s}$, (3) $v_{2} = 3.5 \\, \\text{m/s}$\n\n【详细解析】:\n(1) 船首を川岸に直角に向けているが，実際の進行方向（岸に対する速度 $\\vec{v}$ の向き）は川岸に対して $30^{\\circ}$ である。図より直角三角形を考えると，川幅 $\\text{BC} = 30 \\, \\text{m}$，斜辺 $\\text{AB}$ は $\\text{AB} = 2 \\times \\text{BC} = 60 \\, \\text{m}$（$30^{\\circ}$ の直角三角形の辺の比 $1:2:\\sqrt{3}$ より）。岸に対する速さ $v$ は $v = \\frac{\\text{AB}}{t} = \\frac{60}{15} = 4.0 \\, \\text{m/s}$。\n\n(2) 岸に対する速度 $\\vec{v}$ は，静水上での船の速度 $\\vec{v}_{1}$（川に直交）と川の流れの速度 $\\vec{v}_{2}$（川に平行）の合成（速度の合成 / 速度の合成）である。$\\vec{v}_{1}$ は $\\vec{v}$ の川に直交する成分なので，$v_{1} = v \\sin 30^{\\circ} = 4.0 \\times \\frac{1}{2} = 2.0 \\, \\text{m/s}$。\n\n(3) $\\vec{v}_{2}$ は $\\vec{v}$ の川に平行な成分なので，$v_{2} = v \\cos 30^{\\circ} = 4.0 \\times \\frac{\\sqrt{3}}{2} = 2.0 \\times 1.73 =     3.46 \\approx 3.5 \\, \\text{m/s}$。\n\n注意：川を「横切る」ことに関係するのは $\\vec{v}_{1}$ のみであり，川の流速 $\\vec{v}_{2}$ は横切る時間には影響しない。"
+  },
+  {
+    "businessCode": "phy-01-qA19",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 3,
+    "score": 5,
+    "stem": "一直線上を物体Aと物体Bが同じ向きに運動しており，この向きを速度や加速度の正の向きとする。物体Aと物体Bの速度と時刻の関係は右図で示される。また，時刻 $0 \\, \\text{s}$ における物体Aと物体Bの位置は同じであるものとする。\n\n物体Aの加速度は $\\boxed{\\text{ア}} \\, \\text{m/s}^2$ であり，物体Bの加速度は $\\boxed{\\text{イ}} \\, \\text{m/s}^2$ である。時刻 $2 \\, \\text{s}$ において，物体Aと物体Bの距離は $\\boxed{\\text{ウ}} \\, \\text{m}$ である。時刻 $0 \\, \\text{s}$ の後，物体Aと物体Bの位置が再び同じになる時刻は $\\boxed{\\text{エ}} \\, \\text{s}$ である。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/2f6878299523bdff59964dee024abad4df13e09945c8b8bedb5993692d7ac685.jpg)",
+    "options": [
+      "$\\text{ア} = 0.5, \\; \\text{イ} = 0, \\; \\text{ウ} = 3, \\; \\text{エ} = 8$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 0.5, \\; \\text{ウ} = 3, \\; \\text{エ} = 8$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 0.5, \\; \\text{ウ} = 5, \\; \\text{エ} = 8$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 1.0, \\; \\text{ウ} = 3, \\; \\text{エ} = 4$",
+      "$\\text{ア} = 0.5, \\; \\text{イ} = 0, \\; \\text{ウ} = 1, \\; \\text{エ} = 4$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 0.5, \\; \\text{ウ} = 1, \\; \\text{エ} = 4$",
+      "$\\text{ア} = 2, \\; \\text{イ} = 0.5, \\; \\text{ウ} = 3, \\; \\text{エ} = 8$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 2.0, \\; \\text{ウ} = 3, \\; \\text{エ} = 8$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 0.5, \\; \\text{ウ} = 3, \\; \\text{エ} = 6$",
+      "$\\text{ア} = 0, \\; \\text{イ} = 0.5, \\; \\text{ウ} = 2, \\; \\text{エ} = 8$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: ア = $0 \\, \\text{m/s}^2$, イ = $0.5 \\, \\text{m/s}^2$, ウ = $3 \\, \\text{m}$, エ = $8 \\, \\text{s}$\n\n【详细解析】:\n(ア) v-t図（v-t図 / 速度-時間グラフ）より，物体Aの速度は時間によって変化せず一定（$v = 2 \\, \\text{m/s}$）なので，加速度（加速度）は $0 \\, \\text{m/s}^2$。\n\n(イ) 物体Bのv-t図の傾き（グラフの傾き）が加速度を表す。$a = \\frac{\\Delta v}{\\Delta t} = \\frac{2 - 0}{4 - 0} = 0.5 \\, \\text{m/s}^2$。\n\n(ウ) 時刻 $0 \\sim 2 \\, \\text{s}$ 間の移動距離（移動距離）はv-t図の面積で求められる。A：$x_A = vt = 2 \\times 2 = 4 \\, \\text{m}$。B：等加速度直線運動（等加速度直線運動）の式 $x = v_0 t + \\frac{1}{2} a t^{2}$ より $x_B = 0 \\times 2 + \\frac{1}{2} \\times 0.5 \\times 2^{2} = 1 \\, \\text{m}$。よって距離は $x_A - x_B = 4 - 1 = 3 \\, \\text{m}$。\n\n(エ) 時刻 $t$ でのA，Bの移動距離が等しくなる $t$ を求める。$x_A' = 2t$，$x_B' = \\frac{1}{2} \\times 0.5 \\times t^{2} = 0.25 t^{2}$。$2t = 0.25 t^{2}$ より $t(t - 8) = 0$，$t > 0$ より $t = 8 \\, \\text{s}$。\n\n補足：時刻 $8 \\, \\text{s}$ におけるBに対するAの相対速度（相対速度）は $v_A - v_B = 2 - 4 = -2 \\, \\text{m/s}$ である。"
+  },
+  {
+    "businessCode": "phy-01-qA20",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 3,
+    "score": 5,
+    "stem": "列車が一定の加速度 $a \\, [\\text{m/s}^2]$ で一直線上を走っている。A地点を列車の前端は速さ $u \\, [\\text{m/s}]$ で通過した。また，A地点を後端が通過したときの速さは $v \\, [\\text{m/s}]$ であった。\n\n(1) この列車がA地点を通過するのに要した時間 $t \\, [\\text{s}]$ を，$a, u, v$ を用いて表せ。\n(2) この列車の長さ $l \\, [\\text{m}]$ を，$a, u, v$ を用いて表せ。\n(3) この列車の中点がA地点を通過したときの速さ $v' \\, [\\text{m/s}]$ を，$u, v$ を用いて表せ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/4f71e820343d2efb010aebea38064056a982ebe83468702f812d6caa4d9e4dc0.jpg)",
+    "options": [
+      "$t = \\frac{u - v}{a}, \\; l = \\frac{v^{2} + u^{2}}{2a}, \\; v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}}$",
+      "$t = \\frac{v - u}{a}, \\; l = \\frac{v^{2} - u^{2}}{2a}, \\; v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}}$",
+      "$t = \\frac{v - u}{a}, \\; l = \\frac{v^{2} - u^{2}}{a}, \\; v' = \\frac{u + v}{2}$",
+      "$t = \\frac{v + u}{a}, \\; l = \\frac{v^{2} - u^{2}}{2a}, \\; v' = \\sqrt{u^{2} + v^{2}}$",
+      "$t = \\frac{v - u}{a}, \\; l = \\frac{v^{2} + u^{2}}{2a}, \\; v' = \\sqrt{\\frac{u^{2} - v^{2}}{2}}$",
+      "$t = \\frac{u - v}{a}, \\; l = \\frac{v^{2} - u^{2}}{2a}, \\; v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}}$",
+      "$t = \\frac{v - u}{a}, \\; l = \\frac{v - u}{2a}, \\; v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}}$",
+      "$t = \\frac{v - u}{2a}, \\; l = \\frac{v^{2} - u^{2}}{2a}, \\; v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}}$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $t = \\frac{v - u}{a} \\, [\\text{s}]$, (2) $l = \\frac{v^{2} - u^{2}}{2a} \\, [\\text{m}]$, (3) $v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}} \\, [\\text{m/s}]$\n\n【详细解析】:\n(1) 列車の前端がA地点を通過してから後端が通過するまで，前端は初速度 $u$，終速度 $v$，加速度 $a$ の等加速度直線運動（等加速度直線運動）をする。速度の公式 $v = v_0 + at$ より，$v = u + at$，よって $t = \\frac{v - u}{a} \\, [\\text{s}]$。\n\n(2) 初速度 $u$，終速度 $v$，加速度 $a$，移動距離 $l$ の関係より，$v^{2} - v_0^{2} = 2ax$ の式を用いる。$v^{2} - u^{2} = 2al$ より $l = \\frac{v^{2} - u^{2}}{2a} \\, [\\text{m}]$。\n別解：平均の速さ（平均の速さ）$\\overline{v} = \\frac{v + u}{2}$ と $t = \\frac{v - u}{a}$ より $l = \\overline{v} \\cdot t = \\frac{v + u}{2} \\cdot \\frac{v - u}{a} = \\frac{v^{2} - u^{2}}{2a}$。\n\n(3) 中点がA地点を通過するとき，前端の移動距離は $\\frac{l}{2}$ である。$v'^{2} - u^{2} = 2a \\cdot \\frac{l}{2} = al$。これに(2)の $l$ を代入すると $v'^{2} - u^{2} = a \\cdot \\frac{v^{2} - u^{2}}{2a} = \\frac{v^{2} - u^{2}}{2}$。よって $v'^{2} = u^{2} + \\frac{v^{2} - u^{2}}{2} = \\frac{u^{2} + v^{2}}{2}$，$v' = \\sqrt{\\frac{u^{2} + v^{2}}{2}} \\, [\\text{m/s}]$。"
+  },
+  {
+    "businessCode": "phy-01-qA21",
+    "topicCode": "phy_1_1_1",
+    "questionType": 1,
+    "difficultyLevel": 3,
+    "score": 5,
+    "stem": "直線上の高速道路を速さ $24.0 \\, \\text{m/s}$ で走っていた自動車Bの運転手は，前方に低速の自動車Aを発見し，ブレーキをかけて一定の加速度で減速し始めた。ブレーキをかけた瞬間を時刻 $t = 0 \\, \\text{s}$ とすると，Bは $t = 2.0 \\, \\text{s}$ に速さ $18.0 \\, \\text{m/s}$ になった。\n\n一方，速さ $8.0 \\, \\text{m/s}$ の等速で進んでいたAは $t = 2.0 \\, \\text{s}$ の瞬間からアクセルを踏んで一定の加速度で加速し始めた。その結果，$t = 4.0 \\, \\text{s}$ のとき，車間距離は最も短くなって $5.0 \\, \\text{m}$ となり，衝突をまぬがれた。A，Bの進行方向を正とする。\n\n(1) Bの加速度 $a_{\\text{B}} \\, [\\text{m/s}^2]$ と Aの加速度 $a_{\\text{A}} \\, [\\text{m/s}^2]$ を求めよ。\n(2) $t = 2.0 \\, \\text{s}$ の瞬間のAとBの車間距離 $l \\, [\\text{m}]$ を求めよ。\n\n![image](https://cdn-mineru.openxlab.org.cn/result/2026-06-22/f71e9a45-2140-4575-81d4-bd5c5c89c5f8/23ae315a61de6a0e7f7588184c0b26c8bd1b74253b03ae8976b169c6ef7339a1.jpg)",
+    "options": [
+      "$a_{\\text{B}} = -3.0, \\; a_{\\text{A}} = 2.0, \\; l = 10$",
+      "$a_{\\text{B}} = -3.0, \\; a_{\\text{A}} = 2.0, \\; l = 15$",
+      "$a_{\\text{B}} = 3.0, \\; a_{\\text{A}} = -2.0, \\; l = 15$",
+      "$a_{\\text{B}} = -2.0, \\; a_{\\text{A}} = 3.0, \\; l = 10$",
+      "$a_{\\text{B}} = -3.0, \\; a_{\\text{A}} = 2.0, \\; l = 5.0$",
+      "$a_{\\text{B}} = -4.0, \\; a_{\\text{A}} = 1.0, \\; l = 20$"
+    ],
+    "correctIndex": 1,
+    "explanation": "【参考答案】: (1) $a_{\\text{B}} = -3.0 \\, \\text{m/s}^2$, $a_{\\text{A}} = 2.0 \\, \\text{m/s}^2$, (2) $l = 15 \\, \\text{m}$\n\n【详细解析】:\n(1) Bの加速度（加速度）：$t = 0 \\sim 2.0 \\, \\text{s}$ の間に $24.0 \\to 18.0 \\, \\text{m/s}$ に変化。$v = v_0 + at$ より $18.0 = 24.0 + a_{\\text{B}} \\times 2.0$，よって $a_{\\text{B}} = -3.0 \\, \\text{m/s}^2$。\n\nAの加速度：車間距離が最短となる $t = 4.0 \\, \\text{s}$ では $v_{\\text{B}} = v_{\\text{A}}$ となる（$v_{\\text{B}} > v_{\\text{A}}$ なら接近，$v_{\\text{B}} < v_{\\text{A}}$ なら遠ざかる）。$t = 4.0 \\, \\text{s}$ でのBの速度：$v_{\\text{B}} = 18.0 + (-3.0) \\times 2.0 = 12.0 \\, \\text{m/s}$。Aの速度：$v_{\\text{A}} = 8.0 + a_{\\text{A}} \\times 2.0$。$v_{\\text{B}} = v_{\\text{A}}$ より $12.0 = 8.0 + 2.0 a_{\\text{A}}$，よって $a_{\\text{A}} = 2.0 \\, \\text{m/s}^2$。\n\n(2) $t = 2.0 \\, \\text{s}$ の瞬間のBの先端の位置を原点Oとし，車間距離を $l$ とする。$t = 2.0 \\sim 4.0 \\, \\text{s}$ 間で，Aの後端位置：$x_{\\text{A}} = l + 8.0 \\times 2.0 + \\frac{1}{2} \\times 2.0 \\times 2.0^{2} = l + 20$。Bの先端位置：$x_{\\text{B}} = 18.0 \\times 2.0 + \\frac{1}{2} \\times (-3.0) \\times 2.0^{2} = 30$。車間距離が $5.0 \\, \\text{m}$ なので $x_{\\text{A}} - x_{\\text{B}} = 5.0$，すなわち $(l + 20) - 30 = 5.0$，よって $l = 15 \\, \\text{m}$。"
+  }
+]

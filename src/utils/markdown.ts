@@ -1,6 +1,22 @@
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
+const replaceSvgWithImg = (html: string) => {
+  return html.replace(/<svg([\s\S]*?)>([\s\S]*?)<\/svg>/g, (match, p1, p2) => {
+    const svgString = `<svg${p1}>${p2}</svg>`;
+    // 使用 encodeURIComponent 转换为 data URI
+    const encoded = encodeURIComponent(svgString).replace(/'/g, '%27').replace(/"/g, '%22');
+    const heightMatch = p1.match(/height=(['"])(.*?)\1/);
+    const h = heightMatch ? heightMatch[2] : '100%';
+
+    // KaTeX 会为了根号顶部的横线生成极宽的 SVG (width="400em")
+    // 我们强制设其宽度为 100%，让它自动填满 KaTeX 预先分配的占位容器。
+    // 但是小程序的 <image> 组件默认有图片宽高比和 display 属性的影响，
+    // 我们必须加上 position: absolute; top: 0; left: 0; 以防止它挤占文档流，导致后续公式（如等号）发生重叠或被挤压。
+    return `<img src="data:image/svg+xml;charset=utf-8,${encoded}" style="width:100%; height:${h}; position:absolute; top:0; left:0; display:block;" />`;
+  });
+};
+
 /**
  * 简易 Markdown 解析，支持图片、换行以及 LaTeX 公式
  * @param text 待解析文本
@@ -14,7 +30,8 @@ export const renderMarkdown = (text: string) => {
   // 1. 处理块级公式 $$ ... $$
   html = html.replace(/\$\$([\s\S]*?)\$\$/g, (_, formula) => {
     try {
-      return `<div class="katex-display">${katex.renderToString(formula.trim(), { displayMode: true, throwOnError: false })}</div>`;
+      const rendered = katex.renderToString(formula.trim(), { displayMode: true, throwOnError: false });
+      return `<div class="katex-display">${replaceSvgWithImg(rendered)}</div>`;
     } catch (e) {
       return formula;
     }
@@ -23,7 +40,8 @@ export const renderMarkdown = (text: string) => {
   // 2. 处理行内公式 $ ... $
   html = html.replace(/\$(.*?)\$/g, (_, formula) => {
     try {
-      return katex.renderToString(formula.trim(), { displayMode: false, throwOnError: false });
+      const rendered = katex.renderToString(formula.trim(), { displayMode: false, throwOnError: false });
+      return replaceSvgWithImg(rendered);
     } catch (e) {
       return formula;
     }
