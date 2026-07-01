@@ -50,7 +50,12 @@ export const renderMarkdown = (text: string) => {
   // 3. 处理图片
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />');
   
-  // 4. 处理换行
+  // 4. 处理表格样式 (微信小程序 RichText 默认不支持完整的表格 CSS，需要内联注入样式)
+  html = html.replace(/<table>/g, '<table style="border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; text-align: center;">');
+  html = html.replace(/<th>/g, '<th style="border: 1px solid #e8e8e8; padding: 8px; background-color: #f5f6fa; font-weight: 600; color: #333;">');
+  html = html.replace(/<td>/g, '<td style="border: 1px solid #e8e8e8; padding: 8px; color: #666;">');
+
+  // 5. 处理换行
   html = html.replace(/\n/g, '<br/>');
 
   return `<div style="line-height: 1.6;">${html}</div>`;
