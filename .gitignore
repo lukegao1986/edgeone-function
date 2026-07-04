@@ -4,3 +4,4 @@ node_modules/
 
 kimi_reference/
 docs/
+.env
