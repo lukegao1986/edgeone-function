@@ -8,7 +8,19 @@ const dbConfig = {
   database: 'shuati_db'
 };
 
-export default async function onRequestGet(context) {
+export default async function onRequest(context) {
+  // EdgeOne 函数: 处理 CORS 预检请求 (OPTIONS)
+  if (context.request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+        "Access-Control-Max-Age": "86400"
+      },
+    });
+  }
   const url = new URL(context.request.url);
   const topicId = url.searchParams.get('topic_id') || url.searchParams.get('topicId');
   const chapterId = url.searchParams.get('chapter_id') || url.searchParams.get('chapterId');
@@ -16,7 +28,12 @@ export default async function onRequestGet(context) {
   if (!topicId && !chapterId) {
     return new Response(JSON.stringify({ success: false, error: "缺少查询参数 (topic_id 或 chapter_id)" }), {
       status: 400,
-      headers: { "Content-Type": "application/json; charset=utf-8" }
+      headers: { 
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
     });
   }
 
@@ -76,13 +93,23 @@ export default async function onRequestGet(context) {
       success: true,
       subtopics: rows
     }), {
-      headers: { "Content-Type": "application/json; charset=utf-8" }
+      headers: { 
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
     });
 
   } catch (err) {
     return new Response(JSON.stringify({ success: false, error: "数据库错误: " + err.message }), {
       status: 500,
-      headers: { "Content-Type": "application/json; charset=utf-8" }
+      headers: { 
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
     });
   }
 }

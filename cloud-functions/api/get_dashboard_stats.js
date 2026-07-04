@@ -8,14 +8,31 @@ const dbConfig = {
   database: 'shuati_db'
 };
 
-export default async function onRequestGet(context) {
+export default async function onRequest(context) {
+  // EdgeOne 函数: 处理 CORS 预检请求 (OPTIONS)
+  if (context.request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+        "Access-Control-Max-Age": "86400"
+      },
+    });
+  }
   const url = new URL(context.request.url);
   const userId = url.searchParams.get('userId');
 
   if (!userId) {
     return new Response(JSON.stringify({ success: false, error: "缺少 userId 参数" }), {
       status: 400,
-      headers: { "Content-Type": "application/json; charset=utf-8" }
+      headers: { 
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
     });
   }
 
@@ -151,13 +168,23 @@ export default async function onRequestGet(context) {
         subjectCounts: subjectCounts // 增加返回的科目题目数
       }
     }), {
-      headers: { "Content-Type": "application/json; charset=utf-8" }
+      headers: { 
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
     });
 
   } catch (err) {
     return new Response(JSON.stringify({ success: false, error: "数据库错误: " + err.message }), {
       status: 500,
-      headers: { "Content-Type": "application/json; charset=utf-8" }
+      headers: { 
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+        }
     });
   }
 }

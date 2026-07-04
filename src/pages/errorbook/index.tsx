@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView, RichText } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
+import { apiBase } from '@/utils/api';
 import { renderMarkdown } from '@/utils/markdown';
 import { SUBJECTS } from '@/data/subjects';
 import Navbar from '@/components/Navbar';
@@ -30,7 +31,7 @@ export default function ErrorBookPage() {
       setLoading(true);
       try {
         const res = await Taro.request({
-          url: `/api/get_errorbook?userId=${userInfo.id}`,
+          url: `${apiBase}/api/get_errorbook?userId=${userInfo.id}`,
           method: 'GET'
         });
         if (res.data && res.data.success) {
@@ -63,7 +64,7 @@ export default function ErrorBookPage() {
       // 由于我们的需求是移除出错题本，可以传递 isBookmarked = false，并且重置 wrong_count。
       // 为保持后端通用性，我们专门加一个 remove_error 接口或复用现有接口，这里推荐新建一个接口保持逻辑清晰。
       await Taro.request({
-        url: '/api/remove_error',
+        url: `${apiBase}/api/remove_error`,
         method: 'POST',
         data: { userId: userInfo.id, questionId }
       });

@@ -1,0 +1,1 @@
+export const apiBase = process.env.NODE_ENV === 'development' ? '' : 'https://edgeone-function-dpguipfrppwc.edgeone.cool';

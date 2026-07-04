@@ -1,5 +1,4 @@
 import katex from 'katex';
-import 'katex/dist/katex.min.css';
 
 const replaceSvgWithImg = (html: string) => {
   return html.replace(/<svg([\s\S]*?)>([\s\S]*?)<\/svg>/g, (match, p1, p2) => {

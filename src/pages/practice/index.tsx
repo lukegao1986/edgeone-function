@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { View, Text, ScrollView, RichText } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
 import classnames from 'classnames';
+import { apiBase } from '@/utils/api';
 import { renderMarkdown } from '@/utils/markdown';
 import { SUBJECTS } from '@/data/subjects';
 import { QUESTIONS } from '@/data/questions';
@@ -40,11 +41,11 @@ export default function PracticePage() {
         // 并行请求题目和分考点词频
         const [questionsRes, freqRes] = await Promise.all([
           Taro.request({
-            url: `/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
+            url: `${apiBase}/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
             method: 'GET'
           }),
           topicId ? Taro.request({
-            url: `/api/subtopics/frequency?topic_id=${topicId}`,
+            url: `${apiBase}/api/get_subtopic_frequency?topic_id=${topicId}`,
             method: 'GET'
           }) : Promise.resolve({ data: { success: false } })
         ]);
@@ -190,7 +191,7 @@ export default function PracticePage() {
       const userId = userInfo ? userInfo.id : 1;
 
       await Taro.request({
-        url: '/api/submit_answer',
+        url: `${apiBase}/api/submit_answer`,
         method: 'POST',
         data: {
           userId: userId,
@@ -238,7 +239,7 @@ export default function PracticePage() {
         newAnswers[qId] = { selectedIndex: selectedIdx, isCorrect };
         
         await Taro.request({
-          url: '/api/submit_answer',
+          url: `${apiBase}/api/submit_answer`,
           method: 'POST',
           data: {
             userId: userId,
@@ -303,7 +304,7 @@ export default function PracticePage() {
       const userId = userInfo ? userInfo.id : 1;
 
       await Taro.request({
-        url: '/api/submit_answer',
+        url: `${apiBase}/api/submit_answer`,
         method: 'POST',
         data: {
           userId: userId,

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Input, Button } from '@tarojs/components';
 import Taro from '@tarojs/taro';
+import { apiBase } from '@/utils/api';
 import classnames from 'classnames';
 import styles from '../index/index.module.scss'; // 复用登录页样式
 
@@ -18,7 +19,7 @@ export default function RegisterPage() {
     setLoading(true);
     try {
       const res = await Taro.request({
-        url: '/api/register',
+        url: `${apiBase}/api/register`,
         method: 'POST',
         data: { username, password }
       });

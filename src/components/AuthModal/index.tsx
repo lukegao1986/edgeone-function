@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Input, Button } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
+import { apiBase } from '@/utils/api';
 import styles from './index.module.scss';
 
 export interface AuthModalProps {
@@ -39,7 +40,7 @@ export default function AuthModal({ visible, defaultMode = 'login', onClose, onS
     try {
       if (mode === 'login') {
         const res = await Taro.request({
-          url: '/api/login',
+          url: `${apiBase}/api/login`,
           method: 'POST',
           data: { username, password }
         });
@@ -54,7 +55,7 @@ export default function AuthModal({ visible, defaultMode = 'login', onClose, onS
       } else {
         // Register mode
         const res = await Taro.request({
-          url: '/api/register',
+          url: `${apiBase}/api/register`,
           method: 'POST',
           data: { username, password, inviteCode }
         });

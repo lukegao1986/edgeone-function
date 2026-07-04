@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { View, Text, ScrollView, Image } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import classnames from 'classnames';
+import { apiBase } from '@/utils/api';
 import { SUBJECTS } from '@/data/subjects';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
@@ -31,7 +32,7 @@ export default function DashboardPage() {
 
       try {
         const res = await Taro.request({
-          url: `/api/get_dashboard_stats?userId=${userInfo.id}`,
+          url: `${apiBase}/api/get_dashboard_stats?userId=${userInfo.id}`,
           method: 'GET'
         });
         if (res.data && res.data.success) {
