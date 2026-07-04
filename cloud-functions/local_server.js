@@ -1,86 +1,98 @@
 const http = require('http');
 const url = require('url');
+const fs = require('fs');
+const path = require('path');
+
+// 因为我们将云函数文件都改为了 ES Module (export default)
+// 而 local_server.js 运行在 CommonJS 模式下，直接 require 会报错
+// 解决办法：在本地开发时，我们动态将 ES Module 转换为 CommonJS 来执行
+
+function loadModule(filePath) {
+  const content = fs.readFileSync(path.join(__dirname, filePath), 'utf-8');
+  // 简单的正则替换，把 export default async function onRequest(context)
+  // 替换成 module.exports = async function onRequest(context)
+  const cjsContent = content.replace(/export default async function onRequest\w*\(context\) \{/, 'module.exports = async function onRequest(context) {');
+  
+  const m = new module.constructor();
+  m.paths = module.paths;
+  m._compile(cjsContent, filePath);
+  return m.exports;
+}
 
 // 加载你写好的云函数
-const getQuestionsModule = require('./api/get_questions.js');
-const getQuestions = getQuestionsModule.default || getQuestionsModule;
+let getQuestions;
+try {
+  getQuestions = loadModule('./api/get_questions.js');
+} catch (e) {
+  console.log('未找到 get_questions.js', e.message);
+}
 
 let getSubtopicFrequency;
 try {
-  const getSubtopicFrequencyModule = require('./api/get_subtopic_frequency.js');
-  getSubtopicFrequency = getSubtopicFrequencyModule.default || getSubtopicFrequencyModule;
+  getSubtopicFrequency = loadModule('./api/get_subtopic_frequency.js');
 } catch (e) {
   console.log('未找到 get_subtopic_frequency.js，已忽略');
 }
 
 let submitAnswer;
 try {
-  const submitAnswerModule = require('./api/submit_answer.js');
-  submitAnswer = submitAnswerModule.default || submitAnswerModule;
+  submitAnswer = loadModule('./api/submit_answer.js');
 } catch (e) {
   console.log('未找到 submit_answer.js，已忽略');
 }
 
 let submitNote;
 try {
-  const submitNoteModule = require('./api/submit_note.js');
-  submitNote = submitNoteModule.default || submitNoteModule;
+  submitNote = loadModule('./api/submit_note.js');
 } catch (e) {
   console.log('未找到 submit_note.js，已忽略');
 }
 
 let getNotesList;
 try {
-  const getNotesListModule = require('./api/get_notes_list.js');
-  getNotesList = getNotesListModule.default || getNotesListModule;
+  getNotesList = loadModule('./api/get_notes_list.js');
 } catch (e) {
   console.log('未找到 get_notes_list.js，已忽略');
 }
 
 let login;
 try {
-  const loginModule = require('./api/login.js');
-  login = loginModule.default || loginModule;
+  login = loadModule('./api/login.js');
 } catch(e) {
   console.log('未找到 login.js, 已忽略');
 }
 
 let register;
 try {
-  const registerModule = require('./api/register.js');
-  register = registerModule.default || registerModule;
+  register = loadModule('./api/register.js');
 } catch(e) {
   console.log('未找到 register.js, 已忽略');
 }
 
 let getDashboardStats;
 try {
-  const getDashboardStatsModule = require('./api/get_dashboard_stats.js');
-  getDashboardStats = getDashboardStatsModule.default || getDashboardStatsModule;
+  getDashboardStats = loadModule('./api/get_dashboard_stats.js');
 } catch(e) {
   console.log('未找到 get_dashboard_stats.js, 已忽略');
 }
 
 let getProfileStats;
 try {
-  const getProfileStatsModule = require('./api/get_profile_stats.js');
-  getProfileStats = getProfileStatsModule.default || getProfileStatsModule;
+  getProfileStats = loadModule('./api/get_profile_stats.js');
 } catch(e) {
   console.log('未找到 get_profile_stats.js, 已忽略');
 }
 
 let getErrorbook;
 try {
-  const getErrorbookModule = require('./api/get_errorbook.js');
-  getErrorbook = getErrorbookModule.default || getErrorbookModule;
+  getErrorbook = loadModule('./api/get_errorbook.js');
 } catch(e) {
   console.log('未找到 get_errorbook.js, 已忽略');
 }
 
 let removeError;
 try {
-  const removeErrorModule = require('./api/remove_error.js');
-  removeError = removeErrorModule.default || removeErrorModule;
+  removeError = loadModule('./api/remove_error.js');
 } catch(e) {
   console.log('未找到 remove_error.js, 已忽略');
 }
