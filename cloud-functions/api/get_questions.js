@@ -15,6 +15,7 @@ export default async function onRequestGet(context) {
   const subjectId = url.searchParams.get('subjectId'); // 对应 sub_subjects 表的 code，如 physics
   const userId = url.searchParams.get('userId');
   const difficulties = url.searchParams.get('difficulties'); // e.g. "1,2,3"
+  const subtopicsParam = url.searchParams.get('subtopics'); // 逗号分隔的整数 ID
 
   if (!topicId && !subjectId) {
     return new Response(JSON.stringify({ success: false, error: "缺少查询参数 (topicId 或 subjectId)" }), {
@@ -27,36 +28,77 @@ export default async function onRequestGet(context) {
     const connection = await mysql.createConnection(dbConfig);
 
     let rows = [];
-    let diffCondition = '';
-    let diffParams = [];
+    let conditions = ['q.is_enabled = 1'];
+    let params = [];
+    
+    if (topicId) {
+      conditions.push('t.code = ?');
+      params.push(topicId);
+    } else if (subjectId) {
+      conditions.push('sub.code = ?');
+      params.push(subjectId);
+    }
+
     if (difficulties) {
       const diffArray = difficulties.split(',').map(d => parseInt(d, 10)).filter(d => !isNaN(d));
       if (diffArray.length > 0) {
         const placeholders = diffArray.map(() => '?').join(',');
-        diffCondition = ` AND q.difficulty_level IN (${placeholders})`;
-        diffParams = diffArray;
+        conditions.push(`q.difficulty_level IN (${placeholders})`);
+        params.push(...diffArray);
       }
     }
+
+    if (subtopicsParam) {
+      const subtopicIds = subtopicsParam.split(',').map(s => parseInt(s, 10)).filter(s => !isNaN(s));
+      if (subtopicIds.length > 0) {
+        const placeholders = subtopicIds.map(() => '?').join(',');
+        conditions.push(`
+          q.id IN (
+            SELECT question_id FROM question_subtopics
+            WHERE subtopic_id IN (${placeholders})
+          )
+        `);
+        params.push(...subtopicIds);
+      }
+    }
+
+    const whereClause = conditions.length > 0 ? 'WHERE ' + conditions.join(' AND ') : '';
 
     if (topicId) {
       // 优先根据 topicId (topics.code) 进行关联查询
       [rows] = await connection.execute(
-        `SELECT q.* 
+        `SELECT DISTINCT q.*,
+          (
+            SELECT JSON_ARRAYAGG(
+              JSON_OBJECT('id', st.id, 'code', st.code, 'name', st.name)
+            )
+            FROM question_subtopics qs
+            JOIN subtopics st ON qs.subtopic_id = st.id
+            WHERE qs.question_id = q.id
+          ) AS subtopics
          FROM questions q
          JOIN topics t ON q.topic_id = t.id
-         WHERE t.code = ? AND q.is_enabled = 1 ${diffCondition}
+         ${whereClause}
          ORDER BY q.created_at ASC`,
-        [topicId, ...diffParams]
+        params
       );
     } else if (subjectId) {
       // 兜底逻辑：根据二级学科 code 查询
       [rows] = await connection.execute(
-        `SELECT q.* 
+        `SELECT DISTINCT q.*,
+          (
+            SELECT JSON_ARRAYAGG(
+              JSON_OBJECT('id', st.id, 'code', st.code, 'name', st.name)
+            )
+            FROM question_subtopics qs
+            JOIN subtopics st ON qs.subtopic_id = st.id
+            WHERE qs.question_id = q.id
+          ) AS subtopics
          FROM questions q
          JOIN sub_subjects sub ON q.sub_subject_id = sub.id
-         WHERE sub.code = ? AND q.is_enabled = 1 ${diffCondition}
+         ${whereClause}
          ORDER BY q.created_at ASC`,
-        [subjectId, ...diffParams]
+        params
       );
     }
 
@@ -92,7 +134,8 @@ export default async function onRequestGet(context) {
       stem: row.stem,
       options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
       correctIndex: row.correct_index,
-      explanation: row.explanation
+      explanation: row.explanation,
+      subtopics: typeof row.subtopics === 'string' ? JSON.parse(row.subtopics) : (row.subtopics || [])
     }));
 
     return new Response(JSON.stringify({

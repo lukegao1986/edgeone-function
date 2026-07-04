@@ -1,0 +1,7 @@
+{
+  "name": "test-env",
+  "dependencies": {
+    "mysql2": "^3.0.0",
+    "dotenv": "^16.0.0"
+  }
+}

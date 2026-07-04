@@ -8,6 +8,7 @@ import { QUESTIONS } from '@/data/questions';
 import { generateQuestionsByTopic } from '@/data/scienceQuestions';
 import Navbar from '@/components/Navbar';
 import AIAnalysisModal from '@/components/AIAnalysisModal';
+import SubtopicFrequencyBar, { SubtopicFrequencyItem } from '@/components/SubtopicFrequencyBar';
 import styles from './index.module.scss';
 
 export default function PracticePage() {
@@ -18,6 +19,8 @@ export default function PracticePage() {
   
   const subject = SUBJECTS.find(s => s.id === subjectId) || { id: subjectId, name: subjectId === 'physics' ? '物理' : subjectId === 'chemistry' ? '化学' : subjectId === 'biology' ? '生物' : '未知科目', icon: '', color: '' };
   const [questions, setQuestions] = useState<any[]>([]);
+  const [subtopicFrequency, setSubtopicFrequency] = useState<SubtopicFrequencyItem[]>([]);
+  const [selectedSubtopicIds, setSelectedSubtopicIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
 
   // 新增：难度过滤状态，默认全选 (1=基础, 2=进阶, 3=挑战)
@@ -33,22 +36,39 @@ export default function PracticePage() {
         
         // 修改：传入 topicId 和 difficulties 进行请求
         const diffParams = selectedDifficulties.length > 0 ? `&difficulties=${selectedDifficulties.join(',')}` : '';
-        const res = await Taro.request({
-          url: `/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
-          method: 'GET'
-        });
-        if (res.data && res.data.success) {
-          setQuestions(res.data.data);
+        
+        // 并行请求题目和分考点词频
+        const [questionsRes, freqRes] = await Promise.all([
+          Taro.request({
+            url: `/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
+            method: 'GET'
+          }),
+          topicId ? Taro.request({
+            url: `/api/subtopics/frequency?topic_id=${topicId}`,
+            method: 'GET'
+          }) : Promise.resolve({ data: { success: false } })
+        ]);
+
+        if (freqRes.data && freqRes.data.success) {
+          setSubtopicFrequency(freqRes.data.subtopics);
+        } else {
+          setSubtopicFrequency([]);
+        }
+        // 重置选中的分考点
+        setSelectedSubtopicIds([]);
+
+        if (questionsRes.data && questionsRes.data.success) {
+          setQuestions(questionsRes.data.data);
           
           // 如果后端返回了历史答题记录，将其恢复到前端状态
-          if (res.data.userAnswers) {
-            setAnswers(res.data.userAnswers);
+          if (questionsRes.data.userAnswers) {
+            setAnswers(questionsRes.data.userAnswers);
             
             // 自动跳到第一道没做的题
-            const total = res.data.data.length;
+            const total = questionsRes.data.data.length;
             let firstUnansweredIndex = 0;
             for (let i = 0; i < total; i++) {
-              if (!res.data.userAnswers[res.data.data[i].id]) {
+              if (!questionsRes.data.userAnswers[questionsRes.data.data[i].id]) {
                 firstUnansweredIndex = i;
                 break;
               }
@@ -88,10 +108,27 @@ export default function PracticePage() {
   // 新增：未提交时的本地临时选择记录
   const [tempSelections, setTempSelections] = useState<Record<number, number>>({});
 
-  const currentQuestion = questions[currentIndex];
-  const totalQuestions = questions.length;
-  const progress = totalQuestions > 0 ? ((currentIndex + 1) / totalQuestions) * 100 : 0;
-  const answeredCount = Object.keys(answers).length;
+  // 2. 分考点选择变化时，本地筛选题目（方案 A，OR 逻辑）
+  const filteredQuestions = useMemo(() => {
+    if (selectedSubtopicIds.length === 0) return questions;
+    return questions.filter(q =>
+      selectedSubtopicIds.some(id =>
+        q.subtopics?.some((st: any) => st.id === id || st.subtopic_id === id)
+      )
+    );
+  }, [questions, selectedSubtopicIds]);
+
+  const currentQuestion = filteredQuestions[currentIndex];
+  const totalQuestions = filteredQuestions.length;
+  
+  // 修改：进度计算应基于过滤后的题库，并且只计算当前显示的题目中有多少已答
+  const filteredAnsweredCount = filteredQuestions.filter(q => {
+    const ans = answers[q.id];
+    const hasAnswer = ans && ans.selectedIndex !== undefined && ans.selectedIndex !== -1;
+    const hasTemp = tempSelections[q.id] !== undefined;
+    return hasAnswer || hasTemp;
+  }).length;
+  const progress = totalQuestions > 0 ? (filteredAnsweredCount / totalQuestions) * 100 : 0;
 
   const existingAnswer = currentQuestion ? answers[currentQuestion.id] : null;
 
@@ -190,9 +227,9 @@ export default function PracticePage() {
       
       // 遍历临时选择记录进行批量提交
       for (const qId of Object.keys(tempSelections)) {
-        if (answers[qId]) continue; // 已经提交过的跳过
+        if (answers[qId as any]) continue; // 已经提交过的跳过
         
-        const q = questions.find(q => q.id === qId);
+        const q = filteredQuestions.find(q => q.id === Number(qId));
         if (!q) continue;
         
         const selectedIdx = tempSelections[qId];
@@ -290,7 +327,7 @@ export default function PracticePage() {
     // 批改模式或者自动批改模式下显示对错
     if (isReviewMode || autoCheck) {
       const ans = answers[qId];
-      if (!ans) return 'unanswered';
+      if (!ans || ans.selectedIndex === undefined || ans.selectedIndex === -1) return 'unanswered';
       return ans.isCorrect ? 'correct' : 'wrong';
     } else {
       // 否则只要选了就显示已答状态
@@ -336,6 +373,14 @@ export default function PracticePage() {
     });
   };
 
+  const handleSubtopicToggle = (subtopicId: number) => {
+    setSelectedSubtopicIds(prev =>
+      prev.includes(subtopicId) ? prev.filter(id => id !== subtopicId) : [...prev, subtopicId]
+    );
+    // 切换考点后，重置题号为第一题
+    setCurrentIndex(0);
+  };
+
   const getDifficultyLabel = (level: number) => {
     switch (level) {
       case 1: return '基础';
@@ -357,6 +402,16 @@ export default function PracticePage() {
     return (
       <View className={styles.pageContainer}>
         <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
+        
+        {subtopicFrequency.length > 0 && (
+          <SubtopicFrequencyBar
+            subtopics={subtopicFrequency}
+            selectedSubtopicIds={selectedSubtopicIds}
+            onSubtopicToggle={handleSubtopicToggle}
+            onClearAll={() => setSelectedSubtopicIds([])}
+          />
+        )}
+
         <View className={styles.emptyContainer}>
           <Text className={styles.emptyText}>当前筛选条件下暂无题目</Text>
           <View style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
@@ -374,6 +429,15 @@ export default function PracticePage() {
     <View className={styles.pageContainer}>
       <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
 
+      {subtopicFrequency.length > 0 && (
+        <SubtopicFrequencyBar
+          subtopics={subtopicFrequency}
+          selectedSubtopicIds={selectedSubtopicIds}
+          onSubtopicToggle={handleSubtopicToggle}
+          onClearAll={() => setSelectedSubtopicIds([])}
+        />
+      )}
+
       <View className={styles.layoutBody}>
         
         {/* 左侧：题号导航矩阵 */}
@@ -381,16 +445,30 @@ export default function PracticePage() {
           <View className={styles.progressHeader}>
             <View className={styles.progressHeaderTop}>
               <Text className={styles.progressTitle}>答题进度</Text>
+              
+              {/* 行内难度筛选 */}
+              <View className={styles.inlineFilters}>
+                <Text className={styles.inlineFilterLabel}>难度：</Text>
+                {[1, 2, 3].map(level => (
+                  <View 
+                    key={level} 
+                    className={classnames(styles.inlineChip, selectedDifficulties.includes(level) && styles.inlineChipActive)}
+                    onClick={() => toggleDifficulty(level)}
+                  >
+                    <Text className={styles.inlineChipText}>{getDifficultyLabel(level)}</Text>
+                  </View>
+                ))}
+              </View>
             </View>
             <View className={styles.progressBarBg}>
               <View className={styles.progressBarFill} style={{ width: `${progress}%` }} />
             </View>
-            <Text className={styles.progressText}>{answeredCount} / {totalQuestions} 题</Text>
+            <Text className={styles.progressText}>{filteredAnsweredCount} / {totalQuestions} 题</Text>
           </View>
 
           <ScrollView className={styles.navGridScroll} scrollY>
             <View className={styles.navGrid}>
-              {questions.map((q, i) => {
+              {filteredQuestions.map((q, i) => {
                 const status = getQuestionStatus(q.id);
                 const isCurrent = i === currentIndex;
                 
@@ -431,20 +509,6 @@ export default function PracticePage() {
               <View className={styles.questionHeader}>
                 <View className={styles.headerTop}>
                   <Text className={styles.questionCounter}>第 {currentIndex + 1} 题（共 {totalQuestions} 题）</Text>
-                  
-                  {/* 行内难度筛选 */}
-                  <View className={styles.inlineFilters}>
-                    <Text className={styles.inlineFilterLabel}>难度：</Text>
-                    {[1, 2, 3].map(level => (
-                      <View 
-                        key={level} 
-                        className={classnames(styles.inlineChip, selectedDifficulties.includes(level) && styles.inlineChipActive)}
-                        onClick={() => toggleDifficulty(level)}
-                      >
-                        <Text className={styles.inlineChipText}>{getDifficultyLabel(level)}</Text>
-                      </View>
-                    ))}
-                  </View>
                 </View>
 
                 {showAnswer && existingAnswer && (

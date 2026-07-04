@@ -4,7 +4,7 @@ import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
-import { SCIENCE_SYLLABUS } from '@/data/scienceSyllabus';
+import { EJU_SYLLABUS } from '@/data/ejuSyllabus';
 import styles from './index.module.scss';
 
 export default function ScienceHubPage() {
@@ -13,7 +13,7 @@ export default function ScienceHubPage() {
   // 中间：当前选中科目的选中的大章节
   const [activeChapterId, setActiveChapterId] = useState('');
 
-  const currentSubjectData = SCIENCE_SYLLABUS[activeSubject];
+  const currentSubjectData = EJU_SYLLABUS.find(s => s.code === 'science')?.subSubjects.find(sub => sub.code === activeSubject);
 
   useEffect(() => {
     if (currentSubjectData && currentSubjectData.chapters.length > 0) {
@@ -47,14 +47,14 @@ export default function ScienceHubPage() {
             
             {/* 左列：科目标签 */}
             <View className={styles.colLeft}>
-              {Object.values(SCIENCE_SYLLABUS).map(subject => (
+              {(EJU_SYLLABUS.find(s => s.code === 'science')?.subSubjects || []).map(subject => (
                 <View 
-                  key={subject.id}
-                  className={classnames(styles.subjectTab, activeSubject === subject.id && styles.subjectTabActive)}
-                  onClick={() => setActiveSubject(subject.id)}
+                  key={subject.code}
+                  className={classnames(styles.subjectTab, activeSubject === subject.code && styles.subjectTabActive)}
+                  onClick={() => setActiveSubject(subject.code)}
                 >
                   <Text className={styles.subjectIcon}>
-                    {subject.id === 'physics' ? '⚡' : subject.id === 'chemistry' ? '⚗' : '🧬'}
+                    {subject.code === 'physics' ? '⚡' : subject.code === 'chemistry' ? '⚗' : '🧬'}
                   </Text>
                   <Text className={styles.subjectName}>{subject.name}</Text>
                 </View>
@@ -83,7 +83,7 @@ export default function ScienceHubPage() {
                       <Text className={styles.sectionTitle}>{section.title}</Text>
                       
                       <View className={styles.subTopicGrid}>
-                        {section.subTopics.map(sub => (
+                        {section.topics.map(sub => (
                           <View 
                             key={sub.id} 
                             className={styles.subTopicCard}

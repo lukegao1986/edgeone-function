@@ -49,7 +49,7 @@ async function uploadQuestions() {
     for (const q of questions) {
       try {
         // 1. 必填字段校验 (不再强制要求数字 ID，优先使用 Code)
-        if (!q.businessCode || !q.stem || !q.options || q.correctIndex === undefined) {
+        if (!(q.businessCode || q.business_code) || !q.stem || !q.options || (q.correctIndex === undefined && q.correct_index === undefined)) {
           throw new Error('缺少 businessCode/stem/options/correctIndex');
         }
 
@@ -117,7 +117,7 @@ async function uploadQuestions() {
              correct_index=VALUES(correct_index), 
              explanation=VALUES(explanation)`,
           [
-            q.businessCode,
+            q.businessCode || q.business_code,
             mainSubjectId,
             subSubjectId,
             chapterId,
@@ -128,22 +128,42 @@ async function uploadQuestions() {
             q.score || null,
             q.stem,
             JSON.stringify(q.options),
-            q.correctIndex,
+            q.correctIndex !== undefined ? q.correctIndex : q.correct_index,
             q.explanation || ''
           ]
         );
 
+        const currentQuestionId = result.insertId || (await connection.execute('SELECT id FROM questions WHERE business_code=?', [q.businessCode || q.business_code]))[0][0].id;
+
         if (q.usageTypeId) {
           await connection.execute(
             `INSERT IGNORE INTO question_usage (question_id, usage_type_id) VALUES (?, ?)`,
-            [result.insertId || (await connection.execute('SELECT id FROM questions WHERE business_code=?', [q.businessCode]))[0][0].id, q.usageTypeId]
+            [currentQuestionId, q.usageTypeId]
           );
         }
 
-        console.log(`  ✔️ [成功] ${q.businessCode}`);
+        // 4. 处理 subtopicCodes 关联
+        if (q.subtopicCodes && Array.isArray(q.subtopicCodes) && q.subtopicCodes.length > 0) {
+          for (const stCode of q.subtopicCodes) {
+            // 获取 subtopic_id
+            const [stRows] = await connection.execute('SELECT id FROM subtopics WHERE code = ?', [stCode]);
+            if (stRows.length > 0) {
+              const subtopicId = stRows[0].id;
+              // 批量写入 question_subtopics 关联表 (INSERT IGNORE 防重复)
+              await connection.execute(
+                `INSERT IGNORE INTO question_subtopics (question_id, subtopic_id) VALUES (?, ?)`,
+                [currentQuestionId, subtopicId]
+              );
+            } else {
+              console.warn(`  ⚠️ 警告: 未找到 subtopicCode="${stCode}"，关联跳过`);
+            }
+          }
+        }
+
+        console.log(`  ✔️ [成功] ${q.businessCode || q.business_code}`);
         successCount++;
       } catch (err) {
-        console.error(`  ❌ [失败] ${q.businessCode || '未知'} - ${err.message}`);
+        console.error(`  ❌ [失败] ${q.businessCode || q.business_code || '未知'} - ${err.message}`);
         failCount++;
       }
     }

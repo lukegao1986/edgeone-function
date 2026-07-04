@@ -5,6 +5,14 @@ const url = require('url');
 const getQuestionsModule = require('./api/get_questions.js');
 const getQuestions = getQuestionsModule.default || getQuestionsModule;
 
+let getSubtopicFrequency;
+try {
+  const getSubtopicFrequencyModule = require('./api/get_subtopic_frequency.js');
+  getSubtopicFrequency = getSubtopicFrequencyModule.default || getSubtopicFrequencyModule;
+} catch (e) {
+  console.log('未找到 get_subtopic_frequency.js，已忽略');
+}
+
 let submitAnswer;
 try {
   const submitAnswerModule = require('./api/submit_answer.js');
@@ -101,6 +109,11 @@ const server = http.createServer(async (req, res) => {
   try {
     if (reqUrl.pathname === '/api/get_questions') {
       const response = await getQuestions(context);
+      const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
+      res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
+      res.end(text);
+    } else if (reqUrl.pathname === '/api/subtopics/frequency' && getSubtopicFrequency) {
+      const response = await getSubtopicFrequency(context);
       const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
       res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
       res.end(text);
