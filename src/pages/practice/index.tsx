@@ -390,41 +390,6 @@ export default function PracticePage() {
     }
   };
 
-  if (loading) {
-    return (
-      <View className={styles.emptyContainer}>
-        <Text className={styles.emptyText}>题目加载中...</Text>
-      </View>
-    );
-  }
-
-  if (!currentQuestion) {
-    return (
-      <View className={styles.pageContainer}>
-        <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
-        
-        {subtopicFrequency.length > 0 && (
-          <SubtopicFrequencyBar
-            subtopics={subtopicFrequency}
-            selectedSubtopicIds={selectedSubtopicIds}
-            onSubtopicToggle={handleSubtopicToggle}
-            onClearAll={() => setSelectedSubtopicIds([])}
-          />
-        )}
-
-        <View className={styles.emptyContainer}>
-          <Text className={styles.emptyText}>当前筛选条件下暂无题目</Text>
-          <View style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
-            {canGoBack && (
-              <Text className={styles.backLink} onClick={() => Taro.navigateBack()}>返回上一页</Text>
-            )}
-            <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
-          </View>
-        </View>
-      </View>
-    );
-  }
-
   return (
     <View className={styles.pageContainer}>
       <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
@@ -441,7 +406,7 @@ export default function PracticePage() {
       <View className={styles.layoutBody}>
         
         {/* 左侧：题号导航矩阵 */}
-        <View className={styles.leftPanel}>
+        <View className={styles.leftPanel} style={loading ? { opacity: 0.6, pointerEvents: 'none' } : {}}>
           <View className={styles.progressHeader}>
             <View className={styles.progressHeaderTop}>
               <Text className={styles.progressTitle}>答题进度</Text>
@@ -502,120 +467,137 @@ export default function PracticePage() {
 
         {/* 右侧：答题主区域 */}
         <View className={styles.rightPanel}>
-          <ScrollView className={styles.questionScroll} scrollY>
-            <View className={styles.questionContainer}>
-              
-              {/* 题头 */}
-              <View className={styles.questionHeader}>
-                <View className={styles.headerTop}>
-                  <Text className={styles.questionCounter}>第 {currentIndex + 1} 题（共 {totalQuestions} 题）</Text>
-                </View>
-
-                {showAnswer && existingAnswer && (
-                  <Text className={classnames(styles.statusText, existingAnswer.isCorrect ? styles.textSuccess : styles.textDanger)}>
-                    {existingAnswer.isCorrect ? '✅ 回答正确' : '❌ 回答错误'}
-                  </Text>
+          {loading ? (
+            <View className={styles.emptyContainer}>
+              <Text className={styles.emptyText}>题目加载中...</Text>
+            </View>
+          ) : !currentQuestion ? (
+            <View className={styles.emptyContainer}>
+              <Text className={styles.emptyText}>当前筛选条件下暂无题目</Text>
+              <View style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
+                {canGoBack && (
+                  <Text className={styles.backLink} onClick={() => Taro.navigateBack()}>返回上一页</Text>
                 )}
+                <Text className={styles.backLink} onClick={() => Taro.switchTab({ url: '/pages/dashboard/index' })}>返回大厅</Text>
               </View>
-
-              {/* 题干 */}
-              <View className={styles.stemCard}>
-                <RichText nodes={renderMarkdown(currentQuestion.stem)} className={styles.stemText} />
-              </View>
-
-              {/* 选项 */}
-              <View className={styles.optionsList}>
-                {currentQuestion.options.map((option, index) => (
-                  <View 
-                    key={index} 
-                    className={classnames(styles.optionCard, getOptionStyle(index))}
-                    onClick={() => handleSelectOption(index)}
-                  >
-                    <View className={classnames(styles.optionLabel, getLabelStyle(index))}>
-                      <Text className={styles.labelText}>{letters[index]}</Text>
+            </View>
+          ) : (
+            <>
+              <ScrollView className={styles.questionScroll} scrollY>
+                <View className={styles.questionContainer}>
+                  
+                  {/* 题头 */}
+                  <View className={styles.questionHeader}>
+                    <View className={styles.headerTop}>
+                      <Text className={styles.questionCounter}>第 {currentIndex + 1} 题（共 {totalQuestions} 题）</Text>
                     </View>
-                    <View className={styles.optionText}>
-                      <RichText nodes={renderMarkdown(option)} />
-                    </View>
-                    
-                    {showAnswer && index === currentQuestion.correctIndex && <Text className={styles.iconCorrect}>✓</Text>}
-                    {showAnswer && index === selectedOption && index !== currentQuestion.correctIndex && <Text className={styles.iconWrong}>✗</Text>}
-                  </View>
-                ))}
-              </View>
 
-              {/* 解析 (答题后显示) */}
-              {showAnswer && (
-                <View className={styles.explanationCard}>
-                  <View className={styles.expHeader}>
-                    <Text className={styles.expTitle}>📖 答案解析</Text>
+                    {showAnswer && existingAnswer && (
+                      <Text className={classnames(styles.statusText, existingAnswer.isCorrect ? styles.textSuccess : styles.textDanger)}>
+                        {existingAnswer.isCorrect ? '✅ 回答正确' : '❌ 回答错误'}
+                      </Text>
+                    )}
                   </View>
-                  <View className={styles.divider} />
-                  <Text className={styles.expCorrectText}>✅ 正确答案：{letters[currentQuestion.correctIndex]}</Text>
-                  {selectedOption !== null && selectedOption !== currentQuestion.correctIndex && (
-                    <Text className={styles.expWrongText}>❌ 你的答案：{letters[selectedOption]}</Text>
+
+                  {/* 题干 */}
+                  <View className={styles.stemCard}>
+                    <RichText nodes={renderMarkdown(currentQuestion.stem)} className={styles.stemText} />
+                  </View>
+
+                  {/* 选项 */}
+                  <View className={styles.optionsList}>
+                    {currentQuestion.options.map((option, index) => (
+                      <View 
+                        key={index} 
+                        className={classnames(styles.optionCard, getOptionStyle(index))}
+                        onClick={() => handleSelectOption(index)}
+                      >
+                        <View className={classnames(styles.optionLabel, getLabelStyle(index))}>
+                          <Text className={styles.labelText}>{letters[index]}</Text>
+                        </View>
+                        <View className={styles.optionText}>
+                          <RichText nodes={renderMarkdown(option)} />
+                        </View>
+                        
+                        {showAnswer && index === currentQuestion.correctIndex && <Text className={styles.iconCorrect}>✓</Text>}
+                        {showAnswer && index === selectedOption && index !== currentQuestion.correctIndex && <Text className={styles.iconWrong}>✗</Text>}
+                      </View>
+                    ))}
+                  </View>
+
+                  {/* 解析 (答题后显示) */}
+                  {showAnswer && (
+                    <View className={styles.explanationCard}>
+                      <View className={styles.expHeader}>
+                        <Text className={styles.expTitle}>📖 答案解析</Text>
+                      </View>
+                      <View className={styles.divider} />
+                      <Text className={styles.expCorrectText}>✅ 正确答案：{letters[currentQuestion.correctIndex]}</Text>
+                      {selectedOption !== null && selectedOption !== currentQuestion.correctIndex && (
+                        <Text className={styles.expWrongText}>❌ 你的答案：{letters[selectedOption]}</Text>
+                      )}
+                      <View className={styles.expContent}>
+                        <RichText nodes={renderMarkdown(currentQuestion.explanation)} />
+                      </View>
+                    </View>
                   )}
-                  <View className={styles.expContent}>
-                    <RichText nodes={renderMarkdown(currentQuestion.explanation)} />
+                  
+                  {/* 选项下方：操作栏 (上一题 / 提交 / 下一题) */}
+                  <View className={styles.actionRow}>
+                    <View 
+                      className={classnames(styles.btnPrev, currentIndex === 0 && styles.btnDisabled)} 
+                      onClick={handlePrev}
+                    >
+                      <Text className={styles.btnTextSecondary}>‹ 上一题</Text>
+                    </View>
+
+                    {(!showAnswer && autoCheck) ? (
+                      <View 
+                        className={classnames(styles.btnSubmit, selectedOption === null && styles.btnSubmitDisabled)}
+                        onClick={handleSubmitAnswer}
+                      >
+                        <Text className={styles.btnTextWhite}>提交答案</Text>
+                      </View>
+                    ) : (
+                      <View className={styles.btnNext} onClick={handleNext}>
+                        <Text className={styles.btnTextWhite}>{currentIndex === totalQuestions - 1 ? (isReviewMode ? '查看报告' : '交卷') : '下一题 ›'}</Text>
+                      </View>
+                    )}
                   </View>
+
                 </View>
-              )}
-              
-              {/* 选项下方：操作栏 (上一题 / 提交 / 下一题) */}
-              <View className={styles.actionRow}>
-                <View 
-                  className={classnames(styles.btnPrev, currentIndex === 0 && styles.btnDisabled)} 
-                  onClick={handlePrev}
-                >
-                  <Text className={styles.btnTextSecondary}>‹ 上一题</Text>
+              </ScrollView>
+
+              {/* 底部工具栏 (居中：收藏/笔记/进度， 左侧：立即批改开关) */}
+              <View className={styles.bottomBar}>
+                
+                <View className={styles.bottomLeft}>
+                  <View className={classnames(styles.iosSwitch, autoCheck && styles.switchOn)} onClick={() => setAutoCheck(!autoCheck)}>
+                    <View className={styles.switchHandle} />
+                  </View>
+                  <Text className={styles.switchLabel}>立即批改</Text>
                 </View>
 
-                {(!showAnswer && autoCheck) ? (
-                  <View 
-                    className={classnames(styles.btnSubmit, selectedOption === null && styles.btnSubmitDisabled)}
-                    onClick={handleSubmitAnswer}
-                  >
-                    <Text className={styles.btnTextWhite}>提交答案</Text>
+                <View className={styles.bottomCenter}>
+                  <View className={styles.bookmarkBtn} onClick={handleToggleBookmark}>
+                    <Text className={styles.bookmarkIcon}>{isBookmarked ? '⭐' : '☆'}</Text>
+                    <Text className={classnames(styles.bookmarkText, isBookmarked && styles.textWarning)}>
+                      {isBookmarked ? '已收藏' : '收藏'}
+                    </Text>
                   </View>
-                ) : (
-                  <View className={styles.btnNext} onClick={handleNext}>
-                    <Text className={styles.btnTextWhite}>{currentIndex === totalQuestions - 1 ? (isReviewMode ? '查看报告' : '交卷') : '下一题 ›'}</Text>
+
+                  <View className={styles.bookmarkBtn} onClick={() => Taro.showToast({ title: '写笔记开发中', icon: 'none' })}>
+                    <Text className={styles.bookmarkIcon}>📝</Text>
+                    <Text className={styles.bookmarkText}>写笔记</Text>
                   </View>
-                )}
+
+                  <Text className={styles.counterText}>{currentIndex + 1} / {totalQuestions}</Text>
+                </View>
+                
+                <View className={styles.bottomRight} /> {/* 占位以保持居中 */}
               </View>
-
-            </View>
-          </ScrollView>
-
-          {/* 底部工具栏 (居中：收藏/笔记/进度， 左侧：立即批改开关) */}
-          <View className={styles.bottomBar}>
-            
-            <View className={styles.bottomLeft}>
-              <View className={classnames(styles.iosSwitch, autoCheck && styles.switchOn)} onClick={() => setAutoCheck(!autoCheck)}>
-                <View className={styles.switchHandle} />
-              </View>
-              <Text className={styles.switchLabel}>立即批改</Text>
-            </View>
-
-            <View className={styles.bottomCenter}>
-              <View className={styles.bookmarkBtn} onClick={handleToggleBookmark}>
-                <Text className={styles.bookmarkIcon}>{isBookmarked ? '⭐' : '☆'}</Text>
-                <Text className={classnames(styles.bookmarkText, isBookmarked && styles.textWarning)}>
-                  {isBookmarked ? '已收藏' : '收藏'}
-                </Text>
-              </View>
-
-              <View className={styles.bookmarkBtn} onClick={() => Taro.showToast({ title: '写笔记开发中', icon: 'none' })}>
-                <Text className={styles.bookmarkIcon}>📝</Text>
-                <Text className={styles.bookmarkText}>写笔记</Text>
-              </View>
-
-              <Text className={styles.counterText}>{currentIndex + 1} / {totalQuestions}</Text>
-            </View>
-            
-            <View className={styles.bottomRight} /> {/* 占位以保持居中 */}
-          </View>
-
+            </>
+          )}
         </View>
 
       </View>
