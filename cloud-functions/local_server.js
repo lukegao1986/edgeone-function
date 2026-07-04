@@ -112,7 +112,7 @@ const server = http.createServer(async (req, res) => {
       const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
       res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
       res.end(text);
-    } else if (reqUrl.pathname === '/api/subtopics/frequency' && getSubtopicFrequency) {
+    } else if (reqUrl.pathname === '/api/get_subtopic_frequency' && getSubtopicFrequency) {
       const response = await getSubtopicFrequency(context);
       const text = typeof response.text === 'function' ? await response.text() : JSON.stringify(response);
       res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
