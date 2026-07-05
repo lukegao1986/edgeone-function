@@ -392,17 +392,36 @@ export default function PracticePage() {
     }
   };
 
-  const navbarRightContent = subtopicFrequency.length > 0 ? (
-    <View className={styles.subtopicToggleBtn} onClick={() => setIsSubtopicBarVisible(!isSubtopicBarVisible)}>
-      <Text className={styles.subtopicToggleText}>分考点筛选区</Text>
-      <View className={classnames(styles.subtopicToggleIcon, isSubtopicBarVisible && styles.iconUp)}>
-        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-          <path d="M533.21 569.883l397.329-361.979c11.312-10.605 11.312-27.573 0-38.177s-30.401-10.605-41.712 0l-377.532 344.304-371.877-337.941c-11.312-9.899-29.694-9.899-40.299 0-11.312 9.899-11.312 26.866 0 36.763l386.017 351.374c1.414 1.414 3.535 2.119 4.949 2.829 0.706 0.706 0.706 2.119 2.119 2.829 11.312 10.605 29.694 10.605 41.007 0z" fill="currentColor"></path>
-          <path d="M533.21 830.055l397.329-361.979c11.312-10.605 11.312-27.573 0-38.177s-30.401-10.605-41.712 0l-377.532 344.304-371.877-338.65c-11.312-9.899-29.694-9.899-40.299 0-11.312 9.899-11.312 26.866 0 36.763l385.311 351.374c1.414 1.414 3.535 2.119 4.949 2.829 0.706 0.706 0.706 2.119 2.119 2.829 12.018 10.605 30.401 10.605 41.712 0.706z" fill="currentColor"></path>
-        </svg>
+  const navbarRightContent = (
+    <View className={styles.navbarRightContainer}>
+      {/* 难度筛选 */}
+      <View className={styles.inlineFilters}>
+        <Text className={styles.inlineFilterLabel}>难度：</Text>
+        {[1, 2, 3].map(level => (
+          <View 
+            key={level} 
+            className={classnames(styles.inlineChip, selectedDifficulties.includes(level) && styles.inlineChipActive)}
+            onClick={() => toggleDifficulty(level)}
+          >
+            <Text className={styles.inlineChipText}>{getDifficultyLabel(level)}</Text>
+          </View>
+        ))}
       </View>
+
+      {/* 分考点筛选开关 */}
+      {subtopicFrequency.length > 0 && (
+        <View className={styles.subtopicToggleBtn} onClick={() => setIsSubtopicBarVisible(!isSubtopicBarVisible)}>
+          <Text className={styles.subtopicToggleText}>分考点筛选区</Text>
+          <View className={classnames(styles.subtopicToggleIcon, isSubtopicBarVisible && styles.iconUp)}>
+            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+              <path d="M533.21 569.883l397.329-361.979c11.312-10.605 11.312-27.573 0-38.177s-30.401-10.605-41.712 0l-377.532 344.304-371.877-337.941c-11.312-9.899-29.694-9.899-40.299 0-11.312 9.899-11.312 26.866 0 36.763l386.017 351.374c1.414 1.414 3.535 2.119 4.949 2.829 0.706 0.706 0.706 2.119 2.119 2.829 11.312 10.605 29.694 10.605 41.007 0z" fill="currentColor"></path>
+              <path d="M533.21 830.055l397.329-361.979c11.312-10.605 11.312-27.573 0-38.177s-30.401-10.605-41.712 0l-377.532 344.304-371.877-338.65c-11.312-9.899-29.694-9.899-40.299 0-11.312 9.899-11.312 26.866 0 36.763l385.311 351.374c1.414 1.414 3.535 2.119 4.949 2.829 0.706 0.706 0.706 2.119 2.119 2.829 12.018 10.605 30.401 10.605 41.712 0.706z" fill="currentColor"></path>
+            </svg>
+          </View>
+        </View>
+      )}
     </View>
-  ) : null;
+  );
 
   return (
     <View className={styles.pageContainer}>
@@ -430,20 +449,6 @@ export default function PracticePage() {
           <View className={styles.progressHeader}>
             <View className={styles.progressHeaderTop}>
               <Text className={styles.progressTitle}>答题进度</Text>
-              
-              {/* 行内难度筛选 */}
-              <View className={styles.inlineFilters}>
-                <Text className={styles.inlineFilterLabel}>难度：</Text>
-                {[1, 2, 3].map(level => (
-                  <View 
-                    key={level} 
-                    className={classnames(styles.inlineChip, selectedDifficulties.includes(level) && styles.inlineChipActive)}
-                    onClick={() => toggleDifficulty(level)}
-                  >
-                    <Text className={styles.inlineChipText}>{getDifficultyLabel(level)}</Text>
-                  </View>
-                ))}
-              </View>
             </View>
             <View className={styles.progressBarBg}>
               <View className={styles.progressBarFill} style={{ width: `${progress}%` }} />

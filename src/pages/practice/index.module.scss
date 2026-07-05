@@ -8,6 +8,58 @@
   overflow: hidden;
 }
 
+/* 导航栏右侧容器 */
+.navbarRightContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+
+
+/* 导航栏右侧容器 */
+.navbarRightContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 行内难度筛选 */
+.inlineFilters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inlineFilterLabel {
+  font-size: 24px;
+  color: #999;
+}
+
+.inlineChip {
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: #f5f6fa;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.inlineChipActive {
+  background: rgba(43, 90, 237, 0.08);
+  border-color: #2b5aed;
+}
+
+.inlineChipText {
+  font-size: 24px;
+  color: #666;
+}
+
+.inlineChipActive .inlineChipText {
+  color: #2b5aed;
+  font-weight: 500;
+}
+
 /* 分考点筛选区容器与动画 */
 .subtopicContainer {
   overflow: hidden;
@@ -237,41 +289,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-}
-
-.inlineFilters {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.inlineFilterLabel {
-  font-size: 24px;
-  color: #999;
-}
-
-.inlineChip {
-  padding: 4px 12px;
-  border-radius: 12px;
-  background: #f5f6fa;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.inlineChipActive {
-  background: rgba(43, 90, 237, 0.08);
-  border-color: #2b5aed;
-}
-
-.inlineChipText {
-  font-size: 24px;
-  color: #666;
-}
-
-.inlineChipActive .inlineChipText {
-  color: #2b5aed;
-  font-weight: 500;
 }
 
 .statusText {
