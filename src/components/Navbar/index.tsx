@@ -7,9 +7,10 @@ import styles from './index.module.scss';
 interface NavbarProps {
   simplified?: boolean;
   subjectName?: string;
+  rightContent?: React.ReactNode;
 }
 
-export default function Navbar({ simplified = false, subjectName = '' }: NavbarProps) {
+export default function Navbar({ simplified = false, subjectName = '', rightContent }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigateTo = (url: string) => {
@@ -50,7 +51,9 @@ export default function Navbar({ simplified = false, subjectName = '' }: NavbarP
           </View>
         </View>
         <Text className={styles.subjectTitle}>{subjectName}</Text>
-        <View className={styles.placeholder} />
+        <View className={styles.placeholder}>
+          {rightContent}
+        </View>
       </View>
     );
   }

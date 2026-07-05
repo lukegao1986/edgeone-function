@@ -109,6 +109,9 @@ export default function PracticePage() {
   // 新增：未提交时的本地临时选择记录
   const [tempSelections, setTempSelections] = useState<Record<number, number>>({});
 
+  // 新增：考点网格是否可见的状态
+  const [isSubtopicVisible, setIsSubtopicVisible] = useState(true);
+
   // 2. 分考点选择变化时，本地筛选题目（方案 A，OR 逻辑）
   const filteredQuestions = useMemo(() => {
     if (selectedSubtopicIds.length === 0) return questions;
@@ -393,9 +396,24 @@ export default function PracticePage() {
 
   return (
     <View className={styles.pageContainer}>
-      <Navbar simplified subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} />
+      <Navbar 
+        simplified 
+        subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} 
+        rightContent={
+          subtopicFrequency.length > 0 && (
+            <View 
+              onClick={() => setIsSubtopicVisible(!isSubtopicVisible)}
+              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '4px 8px' }}
+            >
+              <Text style={{ fontSize: '28px', color: '#3B6EC9', fontWeight: 500 }}>
+                {isSubtopicVisible ? '收起 ▲' : '展开 ▼'}
+              </Text>
+            </View>
+          )
+        }
+      />
 
-      {subtopicFrequency.length > 0 && (
+      {subtopicFrequency.length > 0 && isSubtopicVisible && (
         <SubtopicFrequencyBar
           subtopics={subtopicFrequency}
           selectedSubtopicIds={selectedSubtopicIds}

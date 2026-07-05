@@ -182,7 +182,12 @@
 .backIcon { font-size: 40px; color: #5C6170; }
 .backText { font-size: 28px; color: #5C6170; }
 .subjectTitle { font-size: 28px; font-weight: 500; color: #1A1D23; }
-.placeholder { width: 128px; }
+.placeholder { 
+  width: 128px; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
 /* 响应式：小程序端或移动端 H5 隐藏复杂的 PC 导航，使用原生导航栏 */
 @media screen and (max-width: 768px) {
