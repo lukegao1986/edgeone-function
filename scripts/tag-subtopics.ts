@@ -98,6 +98,7 @@ function buildTaggingPrompt(question: any, topicName: string, subtopicList: Subt
 4. 至少选择 1 个分考点，最多不超过 5 个
 5. 只从下方列表中选择 code，不要自行生成
 6. 分考点列表中的 aliases 是同义/近义表达，帮助理解范围
+7. 特别注意：如果题目仅描述水平方向的直线运动（如汽车、电车行驶等），绝不可选择落体运动(自由落下等)、抛体运动相关的分考点！
 
 该题目所属考点（topic）：${topicName}
 
@@ -119,8 +120,11 @@ ${optionsStr}
 
 正确答案：${question.correct_index}
 
-请返回严格的 JSON 格式（不要包含其他文字）：
-{"subtopic_codes": ["phy_1_1_1_04", "phy_1_1_1_02"]}`;
+请返回严格的 JSON 格式（不要包含其他文字）。
+注意：下方的 JSON 仅为格式示例，绝不要直接照抄示例中的 CODE！必须从上方"可选分考点列表"中选择真实的 code。
+
+示例格式：
+{"subtopic_codes": ["真实存在的code_1", "真实存在的code_2"]}`;
 }
 
 async function sleep(ms: number) {
