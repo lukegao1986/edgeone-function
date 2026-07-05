@@ -51,9 +51,13 @@ export default function Navbar({ simplified = false, subjectName = '', rightCont
           </View>
         </View>
         <Text className={styles.subjectTitle}>{subjectName}</Text>
-        <View className={styles.placeholder}>
-          {rightContent}
-        </View>
+        {rightContent ? (
+          <View className={styles.rightContentWrapper}>
+            {rightContent}
+          </View>
+        ) : (
+          <View className={styles.placeholder} />
+        )}
       </View>
     );
   }

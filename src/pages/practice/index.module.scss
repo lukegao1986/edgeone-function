@@ -8,6 +8,48 @@
   overflow: hidden;
 }
 
+/* 分考点筛选区容器与动画 */
+.subtopicContainer {
+  overflow: hidden;
+  max-height: 500px;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.subtopicContainerHidden {
+  max-height: 0;
+}
+
+/* 导航栏右侧按钮 */
+.subtopicToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+}
+
+.subtopicToggleText {
+  font-size: 26px;
+  color: #5C6170;
+}
+
+.subtopicToggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.iconUp {
+  transform: rotate(180deg);
+}
+
 .layoutBody {
   display: flex;
   flex: 1;

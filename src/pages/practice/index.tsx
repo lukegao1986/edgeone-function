@@ -23,6 +23,7 @@ export default function PracticePage() {
   const [subtopicFrequency, setSubtopicFrequency] = useState<SubtopicFrequencyItem[]>([]);
   const [selectedSubtopicIds, setSelectedSubtopicIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSubtopicBarVisible, setIsSubtopicBarVisible] = useState(true);
 
   // 新增：难度过滤状态，默认全选 (1=基础, 2=进阶, 3=挑战)
   const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>([1, 2, 3]);
@@ -108,9 +109,6 @@ export default function PracticePage() {
 
   // 新增：未提交时的本地临时选择记录
   const [tempSelections, setTempSelections] = useState<Record<number, number>>({});
-
-  // 新增：考点网格是否可见的状态
-  const [isSubtopicVisible, setIsSubtopicVisible] = useState(true);
 
   // 2. 分考点选择变化时，本地筛选题目（方案 A，OR 逻辑）
   const filteredQuestions = useMemo(() => {
@@ -394,33 +392,36 @@ export default function PracticePage() {
     }
   };
 
+  const navbarRightContent = subtopicFrequency.length > 0 ? (
+    <View className={styles.subtopicToggleBtn} onClick={() => setIsSubtopicBarVisible(!isSubtopicBarVisible)}>
+      <Text className={styles.subtopicToggleText}>分考点筛选区</Text>
+      <View className={classnames(styles.subtopicToggleIcon, isSubtopicBarVisible && styles.iconUp)}>
+        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+          <path d="M533.21 569.883l397.329-361.979c11.312-10.605 11.312-27.573 0-38.177s-30.401-10.605-41.712 0l-377.532 344.304-371.877-337.941c-11.312-9.899-29.694-9.899-40.299 0-11.312 9.899-11.312 26.866 0 36.763l386.017 351.374c1.414 1.414 3.535 2.119 4.949 2.829 0.706 0.706 0.706 2.119 2.119 2.829 11.312 10.605 29.694 10.605 41.007 0z" fill="currentColor"></path>
+          <path d="M533.21 830.055l397.329-361.979c11.312-10.605 11.312-27.573 0-38.177s-30.401-10.605-41.712 0l-377.532 344.304-371.877-338.65c-11.312-9.899-29.694-9.899-40.299 0-11.312 9.899-11.312 26.866 0 36.763l385.311 351.374c1.414 1.414 3.535 2.119 4.949 2.829 0.706 0.706 0.706 2.119 2.119 2.829 12.018 10.605 30.401 10.605 41.712 0.706z" fill="currentColor"></path>
+        </svg>
+      </View>
+    </View>
+  ) : null;
+
   return (
     <View className={styles.pageContainer}>
       <Navbar 
         simplified 
         subjectName={topicTitle ? `${subject?.name} - ${topicTitle}` : `${subject?.name}`} 
-        rightContent={
-          subtopicFrequency.length > 0 && (
-            <View 
-              onClick={() => setIsSubtopicVisible(!isSubtopicVisible)}
-              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '4px 8px' }}
-            >
-              <Text style={{ fontSize: '28px', color: '#3B6EC9', fontWeight: 500 }}>
-                {isSubtopicVisible ? '收起 ▲' : '展开 ▼'}
-              </Text>
-            </View>
-          )
-        }
+        rightContent={navbarRightContent}
       />
 
-      {subtopicFrequency.length > 0 && isSubtopicVisible && (
-        <SubtopicFrequencyBar
-          subtopics={subtopicFrequency}
-          selectedSubtopicIds={selectedSubtopicIds}
-          onSubtopicToggle={handleSubtopicToggle}
-          onClearAll={() => setSelectedSubtopicIds([])}
-        />
-      )}
+      <View className={classnames(styles.subtopicContainer, !isSubtopicBarVisible && styles.subtopicContainerHidden)}>
+        {subtopicFrequency.length > 0 && (
+          <SubtopicFrequencyBar
+            subtopics={subtopicFrequency}
+            selectedSubtopicIds={selectedSubtopicIds}
+            onSubtopicToggle={handleSubtopicToggle}
+            onClearAll={() => setSelectedSubtopicIds([])}
+          />
+        )}
+      </View>
 
       <View className={styles.layoutBody}>
         
