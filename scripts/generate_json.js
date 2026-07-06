@@ -12,19 +12,26 @@ async function main() {
   const qFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/物理 charpter 2_cleaned.md');
   const aFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/物理 charpter 2解析_cleaned.md');
   const sampleFile = path.join(__dirname, '../docs/0 数据准备/charpter 1/sample.json');
-  const outputFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions.json');
-  const previewFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_preview.md');
+  const outputFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_part2.json');
+  const previewFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_part2_preview.md');
 
   const qContent = fs.readFileSync(qFile, 'utf8');
   const aContent = fs.readFileSync(aFile, 'utf8');
   const sampleContent = fs.readFileSync(sampleFile, 'utf8');
 
+  // 由于大模型输出长度限制，我们可以通过截取 markdown 的后半部分来继续生成
+  // 刚才已经生成了 基礎 CHECK 和 基本例題，以及 基本問題 22
+  // 现在我们要把 qContent 中 "## 基本問題 23" 之前的内容删掉
+  const qLines = qContent.split('\n');
+  const startIndex = qLines.findIndex(l => l.startsWith('## 基本問題 23'));
+  const remainingQContent = qLines.slice(startIndex).join('\n');
+
   const prompt = `你是一个 EJU（日本留学試験）物理题库编辑专家。
 
-请阅读以下输入文件，将教材中的练习题转换为标准 JSON 题库格式。由于题目较多，请确保返回格式极其严格。如果文本太长，你可以一次只处理 10 道题，不过我希望你尽可能处理完所有题目。
+请阅读以下输入文件，将教材中的练习题转换为标准 JSON 题库格式。由于题目较多，你可以只处理接下来的 8 道题（基本問題 23 到 基本問題 30）。确保返回格式是完整的 JSON 数组！
 
-【输入文件1：教材原文（含题目）】
-${qContent}
+【输入文件1：教材原文（含题目，从第23题开始）】
+${remainingQContent}
 
 【输入文件2：教材答案（含解析）】
 ${aContent}
@@ -59,15 +66,19 @@ ${sampleContent}
 | explanation | string | 解析，格式见下方 |
 | subtopicCodes | string[]? | 可选，分考点代码数组（如不需要可省略此字段） |
 
+  // 由于第一批生成到了 phy-02-qB1（即 基本問題 22）
+  // 这一次的生成，如果是 B 开头的序号，要接着往下，避免和之前重复
+  // 不过我们也可以交给 LLM，在 Prompt 里告诉它从 B2 开始，或者后续导入时自己处理
+  // 为保险起见，我们在 Prompt 中加入明确的起始序号要求：
+
 【businessCode 命名规则】
 - 格式：phy-02-q{难度首字母}{序号}
 - 难度首字母：
-  - C = 基礎CHECK（difficultyLevel=1），序号从 1 开始
-  - E = 基本例題（difficultyLevel=2），序号从 1 开始
-  - B = 基本問題（difficultyLevel=2），序号从 1 开始
-  - A = 応用問題（difficultyLevel=3），序号从 1 开始
-- 示例：phy-02-qC1, phy-02-qE1, phy-02-qB1, phy-02-qA1
-- 同一难度类型内序号连续递增
+  - C = 基礎CHECK（difficultyLevel=1）
+  - E = 基本例題（difficultyLevel=2）
+  - B = 基本問題（difficultyLevel=2）
+  - A = 応用問題（difficultyLevel=3）
+- 极其重要：由于之前已经录入了部分基本問題，本次录入的 **基本問題 (B)** 序号必须从 **2** 开始递增（即 phy-02-qB2, phy-02-qB3...）；如果遇到**リード C** 或**応用問題**等新的难度类别，依然从 1 开始。
 
 【difficultyLevel 映射规则】
 - 基礎 CHECK → 1
