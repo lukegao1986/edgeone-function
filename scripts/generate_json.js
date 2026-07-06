@@ -12,25 +12,25 @@ async function main() {
   const qFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/物理 charpter 2_cleaned.md');
   const aFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/物理 charpter 2解析_cleaned.md');
   const sampleFile = path.join(__dirname, '../docs/0 数据准备/charpter 1/sample.json');
-  const outputFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_part2.json');
-  const previewFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_part2_preview.md');
+  const outputFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_part3.json');
+  const previewFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_part3_preview.md');
 
   const qContent = fs.readFileSync(qFile, 'utf8');
   const aContent = fs.readFileSync(aFile, 'utf8');
   const sampleContent = fs.readFileSync(sampleFile, 'utf8');
 
   // 由于大模型输出长度限制，我们可以通过截取 markdown 的后半部分来继续生成
-  // 刚才已经生成了 基礎 CHECK 和 基本例題，以及 基本問題 22
-  // 现在我们要把 qContent 中 "## 基本問題 23" 之前的内容删掉
+  // 刚才已经生成了 基礎 CHECK 和 基本例題，以及 基本問題 22~30
+  // 现在我们要把 qContent 中 "## 基本問題 ✿ 31" 之前的内容删掉
   const qLines = qContent.split('\n');
-  const startIndex = qLines.findIndex(l => l.startsWith('## 基本問題 23'));
+  const startIndex = qLines.findIndex(l => l.startsWith('## 基本問題 ✿ 31'));
   const remainingQContent = qLines.slice(startIndex).join('\n');
 
   const prompt = `你是一个 EJU（日本留学試験）物理题库编辑专家。
 
-请阅读以下输入文件，将教材中的练习题转换为标准 JSON 题库格式。由于题目较多，你可以只处理接下来的 8 道题（基本問題 23 到 基本問題 30）。确保返回格式是完整的 JSON 数组！
+请阅读以下输入文件，将教材中的练习题转换为标准 JSON 题库格式。由于题目较多，你可以只处理接下来的 10 道题（基本問題 31 到 応用問題 44）。确保返回格式是完整的 JSON 数组！
 
-【输入文件1：教材原文（含题目，从第23题开始）】
+【输入文件1：教材原文（含题目，从第31题开始）】
 ${remainingQContent}
 
 【输入文件2：教材答案（含解析）】
@@ -78,7 +78,9 @@ ${sampleContent}
   - E = 基本例題（difficultyLevel=2）
   - B = 基本問題（difficultyLevel=2）
   - A = 応用問題（difficultyLevel=3）
-- 极其重要：由于之前已经录入了部分基本問題，本次录入的 **基本問題 (B)** 序号必须从 **2** 开始递增（即 phy-02-qB2, phy-02-qB3...）；如果遇到**リード C** 或**応用問題**等新的难度类别，依然从 1 开始。
+- 极其重要：本次录入包含**基本問題**、**リード C** 和**応用問題**。
+  - 对于 基本問題 和 リード C (归类为 B)，请从 **10** 开始递增（即 phy-02-qB10, phy-02-qB11...）。
+  - 对于 応用問題 (归类为 A)，请从 **1** 开始递增（即 phy-02-qA1, phy-02-qA2...）。
 
 【difficultyLevel 映射规则】
 - 基礎 CHECK → 1
@@ -117,7 +119,7 @@ ${sampleContent}
 【stem 格式要求】
 1. 保持日文原文，不翻译
 2. 保留所有 LaTeX 公式（$...$ 格式）
-3. 保留所有图片 URL（![image](url) 格式）
+3. **必须保留所有图片 URL**（\`![image](url)\` 格式）。如果原 Markdown 中有图片链接，必须完整无误地将其保留在题干（stem）或解析（explanation）中，**绝对不能丢弃图片链接**！
 4. 如果题目有多个小问，保留 (1)(2)(3) 等编号
 5. 题干中的图示 URL 放在题干末尾
 
