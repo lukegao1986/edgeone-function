@@ -91,7 +91,7 @@ ${sampleContent}
    - 每个选项包含所有小问的答案，用逗号或分号分隔
    - 示例（N=2）："5.0 m/s, 9.0 m" 表示 (1)的答案=5.0, (2)的答案=9.0
    - 组合策略：为每问设置 2-3 个候选值（1 正确 + 1~2 干扰），交叉组合出 2N+2 个选项
-5. correctIndex 为单个整数，指向正确组合选项的索引（0-based）
+5. correctIndex 为单个整数，指向正确组合选项的索引（0-based）。请务必**随机打乱**选项顺序，并确保 correctIndex 的取值是随机分布在 0 到 2N+1 之间，绝对不要让所有的题目的 correctIndex 都是 0！
 
 【explanation 格式】
 "explanation": "【参考答案】: {正确答案}\\n\\n【详细解析】: {详细解题过程，包含公式推导和物理概念说明}"
@@ -135,17 +135,46 @@ ${sampleContent}
   // 简单处理如果大模型返回了包在 { "questions": [...] } 的情况
   let parsed;
   try {
+    let rawParsed;
     // 处理可能的 JSON.parse 错误，尝试提取 [] 之间的内容
     const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
     if (arrayMatch) {
-      parsed = JSON.parse(arrayMatch[0]);
+      rawParsed = JSON.parse(arrayMatch[0]);
     } else {
-      parsed = JSON.parse(jsonStr);
+      rawParsed = JSON.parse(jsonStr);
     }
     
-    if (parsed.questions) {
-      parsed = parsed.questions;
+    if (rawParsed.questions) {
+      rawParsed = rawParsed.questions;
     }
+
+    // 后处理：打乱 options，并重新设定 correctIndex
+    parsed = rawParsed.map(q => {
+      const originalOptions = q.options;
+      const correctOption = originalOptions[q.correctIndex];
+      
+      // 创建一个带索引的数组以便打乱
+      let indexedOptions = originalOptions.map((opt, index) => ({ opt, index }));
+      
+      // Fisher-Yates shuffle 打乱选项
+      for (let i = indexedOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indexedOptions[i], indexedOptions[j]] = [indexedOptions[j], indexedOptions[i]];
+      }
+      
+      // 提取打乱后的选项文本
+      const shuffledOptions = indexedOptions.map(item => item.opt);
+      
+      // 找到正确选项的新索引
+      const newCorrectIndex = shuffledOptions.indexOf(correctOption);
+      
+      return {
+        ...q,
+        options: shuffledOptions,
+        correctIndex: newCorrectIndex
+      };
+    });
+
   } catch (e) {
     console.error('Failed to parse JSON:', e);
     fs.writeFileSync(outputFile + '.raw', jsonStr);
