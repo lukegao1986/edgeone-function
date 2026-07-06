@@ -12,8 +12,8 @@ async function main() {
   const qFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/物理 charpter 2_cleaned.md');
   const aFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/物理 charpter 2解析_cleaned.md');
   const sampleFile = path.join(__dirname, '../docs/0 数据准备/charpter 1/sample.json');
-  const outputFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_2_questions.json');
-  const previewFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_2_questions_preview.md');
+  const outputFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions.json');
+  const previewFile = path.join(__dirname, '../docs/0 数据准备/phy-charpter2/phy_1_1_1_chapter2_questions_preview.md');
 
   const qContent = fs.readFileSync(qFile, 'utf8');
   const aContent = fs.readFileSync(aFile, 'utf8');
@@ -33,14 +33,15 @@ ${aContent}
 ${sampleContent}
 
 【目标 topic 信息】
-- topicCode: phy_1_1_2
+- topicCode: phy_1_1_1
 - 章号: 02
 - 该 topic 下的分考点列表（用于可选的 subtopicCodes 标注）：
-  phy_1_1_2_01 | 自由落下 | 别名: 自由落下, 落下運動
-  phy_1_1_2_02 | 鉛直投げ下ろし | 别名: 投げ下ろし
-  phy_1_1_2_03 | 鉛直投げ上げ | 别名: 投げ上げ
-  phy_1_1_2_04 | 水平投射 | 别名: 水平投射
-  phy_1_1_2_05 | 斜方投射 | 别名: 斜方投射
+  phy_1_1_1_01 | 位置と変位 | 别名: 位置, 変位, 座標
+  phy_1_1_1_02 | 速度と加速度 | 别名: 速度, 加速度, 初速度
+  phy_1_1_1_03 | 相対運動 | 别名: 相対速度, 相対運動
+  phy_1_1_1_04 | 落体の運動 | 别名: 自由落下, 自由落体, 落下運動
+  phy_1_1_1_05 | 水平投射 | 别名: 水平投射, 水平投げ出し
+  phy_1_1_1_06 | 斜方投射 | 别名: 斜方投射, 放物運動
 
 【JSON 字段说明】
 每道题为一个 JSON 对象，所有题目组成一个 JSON 数组：
@@ -48,7 +49,7 @@ ${sampleContent}
 | 字段 | 类型 | 说明 |
 |------|------|------|
 | businessCode | string | 业务编码，格式：phy-{章号}-q{难度首字母}{序号} |
-| topicCode | string | 考点代码，如 "phy_1_1_2" |
+| topicCode | string | 考点代码，如 "phy_1_1_1" |
 | questionType | int | 题型，固定为 1（单选题） |
 | difficultyLevel | int | 难度：1=基础, 2=进阶, 3=挑战 |
 | score | int | 分值，固定为 5 |
