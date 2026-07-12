@@ -144,6 +144,9 @@ async function uploadQuestions() {
 
         // 4. 处理 subtopicCodes 关联
         if (q.subtopicCodes && Array.isArray(q.subtopicCodes) && q.subtopicCodes.length > 0) {
+          // 清理旧的关联，保证完全覆盖
+          await connection.execute('DELETE FROM question_subtopics WHERE question_id = ?', [currentQuestionId]);
+          
           for (const stCode of q.subtopicCodes) {
             // 获取 subtopic_id
             const [stRows] = await connection.execute('SELECT id FROM subtopics WHERE code = ?', [stCode]);

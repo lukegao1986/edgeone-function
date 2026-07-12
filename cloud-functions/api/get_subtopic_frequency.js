@@ -76,12 +76,31 @@ export default async function onRequest(context) {
       params.push(chapterId);
     }
 
+    // 新增：如果有难度过滤参数，则关联 questions 表并在 COUNT 时带上条件
+    const difficultiesStr = url.searchParams.get('difficulties');
+    if (difficultiesStr) {
+      const diffArr = difficultiesStr.split(',').map(d => parseInt(d)).filter(d => !isNaN(d));
+      if (diffArr.length > 0) {
+        // 如果有难度参数，则我们在 COUNT() 时加入条件判断
+        sql = sql.replace(
+          'COUNT(qs.question_id) AS frequency',
+          `SUM(IF(q.difficulty_level IN (${diffArr.join(',')}), 1, 0)) AS frequency`
+        );
+        // 需要在 JOIN 区域加上 questions 表
+        sql = sql.replace(
+          'JOIN question_subtopics qs ON st.id = qs.subtopic_id',
+          'JOIN question_subtopics qs ON st.id = qs.subtopic_id JOIN questions q ON qs.question_id = q.id'
+        );
+      }
+    }
+
     if (conditions.length > 0) {
       sql += ' WHERE ' + conditions.join(' AND ');
     }
 
     sql += `
       GROUP BY st.id, st.code, st.name, t.id, t.code, t.title
+      HAVING frequency > 0
       ORDER BY frequency DESC
     `;
 

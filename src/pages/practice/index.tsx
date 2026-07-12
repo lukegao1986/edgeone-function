@@ -40,28 +40,45 @@ export default function PracticePage() {
         const diffParams = selectedDifficulties.length > 0 ? `&difficulties=${selectedDifficulties.join(',')}` : '';
         
         // 并行请求题目和分考点词频
-        const [questionsRes, freqRes] = await Promise.all([
-          Taro.request({
-            url: `${apiBase}/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
-            method: 'GET'
-          }),
-          topicId ? Taro.request({
-            url: `${apiBase}/api/get_subtopic_frequency?topic_id=${topicId}`,
-            method: 'GET'
-          }) : Promise.resolve({ data: { success: false } })
-        ]);
+        // 注意：词频不再从后端直接获取（因为后端获取的是基于整个题库的数据，即使过滤了难度，也可能和本页获取到的具体题目列表的统计有细微差别或不能及时反映前端的各种过滤状态）
+        const questionsRes = await Taro.request({
+          url: `${apiBase}/api/get_questions?topicId=${topicId}&subjectId=${subjectId}&userId=${userId}${diffParams}`,
+          method: 'GET'
+        });
 
-        if (freqRes.data && freqRes.data.success) {
-          setSubtopicFrequency(freqRes.data.subtopics);
-        } else {
-          setSubtopicFrequency([]);
-        }
         // 重置选中的分考点
         setSelectedSubtopicIds([]);
 
         if (questionsRes.data && questionsRes.data.success) {
-          setQuestions(questionsRes.data.data);
+          const fetchedQuestions = questionsRes.data.data;
+          setQuestions(fetchedQuestions);
           
+          // 在前端根据实际获取到的题目，动态计算分考点词频
+          if (topicId) {
+            const frequencyMap: Record<number, SubtopicFrequencyItem> = {};
+            fetchedQuestions.forEach(q => {
+              if (q.subtopics && Array.isArray(q.subtopics)) {
+                q.subtopics.forEach((st: any) => {
+                  if (!frequencyMap[st.id]) {
+                    frequencyMap[st.id] = {
+                      subtopic_id: st.id,
+                      subtopic_code: st.code,
+                      subtopic_name: st.name,
+                      topic_id: q.topic_id, // 或者从外层传入，这里仅为了保持数据结构完整
+                      topic_name: topicTitle,
+                      frequency: 0
+                    };
+                  }
+                  frequencyMap[st.id].frequency += 1;
+                });
+              }
+            });
+            const computedFrequency = Object.values(frequencyMap).sort((a, b) => b.frequency - a.frequency);
+            setSubtopicFrequency(computedFrequency);
+          } else {
+            setSubtopicFrequency([]);
+          }
+
           // 如果后端返回了历史答题记录，将其恢复到前端状态
           if (questionsRes.data.userAnswers) {
             setAnswers(questionsRes.data.userAnswers);
