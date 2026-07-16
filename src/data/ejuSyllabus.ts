@@ -157,8 +157,14 @@ export const EJU_SYLLABUS: EjuSyllabus = [
                       {
                         "code": "phy_1_1_4_01",
                         "name": "剛体のつり合い",
-                        "aliases": ["力のモーメント", "合力", "偶力", "剛体のつり合い", "重心"],
-                        "description": "剛体のつり合いと重心に関する問題"
+                        "aliases": ["力のモーメント", "合力", "偶力", "剛体のつり合い"],
+                        "description": "力のモーメント、合力、偶力、剛体のつり合いに関する問題"
+                      },
+                      {
+                        "code": "phy_1_1_4_02",
+                        "name": "重心",
+                        "aliases": ["重心"],
+                        "description": "物体の重心に関する問題"
                       }
                     ]
                   },
