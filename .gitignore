@@ -5,3 +5,12 @@ node_modules/
 kimi_reference/
 docs/
 .env
+
+# One-off chapter generation/finalization scripts
+scripts/generate_chapter*_with_deepseek.js
+scripts/generate_json_ch*.js
+scripts/temp_get_phy*_max.js
+scripts/finalize_chapter*.js
+scripts/fix_chapter*_options.js
+scripts/rebalance_chapter*_correct_index.js
+scripts/check_chapter*_upload.js
