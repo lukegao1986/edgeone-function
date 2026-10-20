@@ -1,7 +1,13 @@
 import katex from 'katex';
 
+const EXPIRED_OPENXLAB_IMAGE_PATTERN = /https?:\/\/cdn-mineru\.openxlab\.org\.cn\/result\/[^)\s"'<>]+/i;
+
+const renderExpiredImageFallback = (message: string) => {
+  return `<div style="margin: 10px 0; padding: 10px 12px; border-radius: 8px; background: #f5f7fa; color: #8c8c8c; font-size: 13px;">${message}</div>`;
+};
+
 const replaceSvgWithImg = (html: string) => {
-  return html.replace(/<svg([\s\S]*?)>([\s\S]*?)<\/svg>/g, (match, p1, p2) => {
+  return html.replace(/<svg([\s\S]*?)>([\s\S]*?)<\/svg>/g, (_, p1, p2) => {
     const svgString = `<svg${p1}>${p2}</svg>`;
     // 使用 encodeURIComponent 转换为 data URI
     const encoded = encodeURIComponent(svgString).replace(/'/g, '%27').replace(/"/g, '%22');
@@ -14,6 +20,24 @@ const replaceSvgWithImg = (html: string) => {
     // 我们必须加上 position: absolute; top: 0; left: 0; 以防止它挤占文档流，导致后续公式（如等号）发生重叠或被挤压。
     return `<img src="data:image/svg+xml;charset=utf-8,${encoded}" style="width:100%; height:${h}; position:absolute; top:0; left:0; display:block;" />`;
   });
+};
+
+const replaceExpiredExternalImages = (html: string) => {
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+    if (EXPIRED_OPENXLAB_IMAGE_PATTERN.test(src)) {
+      return renderExpiredImageFallback('原题配图已失效');
+    }
+    return `<img src="${src}" alt="${alt}" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />`;
+  });
+
+  html = html.replace(/<img\b([^>]*?)src=(['"])(.*?)\2([^>]*)>/gi, (_, before, quote, src, after) => {
+    if (EXPIRED_OPENXLAB_IMAGE_PATTERN.test(src)) {
+      return renderExpiredImageFallback('原题配图已失效');
+    }
+    return `<img${before}src=${quote}${src}${quote}${after}>`;
+  });
+
+  return html;
 };
 
 /**
@@ -47,10 +71,11 @@ export const renderMarkdown = (text: string) => {
   });
 
   // 3. 处理图片
-  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 10px 0; display: block; border-radius: 8px;" />');
-  
+  // 3. 处理图片与已失效外链兜底
+  html = replaceExpiredExternalImages(html);
   // 4. 处理表格样式 (微信小程序 RichText 默认不支持完整的表格 CSS，需要内联注入样式)
   html = html.replace(/<table>/g, '<table style="border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; text-align: center;">');
+  html = html.replace(/<th>/g, '<th style="border: 1px solid #e8e8e8; padding: 8px; background-color: #f5f6fa; font-weight: 600; color: #333;">');
   html = html.replace(/<th>/g, '<th style="border: 1px solid #e8e8e8; padding: 8px; background-color: #f5f6fa; font-weight: 600; color: #333;">');
   html = html.replace(/<td>/g, '<td style="border: 1px solid #e8e8e8; padding: 8px; color: #666;">');
 

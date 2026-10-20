@@ -52,6 +52,14 @@ export default function PracticePage() {
         if (questionsRes.data && questionsRes.data.success) {
           const fetchedQuestions = questionsRes.data.data;
           setQuestions(fetchedQuestions);
+
+            const filteredOutExpiredStemImageCount = questionsRes.data.meta?.filteredOutExpiredStemImageCount || 0;
+            if (filteredOutExpiredStemImageCount > 0) {
+              Taro.showToast({
+                title: `已跳过${filteredOutExpiredStemImageCount}道失效配图题`,
+                icon: 'none'
+              });
+            }
           
           // 在前端根据实际获取到的题目，动态计算分考点词频
           if (topicId) {

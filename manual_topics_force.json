@@ -1,0 +1,598 @@
+[
+  {
+    "businessCode": "phy-23-qC1",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC2",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC3",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC4",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC5",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC6",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC7",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC8",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC9",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC10",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qE1",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qE2",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB1",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB2",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB3",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB4",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB5",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB6",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB7",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qB8",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qA1",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qA2",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qA3",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qA4",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qA5",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qA5",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC11",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC12",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC13",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC14",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC15",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC16",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC17",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-23-qC18",
+    "topicCode": "phy_4_2_1"
+  },
+  {
+    "businessCode": "phy-24-qC1",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qC2",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qC3",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qC5",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qC6",
+    "topicCode": "phy_4_2_3"
+  },
+  {
+    "businessCode": "phy-24-qC7",
+    "topicCode": "phy_4_2_3"
+  },
+  {
+    "businessCode": "phy-24-qC8",
+    "topicCode": "phy_4_2_3"
+  },
+  {
+    "businessCode": "phy-24-qE1",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qE2",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qE3",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qE5",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB3",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB5",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB6",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB7",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB8",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB10",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB11",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qB12",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qA1",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qA2",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qA3",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qA4",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qA5",
+    "topicCode": "phy_4_2_3"
+  },
+  {
+    "businessCode": "phy-24-qC1",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qC2",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-24-qC9",
+    "topicCode": "phy_4_2_2"
+  },
+  {
+    "businessCode": "phy-25-qC1",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-25-qC2",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-25-qC3",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-25-qC4",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-25-qC5",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-25-qC6",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-25-qC7",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-25-qE1",
+    "topicCode": "phy_4_3_3"
+  },
+  {
+    "businessCode": "phy-25-qE2",
+    "topicCode": "phy_4_3_3"
+  },
+  {
+    "businessCode": "phy-25-qE3",
+    "topicCode": "phy_4_3_3"
+  },
+  {
+    "businessCode": "phy-25-qE4",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-25-qA1",
+    "topicCode": "phy_4_3_3"
+  },
+  {
+    "businessCode": "phy-25-qA2",
+    "topicCode": "phy_4_3_3"
+  },
+  {
+    "businessCode": "phy-25-qA3",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-25-qA4",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-25-qA5",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-25-qA6",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-26-qC1",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qC2",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qC3",
+    "topicCode": "phy_4_4_2"
+  },
+  {
+    "businessCode": "phy-26-qC4",
+    "topicCode": "phy_4_4_2"
+  },
+  {
+    "businessCode": "phy-26-qC5",
+    "topicCode": "phy_4_4_2"
+  },
+  {
+    "businessCode": "phy-26-qE1",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qE2",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qE3",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qB2",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qB3",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qB4",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qB5",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qB6",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qB7",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qA1",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qA2",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qA3",
+    "topicCode": "phy_4_4_1"
+  },
+  {
+    "businessCode": "phy-26-qA4",
+    "topicCode": "phy_4_4_2"
+  },
+  {
+    "businessCode": "phy-26-qA5",
+    "topicCode": "phy_4_3_2"
+  },
+  {
+    "businessCode": "phy-26-qA6",
+    "topicCode": "phy_4_3_4"
+  },
+  {
+    "businessCode": "phy-27-qC1",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qC2",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qC3",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qC4",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qC5",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qC6",
+    "topicCode": "phy_4_4_2"
+  },
+  {
+    "businessCode": "phy-27-qC7",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qC8",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qC9",
+    "topicCode": "phy_4_4_5"
+  },
+  {
+    "businessCode": "phy-27-qE1",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qE2",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qE3",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qE4",
+    "topicCode": "phy_4_4_5"
+  },
+  {
+    "businessCode": "phy-27-qB1",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qB2",
+    "topicCode": "phy_4_4_3"
+  },
+  {
+    "businessCode": "phy-27-qB3",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qB4",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qB5",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qB6",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qB7",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qB8",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qB9",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qA1",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qA2",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qA3",
+    "topicCode": "phy_4_4_4"
+  },
+  {
+    "businessCode": "phy-27-qA4",
+    "topicCode": "phy_4_4_5"
+  },
+  {
+    "businessCode": "phy-28-qB6",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB7",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB8",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB9",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB10",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB11",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB12",
+    "topicCode": "phy_5_1_1"
+  },
+  {
+    "businessCode": "phy-28-qB13",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB14",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB15",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB16",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB17",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB18",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB19",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB20",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB21",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qB22",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA1",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA2",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA3",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA4",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA5",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA6",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-28-qA7",
+    "topicCode": "phy_5_1_2"
+  },
+  {
+    "businessCode": "phy-29-qB16",
+    "topicCode": "phy_5_2_3"
+  }
+]

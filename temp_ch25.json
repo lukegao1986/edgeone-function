@@ -1,0 +1,174 @@
+{
+  "questions": [
+    {
+      "businessCode": "phy-25-qB18",
+      "topicCode": "phy_4_3_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "直線電流がつくる磁場** 水平面内で回転できる磁針が，初め南北を指して静止している。次のように電流を流したとき，磁針のN極はどのように動くか。\n\n(1) 磁針の真上に南から北へ電流を流す。\n\n(2) 磁針のN極の北側で, 鉛直上方から下方へ電流を流す。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/e577e9f49dcd4d095490bc51e4abd2982dee837c80a1c3a3156e940a4f9684b4.jpg)",
+      "options": [
+        "(1) 西 (2) 西",
+        "(1) 東 (2) 東",
+        "(1) 西 (2) 東",
+        "(1) 東 (2) 西"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) 西 (2) 西\n\n【详细解析】: 根据右螺旋定则，电流方向决定磁场方向。磁针N极指向磁场方向。\n(1) 电流从南向北，在磁针上方，用右手螺旋定则判断，磁针处的磁场方向指向西，所以N极向西偏转。\n(2) 电流从上方流向下方，在磁针N极北侧，用右手螺旋定则，磁针处的磁场方向指向西，所以N极向西偏转。",
+      "subtopicCodes": ["phy_4_3_1"]
+    },
+    {
+      "businessCode": "phy-25-qB19",
+      "topicCode": "phy_4_3_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "直線電流がつくる磁場の合成 ■ 十分に長い2本の導線A, Bを2d[m]離して平行に張る。図のように, Aには紙面の裏から表の向きにI[A]の電流を, Bには表から裏の向きにI[A]の電流を流した。図中の点Pでの磁場の強さH[A/m]を求めよ。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/43d493c6c0d94b9da97e5a8e50c0836c79030edae70565d0131b24f42c104010.jpg)",
+      "options": [
+        "$\\frac{I}{4\\pi d}$",
+        "$\\frac{I}{2\\pi d}$",
+        "$\\frac{I}{\\pi d}$",
+        "$\\frac{2I}{\\pi d}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $\\frac{I}{4\\pi d}$\n\n【详细解析】: 点P到两导线的距离均为$2d$，每根导线在P点产生的磁场大小为$H_A=H_B=\\frac{I}{2\\pi(2d)}=\\frac{I}{4\\pi d}$。方向根据右螺旋定则，两磁场方向夹角为60°，合成后大小等于$H_A$（正三角形），所以$H=\\frac{I}{4\\pi d}$。",
+      "subtopicCodes": ["phy_4_3_1"]
+    },
+    {
+      "businessCode": "phy-25-qB20",
+      "topicCode": "phy_4_3_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "直線電流と円形電流の合成磁場 ■ 図のように, 半径 a の円形電流 $I_{1}$ と, それがつくる平面に垂直な直線電流 $I_{2}$ の導線が接している。ただし、2つの導線は絶縁されている。\n\n(1) 点Oにおける磁場の強さHを求めよ。\n\n(2) 点Oにおける磁場の方向と, 円形電流の平面とのなす角をθとする。tanθの値を求めよ。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/13544d8efec6333fe5da1a4c58fef03b22c955508a9c02974760f8fcef52008e.jpg)",
+      "options": [
+        "(1) $\\frac{1}{2a}\\sqrt{I_1^2+\\frac{I_2^2}{\\pi^2}}$ (2) $\\frac{\\pi I_1}{I_2}$",
+        "(1) $\\frac{1}{2a}\\sqrt{I_1^2+\\frac{I_2^2}{\\pi^2}}$ (2) $\\frac{I_2}{\\pi I_1}$",
+        "(1) $\\frac{1}{2a}\\sqrt{I_1^2+I_2^2}$ (2) $\\frac{\\pi I_1}{I_2}$",
+        "(1) $\\frac{1}{2a}\\sqrt{I_1^2+I_2^2}$ (2) $\\frac{I_2}{\\pi I_1}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $\\frac{1}{2a}\\sqrt{I_1^2+\\frac{I_2^2}{\\pi^2}}$ (2) $\\frac{\\pi I_1}{I_2}$\n\n【详细解析】: 圆电流中心磁场$H_1=\\frac{I_1}{2a}$，方向垂直圆面；直线电流在O点磁场$H_2=\\frac{I_2}{2\\pi a}$，方向与圆面平行。两者垂直，合成$H=\\sqrt{H_1^2+H_2^2}$。$\\tan\\theta=\\frac{H_1}{H_2}=\\frac{\\pi I_1}{I_2}$。",
+      "subtopicCodes": ["phy_4_3_1", "phy_4_3_2"]
+    },
+    {
+      "businessCode": "phy-25-qB21",
+      "topicCode": "phy_4_3_3",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "ソレノイドがつくる磁場 ■ 40 cm の長さの筒にエナメル線を一様に 1600 回巻いた細長いコイルがある。このコイルの軸を地磁気の方向に向け，コイルの内部で地球磁場を打ち消すには，何 A の電流を流したらよいか。ただし，地磁気の強さを 30 A/m とする。",
+      "options": [
+        "$7.5\\times10^{-3}$ A",
+        "$7.5\\times10^{-2}$ A",
+        "$7.5\\times10^{-4}$ A",
+        "$7.5\\times10^{-1}$ A"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $7.5\\times10^{-3}$ A\n\n【详细解析】: 单位长度匝数$n=\\frac{1600}{0.40}=4000$匝/m。螺线管内部磁场$H=nI$，要抵消地磁场，需$H=30$ A/m，所以$I=\\frac{H}{n}=\\frac{30}{4000}=7.5\\times10^{-3}$ A。",
+      "subtopicCodes": ["phy_4_3_3"]
+    },
+    {
+      "businessCode": "phy-25-qB22",
+      "topicCode": "phy_4_3_4",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "電流が磁場から受ける力 図のように, 磁束密度が右向きに 1.5T の一様な磁場内に, 磁場と 30° の角をなす向きに長さ 0.20m の導体棒 PQ を置く。P → Q の向きに 2.0A の電流を流すとき, 導体棒 PQ が受ける力の向きと大きさ F [N] を求めよ。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/594f03d2d583ad3904f8c6cba312b3b0b6a75f5182d048d0b08a4ef11ef067b0.jpg)",
+      "options": [
+        "紙面に垂直で裏から表の向き, 0.30 N",
+        "紙面に垂直で表から裏の向き, 0.30 N",
+        "紙面に垂直で裏から表の向き, 0.15 N",
+        "紙面に垂直で表から裏の向き, 0.15 N"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: 紙面に垂直で裏から表の向き, 0.30 N\n\n【详细解析】: 根据左手定则，磁场向右，电流与磁场成30°，力垂直于纸面向外（里→表）。大小$F=BIl\\sin\\theta=1.5\\times2.0\\times0.20\\times\\sin30°=0.30$ N。",
+      "subtopicCodes": ["phy_4_3_4"]
+    },
+    {
+      "businessCode": "phy-25-qB23",
+      "topicCode": "phy_4_3_4",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "モーター ■ 図はモーターの原理を表している。図2は，図1の半回転後を示す。ブラシは図のように，電池の正，負極につないである。\n\n(1) 図1で, 辺AB, 辺CDにはたらく力の向きはどの向きか。\n\n(2) 図2で, 辺AB, 辺CDにはたらく力の向きはどの向きか。\n\n(3) 整流子はどのようなはたらきをしているか。\n\n(4) ブラシ・整流子の側からコイルを見たとき, コイルは時計回り, 反時計回りのどちらに回転しているか。\n\n<img src=\"https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/ch25-433.png\">",
+      "options": [
+        "(1) AB:上向き, CD:下向き (2) AB:下向き, CD:上向き (3) 電流の向きを半周ごとに反転させ, コイルが同じ向きに回転するようにする (4) 時計回り",
+        "(1) AB:下向き, CD:上向き (2) AB:上向き, CD:下向き (3) 電流の向きを半周ごとに反転させ, コイルが同じ向きに回転するようにする (4) 反時計回り",
+        "(1) AB:上向き, CD:下向き (2) AB:下向き, CD:上向き (3) 電流を常に同じ向きに流す (4) 時計回り",
+        "(1) AB:下向き, CD:上向き (2) AB:上向き, CD:下向き (3) 電流を常に同じ向きに流す (4) 反時計回り"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) AB:上向き, CD:下向き (2) AB:下向き, CD:上向き (3) 電流の向きを半周ごとに反転させ, コイルが同じ向きに回転するようにする (4) 時計回り\n\n【详细解析】: 根据左手定则判断力的方向。整流子（换向器）的作用是当线圈转过半周时改变电流方向，使线圈受力方向不变，从而持续旋转。从换向器侧看，线圈顺时针旋转。",
+      "subtopicCodes": ["phy_4_3_4"]
+    },
+    {
+      "businessCode": "phy-25-qB24",
+      "topicCode": "phy_4_3_4",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "斜面レールで静止するパイプ ■ 鉛直方向の磁場の中に, 間隔 l の 2 本の導線が水平面から θ 傾けて固定してある。この導線に質量 m の金属パイプを水平にのせ, 電源を接続すると, パイプは導線上で静止した。このとき回路に流れた電流は I であった。また, 導線とパイプの間に摩擦はないものとし, 重力加速度の大きさを g とする。\n\n(1) 磁場の向きは図の a, b のどちらか。\n\n(2) 磁場の磁束密度Bの大きさを求めよ。\n\n(3) 電源の電圧を大きくすると, パイプはどのような状態になると考えられるか。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/57d057b66fa02e2e0b73f2c07a139e804fe63f4921042a85e9f85428d855f46f.jpg)",
+      "options": [
+        "(1) a (2) $\\frac{mg}{Il}\\tan\\theta$ (3) パイプは導線を上り始める",
+        "(1) b (2) $\\frac{mg}{Il}\\tan\\theta$ (3) パイプは導線を上り始める",
+        "(1) a (2) $\\frac{mg}{Il}\\sin\\theta$ (3) パイプは静止したまま",
+        "(1) b (2) $\\frac{mg}{Il}\\sin\\theta$ (3) パイプは導線を下り始める"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) a (2) $\\frac{mg}{Il}\\tan\\theta$ (3) パイプは導線を上り始める\n\n【详细解析】: 根据左手定则，安培力沿斜面向上，磁场方向应为竖直向上（a）。平衡条件：$mg\\sin\\theta = BIl\\cos\\theta$，解得$B=\\frac{mg}{Il}\\tan\\theta$。电压增大，电流增大，安培力增大，管道将沿斜面向上运动。",
+      "subtopicCodes": ["phy_4_3_4"]
+    },
+    {
+      "businessCode": "phy-25-qB25",
+      "topicCode": "phy_4_3_5",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "平行電流が及ぼしあう力 図のように, xy 水平面上の原点Oを通り鉛直上向き(紙面の裏から表の向き)に4Aの直線電流, 原点から2m離れたx軸上の点Pを通り鉛直下向き(紙面の表から裏の向き)に2Aの直線電流が流れている。\n\n(1) 原点を通る直線電流 1m 当たりにはたらく力の大きさと向きを求めよ。ただし、真空の透磁率を $4\\pi \\times 10^{-7} N/A^{2}$ とする。\n\n(2) x 軸上の点 P から y 軸の正の向きに 2m 離れた xy 平面上の点 Q での磁束密度の大きさと向きを求めよ。\n\n(3) 点Qを通り鉛直上向きに10Aの電流を流した。この直線電流1m当たりにはたらく力の大きさと向きを求めよ。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/bb2de89a52f3fa1f4e204e575a3745140635a4155910ad62f50b937ddde9b1bc.jpg)",
+      "options": [
+        "(1) $8\\times10^{-7}$ N, x軸負の向き (2) $2\\times10^{-7}$ T, y軸正の向き (3) $2\\times10^{-6}$ N, x軸負の向き",
+        "(1) $8\\times10^{-7}$ N, x軸正の向き (2) $2\\times10^{-7}$ T, y軸負の向き (3) $2\\times10^{-6}$ N, x軸正の向き",
+        "(1) $4\\times10^{-7}$ N, x軸負の向き (2) $2\\times10^{-7}$ T, y軸正の向き (3) $1\\times10^{-6}$ N, x軸負の向き",
+        "(1) $4\\times10^{-7}$ N, x軸正の向き (2) $2\\times10^{-7}$ T, y軸負の向き (3) $1\\times10^{-6}$ N, x軸正の向き"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $8\\times10^{-7}$ N, x軸負の向き (2) $2\\times10^{-7}$ T, y軸正の向き (3) $2\\times10^{-6}$ N, x軸負の向き\n\n【详细解析】: (1) 平行电流反向，斥力。$F=\\frac{\\mu_0 I_1 I_2}{2\\pi r}l=\\frac{4\\pi\\times10^{-7}\\times4\\times2}{2\\pi\\times2}\\times1=8\\times10^{-7}$N，方向沿x轴负方向。\n(2) 点Q坐标(2,2)，到O距离$2\\sqrt{2}$，到P距离2。$B_1=\\frac{\\mu_0 I_1}{2\\pi r_1}=2\\sqrt{2}\\times10^{-7}$T，方向斜向上；$B_2=\\frac{\\mu_0 I_2}{2\\pi r_2}=2\\times10^{-7}$T，方向沿y轴正方向。合成后$B=2\\times10^{-7}$T，方向y轴正方向。\n(3) $F=BIl=2\\times10^{-7}\\times10\\times1=2\\times10^{-6}$N，方向x轴负方向。",
+      "subtopicCodes": ["phy_4_3_5"]
+    },
+    {
+      "businessCode": "phy-25-qB26",
+      "topicCode": "phy_4_3_6",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "磁場内の荷電粒子の運動 質量 m [kg]，電気量 -e [C] の電子が磁束密度 B[T] の磁場中において，磁場の方向に垂直な面内で v[m/s] の速さで，図に示す向きに円運動をしている。\n\n(1) 磁場の向きを答えよ。\n(2) 円運動の半径 R[m] を求めよ。\n(3) 円運動の周期 T[s] を求めよ。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/d12d0a6e6f89f36bca85b5834ed8afb4e203077e4a4b4c204d1e53493cf8d490.jpg)",
+      "options": [
+        "(1) 紙面の表から裏の向き (2) $\\frac{mv}{eB}$ (3) $\\frac{2\\pi m}{eB}$",
+        "(1) 紙面の裏から表の向き (2) $\\frac{mv}{eB}$ (3) $\\frac{2\\pi m}{eB}$",
+        "(1) 紙面の表から裏の向き (2) $\\frac{mv}{eB}$ (3) $\\frac{\\pi m}{eB}$",
+        "(1) 紙面の裏から表の向き (2) $\\frac{mv}{eB}$ (3) $\\frac{\\pi m}{eB}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) 紙面の表から裏の向き (2) $\\frac{mv}{eB}$ (3) $\\frac{2\\pi m}{eB}$\n\n【详细解析】: 电子带负电，根据左手定则（注意电流方向与电子运动方向相反），磁場方向垂直纸面向里。洛伦兹力提供向心力：$evB=m\\frac{v^2}{R}$，得$R=\\frac{mv}{eB}$。周期$T=\\frac{2\\pi R}{v}=\\frac{2\\pi m}{eB}$。",
+      "subtopicCodes": ["phy_4_3_6"]
+    },
+    {
+      "businessCode": "phy-25-qB27",
+      "topicCode": "phy_4_3_6",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "磁場内のイオンの運動 ☑ 図のように, 初速度 0 でイオン源から出たイオンを電位差 V [V] で加速し, スリット S から磁束密度 B [T] の一様な磁場中に垂直に入射させる装置を真空中においた。質量が $M_{1}$ [kg] と $M_{2}$ [kg] で, 電荷がいずれも q [C] であるような 2 種類のイオンを入射させたところ, いずれも磁場中で円軌道を描いて半周した後に, S からの距離がそれぞれ $L_{1}$ [m] と $L_{2}$ [m] の点に達した。質量 $M_{1}$ のイオンの磁場中での速さを $v_{1}[m/s]$ とする。\n\n(1) $v_{1}[m/s]$ を $M_{1}$ , q, V を用いて表せ。\n(2) $L_{1}[m]$ を $M_{1}$ , $v_{1}$ , q, B を用いて表せ。\n(3) $\\frac{L_{1}}{L_{2}}$ を $M_{1}$ ， $M_{2}$ を用いて表せ。\n\n![image](https://shuati-images-1317494834.cos.ap-shanghai.myqcloud.com/mineru-images/58e922c5eb66d4b3ed58c25fabae0304cfd6a157f5625938bc132dc719ba20ff.jpg)",
+      "options": [
+        "(1) $\\sqrt{\\frac{2qV}{M_1}}$ (2) $\\frac{2M_1 v_1}{qB}$ (3) $\\sqrt{\\frac{M_1}{M_2}}$",
+        "(1) $\\sqrt{\\frac{2qV}{M_1}}$ (2) $\\frac{M_1 v_1}{qB}$ (3) $\\frac{M_1}{M_2}$",
+        "(1) $\\sqrt{\\frac{qV}{M_1}}$ (2) $\\frac{2M_1 v_1}{qB}$ (3) $\\sqrt{\\frac{M_1}{M_2}}$",
+        "(1) $\\sqrt{\\frac{qV}{M_1}}$ (2) $\\frac{M_1 v_1}{qB}$ (3) $\\frac{M_1}{M_2}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $\\sqrt{\\frac{2qV}{M_1}}$ (2) $\\frac{2M_1 v_1}{qB}$ (3) $\\sqrt{\\frac{M_1}{M_2}}$\n\n【详细解析】: (1) 由动能定理：$qV=\\frac{1}{2}M_1 v_1^2$，得$v_1=\\sqrt{\\frac{2qV}{M_1}}$。\n(2) 离子在磁场中做圆周运动，半径$r=\\frac{M_1 v_1}{qB}$，半周后距离$L_1=2r=\\frac{2M_1 v_1}{qB}$。\n(3) 由(1)(2)得$L_1=\\frac{2}{B}\\sqrt{\\frac{2M_1 V}{q}}$，同理$L_2=\\frac{2}{B}\\sqrt{\\frac{2M_2 V}{q}}$，所以$\\frac{L_1}{L_2}=\\sqrt{\\frac{M_1}{M_2}}$。",
+      "subtopicCodes": ["phy_4_3_6"]
+    }
+  ]
+}

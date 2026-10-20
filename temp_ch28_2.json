@@ -1,0 +1,221 @@
+{
+  "questions": [
+    {
+      "businessCode": "phy-28-qB16",
+      "topicCode": "phy_5_1_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "振動数が $2.0\\times10^{15}$ Hz の光の光子のエネルギー $E$ は何 J か。プランク定数を $6.6\\times10^{-34}$ J・s とする。",
+      "options": [
+        "$1.3\\times10^{-18}$ J",
+        "$1.3\\times10^{-19}$ J",
+        "$1.3\\times10^{-17}$ J",
+        "$1.3\\times10^{-20}$ J"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $1.3\\times10^{-18}$ J\n\n【详细解析】: 光子のエネルギーは $E=h\\nu$ で与えられる。$h=6.6\\times10^{-34}\\ \\mathrm{J\\cdot s}$、$\\nu=2.0\\times10^{15}\\ \\mathrm{Hz}$ を代入すると、$E=(6.6\\times10^{-34})\\times(2.0\\times10^{15})=1.32\\times10^{-18}\\ \\mathrm{J}\\approx1.3\\times10^{-18}\\ \\mathrm{J}$。",
+      "subtopicCodes": ["phy_5_1_1"]
+    },
+    {
+      "businessCode": "phy-28-qB17",
+      "topicCode": "phy_5_1_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "波長が $4.4\\times10^{-7}$ m の光の光子のエネルギー $E$ は何 J か。真空中の光の速さを $3.0\\times10^{8}$ m/s，プランク定数を $6.6\\times10^{-34}$ J・s とする。",
+      "options": [
+        "$4.5\\times10^{-19}$ J",
+        "$4.5\\times10^{-18}$ J",
+        "$4.5\\times10^{-20}$ J",
+        "$4.5\\times10^{-17}$ J"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $4.5\\times10^{-19}$ J\n\n【详细解析】: 光子のエネルギーは $E=\\frac{hc}{\\lambda}$ で与えられる。$h=6.6\\times10^{-34}\\ \\mathrm{J\\cdot s}$、$c=3.0\\times10^{8}\\ \\mathrm{m/s}$、$\\lambda=4.4\\times10^{-7}\\ \\mathrm{m}$ を代入すると、$E=\\frac{(6.6\\times10^{-34})\\times(3.0\\times10^{8})}{4.4\\times10^{-7}}\\approx4.5\\times10^{-19}\\ \\mathrm{J}$。",
+      "subtopicCodes": ["phy_5_1_1"]
+    },
+    {
+      "businessCode": "phy-28-qB18",
+      "topicCode": "phy_5_1_2",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "仕事関数 $3.5 \\times 10^{-19}$ J の金属に，光子のエネルギーが $6.1 \\times 10^{-19}$ J の光を当てたとき，(1) 飛び出す電子の運動エネルギーの最大値 $K_{0}$ は何 J か。(2) この金属の限界振動数 $\\nu_{0}$ は何 Hz か。プランク定数を $6.6 \\times 10^{-34} J \\cdot s$ とする。",
+      "options": [
+        "(1) $2.6\\times10^{-19}$ J, (2) $5.3\\times10^{14}$ Hz",
+        "(1) $2.6\\times10^{-19}$ J, (2) $5.3\\times10^{15}$ Hz",
+        "(1) $9.6\\times10^{-19}$ J, (2) $5.3\\times10^{14}$ Hz",
+        "(1) $9.6\\times10^{-19}$ J, (2) $5.3\\times10^{15}$ Hz"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $2.6\\times10^{-19}$ J, (2) $5.3\\times10^{14}$ Hz\n\n【详细解析】: (1) 光電効果の式 $K_0 = h\\nu - W$ より、$K_0 = 6.1\\times10^{-19} - 3.5\\times10^{-19} = 2.6\\times10^{-19}$ J。(2) 仕事関数 $W$ と限界振動数 $\\nu_0$ の関係 $W = h\\nu_0$ より、$\\nu_0 = \\frac{W}{h} = \\frac{3.5\\times10^{-19}}{6.6\\times10^{-34}} \\approx 5.3\\times10^{14}$ Hz。",
+      "subtopicCodes": ["phy_5_1_2"]
+    },
+    {
+      "businessCode": "phy-28-qB19",
+      "topicCode": "phy_5_1_2",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "光電管の阻止電圧が 2.0V のとき, 飛び出した光電子の運動エネルギーの最大値 $K_{0}$ はいくらか。電気素量を $1.6 \\times 10^{-19}C$ とする。",
+      "options": [
+        "$3.2\\times10^{-19}$ J",
+        "$3.2\\times10^{-18}$ J",
+        "$1.6\\times10^{-19}$ J",
+        "$2.0\\times10^{-19}$ J"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $3.2\\times10^{-19}$ J\n\n【详细解析】: 阻止電圧 $V_0$ と光電子の最大運動エネルギー $K_0$ の関係は $K_0 = eV_0$。$e=1.6\\times10^{-19}$ C、$V_0=2.0$ V を代入すると、$K_0 = (1.6\\times10^{-19})\\times2.0 = 3.2\\times10^{-19}$ J。",
+      "subtopicCodes": ["phy_5_1_2"]
+    },
+    {
+      "businessCode": "phy-28-qB20",
+      "topicCode": "phy_5_1_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "50eV は何 J か。電気素量を $1.6 \\times 10^{-19}C$ とする。",
+      "options": [
+        "$8.0\\times10^{-18}$ J",
+        "$8.0\\times10^{-19}$ J",
+        "$3.1\\times10^{-19}$ J",
+        "$3.1\\times10^{-18}$ J"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $8.0\\times10^{-18}$ J\n\n【详细解析】: 1 eV = $1.6\\times10^{-19}$ J なので、50 eV = $50\\times1.6\\times10^{-19} = 8.0\\times10^{-18}$ J。",
+      "subtopicCodes": ["phy_5_1_1"]
+    },
+    {
+      "businessCode": "phy-28-qB21",
+      "topicCode": "phy_5_1_3",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "波長 $5.0 \\times 10^{-9}$ m の X 線を結晶面に対して $30^{\\circ}$ の角度で当てたら, 1 次 (n=1) の反射 X 線が強めあった。結晶面の間隔 d は何 m か。",
+      "options": [
+        "$5.0\\times10^{-9}$ m",
+        "$2.5\\times10^{-9}$ m",
+        "$1.0\\times10^{-8}$ m",
+        "$7.5\\times10^{-9}$ m"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $5.0\\times10^{-9}$ m\n\n【详细解析】: ブラッグの条件 $2d\\sin\\theta = n\\lambda$ に $\\theta=30^\\circ$、$n=1$、$\\lambda=5.0\\times10^{-9}$ m を代入すると、$2d\\sin30^\\circ = 1\\times5.0\\times10^{-9}$。$\\sin30^\\circ=0.5$ なので、$d = \\frac{5.0\\times10^{-9}}{2\\times0.5} = 5.0\\times10^{-9}$ m。",
+      "subtopicCodes": ["phy_5_1_3"]
+    },
+    {
+      "businessCode": "phy-28-qB22",
+      "topicCode": "phy_5_1_1",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "光子 1 個が $1.5 \\times 10^{-15}$ J のエネルギーをもつとき, この光子がもつ運動量の大きさ p はいくらか。真空中の光の速さを $3.0 \\times 10^{8}$ m/s とする。",
+      "options": [
+        "$5.0\\times10^{-24}$ kg・m/s",
+        "$5.0\\times10^{-23}$ kg・m/s",
+        "$4.5\\times10^{-24}$ kg・m/s",
+        "$4.5\\times10^{-23}$ kg・m/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $5.0\\times10^{-24}$ kg・m/s\n\n【详细解析】: 光子の運動量は $p = \\frac{E}{c}$。$E=1.5\\times10^{-15}$ J、$c=3.0\\times10^{8}$ m/s を代入すると、$p = \\frac{1.5\\times10^{-15}}{3.0\\times10^{8}} = 5.0\\times10^{-24}$ kg・m/s。",
+      "subtopicCodes": ["phy_5_1_1"]
+    },
+    {
+      "businessCode": "phy-28-qB23",
+      "topicCode": "phy_5_1_4",
+      "questionType": 1,
+      "difficultyLevel": 2,
+      "score": 5,
+      "stem": "速さ $1.0 \\times 10^{5}$ m/s で動く電子の, 電子波の波長 λ は何 m か。プランク定数を $6.6 \\times 10^{-34}$ J·s, 電子の質量を $9.1 \\times 10^{-31}$ kg とする。",
+      "options": [
+        "$7.3\\times10^{-9}$ m",
+        "$7.3\\times10^{-10}$ m",
+        "$7.3\\times10^{-8}$ m",
+        "$7.3\\times10^{-11}$ m"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: $7.3\\times10^{-9}$ m\n\n【详细解析】: ド・ブロイ波長は $\\lambda = \\frac{h}{mv}$。$h=6.6\\times10^{-34}$ J・s、$m=9.1\\times10^{-31}$ kg、$v=1.0\\times10^{5}$ m/s を代入すると、$\\lambda = \\frac{6.6\\times10^{-34}}{(9.1\\times10^{-31})\\times(1.0\\times10^{5})} \\approx 7.3\\times10^{-9}$ m。",
+      "subtopicCodes": ["phy_5_1_4"]
+    },
+    {
+      "businessCode": "phy-28-qA1",
+      "topicCode": "phy_5_1_4",
+      "questionType": 1,
+      "difficultyLevel": 3,
+      "score": 5,
+      "stem": "ド・ブロイは、電子のような粒子が波動性をもつと考えた。(1) 静止している電子 (質量 m, 電気量 -e) を電圧 V で加速するとき, 電子波の波長 λ を e, m, V およびプランク定数 h を使って表せ。(2) $e=1.6\\times10^{-19}C,\\quad h=6.6\\times10^{-34}J\\cdot s,\\quad m=9.1\\times10^{-31}kg$ とすると, V=55V のとき λ は何 m か。(3) A, B 2 つの原子面による散乱波の経路差を, d と θ を使って表せ。(4) 加速電圧 55V の電子線を使って回折の実験を行ったら, θ=30° のとき, 反射電子線の強度に最初の極大が観測された。この結晶の原子面の間隔 d は何 m か。",
+      "options": [
+        "(1) $\\frac{h}{\\sqrt{2meV}}$ (2) $1.7\\times10^{-10}$ m (3) $2d\\sin\\theta$ (4) $1.7\\times10^{-10}$ m",
+        "(1) $\\frac{h}{\\sqrt{2meV}}$ (2) $1.7\\times10^{-10}$ m (3) $d\\sin\\theta$ (4) $1.7\\times10^{-10}$ m",
+        "(1) $\\frac{h}{\\sqrt{2meV}}$ (2) $1.7\\times10^{-10}$ m (3) $2d\\sin\\theta$ (4) $3.4\\times10^{-10}$ m",
+        "(1) $\\frac{h}{\\sqrt{2meV}}$ (2) $1.7\\times10^{-10}$ m (3) $d\\sin\\theta$ (4) $3.4\\times10^{-10}$ m"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $\\frac{h}{\\sqrt{2meV}}$ (2) $1.7\\times10^{-10}$ m (3) $2d\\sin\\theta$ (4) $1.7\\times10^{-10}$ m\n\n【详细解析】: (1) 加速電圧 V によるエネルギー保存 $eV = \\frac{1}{2}mv^2$ より、$v=\\sqrt{\\frac{2eV}{m}}$。運動量 $p=mv=\\sqrt{2meV}$。ド・ブロイ波長 $\\lambda = \\frac{h}{p} = \\frac{h}{\\sqrt{2meV}}$。(2) 数値を代入すると、$\\lambda = \\frac{6.6\\times10^{-34}}{\\sqrt{2\\times9.1\\times10^{-31}\\times1.6\\times10^{-19}\\times55}} \\approx 1.65\\times10^{-10}$ m ≈ $1.7\\times10^{-10}$ m。(3) 隣り合う原子面での反射の経路差は $2d\\sin\\theta$。(4) 最初の極大なので n=1。ブラッグ条件 $2d\\sin30^\\circ = 1\\times\\lambda$ より、$d = \\frac{\\lambda}{2\\sin30^\\circ} = \\frac{1.65\\times10^{-10}}{1} = 1.65\\times10^{-10}$ m ≈ $1.7\\times10^{-10}$ m。",
+      "subtopicCodes": ["phy_5_1_4", "phy_5_1_3"]
+    },
+    {
+      "businessCode": "phy-28-qA2",
+      "topicCode": "phy_5_1_5",
+      "questionType": 1,
+      "difficultyLevel": 3,
+      "score": 5,
+      "stem": "図のように長さ l の領域に y 軸の負の向きの電磁場を加える装置があり, そのすぐ右に xy 軸を設定したスクリーンがある。この装置に質量 m, 電気量 - e の電子を初速度 $v_{0}$ で原点 O に向けて z 軸の正の向きに入射させる。(1) 電場 $E_{0}$ だけを加えたとき, 電子は z 軸に対して $30^{\\circ}$ の角度でスクリーンに入射した。電子の比電荷を $v_{0}$ , $E_{0}$ , l で表せ。(2) 電場 E, 磁束密度 B の磁場を同時に加えたとき, スクリーンに衝突する点の xy 座標を m, $v_{0}$ , E, B, e, l で表せ。ただし, 偏向の角度は十分小さく, 電場による軌道の偏向と磁場によるそれとはほぼ同じ形であるとしてよい。(3) 実際には $v_{0}$ が一定でないため, 連続して電子を入射させるとスクリーン上の衝突点はある曲線上に並ぶ。この曲線の方程式を示し, その概形をかけ。",
+      "options": [
+        "(1) $\\frac{v_0^2}{\\sqrt{3}E_0 l}$ (2) $(\\frac{eBl^2}{2mv_0}, \\frac{eEl^2}{2mv_0^2})$ (3) $y=\\frac{2mE}{eB^2l^2}x^2$",
+        "(1) $\\frac{v_0^2}{\\sqrt{3}E_0 l}$ (2) $(\\frac{eBl^2}{2mv_0}, \\frac{eEl^2}{2mv_0^2})$ (3) $y=\\frac{mE}{eB^2l^2}x^2$",
+        "(1) $\\frac{v_0^2}{\\sqrt{3}E_0 l}$ (2) $(\\frac{eBl^2}{2mv_0}, \\frac{eEl^2}{2mv_0^2})$ (3) $y=\\frac{2mE}{eB^2l^2}x$",
+        "(1) $\\frac{v_0^2}{\\sqrt{3}E_0 l}$ (2) $(\\frac{eBl^2}{2mv_0}, \\frac{eEl^2}{2mv_0^2})$ (3) $y=\\frac{mE}{eB^2l^2}x$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $\\frac{v_0^2}{\\sqrt{3}E_0 l}$ (2) $(\\frac{eBl^2}{2mv_0}, \\frac{eEl^2}{2mv_0^2})$ (3) $y=\\frac{2mE}{eB^2l^2}x^2$\n\n【详细解析】: (1) 電場中で電子は y 方向に等加速度運動する。加速度 $a=\\frac{eE_0}{m}$。スクリーンに達する時間 $t=\\frac{l}{v_0}$。速度の y 成分 $v_y = a t = \\frac{eE_0 l}{m v_0}$。$\\tan 30^\\circ = \\frac{v_y}{v_0} = \\frac{eE_0 l}{m v_0^2} = \\frac{1}{\\sqrt{3}}$ より、$\\frac{e}{m} = \\frac{v_0^2}{\\sqrt{3}E_0 l}$。(2) 電場による y 変位は $y = \\frac{1}{2}\\frac{eE}{m}(\\frac{l}{v_0})^2 = \\frac{eEl^2}{2mv_0^2}$。磁場による x 変位は、ローレンツ力による円運動の近似から $x = \\frac{eBl^2}{2mv_0}$。(3) $v_0$ を消去する。$x = \\frac{eBl^2}{2mv_0}$ より $v_0 = \\frac{eBl^2}{2mx}$。$y = \\frac{eEl^2}{2m v_0^2} = \\frac{eEl^2}{2m} \\cdot \\frac{4m^2 x^2}{e^2B^2l^4} = \\frac{2mE}{eB^2l^2}x^2$。",
+      "subtopicCodes": ["phy_5_1_5"]
+    },
+    {
+      "businessCode": "phy-28-qA3",
+      "topicCode": "phy_5_1_5",
+      "questionType": 1,
+      "difficultyLevel": 3,
+      "score": 5,
+      "stem": "電子の運動では一般に重力の影響はないものとするが、ここではその影響を考える。右図のような極板間距離Lの平行平板電極A，B間に強さEの一様な電場を水平で左向きに加える。電子の電気量を-e，質量をmとし，重力加速度は鉛直下向きにgとする。(1) 初速 0 で極板 A の点 O を離れた電子が極板 B に到達するまでの時間 t を求めよ。(2) 重力の影響がないとした場合に電子が到達する点を P, 重力の影響を考慮した場合に電子が到達する点を Q とする。距離 PQ を表す式を求めよ。また, $g=9.8\\,m/s^{2}$ , $m=9.1\\times10^{-31}\\,kg$ , L=1.0m, AB間の電圧を1.0V, 電気素量を $e=1.6\\times10^{-19}\\,C$ とするとき, 距離 PQ の値は何 m か。(3) 図のように, O を原点とする xy 座標を考える。電子が点 O から点 Q に到るまでの軌道上の点を $(x, y)$ とするとき, y を x で表す式を求めよ。",
+      "options": [
+        "(1) $\\sqrt{\\frac{2mL}{eE}}$ (2) $\\frac{mgL^2}{eV}$、$5.6\\times10^{-11}$ m (3) $y=-\\frac{mg}{eE}x$",
+        "(1) $\\sqrt{\\frac{2mL}{eE}}$ (2) $\\frac{mgL^2}{eV}$、$5.6\\times10^{-11}$ m (3) $y=-\\frac{mg}{eE}x^2$",
+        "(1) $\\sqrt{\\frac{2mL}{eE}}$ (2) $\\frac{mgL}{eV}$、$5.6\\times10^{-11}$ m (3) $y=-\\frac{mg}{eE}x$",
+        "(1) $\\sqrt{\\frac{2mL}{eE}}$ (2) $\\frac{mgL}{eV}$、$5.6\\times10^{-11}$ m (3) $y=-\\frac{mg}{eE}x^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $\\sqrt{\\frac{2mL}{eE}}$ (2) $\\frac{mgL^2}{eV}$、$5.6\\times10^{-11}$ m (3) $y=-\\frac{mg}{eE}x$\n\n【详细解析】: (1) 水平方向の運動方程式 $ma = eE$ より $a=\\frac{eE}{m}$。等加速度運動の式 $L = \\frac{1}{2}at^2$ より $t = \\sqrt{\\frac{2L}{a}} = \\sqrt{\\frac{2mL}{eE}}$。(2) 重力による落下距離は $y = \\frac{1}{2}gt^2 = \\frac{1}{2}g \\cdot \\frac{2mL}{eE} = \\frac{mgL}{eE}$。電場 $E = \\frac{V}{L}$ を代入すると $PQ = \\frac{mgL}{e} \\cdot \\frac{L}{V} = \\frac{mgL^2}{eV}$。数値代入：$PQ = \\frac{9.1\\times10^{-31}\\times9.8\\times1.0^2}{1.6\\times10^{-19}\\times1.0} \\approx 5.6\\times10^{-11}$ m。(3) 水平方向の運動：$x = \\frac{1}{2}\\frac{eE}{m}t^2$ より $t^2 = \\frac{2mx}{eE}$。鉛直方向：$y = -\\frac{1}{2}gt^2 = -\\frac{1}{2}g \\cdot \\frac{2mx}{eE} = -\\frac{mg}{eE}x$。",
+      "subtopicCodes": ["phy_5_1_5"]
+    },
+    {
+      "businessCode": "phy-28-qA4",
+      "topicCode": "phy_5_1_1",
+      "questionType": 1,
+      "difficultyLevel": 3,
+      "score": 5,
+      "stem": "面積 $S[m^{2}]$ の鏡に，波長 $\\lambda[m]$ の光が毎秒 E[J] の割合で垂直に当たっている。鏡は固定され，光は完全に反射されている。光の速さを c[m/s]，プランク定数を h[J·s] とする。(1) 光子 1 個が 1 回鏡と衝突するとき, 鏡が受ける力積の大きさ I [N・s] を求めよ。(2) 光子は毎秒 n 個の割合で鏡に当たる。n を求めよ。(3) 鏡が光から受ける圧力 P [Pa] を求めよ。",
+      "options": [
+        "(1) $\\frac{2h}{\\lambda}$ (2) $\\frac{E\\lambda}{hc}$ (3) $\\frac{2E}{cS}$",
+        "(1) $\\frac{h}{\\lambda}$ (2) $\\frac{E\\lambda}{hc}$ (3) $\\frac{E}{cS}$",
+        "(1) $\\frac{2h}{\\lambda}$ (2) $\\frac{E\\lambda}{hc}$ (3) $\\frac{E}{cS}$",
+        "(1) $\\frac{h}{\\lambda}$ (2) $\\frac{E\\lambda}{hc}$ (3) $\\frac{2E}{cS}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) $\\frac{2h}{\\lambda}$ (2) $\\frac{E\\lambda}{hc}$ (3) $\\frac{2E}{cS}$\n\n【详细解析】: (1) 光子の運動量は $p=\\frac{h}{\\lambda}$。完全反射なので運動量変化は $\\Delta p = \\frac{h}{\\lambda} - (-\\frac{h}{\\lambda}) = \\frac{2h}{\\lambda}$。力積は運動量変化に等しいので $I = \\frac{2h}{\\lambda}$。(2) 光子1個のエネルギーは $\\frac{hc}{\\lambda}$。毎秒 E[J] のエネルギーが入射するので、光子数 $n = \\frac{E}{hc/\\lambda} = \\frac{E\\lambda}{hc}$。(3) 鏡が受ける力は $F = I \\times n = \\frac{2h}{\\lambda} \\times \\frac{E\\lambda}{hc} = \\frac{2E}{c}$。圧力 $P = \\frac{F}{S} = \\frac{2E}{cS}$。",
+      "subtopicCodes": ["phy_5_1_1"]
+    },
+    {
+      "businessCode": "phy-28-qA5",
+      "topicCode": "phy_5_1_2",
+      "questionType": 1,
+      "difficultyLevel": 3,
+      "score": 5,
+      "stem": "単色の紫色の光 (波長 $\\lambda=4.2\\times10^{-7}m$ ) を放つ光源 L を用いて, 光電効果の実験を行った。プランク定数 $h=6.6\\times10^{-34}J\\cdot s$ , 真空中の光の速さ $c=3.0\\times10^{8}m/s$ , 電気素量 $e=1.6\\times10^{-19}C$ とする。図に示すように，陽極Aと仕事関数がWの物質でできた陰極Cとを内蔵する，ガラスでできた真空の容器を準備した。陽極Aと陰極Cの電位差は直流電源にて変化させることができ，また，極間に流れる電流は電流計で測定できる。光源 L から放たれる光子 1 個当たりのエネルギーは，$\\lambda$，$h$，$c$ を使って $\\fbox{ア}$ と表すことができる。この光を陰極 C に当てたところ電流が流れた。陰極 C から光電子が発生すると，その一部が陽極 A へ到達し，電流として検出できるので，確かに光電子が発生したことがわかった。また，陰極 C から発生した光電子の運動エネルギーの最大値は，$W$，$h$，$c$ および $\\lambda$ を使って $\\fbox{イ}$ と表すことができる。 陽極 A の電位を陰極 C の電位に対して大きくしていくと，<u>電流の大きさは徐々に増加し，ある電流値 $I$ で一定となった</u>。このとき，1 秒間に発生する光電子の数は，電流値 $I$ と電気素量 $e$ を用いて $\\fbox{ウ}$ と表される。いま，陰極 C に $1.0\\,\\mathrm{mW}$ の強さで光を入射した。入射光の光子 1 個当たりのエネルギーは (ア) であることがわかっているので，$1.0\\,\\mathrm{mW}$ の光に含まれる光子の数は 1 秒間当たり $\\fbox{エ}$ 個である。そのすべてが陰極 C で光電子になり電流値 $I$ として測定できたとすると，電流値 $I$ は $\\fbox{オ}\\,\\mathrm{A}$ となる。(1) 空欄 $\\fbox{ア}$ ～ $\\fbox{ウ}$ に適切な式を書け。(2) 下線部のようになった理由を答えよ。(3) 空欄 $\\fbox{エ}$，$\\fbox{オ}$ に当てはまる数値を有効数字 2 桁で答えよ。(4) 赤色の光を用いて同じ実験を行ったが，強い光を用いても光電流が流れることはなかった。光電効果の原理に則して，その理由を述べよ。",
+      "options": [
+        "(1) ア: $\\frac{hc}{\\lambda}$ イ: $\\frac{hc}{\\lambda}-W$ ウ: $\\frac{I}{e}$ (2) 電位を上げると陽極に達する光電子が増え、すべて達すると飽和するから (3) エ: $2.1\\times10^{15}$ 個 オ: $3.4\\times10^{-4}$ A (4) 赤色光の光子エネルギーが仕事関数より小さいため",
+        "(1) ア: $\\frac{hc}{\\lambda}$ イ: $\\frac{hc}{\\lambda}-W$ ウ: $\\frac{I}{e}$ (2) 電位を上げると陽極に達する光電子が増え、すべて達すると飽和するから (3) エ: $2.1\\times10^{15}$ 個 オ: $3.4\\times10^{-4}$ A (4) 赤色光の波長が長く光子エネルギーが小さいため",
+        "(1) ア: $\\frac{hc}{\\lambda}$ イ: $\\frac{hc}{\\lambda}-W$ ウ: $\\frac{I}{e}$ (2) 電位を上げると光電子の数が増えるから (3) エ: $2.1\\times10^{15}$ 個 オ: $3.4\\times10^{-4}$ A (4) 赤色光の強度が弱いため",
+        "(1) ア: $\\frac{hc}{\\lambda}$ イ: $\\frac{hc}{\\lambda}-W$ ウ: $\\frac{I}{e}$ (2) 電位を上げると光電子の速度が速くなるから (3) エ: $2.1\\times10^{15}$ 個 オ: $3.4\\times10^{-4}$ A (4) 赤色光の波長が短いため"
+      ],
+      "correctIndex": 0,
+      "explanation": "【参考答案】: (1) ア: $\\frac{hc}{\\lambda}$ イ: $\\frac{hc}{\\lambda}-W$ ウ: $\\frac{I}{e}$ (2) 電位を上げると陽極に達する光電子が増え、すべて達すると飽和するから (3) エ: $2.1\\times10^{15}$ 個 オ: $3.4\\times10^{-4}$ A (4) 赤色光の光子エネルギーが仕事関数より小さいため\n\n【详细解析】: (1) 光子エネルギーは $E=h\\nu=\\frac{hc}{\\lambda}$。光電効果の式より $K_0 = \\frac{hc}{\\lambda} - W$。電流 $I$ は単位時間あたりの電荷なので、光電子数 $N = \\frac{I}{e}$。(2) 陽極電位を上げると、陰極から飛び出した光電子が陽極に到達する割合が増え、すべて到達すると飽和する。(3) 光子エネルギー $E = \\frac{hc}{\\lambda} = \\frac{6.6\\times10^{-34}\\times3.0\\times10^{8}}{4.2\\times10^{-7}} \\approx 4.71\\

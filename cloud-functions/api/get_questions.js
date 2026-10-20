@@ -8,6 +8,23 @@ const dbConfig = {
   database: 'shuati_db'
 };
 
+const EXPIRED_OPENXLAB_IMAGE_PATTERN = /https?:\/\/cdn-mineru\.openxlab\.org\.cn\/result\/[^)\s"'<>]+/i;
+const EXPIRED_OPENXLAB_IMAGE_MARKDOWN_PATTERN = /!\[([^\]]*)\]\((https?:\/\/cdn-mineru\.openxlab\.org\.cn\/result\/[^)\s"'<>]+)\)/gi;
+const EXPIRED_OPENXLAB_IMAGE_HTML_PATTERN = /<img\b[^>]*src=["'](https?:\/\/cdn-mineru\.openxlab\.org\.cn\/result\/[^"'<>]+)["'][^>]*>/gi;
+
+function hasExpiredOpenXlabImage(content) {
+  return typeof content === 'string' && EXPIRED_OPENXLAB_IMAGE_PATTERN.test(content);
+}
+
+function stripExpiredOpenXlabImages(content, replacementText = '（原解析配图已失效）') {
+  if (typeof content !== 'string' || !content) return content;
+  return content
+    .replace(EXPIRED_OPENXLAB_IMAGE_MARKDOWN_PATTERN, replacementText)
+    .replace(EXPIRED_OPENXLAB_IMAGE_HTML_PATTERN, replacementText)
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 export default async function onRequest(context) {
   // EdgeOne 函数: 处理 CORS 预检请求 (OPTIONS)
   if (context.request.method === "OPTIONS") {
@@ -141,24 +158,48 @@ export default async function onRequest(context) {
 
     await connection.end();
 
-    // 格式化数据，对接前端新架构字段名
-    const formattedQuestions = rows.map(row => ({
-      id: row.id,
-      businessCode: row.business_code,
-      questionType: row.question_type,
-      difficultyLevel: row.difficulty_level,
-      score: row.score,
-      stem: row.stem,
-      options: typeof row.options === 'string' ? JSON.parse(row.options) : row.options,
-      correctIndex: row.correct_index,
-      explanation: row.explanation,
-      subtopics: typeof row.subtopics === 'string' ? JSON.parse(row.subtopics) : (row.subtopics || [])
-    }));
+      let filteredOutExpiredStemImageCount = 0;
+      let sanitizedExpiredExplanationImageCount = 0;
+
+      // 格式化数据，对接前端新架构字段名
+      const formattedQuestions = rows.reduce((acc, row) => {
+        const options = typeof row.options === 'string' ? JSON.parse(row.options) : row.options;
+        const stemHasExpiredImage = hasExpiredOpenXlabImage(row.stem);
+
+        if (stemHasExpiredImage) {
+          filteredOutExpiredStemImageCount += 1;
+          return acc;
+        }
+
+        const explanationHadExpiredImage = hasExpiredOpenXlabImage(row.explanation);
+        if (explanationHadExpiredImage) {
+          sanitizedExpiredExplanationImageCount += 1;
+        }
+
+        acc.push({
+          id: row.id,
+          businessCode: row.business_code,
+          questionType: row.question_type,
+          difficultyLevel: row.difficulty_level,
+          score: row.score,
+          stem: row.stem,
+          options,
+          correctIndex: row.correct_index,
+          explanation: stripExpiredOpenXlabImages(row.explanation),
+          subtopics: typeof row.subtopics === 'string' ? JSON.parse(row.subtopics) : (row.subtopics || [])
+        });
+
+        return acc;
+      }, []);
 
     return new Response(JSON.stringify({
       success: true,
       data: formattedQuestions,
-      userAnswers: userAnswers
+        userAnswers: userAnswers,
+        meta: {
+          filteredOutExpiredStemImageCount,
+          sanitizedExpiredExplanationImageCount
+        }
     }), {
       headers: { 
           "Content-Type": "application/json; charset=utf-8",

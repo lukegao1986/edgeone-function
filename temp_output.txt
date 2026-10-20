@@ -1,0 +1,17 @@
+◇ injected env (1) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Script started
+/Users/wanglimin/Desktop/edgeone-ex/node_modules/openai/internal/shims.js:13
+    throw new Error('`fetch` is not defined as a global; Either pass `fetch` to the client, `new OpenAI({ fetch })` or polyfill the global, `globalThis.fetch = fetch`');
+    ^
+
+Error: `fetch` is not defined as a global; Either pass `fetch` to the client, `new OpenAI({ fetch })` or polyfill the global, `globalThis.fetch = fetch`
+    at Object.getDefaultFetch (/Users/wanglimin/Desktop/edgeone-ex/node_modules/openai/internal/shims.js:13:11)
+    at new OpenAI (/Users/wanglimin/Desktop/edgeone-ex/node_modules/openai/client.js:174:45)
+    at new module.exports (/Users/wanglimin/Desktop/edgeone-ex/node_modules/openai/index.js:4:10)
+    at Object.<anonymous> (/Users/wanglimin/Desktop/edgeone-ex/scripts/pipeline/apply_fixes_ch14_20.js:7:16)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47
