@@ -35,6 +35,12 @@ export default function AuthModal({ visible, defaultMode = 'login', onClose, onS
       Taro.showToast({ title: '请输入用户名和密码', icon: 'none' });
       return;
     }
+    if (mode === 'register') {
+      if (!inviteCode || !/^[A-Z0-9]{8}$/.test(inviteCode)) {
+        Taro.showToast({ title: '请输入正确的邀请码', icon: 'none' });
+        return;
+      }
+    }
 
     setLoading(true);
     try {
@@ -109,9 +115,10 @@ export default function AuthModal({ visible, defaultMode = 'login', onClose, onS
             <View className={styles.formGroup}>
               <Input
                 className={styles.input}
-                placeholder="邀请码 (选填)"
+                placeholder="请输入邀请码"
                 value={inviteCode}
-                onInput={(e) => setInviteCode(e.detail.value)}
+                maxlength={8}
+                onInput={(e) => setInviteCode(e.detail.value.toUpperCase().replace(/[^A-Z0-9]/g, ''))}
               />
             </View>
           )}

@@ -8,11 +8,16 @@ import styles from '../index/index.module.scss'; // 复用登录页样式
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [inviteCode, setInviteCode] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
     if (!username || !password) {
       Taro.showToast({ title: '请输入用户名和密码', icon: 'none' });
+      return;
+    }
+    if (!inviteCode || !/^[A-Z0-9]{8}$/.test(inviteCode)) {
+      Taro.showToast({ title: '请输入正确的邀请码', icon: 'none' });
       return;
     }
 
@@ -21,7 +26,7 @@ export default function RegisterPage() {
       const res = await Taro.request({
         url: `${apiBase}/api/register`,
         method: 'POST',
-        data: { username, password }
+        data: { username, password, inviteCode }
       });
 
       if (res.data && res.data.success) {
@@ -66,6 +71,17 @@ export default function RegisterPage() {
             placeholder="请输入密码"
             value={password}
             onInput={(e) => setPassword(e.detail.value)}
+          />
+        </View>
+
+        <View className={styles.formGroup}>
+          <Text className={styles.label}>邀请码</Text>
+          <Input
+            className={styles.input}
+            placeholder="请输入邀请码"
+            value={inviteCode}
+            maxlength={8}
+            onInput={(e) => setInviteCode(e.detail.value.toUpperCase().replace(/[^A-Z0-9]/g, ''))}
           />
         </View>
 
