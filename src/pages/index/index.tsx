@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import AuthModal from '@/components/AuthModal';
+import { BLOG_ENABLED, openBlog } from '@/utils/blog';
 import styles from './index.module.scss';
 
 export default function LandingPage() {
@@ -262,7 +263,8 @@ export default function LandingPage() {
           </View>
         </View>
 
-        {/* 备考资讯与攻略 */}
+        {/* 备考资讯与攻略（博客入口，仅 H5 展示） */}
+        {BLOG_ENABLED && (
         <View className={styles.articlesSection} id="articles">
           <View className={styles.articlesHeader}>
             <Text className={styles.articlesTitle}>备考资讯与攻略</Text>
@@ -271,7 +273,7 @@ export default function LandingPage() {
           <View className={styles.articlesGrid}>
             
             {/* 卡片 1 */}
-            <View className={styles.articleCard}>
+            <View className={styles.articleCard} onClick={() => openBlog('eju-japanese-reading-350')}>
               <View className={styles.articleCover}>
                 <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
               </View>
@@ -289,7 +291,7 @@ export default function LandingPage() {
             </View>
 
             {/* 卡片 2 */}
-            <View className={styles.articleCard}>
+            <View className={styles.articleCard} onClick={() => openBlog('math-course2-calculus-traps')}>
               <View className={styles.articleCover}>
                 <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
               </View>
@@ -307,7 +309,7 @@ export default function LandingPage() {
             </View>
 
             {/* 卡片 3 */}
-            <View className={styles.articleCard}>
+            <View className={styles.articleCard} onClick={() => openBlog('bunso-politics-timeline')}>
               <View className={styles.articleCover}>
                 <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
               </View>
@@ -325,7 +327,7 @@ export default function LandingPage() {
             </View>
 
             {/* 卡片 4 */}
-            <View className={styles.articleCard}>
+            <View className={styles.articleCard} onClick={() => openBlog('physics-mechanics-three-steps')}>
               <View className={styles.articleCover}>
                 <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
               </View>
@@ -343,7 +345,7 @@ export default function LandingPage() {
             </View>
 
             {/* 卡片 5 */}
-            <View className={styles.articleCard}>
+            <View className={styles.articleCard} onClick={() => openBlog('exam-anxiety-guide')}>
               <View className={styles.articleCover}>
                 <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
               </View>
@@ -361,7 +363,7 @@ export default function LandingPage() {
             </View>
 
             {/* 卡片 6 */}
-            <View className={styles.articleCard}>
+            <View className={styles.articleCard} onClick={() => openBlog('waseda-sophia-march-scores')}>
               <View className={styles.articleCover}>
                 <Image className={styles.articleCoverIcon} src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23C4C9D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E" />
               </View>
@@ -380,6 +382,7 @@ export default function LandingPage() {
 
           </View>
         </View>
+        )}
 
         {/* 考生反馈区 */}
         <View className={styles.testimonialSection}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
+import { BLOG_ENABLED, openBlog } from '@/utils/blog';
 import styles from './index.module.scss';
 
 interface NavbarProps {
@@ -71,6 +72,13 @@ export default function Navbar({ simplified = false, subjectName = '', rightCont
         <Text className={styles.brandName}>EJU Pro</Text>
       </View>
       <View className={styles.navRight}>
+        {BLOG_ENABLED && (
+          <View className={styles.blogBtn} onClick={() => openBlog()}>
+            <Text className={styles.blogIcon}>📝</Text>
+            <Text className={styles.blogText}>博客</Text>
+          </View>
+        )}
+
         <View className={styles.errorBookBtn} onClick={() => navigateTo('/pages/errorbook/index')}>
           <Text className={styles.errorBookIcon}>📖</Text>
           <Text className={styles.errorBookText}>错题本</Text>

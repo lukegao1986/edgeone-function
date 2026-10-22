@@ -81,6 +81,26 @@
 .errorBookIcon { font-size: 32px; }
 .errorBookText { font-size: 28px; color: #5C6170; }
 
+.blogBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 72px;
+  padding: 0 24px;
+  border-radius: 16px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #EBF0FA;
+    .blogText { color: #3B6EC9; }
+  }
+}
+
+.blogIcon { font-size: 32px; }
+.blogText { font-size: 28px; color: #5C6170; }
+
 .userMenuWrapper {
   position: relative;
 }
