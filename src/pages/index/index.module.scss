@@ -8,94 +8,121 @@
   flex-direction: column;
 }
 
-/* ================= 导航栏 ================= */
+/* ============ 顶部页眉：对齐博客站 .site-header ============
+   博客样式以 CSS px 书写，此处统一用大写 PX 跳过 rem 换算，两端数值逐项对应 */
+$brand-soft: #EBF0FA;
+$header-height: 64PX;
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
-  background-color: #ffffff;
-  border-bottom: 2px solid #ECEEF2;
+  height: $header-height;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12PX);
+  border-bottom: 1PX solid $color-border;
   z-index: 100;
   display: flex;
   justify-content: center;
 }
 
-.headerContainer {
-  width: 80%;
+.headerInner {
+  width: 100%;
+  max-width: 1200PX;
+  padding: 0 24PX;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  
-  @media screen and (max-width: 768px) {
-    width: 90%;
-  }
 }
 
-.logoBox {
+.brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10PX;
 }
 
-.logoIcon {
-  font-size: 48px;
+.brandLogo {
+  width: 34PX;
+  height: 34PX;
+  border-radius: 10PX;
+  background: linear-gradient(135deg, $color-primary, #5b8def);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18PX;
+  line-height: 1;
 }
 
-.logoText {
-  font-size: 36px;
+.brandName {
+  font-size: 18PX;
   font-weight: 800;
   color: $color-primary;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3PX;
 }
 
-.navRight {
+.nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8PX;
 }
 
-.btnLogin {
-  @include button-reset;
-  height: 72px;
-  padding: 0 32px;
-  border-radius: 36px;
-  font-size: 26px;
-  font-weight: bold;
-  color: $color-primary;
-  border: 2px solid $color-primary;
-  background-color: transparent;
+.navLink {
+  padding: 8PX 14PX;
+  border-radius: 8PX;
+  font-size: 14PX;
+  color: $color-text-secondary;
   cursor: pointer;
   transition: all 0.2s;
-  
+
   &:hover {
-    background-color: rgba(59, 110, 201, 0.05);
+    background: $color-divider;
+    color: $color-primary;
+  }
+
+  &.navLinkActive {
+    color: $color-primary;
+    font-weight: 600;
+    background: $brand-soft;
   }
 }
 
-.btnRegister {
-  @include button-reset;
-  height: 72px;
-  padding: 0 32px;
-  border-radius: 36px;
-  font-size: 26px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: $color-primary;
+.navBtn {
+  height: 36PX;
+  padding: 0 18PX;
+  border-radius: 18PX;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14PX;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3);
   transition: all 0.2s;
-  
+}
+
+.navBtnGhost {
+  color: $color-primary;
+  border: 1PX solid $color-primary;
+
   &:hover {
-    background-color: $color-primary-dark;
+    background: rgba(22, 93, 255, 0.06);
+  }
+}
+
+.navBtnSolid {
+  color: #ffffff;
+  background: $color-primary;
+
+  &:hover {
+    background: $color-primary-dark;
   }
 }
 
 /* ================= 主内容区 ================= */
 .mainContent {
-  margin-top: 120px; /* 为固定的 Header 留出空间 */
+  margin-top: $header-height; /* 为固定的页眉留出空间 */
   display: flex;
   flex-direction: column;
 }
@@ -631,29 +658,54 @@
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-    
-    .articleCoverIcon {
-      stroke: #3B6EC9; /* Hover时图标变蓝 */
+
+    .articleCoverGlyph {
+      transform: scale(1.08);
     }
-    
+
     .articleTitle {
       color: #3B6EC9;
     }
   }
 }
 
+/* 封面：与博客站 .cover 同构，用大写 PX 跳过 rem 换算 */
 .articleCover {
-  height: 200px;
-  background: linear-gradient(135deg, #EBF0FA 0%, #F4F5F7 100%);
+  height: 160PX;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.articleCoverIcon {
-  width: 64px;
-  height: 64px;
-  transition: stroke 0.3s ease;
+.articleCoverGlyph {
+  font-size: 52PX;
+  opacity: 0.55;
+  transition: transform 0.3s ease;
+}
+
+.coverBlue {
+  background: linear-gradient(135deg, #e8f0ff 0%, #d3e2ff 100%);
+}
+
+.coverPurple {
+  background: linear-gradient(135deg, #f2edf9 0%, #e4dbf5 100%);
+}
+
+.coverGreen {
+  background: linear-gradient(135deg, #edf5ed 0%, #d9ecda 100%);
+}
+
+.coverOrange {
+  background: linear-gradient(135deg, #f9f0eb 0%, #f2ded1 100%);
+}
+
+.coverTeal {
+  background: linear-gradient(135deg, #eaf6f4 0%, #d3ebe7 100%);
+}
+
+.coverGray {
+  background: linear-gradient(135deg, #f1f3f7 0%, #e3e7ee 100%);
 }
 
 .articleContent {
