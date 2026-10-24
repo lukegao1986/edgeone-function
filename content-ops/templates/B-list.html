@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>版式 B · 清单体</title>
+<!--BASE_CSS-->
+<!--BRIEF-->
+<!--HELPER-->
+<style>
+  .head { margin-bottom: 64px; }
+  .head .kicker {
+    font-size: 28px; font-weight: 700; color: var(--accent);
+    background: var(--accent-2); padding: 10px 22px; border-radius: 10px;
+    display: inline-block; margin-bottom: 26px;
+  }
+  .head h1 {
+    font-size: 82px; font-weight: 900; line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+  .list { display: flex; flex-direction: column; gap: 30px; }
+  .item { display: flex; align-items: flex-start; gap: 30px; }
+  .item .no {
+    flex: 0 0 auto;
+    width: 96px; height: 96px; border-radius: 24px;
+    background: var(--accent-2); color: var(--accent);
+    font-family: var(--font-num);
+    font-size: 44px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .item .txt {
+    flex: 1 1 auto;
+    font-size: 54px; font-weight: 700; line-height: 1.4;
+    padding-top: 14px;
+  }
+  .item .txt .em { color: var(--accent); }
+</style>
+</head>
+<body data-cat="math2">
+<div class="page">
+  <div class="bar">
+    <div class="bar-logo">
+      <span class="mark">EJU Pro</span>
+      <span class="sub">日本留学考试</span>
+    </div>
+    <span class="bar-cat" data-bind="bar-cat"></span>
+  </div>
+
+  <div class="body">
+    <div class="watermark">LIST</div>
+    <div class="head">
+      <span class="kicker" data-bind="kicker"></span>
+      <h1 data-bind="title"></h1>
+    </div>
+    <div class="list" data-bind="list"></div>
+    <div class="gap"></div>
+  </div>
+
+  <div class="hook">
+    <span class="text" data-bind="hook"></span>
+    <span class="brand">EJU Pro</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var E = window.EJU;
+  document.body.dataset.cat = E.pick('category', 'math2');
+
+  var kicker = E.pick('kicker', E.pick('eyebrow', ''));
+  var kEl = document.querySelector('[data-bind="kicker"]');
+  if (!kicker) kEl.style.display = 'none'; else kEl.textContent = kicker;
+
+  var h1 = document.querySelector('[data-bind="title"]');
+  h1.textContent = E.pick('title', '清单标题未填');
+  E.autofit(h1, 82, 46);
+
+  var pts = E.pick('points', []);
+  if (!Array.isArray(pts) || !pts.length) pts = ['要点一', '要点二', '要点三'];
+  pts = pts.slice(0, 5);
+
+  var box = document.querySelector('[data-bind="list"]');
+  box.innerHTML = pts.map(function (p, i) {
+    var n = ('0' + (i + 1)).slice(-2);
+    // 支持 **重点** 标记
+    var txt = String(p).replace(/\*\*(.+?)\*\*/g, '<span class="em">$1</span>');
+    return '<div class="item"><div class="no">' + n + '</div><div class="txt">' + txt + '</div></div>';
+  }).join('');
+
+  Array.prototype.forEach.call(box.querySelectorAll('.txt'), function (el) {
+    E.autofit(el, 54, 34);
+  });
+
+  E.mountBar(); E.mountHook(); E.finish();
+})();
+</script>
+</body>
+</html>

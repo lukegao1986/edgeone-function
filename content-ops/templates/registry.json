@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "canvas": { "width": 1080, "height": 1440, "ratio": "3:4" },
+
+  "categories": {
+    "japanese":  { "word": "日语", "accent": "#e4572e" },
+    "math1":     { "word": "文数", "accent": "#2563eb" },
+    "math2":     { "word": "理数", "accent": "#0891b2" },
+    "bunso":     { "word": "文综", "accent": "#0e9f6e" },
+    "physics":   { "word": "物理", "accent": "#7c3aed" },
+    "chemistry": { "word": "化学", "accent": "#ca8a04" },
+    "biology":   { "word": "生物", "accent": "#16a34a" },
+    "school":    { "word": "院校", "accent": "#b45309" }
+  },
+
+  "categoryByChineseLabel": {
+    "日语": "japanese", "文数": "math1", "理数": "math2", "文综": "bunso",
+    "物理": "physics", "化学": "chemistry", "生物": "biology", "院校": "school"
+  },
+
+  "layouts": {
+    "A": {
+      "file": "A-poster.html",
+      "name": "大字报",
+      "use": "观点 / 科普 / 结论型，主标题 2 行 + 副标 1 行 + 留白",
+      "intents": ["know", "opinion", "科普"],
+      "required": ["title"],
+      "optional": ["eyebrow", "subtitle", "tagline", "hook"]
+    },
+    "B": {
+      "file": "B-list.html",
+      "name": "清单体",
+      "use": "方法 / 步骤型，编号 01–05，每条 ≤ 14 字",
+      "intents": ["how", "方法"],
+      "required": ["title", "points"],
+      "optional": ["kicker", "hook"]
+    },
+    "C": {
+      "file": "C-compare.html",
+      "name": "对比体",
+      "use": "对比型，左右两栏 + 中间分割 + 各自标签",
+      "intents": ["compare", "对比"],
+      "required": ["title", "columns"],
+      "optional": ["subtitle", "verdict", "hook"]
+    },
+    "D": {
+      "file": "D-data.html",
+      "name": "数据体",
+      "use": "数据型，超大数字 + 单位 + 一句解读（可带横向条形图）",
+      "intents": ["data", "数据"],
+      "required": ["number"],
+      "optional": ["unit", "takeaway", "bars", "source", "kicker", "hook"]
+    },
+    "E": {
+      "file": "E-pastpaper.html",
+      "name": "真题体",
+      "use": "案例型（差异化武器），真题题干 + 红笔批注 + 解题思路",
+      "intents": ["case", "案例"],
+      "required": ["question.stem"],
+      "optional": ["question.image", "question.notes", "question.analysis", "meta", "tag", "hook"]
+    }
+  },
+
+  "defaultLayoutByIntent": {
+    "know": "A", "opinion": "A", "科普": "A",
+    "how": "B", "方法": "B",
+    "compare": "C", "对比": "C",
+    "data": "D", "数据": "D",
+    "case": "E", "案例": "E"
+  },
+
+  "fallbackLayout": "A",
+
+  "brandBar": {
+    "logo": "EJU Pro",
+    "sub": "日本留学考试",
+    "hookDefault": "完整版见主页",
+    "hookBan": "禁止在封面写外链 / 二维码 / 「+V」等导流字样"
+  }
+}

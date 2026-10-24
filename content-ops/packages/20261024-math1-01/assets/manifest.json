@@ -1,0 +1,37 @@
+{
+  "topicId": "20261024-math1-01",
+  "renderedAt": "2026-10-24T00:35:40.408Z",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "covers": [
+    {
+      "layout": "D",
+      "name": "数据体",
+      "file": "cover-D.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-math1-01/assets/cover-D.png"
+    }
+  ],
+  "inner": [
+    {
+      "index": 1,
+      "layout": "B",
+      "file": "inner-01-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-math1-01/assets/inner-01-B.png"
+    },
+    {
+      "index": 2,
+      "layout": "B",
+      "file": "inner-02-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-math1-01/assets/inner-02-B.png"
+    },
+    {
+      "index": 3,
+      "layout": "E",
+      "file": "inner-03-E.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-math1-01/assets/inner-03-E.png"
+    }
+  ]
+}

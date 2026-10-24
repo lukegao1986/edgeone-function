@@ -1,11 +1,17 @@
 const MarkdownIt = require("markdown-it");
 const katex = require("katex");
 
+// 十个品类，覆盖小红书侧的八个选题标签 + 备考攻略 / 心理调节
+// tag / cover 只能取 blog/assets 里已有的类：tag--green|orange|purple|teal，cover--blue|gray|green|orange|purple|teal
 const CATEGORIES = [
   { code: "guide", name: "备考攻略", tag: "", cover: "blue" },
-  { code: "math2", name: "数学技巧", tag: "tag--purple", cover: "purple" },
+  { code: "japanese", name: "日语突破", tag: "tag--orange", cover: "blue" },
+  { code: "math1", name: "文数技巧", tag: "tag--purple", cover: "purple" },
+  { code: "math2", name: "理数技巧", tag: "tag--purple", cover: "purple" },
   { code: "bunso", name: "文综记忆", tag: "tag--green", cover: "green" },
   { code: "physics", name: "物理专题", tag: "tag--orange", cover: "orange" },
+  { code: "chemistry", name: "化学专题", tag: "tag--orange", cover: "orange" },
+  { code: "biology", name: "生物专题", tag: "tag--green", cover: "green" },
   { code: "mind", name: "心理调节", tag: "tag--teal", cover: "teal" },
   { code: "school", name: "院校申请", tag: "", cover: "gray" },
 ];

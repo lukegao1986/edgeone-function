@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>版式 A · 大字报</title>
+<!--BASE_CSS-->
+<!--BRIEF-->
+<!--HELPER-->
+<style>
+  .title-wrap { display: flex; flex-direction: column; gap: 8px; }
+  .title-line {
+    font-size: 132px;
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .title-line.accent { color: var(--accent); }
+  .rule {
+    width: 160px; height: 12px; border-radius: 6px;
+    background: var(--accent); margin: 52px 0 40px;
+  }
+  .subtitle {
+    font-size: 48px; font-weight: 600; line-height: 1.5;
+    color: var(--ink-2); max-width: 780px;
+    text-wrap: balance;
+  }
+  .foot {
+    display: flex; align-items: center; gap: 18px;
+    font-size: 30px; font-weight: 700; color: var(--accent);
+  }
+  .foot .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+</style>
+</head>
+<body data-cat="math2">
+<div class="page">
+  <div class="bar">
+    <div class="bar-logo">
+      <span class="mark">EJU Pro</span>
+      <span class="sub">日本留学考试</span>
+    </div>
+    <span class="bar-cat" data-bind="bar-cat"></span>
+  </div>
+
+  <div class="body">
+    <div class="watermark">EJU</div>
+    <div class="eyebrow" data-bind="eyebrow"></div>
+    <div class="title-wrap" data-bind="title"></div>
+    <div class="rule"></div>
+    <div class="subtitle" data-bind="subtitle"></div>
+    <div class="gap"></div>
+    <div class="foot"><span class="dot"></span><span data-bind="tagline"></span></div>
+  </div>
+
+  <div class="hook">
+    <span class="text" data-bind="hook"></span>
+    <span class="brand">EJU Pro</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var E = window.EJU;
+  document.body.dataset.cat = E.pick('category', 'math2');
+
+  var eyebrow = E.pick('eyebrow', '');
+  var ebEl = document.querySelector('[data-bind="eyebrow"]');
+  if (!eyebrow) ebEl.style.display = 'none'; else ebEl.textContent = eyebrow;
+
+  // 主标题：两行，第二行用主色强调
+  var ls = E.lines(E.pick('title', ''), 12);
+  if (!ls.length) ls = ['主标题未填'];
+  if (ls.length > 2) ls = [ls[0], ls.slice(1).join('')];
+  var wrap = document.querySelector('[data-bind="title"]');
+  wrap.innerHTML = ls.map(function (t, i) {
+    return '<div class="title-line' + (i === ls.length - 1 ? ' accent' : '') + '">' + E.esc(t) + '</div>';
+  }).join('');
+  Array.prototype.forEach.call(wrap.children, function (el) {
+    E.autofit(el, 132, 56, wrap.clientWidth, 300);
+  });
+
+  var sub = E.pick('subtitle', '');
+  var subEl = document.querySelector('[data-bind="subtitle"]');
+  if (!sub) { subEl.style.display = 'none'; } else { subEl.textContent = sub; }
+
+  var tag = E.pick('tagline', '');
+  var footEl = document.querySelector('.foot');
+  if (!tag) footEl.style.display = 'none'; else document.querySelector('[data-bind="tagline"]').textContent = tag;
+
+  E.mountBar(); E.mountHook(); E.finish();
+})();
+</script>
+</body>
+</html>

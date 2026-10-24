@@ -1,0 +1,18 @@
+{
+  "topicId": "20261024-school-04",
+  "category": "school",
+  "intent": "方法",
+  "layout": "B",
+
+  "kicker": "EJU 出愿排期",
+  "title": "出愿时间线倒推法",
+  "points": [
+    "先定入学季，别先定考试",
+    "倒推出愿窗口，再倒推考试",
+    "出分晚于截止 = 白考",
+    "私立多期，国公立只有一轮",
+    "证明书开具要留周期"
+  ],
+  "hook": "完整时间线见主页",
+  "linkedSlug": "eju-application-timeline"
+}

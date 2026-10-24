@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>版式 C · 对比体</title>
+<!--BASE_CSS-->
+<!--BRIEF-->
+<!--HELPER-->
+<style>
+  .head { text-align: center; margin-bottom: 56px; }
+  .head h1 { font-size: 76px; font-weight: 900; line-height: 1.25; letter-spacing: -0.02em; }
+  .head .sub { margin-top: 20px; font-size: 34px; color: var(--ink-3); font-weight: 600; }
+
+  .vs { display: flex; align-items: stretch; gap: 0; }
+  .col {
+    flex: 1 1 0; min-width: 0;
+    border-radius: 28px; padding: 44px 34px 40px;
+    display: flex; flex-direction: column;
+  }
+  .col.left  { background: var(--accent-2); }
+  .col.right { background: #f9fafb; border: 3px solid var(--line); }
+  .col .label {
+    align-self: center;
+    font-size: 34px; font-weight: 900;
+    padding: 12px 30px; border-radius: 999px;
+    margin-bottom: 34px; white-space: nowrap;
+  }
+  .col.left .label  { background: var(--accent); color: #fff; }
+  .col.right .label { background: var(--ink); color: #fff; }
+  .col ul { list-style: none; display: flex; flex-direction: column; gap: 22px; }
+  .col li {
+    font-size: 40px; font-weight: 700; line-height: 1.4;
+    padding-left: 30px; position: relative;
+  }
+  .col li::before {
+    content: ''; position: absolute; left: 0; top: 18px;
+    width: 12px; height: 12px; border-radius: 50%;
+  }
+  .col.left li::before  { background: var(--accent); }
+  .col.right li::before { background: var(--ink-3); }
+
+  .mid {
+    flex: 0 0 92px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-num);
+    font-size: 40px; font-weight: 900; color: var(--accent);
+  }
+  .verdict {
+    margin-top: 48px; text-align: center;
+    font-size: 42px; font-weight: 800; color: var(--accent);
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body data-cat="math2">
+<div class="page">
+  <div class="bar">
+    <div class="bar-logo">
+      <span class="mark">EJU Pro</span>
+      <span class="sub">日本留学考试</span>
+    </div>
+    <span class="bar-cat" data-bind="bar-cat"></span>
+  </div>
+
+  <div class="body">
+    <div class="watermark">VS</div>
+    <div class="head">
+      <h1 data-bind="title"></h1>
+      <div class="sub" data-bind="subtitle"></div>
+    </div>
+
+    <div class="vs">
+      <div class="col left">
+        <span class="label" data-bind="label-left"></span>
+        <ul data-bind="items-left"></ul>
+      </div>
+      <div class="mid">VS</div>
+      <div class="col right">
+        <span class="label" data-bind="label-right"></span>
+        <ul data-bind="items-right"></ul>
+      </div>
+    </div>
+
+    <div class="verdict" data-bind="verdict"></div>
+    <div class="gap"></div>
+  </div>
+
+  <div class="hook">
+    <span class="text" data-bind="hook"></span>
+    <span class="brand">EJU Pro</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var E = window.EJU;
+  document.body.dataset.cat = E.pick('category', 'math2');
+
+  var h1 = document.querySelector('[data-bind="title"]');
+  h1.textContent = E.pick('title', '对比标题未填');
+  E.autofit(h1, 76, 44);
+
+  var subEl = document.querySelector('[data-bind="subtitle"]');
+  var sub = E.pick('subtitle', '');
+  if (!sub) subEl.style.display = 'none'; else subEl.textContent = sub;
+
+  var cols = E.pick('columns', [
+    { label: '方案 A', items: ['要点一', '要点二', '要点三'] },
+    { label: '方案 B', items: ['要点一', '要点二', '要点三'] }
+  ]);
+  var L = cols[0] || {}, R = cols[1] || {};
+
+  function fill(sel, labelSel, col) {
+    document.querySelector(labelSel).textContent = col.label || '';
+    var ul = document.querySelector(sel);
+    var items = Array.isArray(col.items) ? col.items.slice(0, 5) : [];
+    ul.innerHTML = items.map(function (t) { return '<li>' + E.esc(t) + '</li>'; }).join('');
+    Array.prototype.forEach.call(ul.children, function (el) { E.autofit(el, 40, 28); });
+  }
+  fill('[data-bind="items-left"]', '[data-bind="label-left"]', L);
+  fill('[data-bind="items-right"]', '[data-bind="label-right"]', R);
+
+  var vd = E.pick('verdict', '');
+  var vEl = document.querySelector('[data-bind="verdict"]');
+  if (!vd) vEl.style.display = 'none'; else vEl.textContent = vd;
+
+  E.mountBar(); E.mountHook(); E.finish();
+})();
+</script>
+</body>
+</html>

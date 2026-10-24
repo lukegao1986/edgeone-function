@@ -1,0 +1,18 @@
+{
+  "topicId": "20261024-math1-03",
+  "renderedAt": "2026-10-24T00:35:39.212Z",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "covers": [
+    {
+      "layout": "C",
+      "name": "对比体",
+      "file": "cover-C.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-math1-03/assets/cover-C.png"
+    }
+  ],
+  "inner": []
+}
