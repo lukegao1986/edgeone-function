@@ -17,3 +17,8 @@ scripts/check_chapter*_upload.js
 
 # WorkBuddy 本地工作记忆（不上库）
 .workbuddy/
+
+# 内容运营：渲染产物（可由 content-ops/templates + 各包 04_brief.json 重建）
+# 注意：blog/ 与 blog-src/ 绝不可忽略 —— config/index.ts 的 copy.patterns 依赖 blog/ 产出线上博客
+content-ops/packages/*/assets/*.png
+content-ops/packages/*/assets/*.jpg
