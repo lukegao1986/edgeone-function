@@ -22,3 +22,7 @@ scripts/check_chapter*_upload.js
 # 注意：blog/ 与 blog-src/ 绝不可忽略 —— config/index.ts 的 copy.patterns 依赖 blog/ 产出线上博客
 content-ops/packages/*/assets/*.png
 content-ops/packages/*/assets/*.jpg
+
+# 内容运营：超期草稿归档区（archive_drafts.js 的产物，图片不入库）
+content-ops/_archive/**/*.png
+content-ops/_archive/**/*.jpg

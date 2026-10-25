@@ -1,18 +1,28 @@
 {
   "topicId": "20261024-physics-04",
   "title": "物理单位和量纲检查法（救命技巧）",
-  "category": ["物理"],
+  "category": [
+    "物理"
+  ],
   "categoryCode": "physics",
   "intent": "方法",
   "score": 71,
   "grade": "A",
-  "fiveDim": { "需求强度": 7, "差异化": 9, "转化价值": 7, "复用性": 8, "生产成本": 3 },
-  "timelinessFactor": 1.0,
+  "fiveDim": {
+    "需求强度": 7,
+    "差异化": 9,
+    "转化价值": 7,
+    "复用性": 8,
+    "生产成本": 3
+  },
+  "timelinessFactor": 1,
   "exclusiveAsset": true,
   "source": "教学经验",
   "note": "差异化高，几乎没人写",
   "linkedSlug": "eju-physics-dimension-check",
   "dataSource": "标准物理方法论，无统计数据；EJU 物理为四选一选择题（2026 考纲范围）",
-  "level": "G2 待审",
-  "createdAt": "2026-10-25"
+  "level": "已发布",
+  "createdAt": "2026-10-25",
+  "xhsStatus": "待发（App 手工，无 API）",
+  "updatedAt": "2026-10-25"
 }
