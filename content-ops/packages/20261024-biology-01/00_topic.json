@@ -1,0 +1,18 @@
+{
+  "topicId": "20261024-biology-01",
+  "title": "生物遗传题：旁氏表怎么用",
+  "category": ["生物"],
+  "categoryCode": "biology",
+  "intent": "方法",
+  "score": 70,
+  "grade": "A",
+  "fiveDim": { "需求强度": 8, "差异化": 8, "转化价值": 8, "复用性": 8, "生产成本": 5 },
+  "timelinessFactor": 1.0,
+  "exclusiveAsset": false,
+  "source": "考纲 subtopic",
+  "note": "遗传是生物第一难点",
+  "linkedSlug": "eju-biology-punnett-square",
+  "dataSource": "标准孟德尔遗传方法论；EJU 生物为三选二选择题之一",
+  "level": "G2 待审",
+  "createdAt": "2026-10-25"
+}

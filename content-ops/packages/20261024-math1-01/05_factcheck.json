@@ -1,12 +1,12 @@
 {
   "topicId": "20261024-math1-01",
-  "checkedAt": "2026-10-24T00:35:24.564Z",
+  "checkedAt": "2026-10-24T05:28:12.894Z",
   "blocked": false,
   "issues": [
     {
       "level": "YELLOW",
       "item": "孤立数字",
-      "detail": "百分比「95.5%」",
+      "detail": "年份「2025 年」 / 百分比「95.5%」",
       "fix": "标注来源，或改写为定性描述"
     }
   ]

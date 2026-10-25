@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EJU 物理选择题的隐形筛子：量纲检查法 · EJU Pro 博客</title>
+<meta name="description" content="只需要 M・L・T 三个字母，就能在动笔计算之前排除一半选项。本文讲清量纲检查法的完整用法、必背对照表与两个考场演示。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="read-progress" id="readProgress"></div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/#/pages/index/index">
+      <span class="brand__logo">E</span>
+      <span class="brand__name">EJU Pro</span>
+    </a>
+    <nav class="nav">
+      <a class="nav__link" href="/#/pages/index/index">首页</a>
+      <a class="nav__link" href="../index.html">博客</a>
+      <a class="nav__btn nav__btn--ghost" href="/#/pages/index/index">登录</a>
+      <a class="nav__btn nav__btn--solid" href="/#/pages/register/index">注册</a>
+    </nav>
+  </div>
+</header>
+
+<main class="article">
+  <div class="container">
+   <div class="article-layout">
+
+    <div class="article-main">
+
+    <div class="crumb">
+      <a href="/#/pages/index/index">首页</a><span>/</span><a href="../index.html">博客</a><span>/</span>物理专题
+    </div>
+
+    <span class="article__tag tag--orange">物理专题</span>
+    <h1 class="article__title">EJU 物理选择题的隐形筛子：量纲检查法</h1>
+    <div class="article__meta">
+      <span>📅 2026-10-25</span>
+      <span>⏱ 约 9 分钟</span>
+      <span>👁 0 次阅读</span>
+    </div>
+
+    <article class="prose">
+<p>EJU 物理是四选一的选择题。这意味着一件事：<strong>正确答案和三个错误选项混在一起，而错误选项的制作者要让你「看起来会做错」</strong>。但很多错误选项有一个共同弱点——单位根本不对。</p>
+<p>量纲检查法，就是在动笔计算之前，先用「单位」当筛子把选项过一遍。它不保证选出正确答案，但经常能直接排除两三个干扰项，有时甚至能直接锁定答案。</p>
+<h2 id="s1">一、只需要记三个字母</h2>
+<p>所有力学量都能用三个基本量纲拼出来：</p>
+<ul>
+<li><strong>M</strong>：质量（kg）</li>
+<li><strong>L</strong>：长度（m）</li>
+<li><strong>T</strong>：时间（s）</li>
+</ul>
+<p>电磁学再加一个电流 I，也基本够用。不需要背更复杂的体系。</p>
+<h2 id="s2">二、必背对照表</h2>
+<p>下面这张表覆盖了 EJU 物理力学部分的绝大多数场景：</p>
+<table>
+<thead>
+<tr>
+<th>物理量</th>
+<th>量纲</th>
+<th>国际单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速度 v</td>
+<td>L T⁻¹</td>
+<td>m/s</td>
+</tr>
+<tr>
+<td>加速度 a</td>
+<td>L T⁻²</td>
+<td>m/s²</td>
+</tr>
+<tr>
+<td>力 F</td>
+<td>M L T⁻²</td>
+<td>N</td>
+</tr>
+<tr>
+<td>能量・功 E</td>
+<td>M L² T⁻²</td>
+<td>J</td>
+</tr>
+<tr>
+<td>功率 P</td>
+<td>M L² T⁻³</td>
+<td>W</td>
+</tr>
+<tr>
+<td>压强 p</td>
+<td>M L⁻¹ T⁻²</td>
+<td>Pa</td>
+</tr>
+<tr>
+<td>动量 p</td>
+<td>M L T⁻¹</td>
+<td>kg・m/s</td>
+</tr>
+<tr>
+<td>角速度 ω</td>
+<td>T⁻¹</td>
+<td>rad/s</td>
+</tr>
+<tr>
+<td>弹簧劲度 k</td>
+<td>M T⁻²</td>
+<td>N/m</td>
+</tr>
+</tbody>
+</table>
+<p>记忆方式：从 F = ma 出发逐个推。速度是位置对时间的变化率（L/T），加速度是速度的变化率（L/T²），力是质量乘加速度（M・L/T²）。<strong>会推就不用担心背错</strong>，考前推一遍，比硬背可靠。</p>
+<h2 id="s3">三、怎么用：三步筛选项</h2>
+<ol>
+<li><strong>确认题目问的量</strong>是什么量纲。问「周期」，答案就必须是 T；问「速率」，就必须是 L T⁻¹。</li>
+<li><strong>把每个选项的量纲拼出来</strong>。只看字母和指数，不代入数值。</li>
+<li><strong>量纲不对的选项直接划掉</strong>。剩下的再比较物理意义或系数。</li>
+</ol>
+<p>全程不需要计算，一个选项大约 10 秒。</p>
+<h2 id="s4">四、考场演示</h2>
+<h3>演示 1：单摆的周期</h3>
+<p>题目给出摆长 l 和重力加速度 g，问单摆周期 T 的表达式。候选形式（示意）：</p>
+<ul>
+<li>2π√(l/g)</li>
+<li>2π√(l·g)</li>
+<li>2π·g/l</li>
+<li>2π·l/g</li>
+</ul>
+<p>逐个查量纲：</p>
+<ul>
+<li>l/g = L ÷ (L T⁻²) = T²，开根号得 <strong>T</strong> ✓</li>
+<li>l·g = L² T⁻²，那是能量的量纲 ✗</li>
+<li>g/l = T⁻²，是角速度平方的量纲 ✗</li>
+<li>l/g = T²，不开根号就是 T²，不是周期 ✗</li>
+</ul>
+<p><strong>不用推导单摆公式，10 秒锁定第一个。</strong></p>
+<h3>演示 2：自由落体的末速度</h3>
+<p>质量 m 的物体从高度 h 自由下落，问落地速率 v 的表达式。候选：</p>
+<ul>
+<li>√(2gh)</li>
+<li>2gh</li>
+<li>√(2g/h)</li>
+<li>gh</li>
+</ul>
+<p>查量纲：</p>
+<ul>
+<li>g·h = (L T⁻²)·L = L² T⁻²，开根号 = <strong>L T⁻¹</strong> ✓</li>
+<li>2gh = L² T⁻²，那是能量的量纲 ✗</li>
+<li>√(2g/h) = √(T⁻²) = T⁻¹，那是频率的量纲 ✗</li>
+<li>gh = L² T⁻²，能量 ✗</li>
+</ul>
+<p>同样一眼锁定。</p>
+<h2 id="s5">五、两种使用时机</h2>
+<p><strong>算之前：筛选项。</strong> 四个选项逐个查量纲，排除明显不对的。对「选表达式的形式」这类题特别有效——EJU 物理每年都有。</p>
+<p><strong>算之后：防失误。</strong> 自己算出一个结果后，把它的量纲拼出来和题目要求的对照。不一致 = 一定算错了。这比重新算一遍快得多，是最便宜的验算。</p>
+<h2 id="s6">六、三个注意事项</h2>
+<ol>
+<li><strong>系数不影响量纲</strong>。2、π、√2 这些数字对量纲没有任何贡献，看到它们别慌，直接跳过。</li>
+<li><strong>量纲相同不代表答案正确</strong>，只代表它是候选。量纲检查是排除法，不是证明法。</li>
+<li><strong>能量和力矩的量纲相同</strong>（都是 M L² T⁻²），区分它们要靠物理意义。这类情况极少，遇到时慢一点。</li>
+</ol>
+<h2 id="s7">七、组合技：量纲 + 极限</h2>
+<p>量纲排除之后，如果还剩两个选项，加上<strong>极限检验</strong>：</p>
+<ul>
+<li>让 m → 0、h → 0 或 g → ∞，看表达式给出的结果是否符合物理直觉。</li>
+</ul>
+<p>比如自由落体问题里，若某选项在 h = 0 时给出非零速率，直接排除。两招都通过，正确率会大幅上升。</p>
+<h2 id="s8">小结</h2>
+<ol>
+<li>EJU 物理是选择题，先看单位再计算。</li>
+<li>记住 M・L・T，考前推一遍对照表。</li>
+<li>用法：问什么量纲 → 拼选项量纲 → 划掉不对的。</li>
+<li>算完再验一次量纲，是最便宜的防错手段。</li>
+<li>和极限检验配合使用，效果翻倍。</li>
+</ol>
+<p>考场上先花 30 秒筛选项，这一步可能直接送你答案。</p>
+    </article>
+
+    <section class="related">
+      <div class="related__head">延伸阅读</div>
+      <div class="grid">
+      <a class="card" href="eju-chemistry-60points-checklist.html">
+        <div class="cover cover--orange"><span class="cover__glyph">⚗</span></div>
+        <div class="card__body">
+          <span class="tag tag--orange">化学专题</span>
+          <h3 class="card__title">EJU 化学 60 分性价比考点清单：先啃最大的那 35%</h3>
+          <p class="card__desc">基于 2002–2025 年真题与 2026 新考纲对标，拆分五大模块的卷面权重，给出一份「先抢什么、可弃什么」的取舍清单。</p>
+          <div class="card__foot"><span>⏱ 约 11 分钟</span><span class="card__more">阅读全文 ›</span></div>
+        </div>
+      </a>
+      <a class="card" href="eju-biology-punnett-square.html">
+        <div class="cover cover--green"><span class="cover__glyph">🧬</span></div>
+        <div class="card__body">
+          <span class="tag tag--green">生物专题</span>
+          <h3 class="card__title">EJU 生物遗传题不靠天赋：旁氏表的三步标准用法</h3>
+          <p class="card__desc">遗传是 EJU 生物的第一难点，但解法高度标准化。本文把旁氏表用法拆成固定三步，讲清核心分离比、双基因的拆法与伴性遗传的表头写法。</p>
+          <div class="card__foot"><span>⏱ 约 10 分钟</span><span class="card__more">阅读全文 ›</span></div>
+        </div>
+      </a>
+      <a class="card" href="eju-math-course2-extra-topics.html">
+        <div class="cover cover--purple"><span class="cover__glyph">∫</span></div>
+        <div class="card__body">
+          <span class="tag tag--purple">理数技巧</span>
+          <h3 class="card__title">理数（コース2）比文数多出来的考点：其实只有四个模块</h3>
+          <p class="card__desc">把コース2相对コース1的新增范围压缩成四个模块，逐个说明考法与优先补的顺序。</p>
+          <div class="card__foot"><span>⏱ 约 10 分钟</span><span class="card__more">阅读全文 ›</span></div>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <nav class="pager">
+      <a class="pager__item" href="eju-math-dice-models.html">
+        <div class="pager__label">‹ 上一篇</div>
+        <div class="pager__title">44份真题拆完发现：概率大题只演三种戏，骰子是主角</div>
+      </a>
+      <a class="pager__item pager__item--next" href="eju-application-timeline.html">
+        <div class="pager__label">下一篇 ›</div>
+        <div class="pager__title">EJU 出愿时间线：6月与11月两场考试该怎么排</div>
+      </a>
+    </nav>
+
+    </div><!-- /article-main -->
+
+    <aside class="aside">
+
+
+      <div class="aside__card">
+        <div class="aside__head">本文目录</div>
+        <ul class="toc__list" id="toc">
+          <li><a class="toc__link" href="#s1">一、只需要记三个字母</a></li>
+          <li><a class="toc__link" href="#s2">二、必背对照表</a></li>
+          <li><a class="toc__link" href="#s3">三、怎么用：三步筛选项</a></li>
+          <li><a class="toc__link" href="#s4">四、考场演示</a></li>
+          <li><a class="toc__link" href="#s5">五、两种使用时机</a></li>
+          <li><a class="toc__link" href="#s6">六、三个注意事项</a></li>
+          <li><a class="toc__link" href="#s7">七、组合技：量纲 + 极限</a></li>
+          <li><a class="toc__link" href="#s8">小结</a></li>
+        </ul>
+      </div>
+
+      <div class="aside__card">
+        <div class="aside__head">相关文章</div>
+        <a class="side-post" href="physics-mechanics-three-steps.html">
+          <div class="side-post__glyph cover--orange">⚗</div>
+          <div class="side-post__body">
+            <div class="side-post__title">理科物理：力学综合题的「三步拆解法」</div>
+            <div class="side-post__meta">物理专题 · 15 分钟</div>
+          </div>
+        </a>
+        <a class="side-post" href="eju-math-dice-models.html">
+          <div class="side-post__glyph cover--blue">🎲</div>
+          <div class="side-post__body">
+            <div class="side-post__title">44份真题拆完发现：概率大题只演三种戏，骰子是主角</div>
+            <div class="side-post__meta">文数技巧 · 12 分钟</div>
+          </div>
+        </a>
+        <a class="side-post" href="eju-math-course2-time-strategy.html">
+          <div class="side-post__glyph cover--cyan">∫</div>
+          <div class="side-post__body">
+            <div class="side-post__title">理数 180 分以上的人，时间是这样分配的</div>
+            <div class="side-post__meta">理数技巧 · 9 分钟</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="aside__card">
+        <div class="aside__head">热门文章</div>
+        <a class="hot-item" href="waseda-sophia-march-scores.html">
+          <span class="hot-item__no">1</span>
+          <span class="hot-item__title">早稻田/上智/MARCH：各校EJU分数要求汇总</span>
+        </a>
+        <a class="hot-item" href="physics-mechanics-three-steps.html">
+          <span class="hot-item__no">2</span>
+          <span class="hot-item__title">理科物理：力学综合题的「三步拆解法」</span>
+        </a>
+        <a class="hot-item" href="math-course2-calculus-traps.html">
+          <span class="hot-item__no">3</span>
+          <span class="hot-item__title">数学コース2：微积分常见陷阱与避坑指南</span>
+        </a>
+        <a class="hot-item" href="eju-japanese-reading-350.html">
+          <span class="hot-item__no">4</span>
+          <span class="hot-item__title">EJU日语350+：读解部分高效提分三步法</span>
+        </a>
+        <a class="hot-item" href="bunso-politics-timeline.html">
+          <span class="hot-item__no">5</span>
+          <span class="hot-item__title">文综政治经济部分：时间轴记忆法实战</span>
+        </a>
+      </div>
+
+      <div class="cta">
+        <div class="cta__title">⚡ 边读边练才记得牢</div>
+        <div class="cta__desc">把本篇要点放进题库里练一遍，记忆效率翻倍。</div>
+        <a class="cta__btn" href="/#/pages/index/index">免费开始刷题 →</a>
+      </div>
+
+    </aside>
+
+   </div>
+  </div>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+  (function () {
+    var bar = document.getElementById('readProgress');
+    var toTop = document.getElementById('toTop');
+
+    function onScroll() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      toTop.classList.toggle('is-show', h.scrollTop > 600);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    var links = Array.prototype.slice.call(document.querySelectorAll('#toc .toc__link'));
+    var heads = links.map(function (a) {
+      return document.getElementById(a.getAttribute('href').slice(1));
+    });
+
+    function highlight() {
+      var pos = window.scrollY + 120;
+      var idx = 0;
+      for (var i = 0; i < heads.length; i++) {
+        if (heads[i] && heads[i].offsetTop <= pos) idx = i;
+      }
+      links.forEach(function (a, i) { a.classList.toggle('is-active', i === idx); });
+    }
+    window.addEventListener('scroll', highlight, { passive: true });
+    highlight();
+
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var t = document.getElementById(a.getAttribute('href').slice(1));
+        if (t) {
+          e.preventDefault();
+          window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+
+<footer class="site-footer">
+  <div>EJU Pro · 智能刷题平台</div>
+  <div class="site-footer__line">
+    <a href="/#/pages/index/index">首页</a>
+    <a href="../index.html">博客</a>
+  </div>
+</footer>
+
+</body>
+</html>

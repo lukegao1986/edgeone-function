@@ -1,0 +1,91 @@
+{
+  "topicId": "20261024-physics-04",
+  "renderedAt": "2026-10-25T03:44:42.626Z",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "covers": [
+    {
+      "layout": "B",
+      "name": "清单体",
+      "file": "cover-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/cover-B.png"
+    }
+  ],
+  "inner": [
+    {
+      "index": 1,
+      "layout": "A",
+      "file": "inner-01-A.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-01-A.png"
+    },
+    {
+      "index": 2,
+      "layout": "B",
+      "file": "inner-02-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-02-B.png"
+    },
+    {
+      "index": 3,
+      "layout": "B",
+      "file": "inner-03-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-03-B.png"
+    },
+    {
+      "index": 4,
+      "layout": "B",
+      "file": "inner-04-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-04-B.png"
+    },
+    {
+      "index": 5,
+      "layout": "E",
+      "file": "inner-05-E.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-05-E.png"
+    },
+    {
+      "index": 6,
+      "layout": "B",
+      "file": "inner-06-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-06-B.png"
+    },
+    {
+      "index": 7,
+      "layout": "E",
+      "file": "inner-07-E.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-07-E.png"
+    },
+    {
+      "index": 8,
+      "layout": "C",
+      "file": "inner-08-C.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-08-C.png"
+    },
+    {
+      "index": 9,
+      "layout": "B",
+      "file": "inner-09-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-09-B.png"
+    },
+    {
+      "index": 10,
+      "layout": "B",
+      "file": "inner-10-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-10-B.png"
+    },
+    {
+      "index": 11,
+      "layout": "B",
+      "file": "inner-11-B.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-11-B.png"
+    },
+    {
+      "index": 12,
+      "layout": "A",
+      "file": "inner-12-A.png",
+      "path": "/Users/wanglimin/Desktop/edgeone-ex/content-ops/packages/20261024-physics-04/assets/inner-12-A.png"
+    }
+  ]
+}

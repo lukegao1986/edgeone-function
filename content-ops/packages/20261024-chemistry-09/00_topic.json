@@ -1,0 +1,24 @@
+{
+  "topicId": "20261024-chemistry-09",
+  "title": "化学60分性价比考点清单",
+  "category": ["化学"],
+  "categoryCode": "chemistry",
+  "intent": "方法",
+  "score": 77,
+  "grade": "A",
+  "fiveDim": {
+    "需求强度": 7,
+    "差异化": 8,
+    "转化价值": 8,
+    "复用性": 8,
+    "生产成本": 5
+  },
+  "timelinessFactor": 1.15,
+  "exclusiveAsset": true,
+  "source": "教学经验",
+  "note": "取舍型",
+  "linkedSlug": "eju-chemistry-60points-checklist",
+  "dataSource": "20261024 化学分析报告：2002–2025 真题与 2026 新考纲对标（五大模块权重 / 三阶段演变 / Ksp 与 Ka 上升期）",
+  "level": "G2 待审",
+  "createdAt": "2026-10-25"
+}
