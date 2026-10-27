@@ -122,6 +122,7 @@ function header(prefix, active) {
     <nav class="nav">
       <a class="nav__link" href="${HOME}">首页</a>
       <a class="nav__link${active === "index" ? " is-active" : ""}" href="${prefix}index.html">博客</a>
+      <a class="nav__link${active === "teachers" ? " is-active" : ""}" href="${prefix}teachers/index.html">讲师</a>
       <a class="nav__btn nav__btn--ghost" href="${HOME}">登录</a>
       <a class="nav__btn nav__btn--solid" href="/#/pages/register/index">注册</a>
     </nav>
@@ -135,6 +136,7 @@ function footer(prefix) {
   <div class="site-footer__line">
     <a href="${HOME}">首页</a>
     <a href="${prefix}index.html">博客</a>
+    <a href="${prefix}teachers/index.html">讲师</a>
   </div>
 </footer>`;
 }
@@ -468,7 +470,7 @@ ${LIST_SCRIPT}
 ${HEAD_TAIL}`;
 }
 
-function renderSitemap(posts, siteUrl) {
+function renderSitemap(posts, siteUrl, teachers) {
   const urls = [
     `  <url><loc>${siteUrl}/blog/</loc><lastmod>${posts.length ? posts[0].updated : ""}</lastmod></url>`,
   ].concat(
@@ -477,6 +479,13 @@ function renderSitemap(posts, siteUrl) {
     )
   );
 
+  if (teachers && teachers.length) {
+    urls.push(`  <url><loc>${siteUrl}/blog/teachers/</loc></url>`);
+    teachers.forEach((t) => {
+      urls.push(`  <url><loc>${siteUrl}/blog/teachers/${t.id}.html</loc></url>`);
+    });
+  }
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.join("\n")}
@@ -484,4 +493,288 @@ ${urls.join("\n")}
 `;
 }
 
-module.exports = { CATEGORIES, cat, renderMarkdown, renderArticle, renderList, renderSitemap, esc };
+/* ---------- 讲师风采（与博客同级的公开静态页） ---------- */
+
+// 学科 → 色调（对应 EJU 各科在题库里的配色）
+const SUBJECT_STYLES = {
+  日语: { tag: "tag--orange" },
+  文综: { tag: "tag--green" },
+  文数: { tag: "tag--purple" },
+  理数: { tag: "tag--purple" },
+  物理: { tag: "tag--orange" },
+  化学: { tag: "tag--orange" },
+  生物: { tag: "tag--green" },
+};
+
+function subjectTag(s) {
+  const st = SUBJECT_STYLES[s] || { tag: "" };
+  return `<span class="${cls("tag", st.tag)}">${esc(s)}</span>`;
+}
+
+function teacherGlyph(t) {
+  return t.avatar
+    ? `<img class="t-card__avatar" src="${esc(t.avatar)}" alt="${esc(t.name)}" loading="lazy">`
+    : `<span class="t-card__glyph">${esc((t.name || "?").slice(0, 1))}</span>`;
+}
+
+function teacherCard(t) {
+  return `<a class="card t-card" href="${t.id}.html" data-region="${esc(t.region)}" data-subjects="${esc(
+    t.subjects.join(",")
+  )}" data-key="${esc([t.name, t.title, t.intro, t.region].join(" "))}">
+  <div class="cover cover--blue t-card__cover">${teacherGlyph(t)}</div>
+  <div class="card__body">
+    <div class="t-card__top">
+      <h3 class="card__title">${esc(t.name)}</h3>
+      <span class="t-region">${esc(t.region)}</span>
+    </div>
+    <p class="t-title">${esc(t.title)}</p>
+    <div class="t-tags">${t.subjects.map(subjectTag).join("")}</div>
+    <p class="card__desc">${esc(t.intro)}</p>
+    <div class="card__foot"><span></span><span class="card__more">查看介绍 ›</span></div>
+  </div>
+</a>`;
+}
+
+// 讲师一览页脚本：地区 / 学科 两组筛选（AND 关系）+ 关键词搜索
+const TEACHERS_SCRIPT = `<script>
+  (function () {
+    var regionTabs = document.querySelectorAll('#regionTabs .tab');
+    var subjectTabs = document.querySelectorAll('#subjectTabs .tab');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .t-card'));
+    var input = document.getElementById('q');
+    var empty = document.getElementById('empty');
+    var count = document.getElementById('count');
+    var region = 'all', subject = 'all';
+
+    function apply() {
+      var kw = (input.value || '').trim().toLowerCase();
+      var visible = 0;
+      cards.forEach(function (card) {
+        var subs = card.dataset.subjects.split(',');
+        var okR = region === 'all' || card.dataset.region === region;
+        var okS = subject === 'all' || subs.indexOf(subject) > -1;
+        var okK = !kw || card.dataset.key.toLowerCase().indexOf(kw) > -1;
+        var show = okR && okS && okK;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      empty.style.display = visible ? 'none' : 'block';
+      count.textContent = visible;
+    }
+
+    function bind(tabs, set) {
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.classList.remove('is-active'); });
+          tab.classList.add('is-active');
+          set(tab.dataset.cat);
+          apply();
+        });
+      });
+    }
+    bind(regionTabs, function (v) { region = v; });
+    bind(subjectTabs, function (v) { subject = v; });
+
+    input.addEventListener('input', apply);
+
+    // 支持 /blog/teachers/#东京 或 #数学1 直接进入筛选
+    var hash = decodeURIComponent(location.hash.replace('#', ''));
+    if (hash) {
+      var rt = Array.prototype.slice.call(regionTabs).filter(function (t) { return t.dataset.cat === hash; })[0];
+      var st = Array.prototype.slice.call(subjectTabs).filter(function (t) { return t.dataset.cat === hash; })[0];
+      if (rt) rt.click();
+      if (st) st.click();
+    }
+  })();
+</script>`;
+
+function renderTeachersIndex(teachers) {
+  const regions = [];
+  teachers.forEach((t) => {
+    if (t.region && regions.indexOf(t.region) === -1) regions.push(t.region);
+  });
+  const subjects = ["日语", "文综", "文数", "理数", "物理", "化学", "生物"].filter((s) =>
+    teachers.some((t) => t.subjects.indexOf(s) > -1)
+  );
+
+  const regionTabs = ['      <span class="tab is-active" data-cat="all">全部</span>']
+    .concat(regions.map((r) => `      <span class="tab" data-cat="${esc(r)}">${esc(r)}</span>`))
+    .join("\n");
+  const subjectTabs = ['      <span class="tab is-active" data-cat="all">全部</span>']
+    .concat(subjects.map((s) => `      <span class="tab" data-cat="${esc(s)}">${esc(s)}</span>`))
+    .join("\n");
+
+  const cards = teachers
+    .map((t) => indent(teacherCard(t), 6))
+    .join("\n\n");
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>讲师风采 · EJU Pro</title>
+<meta name="description" content="EJU Pro 讲师团队：按地区与科目了解每位讲师的简历、教学成绩、教学风格与课程 demo。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+${header("../", "teachers")}
+
+<section class="section">
+  <div class="container">
+
+    <div class="section__head">
+      <h2 class="section__title">讲师风采</h2>
+      <p class="section__subtitle">共 <b id="count">${teachers.length}</b> 位讲师 · 简历 / 教学成绩 / 教学风格 / 课程 demo 全公开</p>
+    </div>
+
+    <div class="search">
+      <span>🔍</span>
+      <input id="q" type="text" placeholder="搜索姓名或关键词，如「东大」「微积分」">
+    </div>
+
+    <div class="t-filter-label">按地区</div>
+    <div class="tabs" id="regionTabs">
+${regionTabs}
+    </div>
+
+    <div class="t-filter-label">按科目</div>
+    <div class="tabs" id="subjectTabs">
+${subjectTabs}
+    </div>
+
+    <div class="grid" id="grid">
+${cards}
+    </div>
+
+    <p id="empty" style="display:none;text-align:center;color:#86909c;padding:60px 0;">没有匹配的讲师</p>
+
+  </div>
+</section>
+
+${footer("../")}
+
+${TEACHERS_SCRIPT}
+
+${HEAD_TAIL}`;
+}
+
+// 讲师详情页：Hero + markdown 介绍（简历/成绩/风格写在详细介绍里）+ 课程 demo + 家长反馈
+function renderTeacherDetail(teacher, all) {
+  const t = teacher;
+  const bodyHtml = t.detail ? md.render(t.detail) : "";
+
+  const figureGrid = (items, clsName) =>
+    `<div class="t-figures">${items
+      .map(
+        (src, i) =>
+          `<a class="t-figure ${clsName}" href="${esc(src)}" target="_blank" rel="noopener"><img src="${esc(
+            src
+          )}" alt="图 ${i + 1}" loading="lazy"></a>`
+      )
+      .join("")}</div>`;
+
+  const handoutSection = t.handouts.length
+    ? `
+    <section class="t-block">
+      <h2 class="t-block__head">📚 课程 demo · 讲义截图</h2>
+${figureGrid(t.handouts, "t-figure--wide")}
+    </section>`
+    : "";
+
+  const feedbackSection = t.feedbacks.length
+    ? `
+    <section class="t-block">
+      <h2 class="t-block__head">💬 家长反馈</h2>
+${figureGrid(t.feedbacks, "t-figure--card")}
+    </section>`
+    : "";
+
+  const others = all.filter((p) => p.id !== t.id).slice(0, 3);
+  const othersSection = others.length
+    ? `
+  <section class="related">
+    <div class="container">
+      <div class="related__head">其他讲师</div>
+      <div class="grid">${indent(others.map((p) => teacherCard(p).replace(`href="${p.id}.html"`, `href="${p.id}.html"`)).join("\n"), 6)}
+      </div>
+    </div>
+  </section>`
+    : "";
+
+  const cta = `<div class="cta">
+  <div class="cta__title">⚡ 想跟 ${esc(t.name)} 老师学习？</div>
+  <div class="cta__desc">注册 EJU Pro，先在题库里免费练起来，学习问题课上解决得更高效。</div>
+  <a class="cta__btn" href="/#/pages/register/index">免费注册 →</a>
+</div>`;
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${esc(t.name)} · ${esc(t.title || "讲师介绍")} · EJU Pro</title>
+<meta name="description" content="${esc(t.intro)}">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+${header("../", "teachers")}
+
+<main class="article">
+  <div class="container">
+
+    <div class="crumb">
+      <a href="/#/pages/index/index">首页</a><span>/</span><a href="../teachers/index.html">讲师</a><span>/</span>${esc(
+        t.name
+      )}
+    </div>
+
+    <div class="t-hero">
+      <div class="t-hero__avatar">${
+        t.avatar
+          ? `<img src="${esc(t.avatar)}" alt="${esc(t.name)}">`
+          : `<span>${esc((t.name || "?").slice(0, 1))}</span>`
+      }</div>
+      <div class="t-hero__body">
+        <div class="t-hero__name-row">
+          <h1 class="t-hero__name">${esc(t.name)}</h1>
+          <span class="t-region">${esc(t.region)}</span>
+        </div>
+        <p class="t-hero__title">${esc(t.title)}</p>
+        <div class="t-tags">${t.subjects.map(subjectTag).join("")}</div>
+        <p class="t-hero__intro">${esc(t.intro)}</p>
+      </div>
+    </div>
+
+    ${
+      bodyHtml
+        ? `<article class="prose t-prose">
+${bodyHtml.trimEnd()}
+    </article>`
+        : ""
+    }
+${handoutSection}
+${feedbackSection}
+${cta}
+${othersSection}
+
+  </div>
+</main>
+
+${footer("../")}
+
+${HEAD_TAIL}`;
+}
+
+function renderTeacherSitemap(teachers, siteUrl) {
+  return teachers
+    .map(
+      (t) =>
+        `  <url><loc>${siteUrl}/blog/teachers/${t.id}.html</loc></url>`
+    )
+    .join("\n");
+}
+
+module.exports = { CATEGORIES, cat, renderMarkdown, renderArticle, renderList, renderSitemap, esc, renderTeachersIndex, renderTeacherDetail, renderTeacherSitemap };

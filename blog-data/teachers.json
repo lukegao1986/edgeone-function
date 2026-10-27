@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-10-27T06:02:55.313Z",
+  "teachers": [
+    {
+      "id": "gao",
+      "name": "高 老师",
+      "avatar": "/blog/assets/teachers/gao/avatar/1.jpg",
+      "region": "上海",
+      "subjects": [
+        "理数",
+        "文数",
+        "物理",
+        "化学"
+      ],
+      "title": "EJU 理科讲师 · 东京工业大学情报物理系统修士",
+      "intro": "创办EJU Pro，前500强日企数据产品经理，善用数据攫取高分秘籍。",
+      "detail": "## 简历\n东京工业大学物理情报系统硕士、南京大学物理学士。长年从事日本留学方向理科教学，主讲 EJU 数学（ⅠA / ⅡBC）与理综物理、化学，熟悉 EJU 考纲与命题规律，可针对不同基础学生定制提分路径。中日班教学负责人，统筹日本留学方向理科课程体系搭建与教学管理。\n\n## 教学成绩\n- 上海地区多位中日班学生，在各自校内排名稳居前三甲\n- 所带暑假班学生，包揽某上海顶尖日高理科班前5席中3席\n- 完成 20 年 EJU 理科考点研究，梳理高频考点与命题趋势，输出云端统计报告，引导学生针对性备考冲刺。\n- 完成 10 年、70 万条校内考报录数据清洗与分析，提炼学员最匹配的合格画像，为择校与备考策略提供数据支撑。\n\n## 教学风格\n图例生动，推演清晰，善用夸张对比等修辞手法打造活跃课堂。数理功底扎实，主张「先懂规律、再练速度」，帮助学生建立底层理解而非死记套路。数据驱动的学情诊断：用数据分析工具对成绩与考试趋势做系统研究，形成课前—课中—课后完整教学闭环。熟悉中日课程体系衔接，课堂节奏把控到位。",
+      "handouts": [
+        "/blog/assets/teachers/gao/handout/1.png",
+        "/blog/assets/teachers/gao/handout/2.png",
+        "/blog/assets/teachers/gao/handout/3.png",
+        "/blog/assets/teachers/gao/handout/4.png"
+      ],
+      "feedbacks": [
+        "/blog/assets/teachers/gao/feedback/1.jpg",
+        "/blog/assets/teachers/gao/feedback/2.jpg",
+        "/blog/assets/teachers/gao/feedback/3.jpg"
+      ],
+      "order": 1
+    },
+    {
+      "id": "deng",
+      "name": "邓 老师",
+      "avatar": "/blog/assets/teachers/deng/avatar/1.jpg",
+      "region": "上海",
+      "subjects": [
+        "文数",
+        "化学"
+      ],
+      "title": "EJU文数/化学 讲师、 500强化工日企高级研究主任",
+      "intro": "正负极国际论坛专家委员会成员 隔膜专场轮值主席",
+      "detail": "## 简历\n华东理工大学化学系毕业，该校化学专业全国排名第一。曾获全国中学生化学竞赛二等奖，化学功底扎实、竞赛出身。历任沪上多家主流日本升学塾金牌讲师，深耕 EJU 化学教学多年，熟悉考纲与命题规律，能针对不同基础学生定制提分路径。\n\n## 教学成绩\n- 3 个月周末班单科提分均分 15+，提分稳定且见效快。\n- 长期带班，学员覆盖 EJU 化学不同分数段，从及格线到冲击高分均有成熟方法。\n- 主攻「抓得分点」式教学，帮助学生把有限时间花在最高性价比的考点上。\n\n## 教学风格\n沉稳深刻、节奏明快。善于抽丝剥茧，把抽象晦涩的微观化学世界，具象成一个个触得到的玩具模型，让学生看得见、摸得着、记得牢。注重底层原理的透彻理解，而非死记硬背，课堂既能讲透难点，又能稳住节奏，帮助学生稳步提分。",
+      "handouts": [
+        "/blog/assets/teachers/deng/handout/1.png",
+        "/blog/assets/teachers/deng/handout/2.png"
+      ],
+      "feedbacks": [],
+      "order": 2
+    },
+    {
+      "id": "cui",
+      "name": "崔 老师",
+      "avatar": "/blog/assets/teachers/cui/avatar/1.jpg",
+      "region": "上海",
+      "subjects": [
+        "物理",
+        "化学"
+      ],
+      "title": "EJU理综全科讲师、同济大学化学系",
+      "intro": "深厚理化根基，500强化工日企一线研究员出身，善于把书本知识与身边的化工产品结合，建立生动的知识体系。",
+      "detail": "",
+      "handouts": [],
+      "feedbacks": [],
+      "order": 3
+    },
+    {
+      "id": "xu",
+      "name": "许 老师",
+      "avatar": "/blog/assets/teachers/xu/avatar/1.jpg",
+      "region": "东京",
+      "subjects": [
+        "理数",
+        "物理",
+        "化学"
+      ],
+      "title": "EJU全科讲师、EJU考试全球第7名、阪大/东大 双硕士（数学/金融工程）",
+      "intro": "二次元学霸，EJU讲师教龄10年，北美SOA认证中级精算师（高级考取中），数字高度敏感，对EJU考试各年真题倒背如流",
+      "detail": "",
+      "handouts": [],
+      "feedbacks": [],
+      "order": 4
+    },
+    {
+      "id": "liu",
+      "name": "刘 老师",
+      "avatar": "/blog/assets/teachers/liu/avatar/1.jpg",
+      "region": "上海",
+      "subjects": [
+        "化学",
+        "生物"
+      ],
+      "title": "EJU理科双语讲师，日本人学校高中老师，",
+      "intro": "面向日本人的共通考试与面向中国人eju考试同时教授，教龄5年，汉方药书全书中日翻译。",
+      "detail": "## 简历\n就读于天津外国语大学日语专业，作为交换生于札幌大学留学交换一年。翻译汉药方图书，输出传统中医药文化；翻译生物试剂，向中国学生介绍日本试剂名称及原理；翻译RNA药品，帮助日本药企输出医学成果。上海日本人塾——教授高中数学、高中化学、高中生物课程。\n\n## 教学风格\n擅长活跃课堂氛围，发音比形象更靓丽，帮助学生衔接大学纯日语课堂。",
+      "handouts": [
+        "/blog/assets/teachers/liu/handout/1.png"
+      ],
+      "feedbacks": [],
+      "order": 5
+    },
+    {
+      "id": "qiu",
+      "name": "邱 老师",
+      "avatar": "/blog/assets/teachers/qiu/avatar/1.png",
+      "region": "上海",
+      "subjects": [
+        "日语",
+        "文数",
+        "文综"
+      ],
+      "title": "EJU文科讲师、关西大学商科修士、JASSO国费奖学金获得者",
+      "intro": "EJU教龄5年，高中就读上海甘泉外国语，上海日高老前辈",
+      "detail": "## 教学风格\n讲义精美，剖析深刻；操盘丰富实际贸易案例，有血有肉惯彻文综知识细节。",
+      "handouts": [
+        "/blog/assets/teachers/qiu/handout/1.png",
+        "/blog/assets/teachers/qiu/handout/2.png",
+        "/blog/assets/teachers/qiu/handout/3.png",
+        "/blog/assets/teachers/qiu/handout/4.png"
+      ],
+      "feedbacks": [],
+      "order": 6
+    },
+    {
+      "id": "li",
+      "name": "李 老师",
+      "avatar": "/blog/assets/teachers/li/avatar/1.png",
+      "region": "上海",
+      "subjects": [
+        "文数",
+        "文综"
+      ],
+      "title": "EJU文综讲师、横滨国立大学社会学博士",
+      "intro": "",
+      "detail": "",
+      "handouts": [],
+      "feedbacks": [],
+      "order": 7
+    },
+    {
+      "id": "piao",
+      "name": "朴 老师",
+      "avatar": "/blog/assets/teachers/piao/avatar/1.jpg",
+      "region": "广州",
+      "subjects": [
+        "日语"
+      ],
+      "title": "EJU日语讲师、关西学院大学学士、N1准满分",
+      "intro": "N1 178分（满分180）；历任岛津、富士通 等知名日企高级销售经理、总裁秘书；中日韩三语教学。线上课学生长居苏科外中日班年级第一",
+      "detail": "## 教学成绩\n- 线上课学生长居苏科外中日班年级第一",
+      "handouts": [],
+      "feedbacks": [],
+      "order": 8
+    }
+  ]
+}

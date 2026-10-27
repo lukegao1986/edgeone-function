@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>讲师资料填写模板</title>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+  p, li, td { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+  h1 { font-size: 20pt; color: #165dff; font-weight: 600; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; margin-bottom: 6pt; }
+  h2 { font-size: 15pt; color: #1d2129; font-weight: 600; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; margin-top: 18pt; margin-bottom: 8pt; }
+  h3 { font-size: 12.5pt; color: #165dff; font-weight: 600; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; margin-top: 14pt; margin-bottom: 6pt; }
+  p { font-size: 12pt; color: #1d2129; line-height: 1.7; margin: 4pt 0; }
+  .mark { font-size: 12pt; color: #c0392b; font-weight: 600; font-family: "Menlo", "Consolas", monospace; }
+  .hint { font-size: 10.5pt; color: #86909c; line-height: 1.6; margin: 2pt 0 8pt 0; }
+  .note { font-size: 10.5pt; color: #86909c; }
+  .divider { font-size: 12pt; color: #c9cdd4; }
+  table { border-collapse: collapse; width: 100%; margin: 8pt 0; }
+  td, th { border: 1px solid #e5e6eb; padding: 6pt 8pt; font-size: 11pt; color: #1d2129; vertical-align: top; }
+  th { background: #f5f6f7; font-weight: 600; color: #4e5969; }
+</style>
+</head>
+<body>
+
+<h1>讲师资料填写模板</h1>
+<p>把多位老师的资料写在同一个 Word 里，用下面的标记行区分。我会自动解析成飞书表格记录，没填到的字段会单独提醒你补充。</p>
+
+<h2>一、填写规则（重要）</h2>
+<table>
+  <tr><th>约定</th><th>说明</th></tr>
+  <tr><td>每位老师的分隔</td><td>用「【姓名】某某」开启新一位老师，之后接各字段</td></tr>
+  <tr><td>字段标记行</td><td>用「## 字段名」起一行，字段名固定（详见下方），下一行填内容</td></tr>
+  <tr><td>地区</td><td>只能填：东京 / 上海 / 大阪 / 北京 / 京都（单选）</td></tr>
+  <tr><td>学科</td><td>只能填：日语 / 文综 / 数学1 / 数学2 / 理科（可多选，用顿号分隔）</td></tr>
+  <tr><td>详细介绍</td><td>可用「## 简历」「## 教学成绩」「## 教学风格」分小节，支持 markdown 列表</td></tr>
+  <tr><td>照片 / 讲义截图 / 家长反馈</td><td>图片直接贴在 Word 里，对应字段标记行下方（见下方「图片怎么贴」）</td></tr>
+  <tr><td>排序</td><td>数字，可不填（不填就按出现顺序）</td></tr>
+</table>
+
+<h2>二、字段清单</h2>
+<p>共 10 个字段，前 7 个写文字，后 3 个（照片 / 讲义截图 / 家长反馈）直接贴图片：</p>
+<p class="mark">## 地区</p>
+<p class="mark">## 学科</p>
+<p class="mark">## 头衔</p>
+<p class="mark">## 简介</p>
+<p class="mark">## 详细介绍</p>
+<p class="mark">## 照片　← 图片贴在这一行下方</p>
+<p class="mark">## 讲义截图　← 图片贴在这一行下方（可多张）</p>
+<p class="mark">## 家长反馈　← 图片贴在这一行下方（可多张）</p>
+<p class="mark">## 排序</p>
+
+<h2>三、图片怎么贴（重要，决定图片归属）</h2>
+<p>我会按「图片所在的段落 → 往上找最近的【姓名】」来认领图片，所以只要把图片贴在对应老师的对应标记行下方就不会串。</p>
+<table>
+  <tr><th>字段</th><th>贴法</th></tr>
+  <tr><td>## 照片</td><td>贴 1 张头像，放在「## 照片」下面</td></tr>
+  <tr><td>## 讲义截图</td><td>贴 1~N 张，放在「## 讲义截图」下面</td></tr>
+  <tr><td>## 家长反馈</td><td>贴 1~N 张，放在「## 家长反馈」下面</td></tr>
+</table>
+<p class="hint">⚠️ 每张图单独占一个段落（图片和图片、图片和文字之间空一行）。头像只贴 1 张；讲义截图、家长反馈可以贴多张。不要多张图挤在同一行，否则容易漏认。</p>
+
+<h2>四、示例（照这个格式填）</h2>
+
+<h3>示例 · 佐藤 健太（完整版）</h3>
+<p class="mark">【姓名】佐藤 健太</p>
+<p class="mark">## 地区</p>
+<p>东京</p>
+<p class="mark">## 学科</p>
+<p>日语、文综</p>
+<p class="mark">## 头衔</p>
+<p>EJU 日语主讲 · 东京大学教育学研究科修士</p>
+<p class="mark">## 简介</p>
+<p>10 年 EJU 日语教学经验，专注读解与听解提分，年均带出 30+ 名 350 分以上学员。</p>
+<p class="mark">## 照片</p>
+<p class="hint">（在这里插入 1 张头像图片）</p>
+<p class="mark">## 讲义截图</p>
+<p class="hint">（在这里插入 1~N 张讲义截图，每张单独一行）</p>
+<p class="mark">## 家长反馈</p>
+<p class="hint">（在这里插入 1~N 张反馈截图，每张单独一行）</p>
+<p class="mark">## 详细介绍</p>
+<p class="mark">## 简历</p>
+<p>东京大学教育学研究科修士课程修了。2015 年起专职从事 EJU 日语教学，累计授课超过 6,000 小时。</p>
+<p class="mark">## 教学成绩</p>
+<p>- 2025 年度学员 EJU 日语平均 342 分</p>
+<p>- 近三年累计带出 87 名 350 分以上学员</p>
+<p class="mark">## 教学风格</p>
+<p>把读解拆解为可训练的固定步骤，听解采用「场景词库 + 信号词」双轨训练法。</p>
+<p class="mark">## 排序</p>
+<p>1</p>
+
+<h3>示例 · 空白骨架（直接复制，往里填）</h3>
+<p class="mark">【姓名】</p>
+<p class="mark">## 地区</p>
+<p>　</p>
+<p class="mark">## 学科</p>
+<p>　</p>
+<p class="mark">## 头衔</p>
+<p>　</p>
+<p class="mark">## 简介</p>
+<p>　</p>
+<p class="mark">## 照片</p>
+<p>　</p>
+<p class="mark">## 讲义截图</p>
+<p>　</p>
+<p class="mark">## 家长反馈</p>
+<p>　</p>
+<p class="mark">## 详细介绍</p>
+<p>## 简历</p>
+<p>　</p>
+<p>## 教学成绩</p>
+<p>　</p>
+<p>## 教学风格</p>
+<p>　</p>
+<p class="mark">## 排序</p>
+<p>　</p>
+
+<p class="divider">————————————————————</p>
+<p class="hint">提示：写完发我，我会先给你一份「结构化预览清单」（每位老师 × 各字段，缺项用 ⚠️ 标出），你确认后再写入飞书。</p>
+
+</body>
+</html>

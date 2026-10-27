@@ -1,0 +1,167 @@
+{
+  "manifest_version": "v1",
+  "format": "ndjson",
+  "base_token": "UGaUbTRH3aft2usaNHBcZEc8nlc",
+  "table_id": "tblItSn3RsQhqHwN",
+  "rev": 26,
+  "timezone": "Asia/Shanghai",
+  "query_context": {
+    "field_scope": "all_fields",
+    "record_scope": "all_records"
+  },
+  "requested_limit": 2000,
+  "records_count": 8,
+  "page_count": 1,
+  "has_more": false,
+  "record_file": "/Users/wanglimin/Desktop/edgeone-ex/tblItSn3RsQhqHwN_20261027_125455_945.ndjson",
+  "record_file_size_bytes": 7665,
+  "manifest_file": "/Users/wanglimin/Desktop/edgeone-ex/tblItSn3RsQhqHwN_20261027_125455_945.manifest.json",
+  "columns": {
+    "record_id": {
+      "physical_type": "string",
+      "stats": {
+        "max_length": 16
+      },
+      "example": "reczz28SHvbcyHUm"
+    },
+    "地区": {
+      "field_id": "fldTfg3WHb",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 1,
+        "avg_length": 1
+      },
+      "example": [
+        "上海"
+      ]
+    },
+    "头衔": {
+      "field_id": "fldmFowcid",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 37
+      },
+      "example": "EJU理综全科讲师、同济大学化学系"
+    },
+    "姓名": {
+      "field_id": "fldVtE0MuX",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 4
+      },
+      "example": "高 老师"
+    },
+    "学科": {
+      "field_id": "fldoySuSbx",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 4,
+        "avg_length": 2.375
+      },
+      "example": [
+        "日语"
+      ]
+    },
+    "家长反馈": {
+      "field_id": "fldpsCiVqk",
+      "field_type": "attachment",
+      "physical_type": "array<struct<file_token string, size number, name string>>",
+      "stats": {
+        "empty_count": 7,
+        "max_length": 3,
+        "avg_length": 0.375
+      },
+      "example": [
+        {
+          "file_token": "SkLEbYcdeodxOxxeBT2czzXZnWd",
+          "name": "para64_0.jpg",
+          "size": 649489
+        },
+        {
+          "file_token": "HBv9bTwCNoJCBVxjYnAcXYzHn7e",
+          "name": "para65_0.jpg",
+          "size": 593442
+        },
+        {
+          "file_token": "VwG8bXF6EolBLMxykwMcQhjSnmb",
+          "name": "para66_0.jpg",
+          "size": 401990
+        }
+      ]
+    },
+    "排序": {
+      "field_id": "fld1ZUkznf",
+      "field_type": "number",
+      "physical_type": "number|null",
+      "stats": {
+        "null_count": 4,
+        "min": 1,
+        "max": 3,
+        "avg": 2.25
+      },
+      "example": 1
+    },
+    "照片": {
+      "field_id": "fldZv5d8by",
+      "field_type": "attachment",
+      "physical_type": "array<struct<file_token string, size number, name string>>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 1,
+        "avg_length": 1
+      },
+      "example": [
+        {
+          "file_token": "C0mGb6sZlotAZ7xvQ45cbryNnzb",
+          "name": "para59_0.jpg",
+          "size": 40646
+        }
+      ]
+    },
+    "简介": {
+      "field_id": "fldBOEzJvK",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 1,
+        "max_length": 66
+      },
+      "example": "正负极国际论坛专家委员会成员 隔膜专场轮值主席"
+    },
+    "讲义截图": {
+      "field_id": "fldZfnF7hZ",
+      "field_type": "attachment",
+      "physical_type": "array<struct<file_token string, size number, name string>>",
+      "stats": {
+        "empty_count": 4,
+        "max_length": 4,
+        "avg_length": 1.375
+      },
+      "example": [
+        {
+          "file_token": "AWKbbexPeoLQnvxvSkKcEIeQnjf",
+          "name": "image.png",
+          "size": 2187714
+        }
+      ]
+    },
+    "详细介绍": {
+      "field_id": "fldCNVWywt",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 3,
+        "max_length": 456
+      },
+      "example": "## 教学成绩\n- 线上课学生长居苏科外中日班年级第一"
+    }
+  }
+}

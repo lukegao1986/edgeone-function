@@ -12,7 +12,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { pkgFile, packageDir, exists, listPackages } = require('./lib/paths');
+const { pkgFile, packageDir, exists, listPackages, readJSON } = require('./lib/paths');
 const W = require('./lib/redwords');
 const { C } = require('./lib/pre');
 
@@ -36,8 +36,14 @@ function build(topicId) {
   const titles = (xhs.match(/^\s*(?:\d+[.、)]|[-*])\s*(.+?)\s*$/gm) || []).map((s) => s.replace(/^\s*(?:\d+[.、)]|[-*])\s*/, ''));
   const maxTitle = titles.reduce((m, t) => Math.max(m, t.replace(/[\s*`>#-]/g, '').length), 0);
 
+  // 阶段感知：长文是在 S5 才入库的，S3/G2/G3/G4 阶段「未上线」属正常待办，不该算未通过
+  // （否则 checklist 永远退出码 1，pipeline 会把包卡死在 S3，G2 批示台永远空着）
+  const topic = readJSON(pkgFile(topicId, '00_topic.json')) || {};
+  const level = String(topic.level || '');
+  const mustBeLive = /^(S5|已发布)/.test(level);
+
   const items = [];
-  const push = (n, name, ok, note) => items.push({ n, name, ok, note });
+  const push = (n, name, ok, note, pending = false) => items.push({ n, name, ok, note, pending });
 
   // 1 无外链
   push(1, '无外链 / 二维码 / 微信号', !LINK_RE.test(xhs), LINK_RE.test(xhs) ? '检测到疑似导流字样，删掉' : '正文干净');
@@ -85,21 +91,28 @@ function build(topicId) {
   const blogOut = slug ? path.join(__dirname, '..', '..', 'blog', 'posts', slug + '.html') : '';
   const srcMd = slug ? path.join(__dirname, '..', '..', 'blog-src', slug + '.md') : '';
   const staged = !!slug && fs.existsSync(srcMd);
-  push(8, '长文已上线（引流有落点）', !!slug && fs.existsSync(blogOut),
-    slug ? (fs.existsSync(blogOut) ? `blog/posts/${slug}.html 已生成`
+  const live = !!slug && fs.existsSync(blogOut);
+  push(8, '长文已上线（引流有落点）', live,
+    !slug ? '未填 linkedSlug，引流会落空'
+      : live ? `blog/posts/${slug}.html 已生成`
       : staged ? `源已入库 blog-src/${slug}.md，待 build + push`
-      : `slug=${slug} 尚未入库，先跑 publish_blog`) : '未填 linkedSlug，引流会落空');
+      : `slug=${slug} 尚未入库，S5 阶段跑 publish_blog`,
+    !live && !mustBeLive);   // 未到 S5：标待办，不计未过
 
   return { topicId, items, covers, factRaw };
 }
 
 function render(r) {
-  const fail = r.items.filter((i) => !i.ok);
+  const fail = r.items.filter((i) => !i.ok && !i.pending);
+  const todo = r.items.filter((i) => !i.ok && i.pending);
   console.log(C.bold(`\nG4 检查清单 · ${r.topicId}`));
   for (const i of r.items) {
-    console.log(`  ${i.ok ? C.green('✓') : C.red('✗')} ${i.n}. ${i.name}  ${C.dim(i.note)}`);
+    const mark = i.ok ? C.green('✓') : (i.pending ? C.yellow('⏳') : C.red('✗'));
+    console.log(`  ${mark} ${i.n}. ${i.name}  ${C.dim(i.note)}`);
   }
-  console.log(fail.length ? C.red(`\n  ${fail.length} 项未过，发布前必须处理`) : C.green('\n  全部通过，可发布'));
+  console.log(fail.length ? C.red(`\n  ${fail.length} 项未过，发布前必须处理`)
+    : todo.length ? C.yellow(`\n  无阻断项；${todo.length} 项待办（到 S5 自动完成）`)
+    : C.green('\n  全部通过，可发布'));
 
   const md = [
     `# G4 发布前检查清单 · ${r.topicId}`,
@@ -108,9 +121,10 @@ function render(r) {
     '',
     '| # | 检查项 | 状态 | 说明 |',
     '| - | --- | --- | --- |',
-    ...r.items.map((i) => `| ${i.n} | ${i.name} | ${i.ok ? '✅' : '❌'} | ${i.note} |`),
+    ...r.items.map((i) => `| ${i.n} | ${i.name} | ${i.ok ? '✅' : (i.pending ? '⏳' : '❌')} | ${i.note} |`),
     '',
-    fail.length ? `> ⚠ ${fail.length} 项未通过，处理完再发。` : '> 全部通过。',
+    fail.length ? `> ⚠ ${fail.length} 项未通过，处理完再发。`
+      : todo.length ? `> 无阻断项。${todo.length} 项待办会在 S5 发布时自动完成。` : '> 全部通过。',
     '',
     '人工复核（脚本判不了）：',
     '- [ ] 封面缩略图下不错字、主色与品类一致',
@@ -130,7 +144,7 @@ function main() {
   const ids = argv.includes('--all') ? listPackages() : argv.filter((a) => !a.startsWith('--'));
   if (!ids.length) { console.log('没有内容包'); process.exit(2); }
   let bad = 0;
-  for (const id of ids) { const r = build(id); render(r); bad += r.items.filter((i) => !i.ok).length; }
+  for (const id of ids) { const r = build(id); render(r); bad += r.items.filter((i) => !i.ok && !i.pending).length; }
   process.exit(bad ? 1 : 0);
 }
 

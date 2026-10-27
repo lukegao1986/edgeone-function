@@ -45,6 +45,19 @@ export default function Sidebar({ activePage, activeSubject, onSubjectClick }: S
           <Text className={styles.label}>学习大厅</Text>
         </View>
 
+        <View
+          className={classnames(styles.navItem, activePage === 'teachers' && styles.activeItem)}
+          onClick={() => {
+            // 讲师风采是博客静态站里的公开页（无需登录），H5 端直接跳转
+            if (process.env.TARO_ENV === 'h5') {
+              window.location.href = '/blog/teachers/index.html';
+            }
+          }}
+        >
+          <Text className={styles.icon}>👩‍🏫</Text>
+          <Text className={styles.label}>讲师风采</Text>
+        </View>
+
         <View className={styles.divider}>
           <Text className={styles.dividerText}>科目导航</Text>
         </View>
