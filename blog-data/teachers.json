@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T06:02:55.313Z",
+  "generatedAt": "2026-10-30T03:21:44.675Z",
   "teachers": [
     {
       "id": "gao",
@@ -73,7 +73,7 @@
         "物理",
         "化学"
       ],
-      "title": "EJU全科讲师、EJU考试全球第7名、阪大/东大 双硕士（数学/金融工程）",
+      "title": "EJU全科讲师、EJU考试全球第7名、阪大/东大 双硕士（经济/金融工程）",
       "intro": "二次元学霸，EJU讲师教龄10年，北美SOA认证中级精算师（高级考取中），数字高度敏感，对EJU考试各年真题倒背如流",
       "detail": "",
       "handouts": [],
@@ -150,6 +150,37 @@
       "handouts": [],
       "feedbacks": [],
       "order": 8
+    },
+    {
+      "id": "xiao",
+      "name": "小灶 老师",
+      "avatar": "/blog/assets/teachers/xiao/avatar/1.png",
+      "region": "广州",
+      "subjects": [
+        "英语"
+      ],
+      "title": "英语主讲｜雅思全科｜托福语法基础",
+      "intro": "海外+国内双语硕士背景，英语专八、国际汉语教师资格证，跨国企业对外客户经理，坐标广州，可全程带学雅思、托福，夯实英语语法基础。",
+      "detail": "",
+      "handouts": [],
+      "feedbacks": [],
+      "order": 9
+    },
+    {
+      "id": "shi",
+      "name": "石石 老师",
+      "avatar": "/blog/assets/teachers/shi/avatar/1.png",
+      "region": "深圳",
+      "subjects": [
+        "理数",
+        "物理"
+      ],
+      "title": "数理主讲｜数学｜物理",
+      "intro": "理工科硕士，海外长期求学经历，顶尖500强半导体日企资深AI工程师；熟悉EJU考试体系，辅导学员备考EJU数理科目人均进入前5%。",
+      "detail": "",
+      "handouts": [],
+      "feedbacks": [],
+      "order": 10
     }
   ]
 }

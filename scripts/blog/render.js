@@ -504,6 +504,7 @@ const SUBJECT_STYLES = {
   物理: { tag: "tag--orange" },
   化学: { tag: "tag--orange" },
   生物: { tag: "tag--green" },
+  英语: { tag: "tag--teal" },
 };
 
 function subjectTag(s) {
@@ -593,9 +594,13 @@ function renderTeachersIndex(teachers) {
   teachers.forEach((t) => {
     if (t.region && regions.indexOf(t.region) === -1) regions.push(t.region);
   });
-  const subjects = ["日语", "文综", "文数", "理数", "物理", "化学", "生物"].filter((s) =>
-    teachers.some((t) => t.subjects.indexOf(s) > -1)
-  );
+  // 学科筛选选项：从老师数据动态提取（去重、保持首次出现顺序），不硬编码，避免新增学科漏显
+  const subjects = [];
+  teachers.forEach((t) => {
+    (t.subjects || []).forEach((s) => {
+      if (s && subjects.indexOf(s) === -1) subjects.push(s);
+    });
+  });
 
   const regionTabs = ['      <span class="tab is-active" data-cat="all">全部</span>']
     .concat(regions.map((r) => `      <span class="tab" data-cat="${esc(r)}">${esc(r)}</span>`))

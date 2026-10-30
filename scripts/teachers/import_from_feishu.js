@@ -52,6 +52,8 @@ const SURNAME_PINYIN = {
   佐藤: "sato",
   高桥: "takahashi",
   王: "wang",
+  小: "xiao",
+  石: "shi",
 };
 
 // 生成稳定 slug：优先取「姓」拼音，匹配不到就用全名拼音兜底 + 去空格

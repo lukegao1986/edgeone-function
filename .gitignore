@@ -6,6 +6,10 @@ kimi_reference/
 docs/
 .env
 
+# Taro H5 构建产物（edgeone.json 的 outputDirectory）。EdgeOne 每次部署前跑 `npm run build:h5` 重新生成，
+# 提交进库只会制造噪声 —— 2026-10-25 曾误提交 13 次，已清理，勿再入库
+dist/
+
 # One-off chapter generation/finalization scripts
 scripts/generate_chapter*_with_deepseek.js
 scripts/generate_json_ch*.js

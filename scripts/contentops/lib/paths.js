@@ -14,6 +14,7 @@ const P = {
   TEMPLATES: path.join(ROOT, 'content-ops', 'templates'),
   SOURCES: path.join(ROOT, 'content-ops', 'sources'),
   DATA: path.join(ROOT, 'content-ops', 'data'),
+  BENCHMARK: path.join(ROOT, 'content-ops', 'benchmark'),
   REGISTRY: path.join(ROOT, 'content-ops', 'templates', 'registry.json'),
   BLOG_SRC: path.join(ROOT, 'blog-src'),
   BLOG_BUILD: path.join(ROOT, 'scripts', 'blog', 'build_static.js'),
