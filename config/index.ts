@@ -30,6 +30,16 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
           from: "blog",
           to: path.join(process.env.TARO_OUTPUT_DIR || "dist", "blog"),
         },
+        {
+          // SEO：robots.txt 拷入产物根目录，供百度/谷歌爬虫读取
+          from: "robots.txt",
+          to: process.env.TARO_OUTPUT_DIR || "dist",
+        },
+        {
+          // SEO：主站 sitemap 拷入产物根目录
+          from: "sitemap.xml",
+          to: process.env.TARO_OUTPUT_DIR || "dist",
+        },
       ],
       options: {},
     },

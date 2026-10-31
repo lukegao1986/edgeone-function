@@ -533,6 +533,10 @@ export default function LandingPage() {
 
         <View className={styles.footer}>
           <Text>© 2026 EJU Pro. All rights reserved.</Text>
+          <View className={styles.icpLine}>
+            <Text className={styles.icpLink} onClick={() => Taro.setClipboardData({ data: 'https://beian.miit.gov.cn/' })}>工业和信息化部网站备案</Text>
+            <Text className={styles.icpLink} onClick={() => Taro.setClipboardData({ data: '沪ICP备2026028887号' })}>沪ICP备2026028887号</Text>
+          </View>
         </View>
 
       </ScrollView>

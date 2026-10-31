@@ -25,3 +25,4 @@ scripts/check_chapter*_upload.js
 # 内容运营工作区（纯本地数据，不参与网站渲染链路，可由 scripts/contentops/ + templates 重建）
 # 注意：blog/ 与 blog-src/ 绝不可忽略 —— config/index.ts 的 copy.patterns 依赖 blog/ 产出线上博客
 content-ops/
+output

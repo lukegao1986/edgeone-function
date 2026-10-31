@@ -1020,3 +1020,17 @@ $header-height: 64PX;
   text-align: center;
   font-size: 24px;
 }
+
+.icpLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8PX;
+  margin-top: 12PX;
+  flex-wrap: wrap;
+}
+
+.icpLink {
+  font-size: 22px;
+  color: #86909c;
+}
